@@ -13,7 +13,7 @@ type singleSliderProps = {
 const SingleSlider = ({ slide }: singleSliderProps) => {
   return (
     <RootContainer>
-      <div className="min-h-[calc(100vh-100px)] flex items-center justify-between flex-col lg:flex-row gap-8 lg:gap-4 my-8 lg:my-0">
+      <div className="min-h-[calc(100vh-100px)] flex items-center justify-between flex-col lg:flex-row gap-8 my-8 lg:my-4">
         <div className="w-full lg:w-1/2">
           <h1 className="font-bold text-2xl">{slide.title}</h1>
           <p className="mt-4 text-slate-500 mb-8">
@@ -32,12 +32,10 @@ const SingleSlider = ({ slide }: singleSliderProps) => {
             width={300}
             height={300}
             style={{
-              width: "100%",
-              height: "auto",
               objectFit: "cover",
               objectPosition: "center",
             }}
-            className="rounded-xl"
+            className="rounded-xl w-full h-auto lg:h-[500px]"
           />
         </div>
       </div>

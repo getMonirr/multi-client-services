@@ -8,19 +8,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
-import { Navigation, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import SingleSlider from "./SingleSlider";
 import { sliderContent } from "@/constant/Constant";
 
 const Banner = () => {
   return (
     <>
-      <Swiper
-        autoplay
-        navigation={true}
-        modules={[Navigation, Autoplay]}
-        className="mySwipe"
-      >
+      <Swiper autoplay modules={[Autoplay]}>
         {sliderContent.map((slide) => (
           <SwiperSlide key={slide.title}>
             <SingleSlider slide={slide} />

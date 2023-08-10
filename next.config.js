@@ -12,6 +12,6 @@ const nextConfig = {
 
 module.exports = {
   images: {
-    domains: ["swiperjs.com"],
+    domains: ["swiperjs.com", "fiverr-res.cloudinary.com"],
   },
 };
