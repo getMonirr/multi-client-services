@@ -2,7 +2,7 @@ import React from "react";
 
 type SimpleBtnProps = {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 };
 
 const SimpleBtn = ({ className, children }: SimpleBtnProps) => {

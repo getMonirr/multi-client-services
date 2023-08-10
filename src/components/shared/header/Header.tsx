@@ -41,7 +41,7 @@ const Header = () => {
 
           {/* mobile nav  */}
           {isShow && (
-            <nav className=" w-full bg-gray-400 absolute left-0 top-12 items-center gap-8 flex-col justify-center text-center">
+            <nav className=" w-full bg-gray-400 absolute left-0 top-12 items-center gap-8 flex-col justify-center text-center z-50">
               {Links}
             </nav>
           )}
