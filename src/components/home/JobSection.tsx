@@ -1,4 +1,6 @@
 import {Jobs} from "@/constant/Constant";
+import Link from "next/link";
+import { FaEye } from 'react-icons/fa';
 
 const JobSection = () => {
   return (
@@ -9,14 +11,14 @@ const JobSection = () => {
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-10/12 mx-auto'>
 
       {
-        Jobs.map(job => (
-              <div className='bg-white rounded overflow-hidden group shadow-md'>
+        Jobs.map((job, i) => (
+              <div key={i} className='bg-white rounded overflow-hidden group shadow-md'>
                   <div className="relative">
                       <img src={job.cover_photo} className='w-full h-52' alt="" />
                       
                       <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                          <a href="" className='text-white text-lg w-9 h-9 rounded-full bg-multi-secondary flex items-center justify-center hover:bg-gray-800 transition'>
-                              v
+                          <a className='text-white text-lg w-9 h-9 rounded-full bg-multi-secondary flex items-center justify-center hover:bg-gray-800 transition'>
+                               <FaEye></FaEye>
                           </a>
                       </div>
                   </div>
