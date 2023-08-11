@@ -11,8 +11,8 @@ const JobSection = () => {
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-10/12 mx-auto'>
 
       {
-        Jobs.map(job => (
-              <div className='bg-white rounded overflow-hidden group shadow-md'>
+        Jobs.map((job, i) => (
+              <div key={i} className='bg-white rounded overflow-hidden group shadow-md'>
                   <div className="relative">
                       <img src={job.cover_photo} className='w-full h-52' alt="" />
                       
