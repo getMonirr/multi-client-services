@@ -8,9 +8,7 @@ import Link from 'next/link';
 
 const Registration = () => {
 
-    const userName =(e: React.FormEvent<HTMLFormElement>) => {
-        console.log(e);
-    }
+    
     
 
     return (
@@ -22,7 +20,7 @@ const Registration = () => {
                     <h1 className='text-3xl font-bold my-6'>Get Started</h1>
                     <form>
                         <div className="relative z-0 w-[420px] mb-6 group">
-                            <input onChange={()=>userName()} type="text" name="name" className="block py-2.5 px-0 w-full text-sm text-orange-900 bg-transparent border-0 border-b-2 border-orange-300 appearance-none dark:text-white dark:border-orange-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " required />
+                            <input  type="text" name="name" className="block py-2.5 px-0 w-full text-sm text-orange-900 bg-transparent border-0 border-b-2 border-orange-300 appearance-none dark:text-white dark:border-orange-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " required />
                             <label htmlFor="floating_email" className="peer-focus:font-medium absolute text-sm text-orange-500 dark:text-orange-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-600 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Full Name</label>
                         </div>
                         <div className="relative z-0 w-[420px] mb-6 group">
