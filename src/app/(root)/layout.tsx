@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description: "This is a multi-client services website",
 };
 
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
