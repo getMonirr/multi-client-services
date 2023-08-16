@@ -12,6 +12,10 @@ const Header = () => {
   // for navbar toggle
   const [isShow, setIsShow] = useState(false);
 
+  // user
+  // const {user} = useAuth()
+
+
   // path name
   const pathname = usePathname();
 
@@ -48,7 +52,16 @@ const Header = () => {
 
           <div className="flex items-center">
             <SimpleBtn className="lg:block hidden">
-              <Link href="/login">Login</Link>
+               
+              
+             
+            
+              
+                <Link href="/login">Login</Link>
+            
+              
+                 
+              
             </SimpleBtn>
             <button onClick={() => setIsShow((prev) => !prev)}>
               {isShow ? (
