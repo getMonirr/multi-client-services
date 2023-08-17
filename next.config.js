@@ -7,7 +7,7 @@ const nextConfig = {
       port: "",
       pathname: "/demos/images/**",
     },
-  ],
+  ]
 };
 
 module.exports = {

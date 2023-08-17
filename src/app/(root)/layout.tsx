@@ -3,6 +3,7 @@ import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Footer from "@/components/shared/Footer";
+import AuthProvider from "@/Context/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,12 +13,19 @@ export const metadata: Metadata = {
 };
 
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+type Props ={
+  children: string | JSX.Element | JSX.Element[];
+}
+
+
+const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
         <Footer />
       </body>
     </html>
