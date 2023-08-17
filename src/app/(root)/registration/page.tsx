@@ -1,6 +1,6 @@
 "use client"
-import React, { useContext, useState } from 'react';
-import img from '../../../assets/login.png'
+import React, {  useState } from 'react';
+import img from '../../../assets/signup.jpg'
 import Image from 'next/image';
 import Link from 'next/link';
 import { useForm, SubmitHandler } from "react-hook-form"
@@ -85,7 +85,7 @@ const Registration = () => {
     return (
         <div>
             <div className='my-40 container mx-auto flex justify-around'>
-                <Image src={img} alt='' />
+                <Image className='w-[800px] h-[800px]' src={img} alt='' />
 
                 <div className='border p-10'>
                     <h1 className='text-3xl font-bold my-6'>Get Started</h1>
