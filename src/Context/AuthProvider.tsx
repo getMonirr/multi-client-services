@@ -2,7 +2,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { GithubAuthProvider, GoogleAuthProvider, NextOrObserver, User, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updatePhoneNumber, updateProfile } from "firebase/auth";
 import app from '../../firebase/firebase.config';
-import { unsubscribe } from 'diagnostics_channel';
+
 
 type Props = {
     children: string | JSX.Element | JSX.Element[];
@@ -58,7 +58,7 @@ const AuthProvider = ({ children }: Props) => {
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user: any) => {
             if (user) {
                 setUser(user)
                 setLoading(false)

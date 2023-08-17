@@ -7,13 +7,14 @@ import { usePathname } from "next/navigation";
 import SimpleBtn from "../btn/SimpleBtn";
 import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
+import useAuth from "@/hooks/useAuth";
 
 const Header = () => {
   // for navbar toggle
   const [isShow, setIsShow] = useState(false);
 
   // user
-  // const {user} = useAuth()
+  // const {user}: any = useAuth()
 
 
   // path name
@@ -52,16 +53,7 @@ const Header = () => {
 
           <div className="flex items-center">
             <SimpleBtn className="lg:block hidden">
-               
-              
-             
-            
-              
                 <Link href="/login">Login</Link>
-            
-              
-                 
-              
             </SimpleBtn>
             <button onClick={() => setIsShow((prev) => !prev)}>
               {isShow ? (
