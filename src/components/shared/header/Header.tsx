@@ -47,7 +47,9 @@ const Header = () => {
           )}
 
           <div className="flex items-center">
-            <SimpleBtn className="lg:block hidden">Login</SimpleBtn>
+            <SimpleBtn className="lg:block hidden">
+              <Link href="/login">Login</Link>
+            </SimpleBtn>
             <button onClick={() => setIsShow((prev) => !prev)}>
               {isShow ? (
                 <MdClose className="h-8 w-8 cursor-pointer block lg:hidden" />
