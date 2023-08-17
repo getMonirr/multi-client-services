@@ -13,6 +13,10 @@ export const navLinks = [
     name: "Find Work",
   },
   {
+    path: "/dashboard",
+    name: "Dashboard",
+  },
+  {
     path: "/find-talent",
     name: "Find talent",
   },
