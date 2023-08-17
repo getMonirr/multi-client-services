@@ -36,7 +36,7 @@ const JobSection = () => {
                         <p className="text-gray-500"> Ratings: { job.reviews.length } </p>
                       </div>
                   </div>
-                  <button className='btn block w-full py-1 text-center text-white bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600'>Collaborate</button>
+                  <button className='btn block w-full py-1 text-center text-white bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600'>Collaborate</button>
               </div>
 
         ))
