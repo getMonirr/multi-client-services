@@ -16,7 +16,6 @@ const Header = () => {
   // user
   // const {user}: any = useAuth()
 
-
   // path name
   const pathname = usePathname();
 
@@ -52,8 +51,11 @@ const Header = () => {
           )}
 
           <div className="flex items-center">
+            <SimpleBtn className="lg:block hidden mr-4 bg-transparent">
+              <Link href="/registration">Sing up</Link>
+            </SimpleBtn>
             <SimpleBtn className="lg:block hidden">
-                <Link href="/login">Login</Link>
+              <Link href="/login">Sign in</Link>
             </SimpleBtn>
             <button onClick={() => setIsShow((prev) => !prev)}>
               {isShow ? (
