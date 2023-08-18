@@ -40,7 +40,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > 100) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -55,8 +55,8 @@ const Header = () => {
 
   return (
     <div
-      className={`bg-multi-primary text-white sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out py-2 ${
-        isScrolled ? "py-0 shadow-2xl border-b-2" : ""
+      className={`bg-multi-primary text-white sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out ${
+        isScrolled ? "py-0 shadow-2xl border-b-2" : "py-2"
       }`}
     >
       <RootContainer>
@@ -125,9 +125,12 @@ const Header = () => {
                 </SimpleBtn>
               </ul>
             </div>
-            <a className="btn btn-ghost normal-case text-xl hidden lg:block">
+            <Link
+              className="bg-none font-bold text-xl hidden lg:block uppercase"
+              href="/"
+            >
               Solutions
-            </a>
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{Links}</ul>
@@ -139,7 +142,7 @@ const Header = () => {
             <SimpleBtn className="hidden lg:block">
               <Link href="/login">Sign in</Link>
             </SimpleBtn>
-            <a className="btn btn-ghost normal-case text-xl block lg:hidden">
+            <a className="btn btn-ghost normal-case bg-transparent text-xl block lg:hidden">
               Solutions
             </a>
           </div>
