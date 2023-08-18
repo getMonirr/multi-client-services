@@ -42,8 +42,8 @@ const PopularServices = () => {
             },
           }}
         >
-          {popularServicesSliderContent.map((slide) => (
-            <SwiperSlide key={slide.title}>
+          {popularServicesSliderContent.map((slide, index) => (
+            <SwiperSlide key={index}>
               <SinglePopularService slide={slide} />
             </SwiperSlide>
           ))}
