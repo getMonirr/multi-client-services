@@ -1,3 +1,4 @@
+import { handleError } from "@/middleware/errorMiddleware";
 import User from "@/models/usersModel";
 import connectMongoDB from "@/utils/connectMongoDB";
 import { NextRequest, NextResponse } from "next/server";
@@ -6,11 +7,12 @@ import { NextRequest, NextResponse } from "next/server";
 export const GET = async () => {
   try {
     await connectMongoDB();
+    const dd = "middleware";
 
     const result = await User.find({});
     return NextResponse.json(result);
-  } catch (error) {
-    return NextResponse.json({ error });
+  } catch (error: any) {
+    return handleError(error);
   }
 };
 
@@ -27,7 +29,7 @@ export const POST = async (req: NextRequest) => {
     const result = await newUser.save();
 
     return NextResponse.json(result);
-  } catch (error) {
-    return NextResponse.json({ error });
+  } catch (error: any) {
+    return handleError(error);
   }
 };
