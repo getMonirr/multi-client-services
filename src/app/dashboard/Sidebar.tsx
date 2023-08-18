@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Sidebar = () => {
@@ -7,19 +8,14 @@ const Sidebar = () => {
       <nav>
         <ul className="space-y-2">
           <li>
-            <a href="#" className=" text-white hover:text-gray-400 block">
-              Dashboard
-            </a>
+            <Link href="/" className=" text-white hover:text-gray-400 block">
+              Home
+            </Link>
           </li>
           <li>
-            <a href="#" className=" text-white hover:text-gray-400 block">
-              Analytics
-            </a>
-          </li>
-          <li>
-            <a href="#" className=" text-white hover:text-gray-400 block">
-              Users
-            </a>
+            <Link href="dashboard" className=" text-white hover:text-gray-400 block">
+              All Jobs List
+            </Link>
           </li>
           {/* Add more sidebar items */}
         </ul>
