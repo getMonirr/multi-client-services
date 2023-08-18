@@ -12,8 +12,7 @@ const Dashboard = () => {
           htmlFor="my-drawer-2"
           className="btn btn-secondary drawer-button lg:hidden"
         >
-          {" "}
-          <MdOutlineClose></MdOutlineClose>{" "}
+          <MdOutlineClose></MdOutlineClose>
         </label>
 
         <div className="flex-1 flex flex-col overflow-hidden">
