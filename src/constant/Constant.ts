@@ -16,6 +16,10 @@ export const navLinks = [
     path: "/find-talent",
     name: "Find talent",
   },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+  },
 ];
 
 // slider content
