@@ -34,6 +34,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-gray-900 text-base-content mr-0 md:mr-4 lg:mr-5">
+          
           {/* Sidebar content here */}
           <Sidebar></Sidebar>
         </ul>

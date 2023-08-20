@@ -29,10 +29,7 @@ const AllJobs = async () => {
                       <div className='flex items-baseline mb-1 space-x-2'>
                           <p className='text-lg text-gray-500 font-semibold'>{job.type}</p>
                       </div>
-                      {/* <div className="flex justify-between items-center">
-                        <p className="text-gray-800 font-bold"> Price: ${ job.price } </p>
-                        <p className="text-gray-500"> Ratings: { job.reviews.length } </p>
-                      </div> */}
+                  
                   </div>
                   <button className='btn block w-full py-1 text-center text-white bg-multi-primary hover:bg-multi-secondary border-multi-primary rounded-none rounded-b transitio hover:border-red-600'>Collaborate</button>
               </div>
