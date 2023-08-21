@@ -1,9 +1,9 @@
-import { handleError } from "@/middleware/errorMiddleware";
 import {
   deleteUserById,
   getUserById,
   updateUserById,
-} from "@/utils/database/userDatabase";
+} from "@/controllers/users.controller";
+import { handleError } from "@/middleware/errorMiddleware";
 import { NextRequest, NextResponse } from "next/server";
 
 type ParamsType = {
