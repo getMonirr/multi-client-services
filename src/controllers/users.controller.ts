@@ -1,10 +1,25 @@
-import User from "@/models/usersModel";
+import User from "@/models/users.model";
 import connectMongoDB from "@/utils/connectMongoDB";
+
+// get all users
+export const getAllUser = async () => {
+  await connectMongoDB();
+  return User.find({});
+};
 
 // get user by Id
 export const getUserById = async (userId: string) => {
   await connectMongoDB();
   return User.findById(userId);
+};
+
+// post or
+export const postUser = async (userData: Object) => {
+  await connectMongoDB();
+  const newUser = new User({
+    ...userData,
+  });
+  return newUser.save();
 };
 
 // update user by Id
