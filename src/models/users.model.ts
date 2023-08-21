@@ -14,6 +14,9 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
+
+  // more field add later
+  // to add more field first delete old users model
 });
 
 const User = models.Users || model("Users", userSchema);

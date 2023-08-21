@@ -1,16 +1,12 @@
+import { getAllUser, postUser } from "@/controllers/users.controller";
 import { handleError } from "@/middleware/errorMiddleware";
-import User from "@/models/usersModel";
-import connectMongoDB from "@/utils/connectMongoDB";
 import { NextRequest, NextResponse } from "next/server";
 
 // get all user from database
 export const GET = async () => {
   try {
-    await connectMongoDB();
-    const dd = "middleware";
-
-    const result = await User.find({});
-    return NextResponse.json(result);
+    const users = await getAllUser();
+    return NextResponse.json(users);
   } catch (error: any) {
     return handleError(error);
   }
@@ -19,15 +15,8 @@ export const GET = async () => {
 // post or save a user in database
 export const POST = async (req: NextRequest) => {
   try {
-    await connectMongoDB();
-
     const reqBody = await req.json();
-
-    const newUser = new User({
-      ...reqBody,
-    });
-    const result = await newUser.save();
-
+    const result = await postUser(reqBody);
     return NextResponse.json(result);
   } catch (error: any) {
     return handleError(error);
