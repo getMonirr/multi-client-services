@@ -12,20 +12,16 @@ export const metadata: Metadata = {
   description: "This is a multi-client services website",
 };
 
-
-type Props ={
+type Props = {
   children: string | JSX.Element | JSX.Element[];
-}
-
+};
 
 const RootLayout = ({ children }: Props) => {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light">
       <body className={inter.className}>
         <Header />
-        <AuthProvider>
-          {children}
-        </AuthProvider>
+        <AuthProvider>{children}</AuthProvider>
         <Footer />
       </body>
     </html>
