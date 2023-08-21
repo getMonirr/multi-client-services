@@ -1,0 +1,234 @@
+[
+  {
+    "_id": 1,
+    "type": "seller",
+    "username": "designMaster",
+    "name": "Jessica Green",
+    "rating": 4.8,
+    "description": "Illustrator and designer with a passion for creating unique visuals.",
+    "services": ["Illustrations", "Character Design", "Poster Design"],
+    "languages": ["English", "French"],
+    "location": "Paris, France"
+  },
+  {
+    "_id": 2,
+    "type": "seller",
+    "username": "writingWhiz",
+    "name": "David Johnson",
+    "rating": 4.7,
+    "description": "Experienced writer specializing in blog posts and content creation.",
+    "services": ["Article Writing", "Blog Post Writing", "Copywriting"],
+    "languages": ["English"],
+    "location": "Los Angeles, USA"
+  },
+  {
+    "_id": 3,
+    "type": "seller",
+    "username": "codingPro",
+    "name": "Kevin Smith",
+    "rating": 4.9,
+    "description": "Full-stack web developer with expertise in creating modern and responsive websites.",
+    "services": ["Website Development", "Web App Design", "Bug Fixing"],
+    "languages": ["English"],
+    "location": "Toronto, Canada"
+  },
+  {
+    "_id": 4,
+    "type": "seller",
+    "username": "videoWizard",
+    "name": "Sophie Anderson",
+    "rating": 4.6,
+    "description": "Video editor with a flair for storytelling and visual effects.",
+    "services": ["Video Editing", "Motion Graphics", "Color Correction"],
+    "languages": ["English", "Spanish"],
+    "location": "Barcelona, Spain"
+  },
+  {
+    "_id": 5,
+    "type": "seller",
+    "username": "voiceMaestro",
+    "name": "Michael Lee",
+    "rating": 4.9,
+    "description": "Professional voice artist providing a range of voiceover services.",
+    "services": ["Voiceover for Commercials", "Narration", "Character Voices"],
+    "languages": ["English", "Mandarin"],
+    "location": "Beijing, China"
+  },
+  {
+    "_id": 6,
+    "type": "seller",
+    "username": "socialMediaGenius",
+    "name": "Emily Wilson",
+    "rating": 4.8,
+    "description": "Social media manager helping businesses boost their online presence.",
+    "services": ["Social Media Strategy", "Content Creation", "Ad Campaigns"],
+    "languages": ["English", "German"],
+    "location": "Berlin, Germany"
+  },
+  {
+    "_id": 7,
+    "type": "seller",
+    "username": "translationPro",
+    "name": "Alexandre Dupont",
+    "rating": 4.9,
+    "description": "Certified translator offering translation services for various languages.",
+    "services": [
+      "Document Translation",
+      "Website Localization",
+      "Subtitle Translation"
+    ],
+    "languages": ["English", "French", "Spanish"],
+    "location": "Paris, France"
+  },
+  {
+    "_id": 8,
+    "type": "seller",
+    "username": "marketingMaven",
+    "name": "Isabella Martinez",
+    "rating": 4.7,
+    "description": "Marketing expert helping brands create impactful campaigns.",
+    "services": [
+      "Marketing Strategy",
+      "Brand Consulting",
+      "Digital Advertising"
+    ],
+    "languages": ["English", "Spanish"],
+    "location": "Miami, USA"
+  },
+  {
+    "_id": 9,
+    "type": "seller",
+    "username": "musicHarmony",
+    "name": "Daniel Kim",
+    "rating": 4.9,
+    "description": "Music composer and producer specializing in various genres.",
+    "services": [
+      "Original Music Composition",
+      "Audio Production",
+      "Jingle Creation"
+    ],
+    "languages": ["English", "Korean"],
+    "location": "Seoul, South Korea"
+  },
+  {
+    "_id": 10,
+    "type": "seller",
+    "username": "virtualAssistPro",
+    "name": "Maria Rodriguez",
+    "rating": 4.6,
+    "description": "Experienced virtual assistant providing administrative and organizational support.",
+    "services": ["Email Management", "Scheduling", "Data Entry"],
+    "languages": ["English", "Spanish"],
+    "location": "Mexico City, Mexico"
+  },
+  {
+    "_id": 11,
+    "type": "buyer",
+    "username": "techCorp",
+    "name": "Linda Miller",
+    "order_date": "2023-07-22",
+    "service_ordered": "Character Design",
+    "amount_paid": 80,
+    "review": "Jessica brought our character to life in an incredible way!",
+    "rating_given": 4.9
+  },
+  {
+    "_id": 12,
+    "type": "buyer",
+    "username": "travelAdventures",
+    "name": "Robert Lee",
+    "order_date": "2023-06-14",
+    "service_ordered": "Article Writing",
+    "amount_paid": 40,
+    "review": "David's writing captured the essence of our travel experiences perfectly.",
+    "rating_given": 4.8
+  },
+  {
+    "_id": 13,
+    "type": "buyer",
+    "username": "ecommerceGems",
+    "name": "Sarah Johnson",
+    "order_date": "2023-08-10",
+    "service_ordered": "Poster Design",
+    "amount_paid": 55,
+    "review": "The poster design exceeded our expectations. Amazing work!",
+    "rating_given": 5
+  },
+  {
+    "_id": 14,
+    "type": "buyer",
+    "username": "digitalBiz",
+    "name": "Alex Martin",
+    "order_date": "2023-08-08",
+    "service_ordered": "Copywriting",
+    "amount_paid": 35,
+    "review": "David knows how to craft words that convert. Great service.",
+    "rating_given": 4.7
+  },
+  {
+    "_id": 15,
+    "type": "buyer",
+    "username": "startupHaven",
+    "name": "Emily Turner",
+    "order_date": "2023-07-30",
+    "service_ordered": "Website Development",
+    "amount_paid": 300,
+    "review": "Kevin delivered a modern and responsive website. Very satisfied!",
+    "rating_given": 4.9
+  },
+  {
+    "_id": 16,
+    "type": "buyer",
+    "username": "filmEnthusiast",
+    "name": "James Carter",
+    "order_date": "2023-06-05",
+    "service_ordered": "Video Editing",
+    "amount_paid": 75,
+    "review": "Sophie's video editing skills turned our footage into a masterpiece.",
+    "rating_given": 4.6
+  },
+  {
+    "_id": 17,
+    "type": "buyer",
+    "username": "audiobookPublisher",
+    "name": "Natalia Garcia",
+    "order_date": "2023-08-18",
+    "service_ordered": "Voiceover for Commercials",
+    "amount_paid": 90,
+    "review": "Michael's voice added a professional touch to our commercials.",
+    "rating_given": 4.9
+  },
+  {
+    "_id": 18,
+    "type": "buyer",
+    "username": "organicFarms",
+    "name": "Oliver Brown",
+    "order_date": "2023-08-05",
+    "service_ordered": "Social Media Strategy",
+    "amount_paid": 120,
+    "review": "Emily's social media strategy significantly boosted our engagement.",
+    "rating_given": 4.8
+  },
+  {
+    "_id": 19,
+    "type": "buyer",
+    "username": "globalBusinessCo",
+    "name": "Sophia Chen",
+    "order_date": "2023-07-12",
+    "service_ordered": "Document Translation",
+    "amount_paid": 65,
+    "review": "Alexandre's translation was accurate and timely. Impressive work!",
+    "rating_given": 4.9
+  },
+  {
+    "_id": 20,
+    "type": "buyer",
+    "username": "startupBlitz",
+    "name": "Lucas Jackson",
+    "order_date": "2023-06-20",
+    "service_ordered": "Marketing Strategy",
+    "amount_paid": 150,
+    "review": "Isabella's marketing strategy gave our startup the boost it needed.",
+    "rating_given": 4.7
+  }
+]

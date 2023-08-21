@@ -1,4 +1,25 @@
+import Link from 'next/link';
+import { title } from 'process';
 import React from 'react';
+
+const navLinks = [
+  {
+    path: '/dashboard',
+    title: 'Dashboard'
+  },
+  {
+    path: '/dashboard/all-jobs',
+    title: 'All Jobs'
+  },
+  {
+    path: '/dashboard/users-list',
+    title: 'All Users'
+  },
+  {
+    path: '/',
+    title: 'Home'
+  },
+]
 
 const Sidebar = () => {
   return (
@@ -6,21 +27,10 @@ const Sidebar = () => {
       {/* Sidebar content */}
       <nav>
         <ul className="space-y-2">
-          <li>
-            <a href="#" className=" text-white hover:text-gray-400 block">
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a href="#" className=" text-white hover:text-gray-400 block">
-              Analytics
-            </a>
-          </li>
-          <li>
-            <a href="#" className=" text-white hover:text-gray-400 block">
-              Users
-            </a>
-          </li>
+
+          {
+            navLinks.map(({path, title})=> <Link href={path} key={title} className=" text-white hover:text-gray-400 block cursor-pointer">{title}</Link> )
+          }
           {/* Add more sidebar items */}
         </ul>
       </nav>
