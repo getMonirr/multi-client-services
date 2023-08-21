@@ -3,6 +3,7 @@ import Sidebar from "@/components/shared/Sidebar/Sidebar";
 import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { MdOutlineClose } from "react-icons/md";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,11 +17,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className={inter.className}>
+
         <div className="flex gap-10">
         <Sidebar />
         {children}
         </div>
-
       </body>
     </html>
   );
