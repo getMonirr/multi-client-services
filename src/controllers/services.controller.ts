@@ -28,7 +28,9 @@ export const getServicesByEmail = async (sellerEmail: string) => {
   }
 
   // get all services for the seller
-  const services = await Service.find({ seller: seller._id });
+  const services = await Service.find({ seller: seller._id }).populate(
+    "seller"
+  );
 
   if (!services || services.length === 0) {
     return NextResponse.json({
@@ -43,5 +45,15 @@ export const getServicesByEmail = async (sellerEmail: string) => {
 // get all services
 export const getServices = async () => {
   await connectMongoDB();
-  return Service.find();
+  return Service.find({}).populate("seller");
+};
+
+// update service by id
+export const updateServiceById = async (id: string, updateData: any) => {
+  return Service.updateOne({ _id: id }, updateData);
+};
+
+// delete service by id
+export const deleteServiceById = async (id: string) => {
+  return Service.deleteOne({ _id: id });
 };

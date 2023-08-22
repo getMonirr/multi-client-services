@@ -21,7 +21,7 @@ const servicesSchema = new Schema({
   },
   seller: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: "Users",
     required: true,
   },
   deliveryTime: {

@@ -12,12 +12,14 @@ export const GET = async (req: Request) => {
     const { searchParams } = new URL(req.url);
     const sellerEmail = searchParams.get("email");
 
+    // get individual seller services
     if (sellerEmail) {
       const services = await getServicesByEmail(sellerEmail);
 
       return NextResponse.json({ success: true, data: services });
     } else {
-      const services = getServices();
+      // get all seller services
+      const services = await getServices();
       return NextResponse.json({ success: true, data: services });
     }
   } catch (error: any) {
