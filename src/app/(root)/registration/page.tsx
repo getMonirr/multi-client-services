@@ -1,5 +1,5 @@
 "use client"
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import img from '../../../assets/signup.jpg'
 import Image from 'next/image';
 import Link from 'next/link';
@@ -53,17 +53,17 @@ const Registration = () => {
             method: 'POST',
             body: formData
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            // setImage(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                // setImage(data)
+            })
 
 
         createUser(email, password)
             .then((result: any) => {
                 const loggedUser = result.user;
-                updateUserProfile(name, )
+                updateUserProfile(name,)
                 console.log(loggedUser);
                 setError("")
                 if (result.user) {
@@ -73,7 +73,7 @@ const Registration = () => {
                         title: 'Create Account successful',
                         showConfirmButton: false,
                         timer: 1500
-                      })
+                    })
                 }
             })
 
