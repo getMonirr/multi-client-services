@@ -3,7 +3,7 @@
 const page = () => {
     return (
         <div>
-            
+            Update your profile
         </div>
     );
 };

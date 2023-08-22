@@ -32,10 +32,7 @@ const Account_setting = () => {
                         </span> xyz@mail.com</p>
                     </div>
                     <div>
-                        <SimpleBtn>
-                            <Link className='text-white' href="/dashboard/update_profile"> Profile Setting</Link>
-                        </SimpleBtn>
-
+                            <Link className='btn' href="/dashboard/update_profile">Update Profile</Link>
                     </div>
                 </div>
             </div>
