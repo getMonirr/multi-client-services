@@ -13,7 +13,7 @@ export const getUserById = async (userId: string) => {
   return User.findById(userId);
 };
 
-// post or
+// post or save a user in MongoDB database
 export const postUser = async (userData: Object) => {
   await connectMongoDB();
   const newUser = new User({
