@@ -1,25 +1,15 @@
-import { SignJWT } from "jose";
-import { cookies } from "next/headers";
+import { createJWT } from "@/utils/createJWT";
+import { setTokenInCookies } from "@/utils/setTokenInCookies";
+
 import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (req: NextRequest) => {
   const reqBody = await req.json();
-  const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-  const alg = "HS256";
-
-  const jwt = await new SignJWT({ ...reqBody })
-    .setProtectedHeader({ alg })
-    .setIssuedAt()
-    .setExpirationTime("2h")
-    .sign(secret);
+  // create jwt token
+  const jwt = await createJWT(reqBody);
 
   // set jwt in cookies
-  cookies().set({
-    name: "multi-token",
-    value: `Bearer ${jwt}`,
-    secure: true,
-    httpOnly: true,
-  });
+  await setTokenInCookies(jwt);
 
   return NextResponse.json({
     success: true,
