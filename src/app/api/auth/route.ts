@@ -1,3 +1,4 @@
+
 import { createJWT } from "@/utils/createJWT";
 import { setTokenInCookies } from "@/utils/setTokenInCookies";
 
@@ -10,7 +11,6 @@ export const POST = async (req: NextRequest) => {
 
   // set jwt in cookies
   await setTokenInCookies(jwt);
-
   return NextResponse.json({
     success: true,
     message: "Token created successfully",
