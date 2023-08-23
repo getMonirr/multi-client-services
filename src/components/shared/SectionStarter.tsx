@@ -7,9 +7,9 @@ type sectionStarterProps = {
 
 const SectionStarter = ({ title, description }: sectionStarterProps) => {
   return (
-    <div className="text-center space-y-4 w-full lg:w-1/3 px-4 mx-auto my-16 lg:mt-32 lg:mb-16 ">
-      <h1 className="text-2xl font-bold uppercase">{title}</h1>
-      <p className="text-slate-500">{description}</p>
+    <div className="text-start space-y-4 w-full px-4 my-16 lg:mt-32 lg:mb-16 ">
+      <p className="text-[#226CE5] uppercase">{description}</p>
+      <h1 className="text-5xl font-bold capitalize">{title}</h1>
     </div>
   );
 };
