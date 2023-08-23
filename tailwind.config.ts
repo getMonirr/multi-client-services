@@ -10,7 +10,13 @@ const config: Config = {
     extend: {
       colors: {
         "multi-primary": "#4267B2",
-        "multi-secondary": "#f76331",
+        // "multi-secondary": "#f76331",
+        "multi-secondary": "#226CE5",
+        "multi-bg": "#EBF2FF",
+        "multi-title": "#202C40",
+        "multi-paragraph": "#2D3D59",
+        "multi-icon-bg": "#D6E6FF",
+        "multi-hover": "#1B56B7",
       },
     },
   },
