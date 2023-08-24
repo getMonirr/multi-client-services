@@ -9,7 +9,7 @@ export const navLinks = [
     name: "Explore",
   },
   {
-    path: "/find-work",
+    path: "/find-jobs",
     name: "Find Work",
   },
   {

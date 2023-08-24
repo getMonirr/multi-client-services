@@ -31,24 +31,35 @@ const Review = () => {
     return (
         <div>
         <SectionStarter title={title} description=""/>
-        <Swiper autoplay modules={[Autoplay]} slidesPerView={2.2} className=" mb-20 md:w-3/4 ">
+        <Swiper 
+        autoplay 
+        modules={[Autoplay]} 
+        breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            }
+          }}
+        className=" mb-20 md:w-5/6 w-full">
             {
                 recentReview.map((data) => (
-                <SwiperSlide className=" p-10 border rounded-3xl mr-10 bg-gray-300" key={data.id}>
+                <SwiperSlide className="  border rounded-3xl mr-10 bg-gray-300" key={data.id}>
                     <div  className=" flex gap-4  h-56 py-10">   
-                    <div className='w-48   flex justify-center items-center '>
+                    <div className='w-48 flex justify-center items-center mx-6'>
                     <Image
                         src={data.image}
                         alt="Vercel Logo"
-                        className='h-[100px] rounded-full'
-                        width={100}
-                        height={100}
+                        className='h-[80px] w-[80px] rounded-full'
+                        width={80}
+                        height={80}
                         priority
                     />
                     </div>
-                    <div>
+                    <div className="pr-4">
                         <h2 className='font-bold text-2xl'>{data.client_name}</h2>
-                        <div className='flex gap-4 my-2'>
+                        <div className='md:flex gap-4 my-2'>
                         <Rating
                         style={{ maxWidth: 120 }}
                         value={Math.floor(data.rating)}
@@ -56,7 +67,7 @@ const Review = () => {
                         />
                         <p >{moment(`${data.date}`).fromNow()}</p>
                         </div>
-                        <p className="pt-6">{data.comment}</p>
+                        <p className="pt-3">{data.comment}</p>
                     </div>
                 </div>
                 </SwiperSlide>
