@@ -18,6 +18,7 @@ const Sidebar = () => {
                         <h1 className='mt-4 mb-16 text-2xl font-bold'>Career Solution</h1>
                         <Link className='mb-5' href="/">Home</Link>
                         <Link className='mb-5' href="/dashboard/profile">Profile</Link>
+                        <Link className='mb-5' href="/dashboard/all-users">All Users</Link>
                     </ul>
 
                 </div>
