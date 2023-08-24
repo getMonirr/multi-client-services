@@ -1,33 +1,24 @@
-import User from "@/models/usersModel";
-import connectMongoDB from "@/utils/connectMongoDB";
+import { getAllUser, postUser } from "@/controllers/users.controller";
+import { handleError } from "@/middleware/errorMiddleware";
 import { NextRequest, NextResponse } from "next/server";
 
 // get all user from database
 export const GET = async () => {
   try {
-    await connectMongoDB();
-
-    const result = await User.find({});
-    return NextResponse.json(result);
-  } catch (error) {
-    return NextResponse.json({ error });
+    const users = await getAllUser();
+    return NextResponse.json({ success: true, data: users });
+  } catch (error: any) {
+    return handleError(error);
   }
 };
 
 // post or save a user in database
 export const POST = async (req: NextRequest) => {
   try {
-    await connectMongoDB();
-
     const reqBody = await req.json();
-
-    const newUser = new User({
-      ...reqBody,
-    });
-    const result = await newUser.save();
-
-    return NextResponse.json(result);
-  } catch (error) {
-    return NextResponse.json({ error });
+    const result = await postUser(reqBody);
+    return NextResponse.json({ success: true, data: result });
+  } catch (error: any) {
+    return handleError(error);
   }
 };
