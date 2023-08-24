@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn {
+/* .btn {
     background-color: rgb(255, 106, 0);
     color: white;
     padding: 10px 20px;
+} */
+
+.banner-slider .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0 !important;
 }

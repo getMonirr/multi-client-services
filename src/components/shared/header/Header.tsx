@@ -114,7 +114,7 @@ const Header = () => {
               <ul className="menu menu-horizontal px-1">{Links}</ul>
             </div>
             <div className="navbar-end">
-              <SimpleBtn className="mr-4 bg-transparent hidden lg:block">
+              <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white">
                 <Link href="/registration">Sing up</Link>
               </SimpleBtn>
               <SimpleBtn className="hidden lg:block text-white">
