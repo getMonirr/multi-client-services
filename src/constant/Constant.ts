@@ -45,8 +45,7 @@ export const sliderContent = [
 // popular section content
 export const popularServices = {
   title: "Popular Services",
-  description:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem est error natus quidem velit recusandae a. Debitis deserunt sit quidem?",
+  description: "services",
 };
 
 // recent reviews content
