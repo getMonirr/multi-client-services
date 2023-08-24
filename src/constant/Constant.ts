@@ -23,22 +23,34 @@ export const navLinks = [
 ];
 
 // slider content
+import img1 from "../assets/banner/hero-instance-1--desktop.png";
+import img2 from "../assets/banner/hero-instance-3--desktop.png";
+import img3 from "../assets/banner/hero-instance-6--desktop.png";
+import img4 from "../assets/banner/hero-instance-4--desktop.png";
 export const sliderContent = [
   {
     title: "Find your best solutions",
-    image: "https://swiperjs.com/demos/images/nature-3.jpg",
+    image: img1,
+    color: "#4A39AC",
+    tags: ["graphics", "logo-design", "illustration", "3d Design"],
   },
   {
     title: "Find your best business",
-    image: "https://swiperjs.com/demos/images/nature-1.jpg",
+    image: img2,
+    color: "#E7950A",
+    tags: ["branding", "business card", "animation"],
   },
   {
     title: "Find your best actions",
-    image: "https://swiperjs.com/demos/images/nature-2.jpg",
+    image: img3,
+    color: "#FD7A68",
+    tags: ["graphics", "logo-design"],
   },
   {
     title: "Find your best change",
-    image: "https://swiperjs.com/demos/images/nature-4.jpg",
+    image: img4,
+    color: "#E0211B",
+    tags: ["amazon", "facebook", "twitter"],
   },
 ];
 
