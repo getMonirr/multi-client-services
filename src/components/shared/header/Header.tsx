@@ -65,13 +65,13 @@ const Header = () => {
   return (
     <>
       <div
-        className={`bg-white text-black sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out ${
+        className={`bg-multi-icon-bg text-black sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out ${
           isScrolled ? "py-0 shadow-2xl border-b-2" : "py-2"
         }`}
       >
         <RootContainer>
           {/* /// test  */}
-          <div className="navbar backdrop-blur-xl ">
+          <div className="navbar backdrop-blur-3xl ">
             <div className="navbar-start">
               <div className="dropdown z-50">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
