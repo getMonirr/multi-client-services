@@ -4,6 +4,7 @@ import JobSection from "@/components/home/JobSection";
 import PopularServices from "@/components/home/services/PopularServices";
 import Categories from "@/components/home/category/Categories";
 import Trending from "@/components/home/trending/Trending";
+import Teams from "@/components/home/team/Teams";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <PopularServices />
       <Categories />
       <Trending />
+      <Teams />
       <Review></Review>
     </main>
   );

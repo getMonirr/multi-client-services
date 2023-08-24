@@ -92,7 +92,7 @@ const Header = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-multi-primary rounded-box w-52"
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-300 rounded-box w-52"
                 >
                   {Links}
                   <SimpleBtn className="mr-4 bg-transparent">
