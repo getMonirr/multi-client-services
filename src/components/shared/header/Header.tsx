@@ -65,13 +65,13 @@ const Header = () => {
   return (
     <>
       <div
-        className={`bg-white text-black sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out ${
+        className={`bg-multi-icon-bg text-black sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out ${
           isScrolled ? "py-0 shadow-2xl border-b-2" : "py-2"
         }`}
       >
         <RootContainer>
           {/* /// test  */}
-          <div className="navbar backdrop-blur-xl ">
+          <div className="navbar backdrop-blur-3xl ">
             <div className="navbar-start">
               <div className="dropdown z-50">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -92,7 +92,7 @@ const Header = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-multi-primary rounded-box w-52"
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-300 rounded-box w-52"
                 >
                   {Links}
                   <SimpleBtn className="mr-4 bg-transparent">
@@ -114,7 +114,7 @@ const Header = () => {
               <ul className="menu menu-horizontal px-1">{Links}</ul>
             </div>
             <div className="navbar-end">
-              <SimpleBtn className="mr-4 bg-transparent hidden lg:block">
+              <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white">
                 <Link href="/registration">Sing up</Link>
               </SimpleBtn>
               <SimpleBtn className="hidden lg:block text-white">
@@ -128,7 +128,7 @@ const Header = () => {
         </RootContainer>
       </div>
       {/* bottom navbar */}
-      <div className="bg-multi-bg border-b-[1px] shadow-lg py-2 border-black">
+      <div className="bg-multi-bg border-y-[1px] py-2 border-multi-primary border-opacity-50">
         <RootContainer>
           <div className="flex items-center justify-center gap-4 text-xs font-medium">
             {categoryLink.map(({ link, text }) => (

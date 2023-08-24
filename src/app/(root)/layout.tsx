@@ -1,11 +1,17 @@
 import Header from "@/components/shared/header/Header";
 import "../globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Nunito, Open_Sans, Poppins } from "next/font/google";
 import Footer from "@/components/shared/Footer";
 import AuthProvider from "@/Context/AuthProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const open_sans = Open_Sans({
+  weight: ["300", "400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+});
+const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito" });
 
 export const metadata: Metadata = {
   title: "Multi-Client",
@@ -19,7 +25,7 @@ type Props = {
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en" data-theme="light">
-      <body className={inter.className}>
+      <body className={`${open_sans.className} ${nunito.variable} bg-white`}>
         <Header />
         <AuthProvider>{children}</AuthProvider>
         <Footer />

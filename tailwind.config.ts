@@ -19,6 +19,9 @@ const config: Config = {
         "multi-hover": "#1B56B7",
       },
     },
+    fontFamily: {
+      nunito: ["var(--font-nunito)"],
+    },
   },
   plugins: [require("daisyui")],
 };

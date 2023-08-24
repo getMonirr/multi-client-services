@@ -2,8 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn {
+/* .btn {
     background-color: rgb(255, 106, 0);
     color: white;
     padding: 10px 20px;
+} */
+
+.banner-slider .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0 !important;
+}
+
+/* tab css */
+.react-tabs__tab-list {
+  @apply flex items-center justify-center flex-wrap gap-4;
+  border-bottom: 1px solid #d6e6ff !important;
+  padding-bottom: 8px !important;
+}
+.react-tabs__tab-panel {
+  @apply w-full lg:w-[500px] mx-auto mt-5;
+}
+.react-tabs__tab {
+  @apply text-black rounded-md border-multi-secondary border-2 shadow-xl;
+  border: 1px solid blue !important;
+}
+.react-tabs__tab--selected {
+  border-radius: 6px !important;
+  background: #226ce5 !important;
+  color: white !important;
 }
