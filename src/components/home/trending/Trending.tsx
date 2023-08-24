@@ -24,7 +24,7 @@ const Trending = () => {
 
           <TabPanel>
             <h2>Trending Skills</h2>
-            <ul className="mt-3 menu bg-base-200 w-56 rounded-box">
+            <ul className="mt-3 menu bg-multi-icon-bg w-56 rounded-box">
               <li>
                 <a>Item 1</a>
               </li>
@@ -38,7 +38,7 @@ const Trending = () => {
           </TabPanel>
           <TabPanel>
             <h2>Top Talents</h2>
-            <ul className="mt-3 menu bg-base-200 w-56 rounded-box">
+            <ul className="mt-3 menu bg-multi-icon-bg w-56 rounded-box">
               <li>
                 <a>Item 1</a>
               </li>
@@ -52,7 +52,7 @@ const Trending = () => {
           </TabPanel>
           <TabPanel>
             <h2>Trending Services</h2>
-            <ul className="mt-3 menu bg-base-200 w-56 rounded-box">
+            <ul className="mt-3 menu bg-multi-icon-bg w-56 rounded-box">
               <li>
                 <a>Item 1</a>
               </li>
@@ -66,7 +66,7 @@ const Trending = () => {
           </TabPanel>
           <TabPanel>
             <h2>Top Services</h2>
-            <ul className="mt-3 menu bg-base-200 w-56 rounded-box">
+            <ul className="mt-3 menu bg-multi-icon-bg w-56 rounded-box">
               <li>
                 <a>Item 1</a>
               </li>

@@ -25,7 +25,7 @@ type Props = {
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en" data-theme="light">
-      <body className={`${open_sans.className} ${nunito.variable}`}>
+      <body className={`${open_sans.className} ${nunito.variable} bg-white`}>
         <Header />
         <AuthProvider>{children}</AuthProvider>
         <Footer />
