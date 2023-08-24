@@ -62,7 +62,7 @@ export const popularServices = {
 
 // recent reviews content
 export const ReviewTitle = {
-  title: " Pepole Reviews",
+  title: "Client Loves Us",
   // description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem est error natus quidem velit recusandae a. Debitis deserunt sit quidem?",
 };
 
