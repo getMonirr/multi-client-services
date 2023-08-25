@@ -2,14 +2,8 @@
 
 import Link from 'next/link';
 
-import React, { useRef } from 'react';
-
-
 const ContactPage = () => {
     
-
-    
-
     return (
         <div className='py-5'>
             <div className="flex lg:flex-row flex-col gap-8 w-[90%] mx-auto" id="contact">
