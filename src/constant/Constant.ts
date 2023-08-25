@@ -20,6 +20,10 @@ export const navLinks = [
     path: "/dashboard",
     name: "Dashboard",
   },
+  {
+    path: "/contact",
+    name: "Contact Us",
+  },
 ];
 
 // slider content
@@ -317,5 +321,11 @@ export const Jobs = [
 ];
 
 export const CategoryTitle = [
-"web development", " web design", "data entry", "grapics design", "web design", "cyber security" , "digital marketing"
-]
+  "web development",
+  " web design",
+  "data entry",
+  "grapics design",
+  "web design",
+  "cyber security",
+  "digital marketing",
+];
