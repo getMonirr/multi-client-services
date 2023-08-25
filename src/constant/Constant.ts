@@ -9,7 +9,7 @@ export const navLinks = [
     name: "Explore",
   },
   {
-    path: "/find-work",
+    path: "/find-jobs",
     name: "Find Work",
   },
   {
@@ -315,3 +315,7 @@ export const Jobs = [
     price: 550,
   },
 ];
+
+export const CategoryTitle = [
+"web development", " web design", "data entry", "grapics design", "web design", "cyber security" , "digital marketing"
+]
