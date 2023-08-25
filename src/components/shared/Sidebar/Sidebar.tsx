@@ -19,6 +19,7 @@ const Sidebar = () => {
                         <Link className='mb-5' href="/">Home</Link>
                         <Link className='mb-5' href="/dashboard/profile">Profile</Link>
                         <Link className='mb-5' href="/dashboard/all-users">All Users</Link>
+                        <Link className='mb-5' href="/dashboard/gigs">Gigs</Link>
                     </ul>
 
                 </div>
