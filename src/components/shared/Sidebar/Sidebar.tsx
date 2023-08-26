@@ -3,8 +3,8 @@ import React from 'react';
 
 const Sidebar = () => {
     return (
-        <div className=' mr-80'>
-            <div className="drawer fixed lg:drawer-open">
+        <div className=''>
+            <div className="drawer  lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
                     {/* Page content here */}
@@ -18,8 +18,12 @@ const Sidebar = () => {
                         <h1 className='mt-4 mb-16 text-2xl font-bold'>Career Solution</h1>
                         <Link className='mb-5' href="/">Home</Link>
                         <Link className='mb-5' href="/dashboard/profile">Profile</Link>
+
+                        <Link className='mb-5' href="/dashboard/update_profile">Update Profile</Link>
+
                         <Link className='mb-5' href="/dashboard/all-users">All Users</Link>
                         <Link className='mb-5' href="/dashboard/gigs">Gigs</Link>
+
                     </ul>
 
                 </div>
