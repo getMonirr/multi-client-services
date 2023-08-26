@@ -30,3 +30,8 @@
   background: #226ce5 !important;
   color: white !important;
 }
+
+/* active button css for price sections */
+.priceActive {
+  @apply border-b-multi-secondary bg-white text-black border-b-4;
+}
