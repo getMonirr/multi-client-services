@@ -25,7 +25,7 @@ import "swiper/css";
 import RootContainer from "@/components/shared/RootContainer";
 
 const Review = () => {
-  console.log(moment().startOf("day").from("1985"));
+//   console.log(moment().startOf("day").from("1985"));
   const { title } = ReviewTitle;
   return (
     <RootContainer>
