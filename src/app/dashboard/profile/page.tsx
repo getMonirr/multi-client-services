@@ -41,7 +41,7 @@ const Account_setting = () => {
                 <div>
                     <div className='border p-6 w-[400px]'>
                         <h1 className='text-gray-500 text-lg underline my-4'>Description</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt saepe quos vel delectus provident atque ducimus! Nisi perspiciatis voluptatibus dolore aliquid ducimus! Eligendi alias porro explicabo odit, ad illum iure?</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod tempore et reprehenderit ea at hic eum laboriosam ab mollitia? Doloremque fuga reiciendis, accusamus earum quod sit odio consequatur quasi corrupti!</p>
                     </div>
                     <div className='border p-6 w-[400px]'>
                         <h1 className='text-gray-500 text-lg underline my-4'>Languages</h1>

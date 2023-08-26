@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+import firebase from "firebase/app";
+import { Auth } from "firebase/auth";
 
 // Import the functions you need from the SDKs you need
 import {
@@ -14,7 +16,7 @@ import {
 
 // Your web app's Firebase configuration
 console.log(process.env);
-const firebaseConfig = {
+const config = {
   apiKey: ApiKey,
   authDomain: AuthDomain,
   projectId: ProjectId,
@@ -24,7 +26,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
 // loadEnvConfig(app)
+const app = initializeApp(config);
 
-export default app;
+export default app
+
+
