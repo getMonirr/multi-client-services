@@ -20,7 +20,7 @@ const Reset_password = () => {
 
     const onSubmit: SubmitHandler<Inputs> = (data) => {
         const { email } = data;
-        console.log(email);
+        // console.log(email);
         reset_password(email)
         .then(() => {
             Swal.fire({
