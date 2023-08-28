@@ -15,13 +15,8 @@ import {
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-<<<<<<< HEAD
-// console.log(process.env);
-const firebaseConfig = {
-=======
 console.log(process.env);
 const config = {
->>>>>>> ebbeec118cd22384f0bea691f55575cb87c434af
   apiKey: ApiKey,
   authDomain: AuthDomain,
   projectId: ProjectId,
