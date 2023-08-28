@@ -8,8 +8,9 @@ const Update_profile_sidebar = () => {
             <Link className='text-[19px] block mt-3' href="/dashboard/update_profile">General </Link>
             <Link className='text-[19px] block mt-3' href="">Security</Link>
             <Link className='text-[19px] block mt-3' href="/dashboard/Update_portfolio">Portfolio</Link>
-            <Link className='text-[19px] block mt-3' href="">Description</Link>
-            <Link className='text-[19px] block mt-3' href="">Work Experience</Link>
+            <Link className='text-[19px] block mt-3' href="/dashboard/work_exp">Work Experience</Link>
+            <Link className='text-[19px] block mt-3' href="/dashboard/description_exp">Description</Link>
+            <Link className='text-[19px] block mt-3' href="/dashboard/education">Education</Link>
             <Link className='text-[19px] block mt-3' href="">Build Resume</Link>
         </div>
     );
