@@ -8,6 +8,7 @@ const JobsBody = () => {
   const [postTime, setPostTime] = useState("");
   const [experience, setExperience] = useState("");
   const [price, setPrice] = useState("");
+  
 
   const categoryHandle = (e: any) => {
     setCategorys(e.target.value);

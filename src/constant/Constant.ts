@@ -20,6 +20,10 @@ export const navLinks = [
     path: "/dashboard",
     name: "Dashboard",
   },
+  {
+    path: "/contact",
+    name: "Contact Us",
+  },
 ];
 
 // slider content

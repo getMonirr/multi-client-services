@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+import firebase from "firebase/app";
+import { Auth } from "firebase/auth";
 
 // Import the functions you need from the SDKs you need
 import {
@@ -13,8 +15,13 @@ import {
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+<<<<<<< HEAD
 // console.log(process.env);
 const firebaseConfig = {
+=======
+console.log(process.env);
+const config = {
+>>>>>>> ebbeec118cd22384f0bea691f55575cb87c434af
   apiKey: ApiKey,
   authDomain: AuthDomain,
   projectId: ProjectId,
@@ -24,7 +31,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
 // loadEnvConfig(app)
+const app = initializeApp(config);
 
-export default app;
+export default app
+
+

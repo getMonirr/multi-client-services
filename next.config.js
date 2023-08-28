@@ -7,11 +7,24 @@ const nextConfig = {
       port: "",
       pathname: "/demos/images/**",
     },
-  ]
+    {
+      protocol: "https",
+      hostname: "cdn.tuk.dev",
+      port: "",
+      pathname: "/assets/**",
+    },
+  ],
 };
 
 module.exports = {
   images: {
-    domains: ["swiperjs.com", "fiverr-res.cloudinary.com" ,"img.freepik.com", "media.istockphoto.com", "images.unsplash.com"],
+    domains: [
+      "swiperjs.com",
+      "fiverr-res.cloudinary.com",
+      "img.freepik.com",
+      "media.istockphoto.com",
+      "images.unsplash.com",
+      "cdn.tuk.dev",
+    ],
   },
 };

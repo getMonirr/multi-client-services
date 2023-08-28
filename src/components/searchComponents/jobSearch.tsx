@@ -9,6 +9,9 @@ import Image from "next/image";
 
 const SearchJobs = () => {
   const [tabIndex, setTabIndex] = useState(0);
+  const totalItems: number = Jobs.length 
+  const perPage : number = 10 
+  const currentPage : number = Math.ceil(totalItems/ perPage)
 
   return (
     <div>
