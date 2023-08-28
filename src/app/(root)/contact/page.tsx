@@ -32,7 +32,7 @@ const ContactPage = () => {
 
 
 
-                        <input className='btn bg-black text-white' type="submit" value="Send" />
+                        <input className="btn bg-multi-icon-bg hover:border-multi-primary" type="submit" value="Send" />
                     </form>
                 </div>
                 <div className='w-1/2'>
