@@ -4,10 +4,10 @@ import { useState } from "react";
 import {FaTimes} from "react-icons/fa"
 
 const JobsBody = () => {
-  const [categorys, setCategorys] = useState("");
-  const [postTime, setPostTime] = useState("");
-  const [experience, setExperience] = useState("");
-  const [price, setPrice] = useState("");
+  const [categorys, setCategorys] = useState<string>("");
+  const [postTime, setPostTime] = useState<string>("");
+  const [experience, setExperience] = useState<string>("");
+  const [price, setPrice] = useState<string>("");
   
 
   const categoryHandle = (e: any) => {
@@ -38,7 +38,7 @@ const JobsBody = () => {
           </h3>
           <div className="form-control">
             <select
-              onBlur={categoryHandle}
+              onChange={categoryHandle}
               name="category"
               className=" rounded-xl py-2 mr-4 pl-2"
             >
@@ -56,7 +56,7 @@ const JobsBody = () => {
             Post Time
           </h3>
           <div className="form-control">
-            <select onBlur={timeHandle} className="  rounded-xl py-2 mr-4 pl-2">
+            <select onChange={timeHandle} className="  rounded-xl py-2 mr-4 pl-2">
               <option value={"a weeke ago"}>a weeke ago</option>
               <option value={"2 weeke ago"}>2 weeke ago </option>
               <option value={"a month ago"}>a month ago </option>
@@ -70,7 +70,7 @@ const JobsBody = () => {
           </h3>
           <div className="form-control">
             <select
-              onBlur={experienceHandle}
+              onChange={experienceHandle}
               className="  rounded-xl py-2 mr-4 pl-2"
             >
               <option value={"Entry level"}>Entry level </option>
@@ -87,11 +87,14 @@ const JobsBody = () => {
           </h3>
           <div className="form-control">
             <select
-              onBlur={priceHandle}
+              onChange={priceHandle}
               className="  rounded-xl py-2 mr-4 pl-2"
               name=""
               id=""
             >
+              <option value={"Select price"} className="label-text">
+                Select price 
+              </option>
               <option value={"Less then 100$"} className="label-text">
                 Less then 100$
               </option>
