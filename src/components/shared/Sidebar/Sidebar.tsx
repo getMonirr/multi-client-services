@@ -20,6 +20,7 @@ const Sidebar = () => {
                         <Link className='mb-5' href="/dashboard/profile">Profile</Link>
 
                         <Link className='mb-5' href="/dashboard/update_profile">Update Profile</Link>
+                        <Link className='mb-5' href="/dashboard/manage-orders">Manage Orders</Link>
 
                         <Link className='mb-5' href="/dashboard/all-users">All Users</Link>
                         <Link className='mb-5' href="/dashboard/gigs">Gigs</Link>
