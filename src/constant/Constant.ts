@@ -321,11 +321,5 @@ export const Jobs = [
 ];
 
 export const CategoryTitle = [
-  "web development",
-  " web design",
-  "data entry",
-  "grapics design",
-  "web design",
-  "cyber security",
-  "digital marketing",
-];
+  "select category","web development", " web design", "data entry", "grapics design", "web design", "cyber security" , "digital marketing"
+]
