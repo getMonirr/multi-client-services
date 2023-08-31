@@ -88,7 +88,7 @@ const Login = () => {
           </p>
         </form>
         <button
-          onClick={() => signIn("google")}
+          onClick={() => signIn("google", { callbackUrl: "/" })}
           className=" border border-gray-600  rounded-lg px-6 py-3"
         >
           Continue With Google

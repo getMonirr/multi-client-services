@@ -1,3 +1,6 @@
+import { postUser } from "@/controllers/users.controller";
+import User from "@/models/users.model";
+import connectMongoDB from "@/utils/connectMongoDB";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
@@ -47,6 +50,7 @@ export const options: NextAuthOptions = {
       },
     }),
   ],
+  // custom page define here
   pages: {
     signIn: "/login",
   },
@@ -58,6 +62,24 @@ export const options: NextAuthOptions = {
     async session({ session, token }) {
       session.user.role = token.role;
       return session;
+    },
+    // save user into database
+    async signIn({ user, account, profile }) {
+      if (account?.provider === "google") {
+        const { email, name }: any = profile;
+
+        await connectMongoDB();
+
+        const existingUser = await User.findOne({ email });
+
+        if (!existingUser) {
+          const result = await postUser({ email, name });
+
+          return result;
+        } else {
+          return existingUser;
+        }
+      }
     },
   },
 };
