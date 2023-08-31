@@ -8,7 +8,7 @@ type SimpleBtnProps = {
 const SimpleBtn = ({ className, children }: SimpleBtnProps) => {
   return (
     <button
-      className={`bg-multi-secondary px-6 py-2 rounded-md hover:bg-multi-hover transition font-bold shadow-xl ${className}`}
+      className={`bg-multi-secondary text-white px-6 py-2 rounded-md hover:bg-multi-hover transition font-bold shadow-xl ${className}`}
     >
       {children}
     </button>

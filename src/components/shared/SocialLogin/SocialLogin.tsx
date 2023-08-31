@@ -8,7 +8,7 @@ const SocialLogin = () => {
         googleSignIn()
         .then((result: any) => {
             const user = result.user;
-            console.log(user);
+            // console.log(user);
         })
     }
 
@@ -16,7 +16,7 @@ const SocialLogin = () => {
         githubSignIn()
         .then((result: any) => {
             const user = result.user;
-            console.log(user);
+            // console.log(user);
         })
     }
 
