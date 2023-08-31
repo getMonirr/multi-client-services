@@ -5,10 +5,13 @@ import { navLinks } from "@/constant/Constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SimpleBtn from "../btn/SimpleBtn";
+import useAuth from "@/hooks/useAuth";
 
 const Header = () => {
   const pathname = usePathname();
-
+  
+  // const {user}: null | any = useAuth();
+  // console.log(typeof user);
   // nav links generate
   const Links = navLinks.map(({ name, path }) => {
     const isActiveLinks = pathname == path;
