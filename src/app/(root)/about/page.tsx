@@ -1,14 +1,17 @@
 "use client";
 
 import Teams from "@/components/home/team/Teams";
-import { Metadata } from "next";
+
 import Link from "next/link";
 import { useState } from "react";
-export const metadata: Metadata = {
-    title: "Multi-Client | About",
-    description: "This is a multi-client services website",
-  };
 
+import aboutImage from '../../../assets/aboutImage/aboutNew.jpg';
+import whyImage from '@/assets/aboutImage/why.jpg';
+import missionImage from '@/assets/aboutImage/mission.jpg';
+import commitmentImage from '@/assets/aboutImage/commitment.png';
+import jImage from '@/assets/aboutImage/joinUs.jpg';
+
+import Image from "next/image";
 const AboutPage = () => {
     const [learnMore, setLearnMore] = useState(false);
     const [disabled, setDisabled] = useState(false)
@@ -19,7 +22,11 @@ const AboutPage = () => {
     return (
         <div className="m-5">
             <div className="border-2 border-multi-primary border-opacity-50 p-5">
-                <h1 className="text-center">About Us</h1>
+                <div className="mx-auto">
+
+                    <Image src={aboutImage} className="mx-auto" alt="about" />
+                </div>
+                
                 <p>
                     Welcome to Solutions, where talent meets opportunity and possibilities are endless. We are more than just a freelance platform, we are a dynamic community that connects skilled freelancers with clients seeking top-notch services.
                 </p>
@@ -39,28 +46,47 @@ const AboutPage = () => {
                 </div>
             </div>
             <div className="border-2 border-multi-primary border-opacity-50 p-5 mt-5">
-                <h2 className="text-center">Why Solutions?</h2>
-                <p>1. Diverse Talent Pool: We pride ourselves on hosting a diverse and talented pool of freelancers from various industries and backgrounds. Whatever your project demands, we have the experts ready to bring it to life</p>
-                <p>2. Seamless Collaboration: Our user-friendly platform makes it easy for clients to find the right freelancer and for freelancers to showcase their skills. Streamlined communication tools ensure smooth collaboration every step of the way.</p>
-                <p>3. Trust and Security: We prioritize the safety of both freelancers and clients. Our rigorous vetting process ensures that only the best professionals join our community, and secure payment systems provide peace of mind for all transactions.</p>
-                <p>4. Customized Solutions: Whether you are a startup looking for a logo, an enterprise in need of development work, or an individual seeking creative services, Solutions offers tailored solutions to meet your unique needs.</p>
-                <p>5. Flexibility and Freedom: Freelancers, embrace the freedom of choosing projects that resonate with you. Clients, find the perfect match for your project without the constraints of traditional employment.</p>
+                <div className="flex justify-between gap-4">
+                    <Image src={whyImage} className="mx-auto w-1/2" alt="about" />
+                    <div className="w-1/2">
+                        <h2 className="">Why Solutions?</h2>
+                        <p>1. Diverse Talent Pool: We pride ourselves on hosting a diverse and talented pool of freelancers from various industries and backgrounds. Whatever your project demands, we have the experts ready to bring it to life</p>
+                        <p>2. Seamless Collaboration: Our user-friendly platform makes it easy for clients to find the right freelancer and for freelancers to showcase their skills. Streamlined communication tools ensure smooth collaboration every step of the way.</p>
+                        <p>3. Trust and Security: We prioritize the safety of both freelancers and clients. Our rigorous vetting process ensures that only the best professionals join our community, and secure payment systems provide peace of mind for all transactions.</p>
+                        <p>4. Customized Solutions: Whether you are a startup looking for a logo, an enterprise in need of development work, or an individual seeking creative services, Solutions offers tailored solutions to meet your unique needs.</p>
+                        <p>5. Flexibility and Freedom: Freelancers, embrace the freedom of choosing projects that resonate with you. Clients, find the perfect match for your project without the constraints of traditional employment.</p>
+
+                    </div>
+                </div>
             </div>
 
 
             <div className="border-2 border-multi-primary border-opacity-50 p-5 mt-5">
-                <h2 className="text-center">Our Mission
-                </h2>
-                <p>At Solutions our mission is to empower freelancers and clients around the world to collaborate, create, and achieve their goals. We believe that every project is an opportunity for innovation and growth, and we are here to make those connections happen.</p>
+                <div className="flex justify-between gap-4">
+                <div className="w-1/2">
+                        <h2 className="text-2xl">Our Mission
+                        </h2>
+                        <p>At Solutions our mission is to empower freelancers and clients around the world to collaborate, create, and achieve their goals. We believe that every project is an opportunity for innovation and growth, and we are here to make those connections happen.</p>
+
+                    </div>
+                    <Image src={missionImage} className="w-1/2" alt="about" />
+                    
+                </div>
+
             </div>
+
             <div className="border-2 border-multi-primary border-opacity-50 p-5 mt-5">
-                <h2 className="text-center">Our Commitment
-                </h2>
+                
+                <div className="mx-auto">
+                <Image src={commitmentImage} alt="commitment"/>
+                </div>
                 <p>We are committed to fostering a supportive and collaborative environment where success knows no boundaries. Through constant innovation, user-driven improvements, and a dedication to excellence, we strive to be your go-to platform for all your freelance needs.</p>
             </div>
             <div className="border-2 border-multi-primary border-opacity-50 p-5 mt-5">
-                <h2 className="text-center">Join Us
-                </h2>
+            <div className="mx-auto">
+                <Image className="mx-auto" src={jImage} alt=""/>
+                </div>
+                
                 <p>Whether you are a freelancer looking to showcase your skills and connect with exciting projects, or a client ready to bring your visions to life, Solutions is here to guide you every step of the way. Join our growing community today and unlock the potential of talent and opportunity.</p>
 
                 <div className="my-5 grid grid-flow-col gap-4 justify-between px-20">
