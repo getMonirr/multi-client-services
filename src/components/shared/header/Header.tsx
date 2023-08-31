@@ -5,9 +5,13 @@ import { navLinks } from "@/constant/Constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SimpleBtn from "../btn/SimpleBtn";
+import { signOut, useSession } from "next-auth/react";
 
 const Header = () => {
   const pathname = usePathname();
+
+  // use auth
+  const { data: session } = useSession();
 
   // nav links generate
   const Links = navLinks.map(({ name, path }) => {
@@ -114,17 +118,27 @@ const Header = () => {
               <ul className="menu menu-horizontal px-1">{Links}</ul>
             </div>
             <div className="navbar-end">
-              <SimpleBtn className="text-black mr-4 bg-transparent hidden lg:block hover:text-white">
-                <Link
-                  href="/registration"
-                  className="text-black hover:text-white"
-                >
-                  Registration
-                </Link>
-              </SimpleBtn>
-              <SimpleBtn className="hidden lg:block text-white">
-                <Link href="/login">Sign in</Link>
-              </SimpleBtn>
+              {session ? (
+                <SimpleBtn className="hidden lg:block text-white">
+                  <Link href="#" onClick={() => signOut()}>
+                    Log out
+                  </Link>
+                </SimpleBtn>
+              ) : (
+                <>
+                  <SimpleBtn className="text-black mr-4 bg-transparent hidden lg:block hover:text-white">
+                    <Link
+                      href="/registration"
+                      className="text-black hover:text-white"
+                    >
+                      Registration
+                    </Link>
+                  </SimpleBtn>
+                  <SimpleBtn className="hidden lg:block text-white">
+                    <Link href="/login">Sign in</Link>
+                  </SimpleBtn>
+                </>
+              )}
               <a className="btn btn-ghost normal-case bg-transparent text-xl block lg:hidden">
                 Solutions
               </a>
