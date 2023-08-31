@@ -1,17 +1,45 @@
 "use client";
-import React, { useState } from "react";
-import { Jobs } from "@/constant/Constant";
-import { FaEye } from "react-icons/fa";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import React, { useState, useEffect } from "react";
+import { findJobs } from "@/constant/Constant";
+import { Tab, Tabs, TabList, } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css/navigation";
+import "swiper/css";
 
 import Image from "next/image";
 
+
 const SearchJobs = () => {
-  const [tabIndex, setTabIndex] = useState(0);
-  const totalItems: number = Jobs.length 
+
+  const [pageData, setPageData] = useState<any>([])
+  // if(findJobs.length >= 10){
+  //   setPageData(findJobs)
+  // }
+  const [tabIndex, setTabIndex] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(0)
+  const totalItems: number = findJobs.length 
   const perPage : number = 10 
-  const currentPage : number = Math.ceil(totalItems/ perPage)
+  const totalPage : number = Math.ceil(totalItems/ perPage)
+  const pageNumber : any = [...Array(totalPage).keys()]
+  
+  const pageHandle = (pages:number) =>{
+    setCurrentPage(pages)
+    const backData = (currentPage * perPage)
+    const currentData = findJobs.splice(backData, perPage)
+    setPageData(currentData)
+
+
+  }
+
+  useEffect(()=>{
+    const fastData = findJobs.splice(0 , perPage)
+    setPageData(fastData)
+  },[])
+  console.log(findJobs)
+
 
   return (
     <div>
@@ -22,23 +50,39 @@ const SearchJobs = () => {
             <Tab className="tab tab-lifted">Save Job</Tab>
           </TabList>
         </Tabs>
-        <p className="p-4"> {Jobs.length} jobs found</p>
+        <p className="p-4"> {findJobs.length} jobs found</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-auto">
-        {Jobs.map((job, i) => (
+        {pageData.map((job: any, i:number) => (
           <div
             key={i}
             className="bg-white rounded overflow-hidden group shadow-md"
           >
-            <div className="relative">
-              <img src={job.cover_photo} className="w-full h-52" alt="" />
-
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                <a className="text-white text-lg w-9 h-9 rounded-full bg-multi-secondary flex items-center justify-center hover:bg-gray-800 transition">
-                  <FaEye />
-                </a>
-              </div>
-            </div>
+            <Swiper
+            navigation={true}
+            modules={[Navigation]}
+            spaceBetween={20}
+            className=" "
+             >
+              {
+                job.picture.map((image:any , index:number ) =>
+                <SwiperSlide
+                key={i}
+                >
+                  <div className="w-full h-52 border-b">
+                  <Image
+                  src={image}
+                  alt="Vercel Logo"
+                  className=""
+                  width={300}
+                  height={208}
+                  priority
+                />
+                  </div>
+                </SwiperSlide>)
+              }
+              
+            </Swiper>
 
             <div className="pt-4 pb-3 px-4">
               <a href="">
@@ -58,10 +102,23 @@ const SearchJobs = () => {
               </div>
             </div>
             <button className="btn block w-full py-1 text-center text-white bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600">
-              Collaborate
+              Apply
             </button>
           </div>
         ))}
+      </div>
+
+      <div className="mt-10 text-center">
+        <p>Current Page {currentPage} </p>
+      {
+        pageNumber.map((page:number) => <button
+         className={currentPage === page ? "bg-white rounded-full p-2" : "rounded-full p-2 bg-blue-400 ml-2"}
+         key={page}
+         onChange={()=>pageHandle(page)}
+         >
+           {page} 
+         </button>)
+      }
       </div>
     </div>
   );
