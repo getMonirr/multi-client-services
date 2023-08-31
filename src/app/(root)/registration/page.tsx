@@ -23,7 +23,7 @@ type Inputs = {
 const Registration = () => {
 
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hoisting_token}`
-    console.log(img_hosting_url);
+    // console.log(img_hosting_url);
 
     const { createUser, updateUserProfile }: any = useAuth()
 
@@ -44,7 +44,7 @@ const Registration = () => {
             return;
         }
 
-        console.log(picture);
+        // console.log(picture);
 
         const formData = new FormData();
         formData.append('image', picture[0]);
@@ -55,7 +55,7 @@ const Registration = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 // setImage(data)
             })
 
@@ -65,7 +65,7 @@ const Registration = () => {
                 const loggedUser = result.user;
                 // update profile name, image
                 updateUserProfile(name,)
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 setError("")
                 if (result.user) {
                     Swal.fire({
