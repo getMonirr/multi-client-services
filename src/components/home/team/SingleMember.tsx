@@ -16,10 +16,10 @@ const SingleMember = () => {
         </div>
         <div className="px-6 mt-16 ">
           <div className="font-bold text-3xl text-center pb-1 text-multi-title">
-            Andres Berlin
+            Md. Shihab 
           </div>
           <p className="text-multi-paragraph text-sm text-center">
-            Chief Executive Officer
+            Team Leader
           </p>
           <div className="w-full flex justify-center pt-5 pb-5">
             <a
