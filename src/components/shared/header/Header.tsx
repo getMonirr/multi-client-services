@@ -99,7 +99,7 @@ const Header = () => {
                 >
                   {Links}
                   <SimpleBtn className="mr-4 bg-transparent">
-                    <Link href="/registration">Sing up</Link>
+                    <Link href="/registration">Sign up</Link>
                   </SimpleBtn>
                   <SimpleBtn className="">
                     <Link href="/login">Sign in</Link>
@@ -118,7 +118,7 @@ const Header = () => {
             </div>
             <div className="navbar-end">
               <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white">
-                <Link href="/registration">Sing up</Link>
+                <Link href="/registration">Sign up</Link>
               </SimpleBtn>
               <SimpleBtn className="hidden lg:block text-white">
                 <Link href="/login">Sign in</Link>

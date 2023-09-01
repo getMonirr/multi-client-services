@@ -5,6 +5,7 @@ import RootContainer from "@/components/shared/RootContainer";
 import { FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
 import masum from "@/assets/teamImage/masum.jpg";
 import mehtaj from "@/assets/teamImage/mehtaj.jpg";
+import shahedul from "@/assets/teamImage/shahedul.jpg";
 import Image from "next/image";
 
 const AboutTeam = () => {
@@ -60,11 +61,7 @@ const AboutTeam = () => {
             <div className="rounded overflow-hidden shadow-md bg-multi-bg">
               <div className="absolute -mt-20 w-full flex justify-center">
                 <div className="h-32 w-32">
-                  <img
-                    src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif"
-                    alt="image"
-                    className="rounded-full object-cover h-full w-full shadow-md"
-                  />
+                <Image src={shahedul} alt="image" className="rounded-full object-cover h-full w-full shadow-md"></Image>
                 </div>
               </div>
               <div className="px-6 mt-16 ">
