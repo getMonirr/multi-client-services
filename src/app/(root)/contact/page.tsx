@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const ContactPage = () => {
   return (
-    <div className="">
+    <div className="pb-5">
       <Image src={contactImage} className="mx-auto w-full" alt="about" />
       <div
         className="flex lg:flex-row flex-col gap-8 w-[90%] mx-auto pt-5"
@@ -121,17 +121,6 @@ const ContactPage = () => {
         </div>
       </div>
 
-      <div className="w-[50%] mx-auto my-10 border-4 ring-offset-black">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.7337278740374!2d90.41430150000001!3d23.721201000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8567826a2d5%3A0x5abe45bed741a85b!2s91%20B%20C%20C%20Rd%2C%20Dhaka%201203!5e0!3m2!1sen!2sbd!4v1693470644186!5m2!1sen!2sbd"
-          width="600"
-          height="450"
-          style={{ border: "0" }}
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
     </div>
   );
 };
