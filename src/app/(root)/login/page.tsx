@@ -6,7 +6,6 @@ import Link from "next/link";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
-import { signIn } from "next-auth/react";
 
 type Inputs = {
   email: string;
@@ -81,18 +80,12 @@ const Login = () => {
             Reset Password
           </Link>
           <p className="my-4">
-            Dont Have an Account?
+            Dont Have an Account?{" "}
             <Link href="/registration" className="text-orange-500 underline">
               Get Started
-            </Link>
+            </Link>{" "}
           </p>
         </form>
-        <button
-          onClick={() => signIn("google", { callbackUrl: "/" })}
-          className=" border border-gray-600  rounded-lg px-6 py-3"
-        >
-          Continue With Google
-        </button>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { navLinks } from "@/constant/Constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SimpleBtn from "../btn/SimpleBtn";
+import useAuth from "@/hooks/useAuth";
 import { signOut, useSession } from "next-auth/react";
 
 const Header = () => {
@@ -14,6 +15,8 @@ const Header = () => {
   const { data: session } = useSession();
   console.log(session);
 
+  // const {user}: null | any = useAuth();
+  // console.log(typeof user);
   // nav links generate
   const Links = navLinks.map(({ name, path }) => {
     const isActiveLinks = pathname == path;
@@ -101,7 +104,7 @@ const Header = () => {
                 >
                   {Links}
                   <SimpleBtn className="mr-4 bg-transparent">
-                    <Link href="/registration">Sing up</Link>
+                    <Link href="/registration">Sign up</Link>
                   </SimpleBtn>
                   <SimpleBtn className="">
                     <Link href="/login">Sign in</Link>
@@ -119,27 +122,12 @@ const Header = () => {
               <ul className="menu menu-horizontal px-1">{Links}</ul>
             </div>
             <div className="navbar-end">
-              {session ? (
-                <SimpleBtn className="hidden lg:block text-white">
-                  <Link href="#" onClick={() => signOut()}>
-                    Log out
-                  </Link>
-                </SimpleBtn>
-              ) : (
-                <>
-                  <SimpleBtn className="text-black mr-4 bg-transparent hidden lg:block hover:text-white">
-                    <Link
-                      href="/registration"
-                      className="text-black hover:text-white"
-                    >
-                      Registration
-                    </Link>
-                  </SimpleBtn>
-                  <SimpleBtn className="hidden lg:block text-white">
-                    <Link href="/login">Sign in</Link>
-                  </SimpleBtn>
-                </>
-              )}
+              <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white">
+                <Link href="/registration">Sign up</Link>
+              </SimpleBtn>
+              <SimpleBtn className="hidden lg:block text-white">
+                <Link href="/login">Sign in</Link>
+              </SimpleBtn>
               <a className="btn btn-ghost normal-case bg-transparent text-xl block lg:hidden">
                 Solutions
               </a>

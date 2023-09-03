@@ -15,7 +15,7 @@ import {
   updatePhoneNumber,
   updateProfile,
 } from "firebase/auth";
-import app from "../../firebase/firebase.config";
+import app from "../../firebase/firebase";
 
 type Props = {
   children: string | JSX.Element | JSX.Element[];
