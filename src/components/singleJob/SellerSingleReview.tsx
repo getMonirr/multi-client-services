@@ -6,13 +6,13 @@ import { FaStar } from "react-icons/fa";
 const SellerSingleReview = () => {
   return (
     <div className="flex gap-4 items-start mt-4 pt-8">
-      <div className="self-start w-1/3">
+      <div className="self-start lg:w-1/3">
         <Image
           alt="user image"
           src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif"
           width={200}
           height={200}
-          className="rounded-full w-20 h-20"
+          className="rounded-full w-96 h-auto lg:w-20 lg:h-20"
         />
       </div>
       <div>
