@@ -8,10 +8,12 @@ export const options: NextAuthOptions = {
   providers: [
     GoogleProvider({
       profile(profile) {
+        console.log(profile);
         return {
           ...profile,
           role: profile.role ?? "seller",
           id: profile.sub,
+          image: profile.picture,
         };
       },
       clientId: process.env.GoogleClientId as string,
@@ -77,7 +79,7 @@ export const options: NextAuthOptions = {
 
           return result;
         } else {
-          return existingUser;
+          return user;
         }
       }
     },

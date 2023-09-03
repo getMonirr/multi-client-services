@@ -6,6 +6,9 @@ import Link from "next/link";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
+import SocialLogin from "@/components/shared/SocialLogin/SocialLogin";
+import google from "../../../assets/google.png";
+import { signIn } from "next-auth/react";
 
 type Inputs = {
   email: string;
@@ -86,6 +89,18 @@ const Login = () => {
             </Link>{" "}
           </p>
         </form>
+        <div>
+          <button
+            onClick={() =>
+              signIn("google", { redirect: true, callbackUrl: "/" })
+            }
+            className="flex items-center justify-center border border-gray-400 px-8 my-4 w-full rounded-md py-1 gap-4"
+          >
+            {/* sign in with goole */}
+            <Image className="w-[32px]" src={google} alt="" />
+            <p>Continue With Google</p>
+          </button>
+        </div>
       </div>
     </div>
   );

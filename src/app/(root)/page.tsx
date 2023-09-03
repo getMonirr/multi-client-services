@@ -9,7 +9,6 @@ import { getServerSession } from "next-auth";
 
 const Home = async () => {
   const session = await getServerSession();
-  console.log({ session });
   return (
     <main>
       <Banner />
