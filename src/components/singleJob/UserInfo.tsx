@@ -18,11 +18,11 @@ const UserInfo = () => {
       <div>
         <div className="flex gap-4 items-center">
           <Link href="#">
-            <h4 className="text-xl font-bold">User displayName</h4>
+            <h4 className=" font-bold">User displayName</h4>
           </Link>
-          <p> @ user name</p>
+          <p className="text-sm"> @ user name</p>
         </div>
-        <div className="flex items-center gap-4 mt-2 divide-x-2">
+        <div className="flex items-center gap-4 mt-2 divide-x-2 text-sm">
           <div className="flex items-center gap-2">
             <FaStar />
             <span className="  font-bold">5</span>

@@ -1,17 +1,27 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Jobs } from "@/constant/Constant";
 import { FaEye } from "react-icons/fa";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+
 import Image from "next/image";
 
 const SearchJobs = () => {
+  const [tabIndex, setTabIndex] = useState(0);
+  const totalItems: number = Jobs.length;
+  const perPage: number = 10;
+  const currentPage: number = Math.ceil(totalItems / perPage);
+
   return (
     <div>
       <div>
-        <div className="tabs">
-          <a className="tab tab-lifted tab-active">Search</a>
-          <a className="tab tab-lifted">Save Job</a>
-        </div>
+        <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+          <TabList>
+            <Tab className="tab tab-lifted ">Search</Tab>
+            <Tab className="tab tab-lifted">Save Job</Tab>
+          </TabList>
+        </Tabs>
         <p className="p-4"> {Jobs.length} jobs found</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-auto">

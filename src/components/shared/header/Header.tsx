@@ -5,12 +5,38 @@ import { navLinks } from "@/constant/Constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SimpleBtn from "../btn/SimpleBtn";
+import useAuth from "@/hooks/useAuth";
+import { signOut, useSession } from "next-auth/react";
+import { FaBell } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
 
 const Header = () => {
   const pathname = usePathname();
 
+  // use auth
+  const { data: session } = useSession();
+  console.log(session);
+
+  // const {user}: null | any = useAuth();
+  // console.log(typeof user);
+
   // nav links generate
-  const Links = navLinks.map(({ name, path }) => {
+  // filter public and private links
+  const filterLinks = (
+    links: { name: string; path: string }[],
+    hasSession: boolean
+  ) => {
+    if (hasSession) {
+      return links;
+    } else {
+      return links.filter((link) => link.path !== "/dashboard");
+    }
+  };
+
+  // filter link that needs user authentication
+  const filteredLinks = filterLinks(navLinks, !!session);
+
+  const Links = filteredLinks.map(({ name, path }) => {
     const isActiveLinks = pathname == path;
     return (
       <li key={name} className="list-none">
@@ -43,6 +69,108 @@ const Header = () => {
       text: "digital marketing",
     },
   ];
+
+  // navLinks for authenticated user
+  const loggedUserLinks = (
+    <>
+      <div className="dropdown dropdown-end">
+        <label tabIndex={0} className="btn btn-ghost btn-circle">
+          <div className="indicator">
+            <FaBell className="h-6 w-6" />
+            <span className="badge badge-sm indicator-item">8</span>
+          </div>
+        </label>
+        <div
+          tabIndex={0}
+          className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+        >
+          <div className="card-bod">
+            <ul className="menu bg-base-200 w-56 rounded-box">
+              <li>
+                <Link href="#">
+                  <FaMessage />
+                  Your order has been updated
+                </Link>
+              </li>
+              <li>
+                <Link href="#">
+                  <FaMessage />
+                  Buyer messages
+                </Link>
+              </li>
+              <li>
+                <Link href="#">
+                  <FaMessage />
+                  Check order
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="dropdown dropdown-end">
+        <label tabIndex={0} className="btn btn-ghost btn-circle">
+          <div className="indicator">
+            <FaMessage className="h-6 w-6" />
+            <span className="badge badge-xs badge-primary bg-multi-secondary indicator-item"></span>
+          </div>
+        </label>
+        <div
+          tabIndex={0}
+          className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+        >
+          <div className="card-bod">
+            <ul className="menu bg-base-200 w-56 rounded-box">
+              <li>
+                <Link href="#">
+                  <FaMessage />
+                  Your order has been updated
+                </Link>
+              </li>
+              <li>
+                <Link href="#">
+                  <FaMessage />
+                  Buyer messages
+                </Link>
+              </li>
+              <li>
+                <Link href="#">
+                  <FaMessage />
+                  Check order
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="dropdown dropdown-end">
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <div className="w-10 rounded-full">
+            <img
+              src={
+                session?.user?.image ||
+                "https://avatars.githubusercontent.com/u/91216500?v=4"
+              }
+            />
+          </div>
+        </label>
+        <ul
+          tabIndex={0}
+          className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          <li>
+            <a className="justify-between">Profile</a>
+          </li>
+          <li>
+            <a>Settings</a>
+          </li>
+          <li>
+            <a onClick={() => signOut()}>Logout</a>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -95,31 +223,47 @@ const Header = () => {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-300 rounded-box w-52"
                 >
                   {Links}
-                  <SimpleBtn className="mr-4 bg-transparent">
-                    <Link href="/registration">Sing up</Link>
-                  </SimpleBtn>
-                  <SimpleBtn className="">
-                    <Link href="/login">Sign in</Link>
-                  </SimpleBtn>
+                  <div>
+                    {session ? (
+                      loggedUserLinks
+                    ) : (
+                      <div>
+                        <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white">
+                          <Link href="/registration">Register</Link>
+                        </SimpleBtn>
+                        <SimpleBtn className="hidden lg:block text-white">
+                          <Link href="/login">Sign in</Link>
+                        </SimpleBtn>
+                      </div>
+                    )}
+                  </div>
                 </ul>
               </div>
               <Link
                 className="bg-none font-bold text-xl hidden lg:block uppercase"
                 href="/"
               >
-                Solutions
+                Solution
               </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">{Links}</ul>
             </div>
             <div className="navbar-end">
-              <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white">
-                <Link href="/registration">Sing up</Link>
-              </SimpleBtn>
-              <SimpleBtn className="hidden lg:block text-white">
-                <Link href="/login">Sign in</Link>
-              </SimpleBtn>
+              <div className="hidden sm:flex">
+                {session ? (
+                  loggedUserLinks
+                ) : (
+                  <>
+                    <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white">
+                      <Link href="/registration">Register</Link>
+                    </SimpleBtn>
+                    <SimpleBtn className="hidden lg:block text-white">
+                      <Link href="/login">Sign in</Link>
+                    </SimpleBtn>
+                  </>
+                )}
+              </div>
               <a className="btn btn-ghost normal-case bg-transparent text-xl block lg:hidden">
                 Solutions
               </a>
