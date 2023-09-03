@@ -12,6 +12,7 @@ const Header = () => {
 
   // use auth
   const { data: session } = useSession();
+  console.log(session);
 
   // nav links generate
   const Links = navLinks.map(({ name, path }) => {

@@ -5,8 +5,11 @@ import PopularServices from "@/components/home/services/PopularServices";
 import Categories from "@/components/home/category/Categories";
 import Trending from "@/components/home/trending/Trending";
 import Teams from "@/components/home/team/Teams";
+import { getServerSession } from "next-auth";
 
-const Home = () => {
+const Home = async () => {
+  const session = await getServerSession();
+  console.log({ session });
   return (
     <main>
       <Banner />

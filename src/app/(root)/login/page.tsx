@@ -81,10 +81,10 @@ const Login = () => {
             Reset Password
           </Link>
           <p className="my-4">
-            Dont Have an Account?{" "}
+            Dont Have an Account?
             <Link href="/registration" className="text-orange-500 underline">
               Get Started
-            </Link>{" "}
+            </Link>
           </p>
         </form>
         <button
