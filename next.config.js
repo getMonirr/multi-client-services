@@ -25,6 +25,7 @@ module.exports = {
       "media.istockphoto.com",
       "images.unsplash.com",
       "cdn.tuk.dev",
+      "lh3.googleusercontent.com",
     ],
   },
 };

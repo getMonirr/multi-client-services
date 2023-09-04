@@ -22,10 +22,10 @@ export const options: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: {
-          label: "Username:",
+        email: {
+          label: "email:",
           type: "text",
-          placeholder: "your-cool-username",
+          placeholder: "your-cool-email",
         },
         password: {
           label: "Password:",
@@ -36,13 +36,13 @@ export const options: NextAuthOptions = {
       async authorize(credentials) {
         const user = {
           id: "42",
-          name: "Dave",
+          email: "new@example.com",
           password: "nextauth",
           role: "admin",
         };
 
         if (
-          credentials?.username === user.name &&
+          credentials?.email === user.email &&
           credentials?.password === user.password
         ) {
           return user;
@@ -81,6 +81,8 @@ export const options: NextAuthOptions = {
         } else {
           return user;
         }
+      } else {
+        return user;
       }
     },
   },

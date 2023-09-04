@@ -159,13 +159,13 @@ const Header = () => {
           className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
         >
           <li>
-            <a className="justify-between">Profile</a>
+            <Link href="/dashboard/profile">Profile</Link>
           </li>
           <li>
-            <a>Settings</a>
+            <Link href="/dashboard/update_profile">Settings</Link>
           </li>
           <li>
-            <a onClick={() => signOut()}>Logout</a>
+            <p onClick={() => signOut()}>Logout</p>
           </li>
         </ul>
       </div>
@@ -228,8 +228,13 @@ const Header = () => {
                       loggedUserLinks
                     ) : (
                       <div>
-                        <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white">
-                          <Link href="/registration">Register</Link>
+                        <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white text-black">
+                          <Link
+                            className="text-black hover:text-white"
+                            href="/registration"
+                          >
+                            Register
+                          </Link>
                         </SimpleBtn>
                         <SimpleBtn className="hidden lg:block text-white">
                           <Link href="/login">Sign in</Link>
@@ -256,7 +261,12 @@ const Header = () => {
                 ) : (
                   <>
                     <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white">
-                      <Link href="/registration">Register</Link>
+                      <Link
+                        className="text-black hover:text-white"
+                        href="/registration"
+                      >
+                        Register
+                      </Link>
                     </SimpleBtn>
                     <SimpleBtn className="hidden lg:block text-white">
                       <Link href="/login">Sign in</Link>

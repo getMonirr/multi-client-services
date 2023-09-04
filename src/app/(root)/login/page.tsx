@@ -23,7 +23,7 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const { email, password } = data;
     // signIn(email, password).then((result: any) => {
     //   if (result.user) {
@@ -36,6 +36,15 @@ const Login = () => {
     //     });
     //   }
     // });
+
+    await signIn("credentials", {
+      email,
+      password,
+    });
+  };
+  // handleGoogleSignIn
+  const handleGoogleSignIn: () => void = () => {
+    signIn("google", { redirect: true, callbackUrl: "/" });
   };
 
   return (
@@ -90,16 +99,7 @@ const Login = () => {
           </p>
         </form>
         <div>
-          <button
-            onClick={() =>
-              signIn("google", { redirect: true, callbackUrl: "/" })
-            }
-            className="flex items-center justify-center border border-gray-400 px-8 my-4 w-full rounded-md py-1 gap-4"
-          >
-            {/* sign in with goole */}
-            <Image className="w-[32px]" src={google} alt="" />
-            <p>Continue With Google</p>
-          </button>
+          <SocialLogin handleGoogleLogin={handleGoogleSignIn} />
         </div>
       </div>
     </div>

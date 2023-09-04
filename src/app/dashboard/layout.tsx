@@ -1,9 +1,8 @@
-
-import Sidebar from "@/components/shared/Sidebar/Sidebar";
 import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { MdOutlineClose } from "react-icons/md";
+import NextAuthProvider from "@/Context/NextAuthProvider";
+import DashboardLayouts from "@/components/Dashboard/layout/DashboardLayouts";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,16 +11,17 @@ export const metadata: Metadata = {
   description: "This is a multi-client services website",
 };
 
-
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={inter.className}>
-
-        <div className="flex gap-10">
+      <body className={`${inter.className} bg-multi-icon-bg`}>
+        {/* <div className="flex gap-10">
         <Sidebar />
         {children}
-        </div>
+        </div> */}
+        <NextAuthProvider>
+          <DashboardLayouts>{children}</DashboardLayouts>
+        </NextAuthProvider>
       </body>
     </html>
   );
