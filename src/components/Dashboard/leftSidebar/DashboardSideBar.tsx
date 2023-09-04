@@ -38,14 +38,14 @@ const DashboardSideBar = ({
   }
   return (
     <div
-      className={`w-60 bg-white fixed h-screen top-0  flex-col justify-between px-6 py-3 overflow-y-auto ${
+      className={`w-60 bg-white dark:bg-multi-title dark:text-white fixed h-screen top-0  flex-col justify-between px-6 py-3 overflow-y-auto ${
         isSidebarVisible ? "flex z-50" : "hidden sm:flex"
       }`}
     >
       <div className="text-black">
         <div>
           <div className="flex  justify-between items-center">
-            <h2 className="font-bold text-xl">Dashboard</h2>
+            <h2 className="font-bold text-xl dark:text-white">Dashboard</h2>
             <Image
               onClick={toggleSidebar}
               alt="image"
@@ -58,7 +58,7 @@ const DashboardSideBar = ({
               src={menu}
             />
           </div>
-          <div className="divider"></div>
+          <div className="divider after:dark:bg-multi-secondary before:dark:bg-multi-secondary"></div>
           <Profile />
         </div>
       </div>
@@ -67,12 +67,12 @@ const DashboardSideBar = ({
         <DashboardMenu links={filteredLinks} />
       </div>
       <div>
-        <div className="divider"></div>
+        <div className="divider after:dark:bg-multi-secondary before:dark:bg-multi-secondary"></div>
         <p className="font-bold my-4">Important Links</p>
         <DashboardMenu links={importanceLinks} />
       </div>
       <div>
-        <div className="divider"></div>
+        <div className="divider after:dark:bg-multi-secondary before:dark:bg-multi-secondary"></div>
         <div className="flex items-center justify-center">
           <SimpleBtn>
             <span
