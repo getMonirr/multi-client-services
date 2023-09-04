@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import NextAuthProvider from "@/Context/NextAuthProvider";
 import DashboardLayouts from "@/components/Dashboard/layout/DashboardLayouts";
+import ThemeProvider from "@/Context/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +20,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Sidebar />
         {children}
         </div> */}
-        <NextAuthProvider>
-          <DashboardLayouts>{children}</DashboardLayouts>
-        </NextAuthProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <NextAuthProvider>
+            <DashboardLayouts>{children}</DashboardLayouts>
+          </NextAuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

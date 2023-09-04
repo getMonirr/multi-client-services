@@ -38,7 +38,9 @@ const DashboardMenu = ({ links }: DashboardMenuProps) => {
                   <Icon
                     size={25}
                     className={`${
-                      isActive ? "text-multi-secondary" : "text-multi-paragraph"
+                      isActive
+                        ? "text-multi-secondary"
+                        : "text-multi-paragraph dark:text-white"
                     } p-1`}
                   />
                   <span className="text-sm">{name}</span>
