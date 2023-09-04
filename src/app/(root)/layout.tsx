@@ -5,6 +5,7 @@ import { Inter, Nunito, Open_Sans, Poppins } from "next/font/google";
 import Footer from "@/components/shared/Footer";
 import AuthProvider from "@/Context/AuthProvider";
 import NextAuthProvider from "@/Context/NextAuthProvider";
+import ThemeProvider from "@/Context/ThemeProvider";
 
 const open_sans = Open_Sans({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -28,9 +29,11 @@ const RootLayout = ({ children }: Props) => {
     <html lang="en" data-theme="light">
       <body className={`${open_sans.className} ${nunito.variable} bg-white`}>
         <NextAuthProvider>
-          <Header />
-          <AuthProvider>{children}</AuthProvider>
-          <Footer />
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Header />
+            <AuthProvider>{children}</AuthProvider>
+            <Footer />
+          </ThemeProvider>
         </NextAuthProvider>
       </body>
     </html>

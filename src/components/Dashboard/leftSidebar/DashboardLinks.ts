@@ -42,7 +42,7 @@ export const adminLinks = [
   },
   {
     name: "All Users",
-    path: "/dashboard/all_users",
+    path: "/dashboard/all-users",
     icon: FaUsers,
     count: 5,
   },

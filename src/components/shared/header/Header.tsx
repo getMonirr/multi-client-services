@@ -9,6 +9,8 @@ import useAuth from "@/hooks/useAuth";
 import { signOut, useSession } from "next-auth/react";
 import { FaBell } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
+import NotifyProfile from "./NotifyProfile";
+import { ThemeSwitcher } from "@/components/Theme/ThemeSwitcher";
 
 const Header = () => {
   const pathname = usePathname();
@@ -193,7 +195,7 @@ const Header = () => {
   return (
     <>
       <div
-        className={`bg-multi-icon-bg text-black sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out ${
+        className={`bg-multi-icon-bg dark:bg-multi-title text-black dark:text-white sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out ${
           isScrolled ? "py-0 shadow-2xl border-b-2" : "py-2"
         }`}
       >
@@ -225,12 +227,16 @@ const Header = () => {
                   {Links}
                   <div>
                     {session ? (
-                      loggedUserLinks
+                      <div className="flex items-center gap-4">
+                        <ThemeSwitcher />
+                        <NotifyProfile />
+                      </div>
                     ) : (
-                      <div>
+                      <div className="flex items-center gap-4">
+                        <ThemeSwitcher />
                         <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white text-black">
                           <Link
-                            className="text-black hover:text-white"
+                            className="text-black hover:text-white dark:text-white"
                             href="/registration"
                           >
                             Register
@@ -257,12 +263,16 @@ const Header = () => {
             <div className="navbar-end">
               <div className="hidden sm:flex">
                 {session ? (
-                  loggedUserLinks
+                  <div className="flex items-center gap-4">
+                    <ThemeSwitcher />
+                    <NotifyProfile />
+                  </div>
                 ) : (
-                  <>
+                  <div className="flex items-center gap-4">
+                    <ThemeSwitcher />
                     <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white">
                       <Link
-                        className="text-black hover:text-white"
+                        className="text-black hover:text-white dark:text-white"
                         href="/registration"
                       >
                         Register
@@ -271,7 +281,7 @@ const Header = () => {
                     <SimpleBtn className="hidden lg:block text-white">
                       <Link href="/login">Sign in</Link>
                     </SimpleBtn>
-                  </>
+                  </div>
                 )}
               </div>
               <a className="btn btn-ghost normal-case bg-transparent text-xl block lg:hidden">

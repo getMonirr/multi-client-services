@@ -25,7 +25,7 @@ const Profile = () => {
             </div>
           </div>
           <div>
-            <h2 className="font-bold text-gray-800 text-xs mb-1">
+            <h2 className="font-bold text-gray-800 text-xs mb-1 dark:text-white">
               {user?.name}
             </h2>
             <p className="text-gray-400 text-[11px]">{user?.email}</p>
@@ -55,7 +55,7 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="divider"></div>
+      <div className="divider after:dark:bg-multi-secondary before:dark:bg-multi-secondary"></div>
     </div>
   );
 };

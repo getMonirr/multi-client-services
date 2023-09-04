@@ -7,13 +7,13 @@ import { BsBell } from "react-icons/bs";
 const NotifyProfile = ({ className }: { className?: string }) => {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <button className="btn btn-ghost btn-circle bg-multi-icon-bg btn-sm">
+      <button className="btn btn-ghost btn-circle bg-multi-bg btn-sm">
         <div className="indicator">
           <BsBell size={20} />
           <span className="badge badge-xs badge-primary indicator-item"></span>
         </div>
       </button>
-      <button className="btn btn-ghost btn-circle bg-multi-icon-bg btn-sm">
+      <button className="btn btn-ghost btn-circle bg-multi-bg btn-sm">
         <div className="indicator">
           <AiOutlineMessage size={20} />
           <span className="badge badge-xs badge-primary indicator-item"></span>
