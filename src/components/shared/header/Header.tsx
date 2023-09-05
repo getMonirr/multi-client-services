@@ -72,108 +72,6 @@ const Header = () => {
     },
   ];
 
-  // navLinks for authenticated user
-  const loggedUserLinks = (
-    <>
-      <div className="dropdown dropdown-end">
-        <label tabIndex={0} className="btn btn-ghost btn-circle">
-          <div className="indicator">
-            <FaBell className="h-6 w-6" />
-            <span className="badge badge-sm indicator-item">8</span>
-          </div>
-        </label>
-        <div
-          tabIndex={0}
-          className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
-        >
-          <div className="card-bod">
-            <ul className="menu bg-base-200 w-56 rounded-box">
-              <li>
-                <Link href="#">
-                  <FaMessage />
-                  Your order has been updated
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <FaMessage />
-                  Buyer messages
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <FaMessage />
-                  Check order
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div className="dropdown dropdown-end">
-        <label tabIndex={0} className="btn btn-ghost btn-circle">
-          <div className="indicator">
-            <FaMessage className="h-6 w-6" />
-            <span className="badge badge-xs badge-primary bg-multi-secondary indicator-item"></span>
-          </div>
-        </label>
-        <div
-          tabIndex={0}
-          className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
-        >
-          <div className="card-bod">
-            <ul className="menu bg-base-200 w-56 rounded-box">
-              <li>
-                <Link href="#">
-                  <FaMessage />
-                  Your order has been updated
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <FaMessage />
-                  Buyer messages
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <FaMessage />
-                  Check order
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div className="dropdown dropdown-end">
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            <img
-              src={
-                session?.user?.image ||
-                "https://avatars.githubusercontent.com/u/91216500?v=4"
-              }
-            />
-          </div>
-        </label>
-        <ul
-          tabIndex={0}
-          className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-        >
-          <li>
-            <Link href="/dashboard/profile">Profile</Link>
-          </li>
-          <li>
-            <Link href="/dashboard/update_profile">Settings</Link>
-          </li>
-          <li>
-            <p onClick={() => signOut()}>Logout</p>
-          </li>
-        </ul>
-      </div>
-    </>
-  );
-
   const [isScrolled, setIsScrolled] = useState(false);
 
   // is used for scrolling
@@ -232,9 +130,9 @@ const Header = () => {
                         <NotifyProfile />
                       </div>
                     ) : (
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-4 flex-col">
                         <ThemeSwitcher />
-                        <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white text-black">
+                        <SimpleBtn className="bg-transparent block lg:hidden hover:text-white text-black">
                           <Link
                             className="text-black hover:text-white dark:text-white"
                             href="/registration"
@@ -242,7 +140,7 @@ const Header = () => {
                             Register
                           </Link>
                         </SimpleBtn>
-                        <SimpleBtn className="hidden lg:block text-white">
+                        <SimpleBtn className="block lg:hidden text-white">
                           <Link href="/login">Sign in</Link>
                         </SimpleBtn>
                       </div>
@@ -270,7 +168,7 @@ const Header = () => {
                 ) : (
                   <div className="flex items-center gap-4">
                     <ThemeSwitcher />
-                    <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white">
+                    <SimpleBtn className="bg-transparent hidden lg:block hover:text-white">
                       <Link
                         className="text-black hover:text-white dark:text-white"
                         href="/registration"
@@ -279,14 +177,22 @@ const Header = () => {
                       </Link>
                     </SimpleBtn>
                     <SimpleBtn className="hidden lg:block text-white">
-                      <Link href="/login">Sign in</Link>
+                      <Link
+                        className=" hover:text-white text-white"
+                        href="/login"
+                      >
+                        Log in
+                      </Link>
                     </SimpleBtn>
                   </div>
                 )}
               </div>
-              <a className="btn btn-ghost normal-case bg-transparent text-xl block lg:hidden">
+              <Link
+                href="/"
+                className="btn btn-ghost normal-case bg-transparent text-xl flex items-center lg:hidden"
+              >
                 Solutions
-              </a>
+              </Link>
             </div>
           </div>
         </RootContainer>
