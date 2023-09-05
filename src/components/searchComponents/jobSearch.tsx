@@ -1,18 +1,14 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { findJobs } from "@/constant/Constant";
-import { Tab, Tabs, TabList, } from "react-tabs";
+import React, { useState } from "react";
+import { Jobs } from "@/constant/Constant";
+import { FaEye } from "react-icons/fa";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import "swiper/css/navigation";
-import "swiper/css";
 
 import Image from "next/image";
 
-
 const SearchJobs = () => {
+
 
   const [pageData, setPageData] = useState<any>([])
   const [loading, setLoading] = useState<boolean>(false)
@@ -42,6 +38,12 @@ const SearchJobs = () => {
   // console.log(findJobs)
 
 
+  const [tabIndex, setTabIndex] = useState(0);
+  const totalItems: number = Jobs.length;
+  const perPage: number = 10;
+  const currentPage: number = Math.ceil(totalItems / perPage);
+
+
   return (
     <div>
       <div>
@@ -51,39 +53,23 @@ const SearchJobs = () => {
             <Tab className="tab tab-lifted">Save Job</Tab>
           </TabList>
         </Tabs>
-        <p className="p-4"> {findJobs.length} jobs found</p>
+        <p className="p-4"> {Jobs.length} jobs found</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-auto">
-        {pageData.map((job: any, i:number) => (
+        {Jobs.map((job, i) => (
           <div
             key={i}
             className="bg-white rounded overflow-hidden group shadow-md"
           >
-            <Swiper
-            navigation={true}
-            modules={[Navigation]}
-            spaceBetween={20}
-            className=" "
-             >
-              {
-                job.picture.map((image:any , index:number ) =>
-                <SwiperSlide
-                key={i}
-                >
-                  <div className="w-full h-52 border-b">
-                  <Image
-                  src={image}
-                  alt="Vercel Logo"
-                  className=""
-                  width={300}
-                  height={208}
-                  priority
-                />
-                  </div>
-                </SwiperSlide>)
-              }
-              
-            </Swiper>
+            <div className="relative">
+              <img src={job.cover_photo} className="w-full h-52" alt="" />
+
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+                <a className="text-white text-lg w-9 h-9 rounded-full bg-multi-secondary flex items-center justify-center hover:bg-gray-800 transition">
+                  <FaEye />
+                </a>
+              </div>
+            </div>
 
             <div className="pt-4 pb-3 px-4">
               <a href="">
@@ -103,23 +89,10 @@ const SearchJobs = () => {
               </div>
             </div>
             <button className="btn block w-full py-1 text-center text-white bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600">
-              Apply
+              Collaborate
             </button>
           </div>
         ))}
-      </div>
-
-      <div className="mt-10 text-center">
-        <p>Current Page {currentPage} </p>
-      {
-        pageNumber.map((page:number) => <button
-         className={currentPage === page ? "bg-white rounded-full p-2" : "rounded-full p-2 bg-blue-400 ml-2"}
-         key={page}
-         onChange={()=>pageHandle(page)}
-         >
-           {page} 
-         </button>)
-      }
       </div>
     </div>
   );
