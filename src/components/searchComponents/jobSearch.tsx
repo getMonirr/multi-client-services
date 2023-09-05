@@ -15,6 +15,7 @@ import Image from "next/image";
 const SearchJobs = () => {
 
   const [pageData, setPageData] = useState<any>([])
+  const [loading, setLoading] = useState<boolean>(false)
   // if(findJobs.length >= 10){
   //   setPageData(findJobs)
   // }
@@ -38,7 +39,7 @@ const SearchJobs = () => {
     const fastData = findJobs.splice(0 , perPage)
     setPageData(fastData)
   },[])
-  console.log(findJobs)
+  // console.log(findJobs)
 
 
   return (

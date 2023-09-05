@@ -17,14 +17,15 @@ const GitHubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }: Props) => {
     // const [user, setUser] = useState();
-    const [user, setUser] = useState<null>(null);
+     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState<boolean>(true);
+    
 
     const createUser: object = (email: string, password: string) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
-
+    
     const signIn: any = (email: string, password: string) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)

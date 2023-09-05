@@ -23,10 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-<<<<<<< HEAD
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "firebase/firebase.ts"],
-=======
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "firebase/firebase.config.ts", "src/app/(root)/error.js"],
->>>>>>> 66bc95ebcffb91c65d18d775e9b04bfb5a25fa20
   "exclude": ["node_modules"]
 }

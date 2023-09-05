@@ -11,6 +11,7 @@ const Header = () => {
   const pathname = usePathname();
   
   // const {user}: null | any = useAuth();
+  // const {user} = useAuth()
   // console.log(typeof user);
   // nav links generate
   const Links = navLinks.map(({ name, path }) => {
@@ -97,6 +98,7 @@ const Header = () => {
                   tabIndex={0}
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-300 rounded-box w-52"
                 >
+                  
                   {Links}
                   <SimpleBtn className="mr-4 bg-transparent">
                     <Link href="/registration">Sing up</Link>
