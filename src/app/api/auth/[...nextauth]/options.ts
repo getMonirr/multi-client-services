@@ -4,6 +4,7 @@ import connectMongoDB from "@/utils/connectMongoDB";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
+import bcrypt from "bcrypt";
 export const options: NextAuthOptions = {
   providers: [
     GoogleProvider({
@@ -34,17 +35,13 @@ export const options: NextAuthOptions = {
         },
       },
       async authorize(credentials) {
-        const user = {
-          id: "42",
-          email: "new@example.com",
-          password: "nextauth",
-          role: "admin",
-        };
+        await connectMongoDB();
 
-        if (
-          credentials?.email === user.email &&
-          credentials?.password === user.password
-        ) {
+        const user = await User.findOne({ email: credentials?.email });
+        const password: any = credentials?.password;
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+
+        if (credentials?.email === user?.email && isPasswordValid) {
           return user;
         } else {
           return null;
@@ -68,14 +65,14 @@ export const options: NextAuthOptions = {
     // save user into database
     async signIn({ user, account, profile }) {
       if (account?.provider === "google") {
-        const { email, name }: any = profile;
+        const { email, password, username }: any = profile;
 
         await connectMongoDB();
 
         const existingUser = await User.findOne({ email });
 
         if (!existingUser) {
-          const result = await postUser({ email, name });
+          const result = await postUser({ email, password, username });
 
           return result;
         } else {
