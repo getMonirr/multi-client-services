@@ -15,24 +15,20 @@ const AboutSeller = () => {
             <p className="font-bold">Bangladesh</p>
           </div>
           <div>
-            <p className="">From</p>
-            <p className="font-bold">Bangladesh</p>
+            <p className="">Avg. response time</p>
+            <p className="font-bold">1 Hour</p>
           </div>
           <div>
-            <p className="">From</p>
-            <p className="font-bold">Bangladesh</p>
+            <p className="">Languages</p>
+            <p className="font-bold">Urdu, English</p>
           </div>
           <div>
-            <p className="">From</p>
-            <p className="font-bold">Bangladesh</p>
+            <p className="">Member since</p>
+            <p className="font-bold">Aug 2018</p>
           </div>
           <div>
-            <p className="">From</p>
-            <p className="font-bold">Bangladesh</p>
-          </div>
-          <div>
-            <p className="">From</p>
-            <p className="font-bold">Bangladesh</p>
+            <p className="">Last delivery</p>
+            <p className="font-bold">about 2 hours</p>
           </div>
         </div>
         <div>

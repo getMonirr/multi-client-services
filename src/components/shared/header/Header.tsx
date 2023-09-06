@@ -5,12 +5,40 @@ import { navLinks } from "@/constant/Constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SimpleBtn from "../btn/SimpleBtn";
+import useAuth from "@/hooks/useAuth";
+import { signOut, useSession } from "next-auth/react";
+import { FaBell } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
+import NotifyProfile from "./NotifyProfile";
+import { ThemeSwitcher } from "@/components/Theme/ThemeSwitcher";
 
 const Header = () => {
   const pathname = usePathname();
 
+  // use auth
+  const { data: session } = useSession();
+  console.log(session);
+
+  // const {user}: null | any = useAuth();
+  // console.log(typeof user);
+
   // nav links generate
-  const Links = navLinks.map(({ name, path }) => {
+  // filter public and private links
+  const filterLinks = (
+    links: { name: string; path: string }[],
+    hasSession: boolean
+  ) => {
+    if (hasSession) {
+      return links;
+    } else {
+      return links.filter((link) => link.path !== "/dashboard");
+    }
+  };
+
+  // filter link that needs user authentication
+  const filteredLinks = filterLinks(navLinks, !!session);
+
+  const Links = filteredLinks.map(({ name, path }) => {
     const isActiveLinks = pathname == path;
     return (
       <li key={name} className="list-none">
@@ -65,7 +93,7 @@ const Header = () => {
   return (
     <>
       <div
-        className={`bg-multi-icon-bg text-black sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out ${
+        className={`bg-multi-icon-bg dark:bg-multi-title text-black dark:text-white sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out ${
           isScrolled ? "py-0 shadow-2xl border-b-2" : "py-2"
         }`}
       >
@@ -95,34 +123,76 @@ const Header = () => {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-300 rounded-box w-52"
                 >
                   {Links}
-                  <SimpleBtn className="mr-4 bg-transparent">
-                    <Link href="/registration">Sing up</Link>
-                  </SimpleBtn>
-                  <SimpleBtn className="">
-                    <Link href="/login">Sign in</Link>
-                  </SimpleBtn>
+                  <div>
+                    {session ? (
+                      <div className="flex items-center gap-4">
+                        <ThemeSwitcher />
+                        <NotifyProfile />
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-4 flex-col">
+                        <ThemeSwitcher />
+                        <SimpleBtn className="bg-transparent block lg:hidden hover:text-white text-black">
+                          <Link
+                            className="text-black hover:text-white dark:text-white"
+                            href="/registration"
+                          >
+                            Register
+                          </Link>
+                        </SimpleBtn>
+                        <SimpleBtn className="block lg:hidden text-white">
+                          <Link href="/login">Sign in</Link>
+                        </SimpleBtn>
+                      </div>
+                    )}
+                  </div>
                 </ul>
               </div>
               <Link
                 className="bg-none font-bold text-xl hidden lg:block uppercase"
                 href="/"
               >
-                Solutions
+                Solution
               </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">{Links}</ul>
             </div>
             <div className="navbar-end">
-              <SimpleBtn className="mr-4 bg-transparent hidden lg:block hover:text-white">
-                <Link href="/registration">Sing up</Link>
-              </SimpleBtn>
-              <SimpleBtn className="hidden lg:block text-white">
-                <Link href="/login">Sign in</Link>
-              </SimpleBtn>
-              <a className="btn btn-ghost normal-case bg-transparent text-xl block lg:hidden">
+              <div className="hidden sm:flex">
+                {session ? (
+                  <div className="flex items-center gap-4">
+                    <ThemeSwitcher />
+                    <NotifyProfile />
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-4">
+                    <ThemeSwitcher />
+                    <SimpleBtn className="bg-transparent hidden lg:block hover:text-white">
+                      <Link
+                        className="text-black hover:text-white dark:text-white"
+                        href="/registration"
+                      >
+                        Register
+                      </Link>
+                    </SimpleBtn>
+                    <SimpleBtn className="hidden lg:block text-white">
+                      <Link
+                        className=" hover:text-white text-white"
+                        href="/login"
+                      >
+                        Log in
+                      </Link>
+                    </SimpleBtn>
+                  </div>
+                )}
+              </div>
+              <Link
+                href="/"
+                className="btn btn-ghost normal-case bg-transparent text-xl flex items-center lg:hidden"
+              >
                 Solutions
-              </a>
+              </Link>
             </div>
           </div>
         </RootContainer>

@@ -29,7 +29,7 @@ const JobSlider = () => {
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="h-[400px]"
+        className="lg:h-[400px]"
       >
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-1.jpg" />

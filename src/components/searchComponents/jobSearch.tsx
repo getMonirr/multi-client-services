@@ -1,16 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { findJobs } from "@/constant/Constant";
+import {  findJobs } from "@/constant/Constant";
 import { Tab, Tabs, TabList } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import {FaStar} from "react-icons/fa"
 
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import "swiper/css/navigation";
-import "swiper/css";
-
-import Image from "next/image";
 
 const SearchJobs = () => {
   const [pageData, setPageData] = useState<any>([]);
@@ -125,7 +122,7 @@ const SearchJobs = () => {
               </div>
             </div>
             <button className="btn block w-full py-1 text-center text-white bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600">
-              Apply
+              Collaborate
             </button>
           </div>
         ))}
