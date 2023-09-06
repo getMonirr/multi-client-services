@@ -67,7 +67,7 @@ interface CustomUser {
   username: string;
   email: string;
   password: string;
-  profilePicture: string;
+  profilePicture: string | undefined;
   description: string;
   address: Address;
   languages: string[];
@@ -92,11 +92,13 @@ declare module "next-auth" {
 
   interface User extends DefaultUser {
     role?: "admin" | "seller" | "buyer" | undefined;
+    profilePicture?: string;
   }
 }
 
 declare module "next-auth/jwt" {
   interface JWT extends DefaultJWT {
     role?: "admin" | "seller" | "buyer" | undefined;
+    profilePicture?: string;
   }
 }

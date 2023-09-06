@@ -9,12 +9,12 @@ export const options: NextAuthOptions = {
   providers: [
     GoogleProvider({
       profile(profile) {
-        console.log(profile);
+        // customize the default profile
         return {
           ...profile,
           role: profile.role ?? "seller",
           id: profile.sub,
-          image: profile.picture,
+          profilePicture: profile.picture,
         };
       },
       clientId: process.env.GoogleClientId as string,
@@ -35,16 +35,27 @@ export const options: NextAuthOptions = {
         },
       },
       async authorize(credentials) {
-        await connectMongoDB();
+        try {
+          await connectMongoDB();
 
-        const user = await User.findOne({ email: credentials?.email });
-        const password: any = credentials?.password;
-        const isPasswordValid = await bcrypt.compare(password, user.password);
+          // find user from database by credentials information
+          const user = await User.findOne({ email: credentials?.email });
+          if (!user) throw new Error(`User not found`);
 
-        if (credentials?.email === user?.email && isPasswordValid) {
-          return user;
-        } else {
-          return null;
+          // comparer password for verification
+          const password: any = credentials?.password;
+          const isPasswordValid = await bcrypt.compare(password, user.password);
+
+          if (!isPasswordValid) throw new Error(`password is not valid`);
+
+          if (credentials?.email === user?.email && isPasswordValid) {
+            return user;
+          } else {
+            return null;
+          }
+        } catch (error: any) {
+          console.log(error);
+          throw new Error(error);
         }
       },
     }),
@@ -54,25 +65,45 @@ export const options: NextAuthOptions = {
     signIn: "/login",
   },
   callbacks: {
+    // customize the token object to use in the backend
     async jwt({ token, user }) {
-      if (user) token.role = user.role;
+      if (user) {
+        token.role = user.role;
+        token.profilePicture = user.profilePicture;
+      }
+
       return token;
     },
+    // customize the session object to use in the frontend
     async session({ session, token }) {
       session.user.role = token.role;
+      session.user.profilePicture = token.profilePicture;
+
       return session;
     },
-    // save user into database
+    // use callback to  save user into database
     async signIn({ user, account, profile }) {
       if (account?.provider === "google") {
-        const { email, password, username }: any = profile;
+        const { email, picture }: any = profile;
 
         await connectMongoDB();
 
+        // find user by email from database
         const existingUser = await User.findOne({ email });
 
         if (!existingUser) {
-          const result = await postUser({ email, password, username });
+          // generate a new username
+          const username = email.split("@")[0];
+          // save user in database
+          const result = await postUser({
+            email,
+            username,
+            password: "google_user", // default password
+            role: user.role || "seller", // default role
+            profilePicture: picture,
+          });
+          // for safety empty password field
+          result.password = "";
 
           return result;
         } else {
