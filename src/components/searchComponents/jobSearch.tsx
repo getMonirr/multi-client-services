@@ -87,7 +87,7 @@ const SearchJobs = () => {
                       priority
                     />
                 </div>
-                <div className="flex justify-between flex-grow">
+                <div className="flex justify-between flex-grow ">
                   <div>
                     <h2 className="text-lg text-gray-800 font-bold hover:text-red-600">
                       {job.name}
