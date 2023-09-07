@@ -11,66 +11,94 @@ const page = () => {
           <div className="">
             <div className="w-full h-[80px] rounded-full flex items-center">
               <div className="flex items-center">
-              <div>
-                <Image
-                  className="rounded-full ml-5"
-                  src={shahedul}
-                  width={44}
-                  height={44}
-                  alt="user"
-                ></Image>
-              </div>
-              <div className="ml-2">
-                <h2>Shahedul Islam</h2>
-                <p>Ceo of M Solution</p>
-              </div>
-              </div>
-            </div>
-            
-              
-              <div className="ml-5 mt-5">
-                <div className="relative">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="icon icon-tabler icon-tabler-search absolute inset-y-0 left-0 pl-2 py-1"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="#2c3e50"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                    <path d="M21 21l-6 -6" />
-                  </svg>
-                  <input
-                    type="text"
-                    placeholder="Search Freelancer here"
-                    className="pl-10 py-2 border rounded-lg"
-                  />
+                <div>
+                  <Image
+                    className="rounded-full ml-5"
+                    src={shahedul}
+                    width={44}
+                    height={44}
+                    alt="user"
+                  ></Image>
+                </div>
+                <div className="ml-2">
+                  <h2>Shahedul Islam</h2>
+                  <p>Ceo of M Solution</p>
                 </div>
               </div>
-              <div className="ml-5 mt-5">
-              <div className="flex items-center">
-              <div>
-                <Image
-                  className="rounded-full ml-5"
-                  src={shahedul}
-                  width={40}
-                  height={40}
-                  alt="user"
-                ></Image>
+            </div>
+
+            <div className="ml-5 mt-5">
+              <div className="relative">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-search absolute inset-y-0 left-0 pl-2 py-1"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="#2c3e50"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                  <path d="M21 21l-6 -6" />
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Search Freelancer here"
+                  className="pl-10 py-2 border rounded-lg"
+                />
               </div>
-              <div className="ml-2">
-                <h2>Shahedul Islam</h2>
-                <p>Ceo of M Solution</p>
+            </div>
+            <div className="ml-5 mt-5">
+              <div className="flex items-center mb-3">
+                <div>
+                  <Image
+                    className="rounded-full ml-5"
+                    src={shahedul}
+                    width={30}
+                    height={30}
+                    alt="user"
+                  ></Image>
+                </div>
+                <div className="ml-2">
+                  <h2>John Doe</h2>
+                  <p>Freelancer</p>
+                </div>
               </div>
+              <div className="flex items-center mb-3">
+                <div>
+                  <Image
+                    className="rounded-full ml-5"
+                    src={shahedul}
+                    width={30}
+                    height={30}
+                    alt="user"
+                  ></Image>
+                </div>
+                <div className="ml-2">
+                  <h2>Harry</h2>
+                  <p>Programmer</p>
+                </div>
               </div>
+              <div className="flex items-center mb-3">
+                <div>
+                  <Image
+                    className="rounded-full ml-5"
+                    src={shahedul}
+                    width={30}
+                    height={30}
+                    alt="user"
+                  ></Image>
+                </div>
+                <div className="ml-2">
+                  <h2>Nancy Agarwal</h2>
+                  <p>MERN Stack Developer</p>
+                </div>
               </div>
-            
+            </div>
           </div>
         </div>
         <div className="h-screen w-[100%] md:w-[60%]">
@@ -170,10 +198,9 @@ const page = () => {
           <div className="">
             <h2 className="text-xl">Md. Masum Billah</h2>
             <p>Junior Developer</p>
-            
           </div>
           <div className="mt-20">
-          <p>Jobs Completed-15</p>
+            <p>Jobs Completed-15</p>
           </div>
           <div>
             <p>Review: 4.5</p>
