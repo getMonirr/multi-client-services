@@ -1,10 +1,11 @@
 import person from "@/assets/dashboard/avatar.jpg";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { AiOutlineMessage } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
 
 const NotifyProfile = ({ className }: { className?: string }) => {
+  const { data: session } = useSession();
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <button className="btn btn-ghost btn-circle bg-multi-bg btn-sm">
@@ -22,7 +23,7 @@ const NotifyProfile = ({ className }: { className?: string }) => {
       <div className="dropdown dropdown-end">
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
           <div className="w-7 rounded-full ring ring-primary ring-offset-2 ">
-            <img src={person.src} />
+            <img src={session?.user?.profilePicture || person.src} />
           </div>
         </label>
         <ul

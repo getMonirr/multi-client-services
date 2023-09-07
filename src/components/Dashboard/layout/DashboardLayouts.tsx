@@ -1,14 +1,23 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DashboardSideBar from "../leftSidebar/DashboardSideBar";
 import TopNavbar from "../topNavbar/TopNavbar";
 
 const DashboardLayouts = ({ children }: { children: React.ReactNode }) => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <div className="flex bg-multi-icon-bg">
       {/* sidebar  */}

@@ -328,8 +328,13 @@ export const findJobs = [
   {
     name: "Alex Hales",
     username: "alex123",
-    picture: [
-      "https://img.freepik.com/free-photo/free-photo-ramadan-kareem-eid-mubarak-royal-elegant-lamp-with-mosque-holy-gate-with-fireworks_1340-23597.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
+
+    level: 2,
+    totalEarn: "90k",
+    totalHourRate: 89,
+    jobSuccuss: 95,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde, et reprehenderit perspiciatis sequi quisquam placeat delectus ipsam odio iste exercitationem repellendus",
+    picture: ["https://img.freepik.com/free-photo/free-photo-ramadan-kareem-eid-mubarak-royal-elegant-lamp-with-mosque-holy-gate-with-fireworks_1340-23597.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph" ,
 
       "https://img.freepik.com/free-photo/seeds-with-lit-bulb_1232-553.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
 
@@ -360,12 +365,17 @@ export const findJobs = [
     ratings: 4.8,
     price: 100,
   },
-
   {
     name: "John Doe",
     username: "johndoe123",
-    picture: [
-      "https://img.freepik.com/free-vector/artificial-intelligence-concept-webinar_23-2150376953.jpg?w=996&t=st=1691727539~exp=1691728139~hmac=788b3abd676cde026c9f5dd21129068716feb6c21686084c7c8bad1b164ddca6",
+
+    level: 2,
+    totalEarn: "90k",
+    totalHourRate: 89,
+    jobSuccuss: 95,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde, et reprehenderit perspiciatis sequi quisquam placeat delectus ipsam odio iste exercitationem repellendus.",
+    picture: ["https://img.freepik.com/free-vector/artificial-intelligence-concept-webinar_23-2150376953.jpg?w=996&t=st=1691727539~exp=1691728139~hmac=788b3abd676cde026c9f5dd21129068716feb6c21686084c7c8bad1b164ddca6",
+
 
       "https://img.freepik.com/free-photo/photographer-using-laptop_23-2148019151.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
 
@@ -395,12 +405,17 @@ export const findJobs = [
     ratings: 4.8,
     price: 200,
   },
-
   {
     name: "John Cena",
     username: "johncena123",
-    picture: [
-      "https://img.freepik.com/free-psd/accountant-concept-banner-template_23-2148626701.jpg?w=1060&t=st=1691727623~exp=1691728223~hmac=edc1991b60c55478caff97e66ee31e7fb597cdbf18cf1e168f8023daaa3228ba",
+
+    level: 3,
+    totalEarn: "90k",
+    totalHourRate: 89,
+    jobSuccuss: 95,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde, et reprehenderit perspiciatis sequi quisquam placeat delectus ipsam odio iste exercitationem repellendus.",
+    picture: ["https://img.freepik.com/free-psd/accountant-concept-banner-template_23-2148626701.jpg?w=1060&t=st=1691727623~exp=1691728223~hmac=edc1991b60c55478caff97e66ee31e7fb597cdbf18cf1e168f8023daaa3228ba" ,
+
 
       "https://img.freepik.com/premium-photo/herd-cows-alpine-pastures_112793-3531.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
 
@@ -431,12 +446,17 @@ export const findJobs = [
     ratings: 4.8,
     price: 500,
   },
-
   {
     name: "Virat Kolly",
     username: "johncena123",
-    picture: [
-      "https://img.freepik.com/free-psd/graphic-design-banner-template_23-2149008233.jpg?w=1060&t=st=1691727712~exp=1691728312~hmac=de75407f11cca5807c03abdbc10e5d61f87b37dae1454ec406f2c5cab38cfc36",
+
+    level: 2,
+    totalEarn: "90k",
+    totalHourRate: 89,
+    jobSuccuss: 95,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde, et reprehenderit perspiciatis sequi quisquam placeat delectus ipsam odio iste exercitationem repellendus.",
+    picture: ["https://img.freepik.com/free-psd/graphic-design-banner-template_23-2149008233.jpg?w=1060&t=st=1691727712~exp=1691728312~hmac=de75407f11cca5807c03abdbc10e5d61f87b37dae1454ec406f2c5cab38cfc36",
+
 
       "https://img.freepik.com/free-photo/miniature-businessman-map-europe_1401-341.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
 
@@ -470,8 +490,14 @@ export const findJobs = [
   {
     name: "Alex Hales",
     username: "alex123",
-    picture: [
-      "https://img.freepik.com/free-photo/free-photo-ramadan-kareem-eid-mubarak-royal-elegant-lamp-with-mosque-holy-gate-with-fireworks_1340-23597.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
+
+    level: 2,
+    totalEarn: "90k",
+    totalHourRate: 89,
+    jobSuccuss: 95,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde, et reprehenderit perspiciatis sequi quisquam placeat delectus ipsam odio iste exercitationem repellendus.",
+    picture: ["https://img.freepik.com/free-photo/free-photo-ramadan-kareem-eid-mubarak-royal-elegant-lamp-with-mosque-holy-gate-with-fireworks_1340-23597.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph" ,
+
 
       "https://img.freepik.com/free-photo/seeds-with-lit-bulb_1232-553.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
 
@@ -505,8 +531,12 @@ export const findJobs = [
   {
     name: "John Cena",
     username: "johncena123",
-    picture: [
-      "https://img.freepik.com/free-psd/accountant-concept-banner-template_23-2148626701.jpg?w=1060&t=st=1691727623~exp=1691728223~hmac=edc1991b60c55478caff97e66ee31e7fb597cdbf18cf1e168f8023daaa3228ba",
+
+    level: 1,
+    totalEarn: "90k",
+    totalHourRate: 89,
+    jobSuccuss: 95,
+    picture: ["https://img.freepik.com/free-psd/accountant-concept-banner-template_23-2148626701.jpg?w=1060&t=st=1691727623~exp=1691728223~hmac=edc1991b60c55478caff97e66ee31e7fb597cdbf18cf1e168f8023daaa3228ba" ,
 
       "https://img.freepik.com/premium-photo/herd-cows-alpine-pastures_112793-3531.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
 
@@ -536,6 +566,165 @@ export const findJobs = [
     ],
     ratings: 4.8,
     price: 500,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde, et reprehenderit perspiciatis sequi quisquam placeat delectus ipsam odio iste exercitationem repellendus."
+  },
+];
+
+export const relativeJob = [
+  {
+    name: "Alex Hales",
+    username: "alex123",
+    level: 2,
+    totalEarn: "90k",
+    totalHourRate: 89,
+    jobSuccuss: 95,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde, et reprehenderit perspiciatis sequi quisquam placeat delectus ipsam odio iste exercitationem repellendus",
+    picture: ["https://img.freepik.com/free-photo/free-photo-ramadan-kareem-eid-mubarak-royal-elegant-lamp-with-mosque-holy-gate-with-fireworks_1340-23597.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph" ,
+
+      "https://img.freepik.com/free-photo/seeds-with-lit-bulb_1232-553.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
+
+      "https://img.freepik.com/free-photo/time-is-money-concept-alarm-clock-lots-euro-coins_1401-456.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
+    ],
+
+    work_category: "Big Data Analysis",
+    reviews: [
+      {
+        reviewer: "Jane Smith",
+        comment:
+          "John did an amazing job on my project. His creativity and attention to detail are remarkable.",
+        rating: 4.8,
+      },
+      {
+        reviewer: "Mike Johnson",
+        comment:
+          "I was impressed by John's professionalism and quick turnaround. Definitely recommend!",
+        rating: 4.6,
+      },
+      {
+        reviewer: "Emily Brown",
+        comment:
+          "It was a pleasure working with John. He understood my requirements perfectly.",
+        rating: 5.0,
+      },
+    ],
+    ratings: 4.8,
+    price: 100,
+  },
+  {
+    name: "John Doe",
+    username: "johndoe123",
+    level: 2,
+    totalEarn: "90k",
+    totalHourRate: 89,
+    jobSuccuss: 95,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde, et reprehenderit perspiciatis sequi quisquam placeat delectus ipsam odio iste exercitationem repellendus.",
+    picture: ["https://img.freepik.com/free-vector/artificial-intelligence-concept-webinar_23-2150376953.jpg?w=996&t=st=1691727539~exp=1691728139~hmac=788b3abd676cde026c9f5dd21129068716feb6c21686084c7c8bad1b164ddca6",
+
+      "https://img.freepik.com/free-photo/photographer-using-laptop_23-2148019151.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
+
+      "https://img.freepik.com/free-photo/free-photo-ramadan-kareem-eid-mubarak-royal-elegant-lamp-with-mosque-holy-gate-with-fireworks_1340-23600.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
+    ],
+    work_category: "Data Scientist",
+    reviews: [
+      {
+        reviewer: "Jane Smith",
+        comment:
+          "John did an amazing job on my project. His creativity and attention to detail are remarkable.",
+        rating: 4.8,
+      },
+      {
+        reviewer: "Mike Johnson",
+        comment:
+          "I was impressed by John's professionalism and quick turnaround. Definitely recommend!",
+        rating: 4.6,
+      },
+      {
+        reviewer: "Emily Brown",
+        comment:
+          "It was a pleasure working with John. He understood my requirements perfectly.",
+        rating: 5.0,
+      },
+    ],
+    ratings: 4.8,
+    price: 200,
+  },
+  {
+    name: "John Cena",
+    username: "johncena123",
+    level: 3,
+    totalEarn: "90k",
+    totalHourRate: 89,
+    jobSuccuss: 95,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde, et reprehenderit perspiciatis sequi quisquam placeat delectus ipsam odio iste exercitationem repellendus.",
+    picture: ["https://img.freepik.com/free-psd/accountant-concept-banner-template_23-2148626701.jpg?w=1060&t=st=1691727623~exp=1691728223~hmac=edc1991b60c55478caff97e66ee31e7fb597cdbf18cf1e168f8023daaa3228ba" ,
+
+      "https://img.freepik.com/premium-photo/herd-cows-alpine-pastures_112793-3531.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
+
+      "https://img.freepik.com/free-photo/motion-speed-effect-with-city-night_1112-2014.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
+    ],
+
+    work_category: "Web Developer",
+    reviews: [
+      {
+        reviewer: "Jane Smith",
+        comment:
+          "John did an amazing job on my project. His creativity and attention to detail are remarkable.",
+        rating: 4.8,
+      },
+      {
+        reviewer: "Mike Johnson",
+        comment:
+          "I was impressed by John's professionalism and quick turnaround. Definitely recommend!",
+        rating: 4.6,
+      },
+      {
+        reviewer: "Emily Brown",
+        comment:
+          "It was a pleasure working with John. He understood my requirements perfectly.",
+        rating: 5.0,
+      },
+    ],
+    ratings: 4.8,
+    price: 500,
+  },
+  {
+    name: "Virat Kolly",
+    username: "johncena123",
+    level: 2,
+    totalEarn: "90k",
+    totalHourRate: 89,
+    jobSuccuss: 95,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde, et reprehenderit perspiciatis sequi quisquam placeat delectus ipsam odio iste exercitationem repellendus.",
+    picture: ["https://img.freepik.com/free-psd/graphic-design-banner-template_23-2149008233.jpg?w=1060&t=st=1691727712~exp=1691728312~hmac=de75407f11cca5807c03abdbc10e5d61f87b37dae1454ec406f2c5cab38cfc36",
+
+      "https://img.freepik.com/free-photo/miniature-businessman-map-europe_1401-341.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
+
+      "https://img.freepik.com/free-photo/motion-speed-effect-with-city-night_1112-2014.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
+    ],
+
+    work_category: "Graphics Designer",
+    reviews: [
+      {
+        reviewer: "Jane Smith",
+        comment:
+          "John did an amazing job on my project. His creativity and attention to detail are remarkable.",
+        rating: 4.8,
+      },
+      {
+        reviewer: "Mike Johnson",
+        comment:
+          "I was impressed by John's professionalism and quick turnaround. Definitely recommend!",
+        rating: 4.6,
+      },
+      {
+        reviewer: "Emily Brown",
+        comment:
+          "It was a pleasure working with John. He understood my requirements perfectly.",
+        rating: 5.0,
+      },
+    ],
+    ratings: 4.8,
+    price: 550,
   },
 ];
 
