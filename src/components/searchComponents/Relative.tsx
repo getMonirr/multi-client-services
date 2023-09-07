@@ -1,60 +1,19 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { findJobs } from "@/constant/Constant";
-import { Tab, Tabs, TabList } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
-import { FaStar } from "react-icons/fa";
-
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-
+import Image from 'next/image';
+import React from 'react';
+import { FaStar } from 'react-icons/fa';
+import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { relativeJob } from '@/constant/Constant';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import Relative from "./Relative";
 
-const SearchJobs = () => {
-  const [data , setData]= useState<any>(findJobs)
-  const [pageData, setPageData] = useState<any>([]);
-  // if(findJobs.length >= 10){
-  //   setPageData(findJobs)
-  // }
-  const [tabIndex, setTabIndex] = useState<number>(0);
-  const [currentPage, setCurrentPage] = useState<number>(0);
-  const totalItems: number = data.length;
-  const perPage: number = 10;
-  const totalPage: number = Math.ceil(totalItems / perPage);
-  const pageNumber: any = [...Array(20).keys()];
-  const userphoto =
+const Relative = () => {
+    const userphoto =
     "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?size=626&ext=jpg&ga=GA1.1.2077699082.1681132836&semt=sph";
-
-  const pageHandle = (page: number) => {
-    setCurrentPage(page);
-    const backData = currentPage * perPage;
-    const currentData = data.splice(backData, perPage);
-    setPageData(currentData);
-  };
-
-  useEffect(() => {
-    const fastData = data.splice(0, perPage);
-    setPageData(fastData);
-  }, []);
-  console.log(findJobs);
-
-  return (
-    <div>
-      <div>
-        <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-          <TabList>
-            <Tab className="tab tab-lifted ">Search</Tab>
-            <Tab className="tab tab-lifted">Save Job</Tab>
-          </TabList>
-        </Tabs>
-        <p className="p-4"> {data.length} jobs found</p>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-auto">
-        {pageData.map((job: any, i: number) => (
+    return (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mx-auto">
+        {relativeJob.map((job: any, i: number) => (
           <div
             key={i}
             className="bg-white rounded overflow-hidden group shadow-md"
@@ -142,30 +101,7 @@ const SearchJobs = () => {
           </div>
         ))}
       </div>
-
-      <div className="mt-10 text-center">
-        <div className="">
-          <button className="join-item btn">«</button>
-          <button className="join-item btn">Page{currentPage}</button>
-          <button className="join-item btn">»</button>
-        </div>
-        {pageNumber.map((page: number) => (
-          <button
-            className={
-              currentPage === page
-                ? "bg-white rounded-full p-2"
-                : "rounded-full p-2 bg-blue-400 ml-2"
-            }
-            key={page}
-            onClick={() => pageHandle(page)}
-          >
-            {page}
-          </button>
-        ))}
-      </div>
-      {/* <Relative/> */}
-    </div>
-  );
+    );
 };
 
-export default SearchJobs;
+export default Relative;
