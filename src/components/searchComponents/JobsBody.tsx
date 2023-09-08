@@ -43,6 +43,7 @@ const JobsBody = () => {
                 onChange={categoryHandle}
                 name="category"
                 className=" rounded-xl py-2 mr-4 pl-2"
+                
               >
                 {CategoryTitle.map((data, index) => (
                   <option value={data} key={index}>
