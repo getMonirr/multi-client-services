@@ -17,7 +17,7 @@ const Header = () => {
 
   // use auth
   const { data: session } = useSession();
-  console.log(session);
+  // console.log(session);
 
   // const {user}: null | any = useAuth();
   // console.log(typeof user);

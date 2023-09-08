@@ -12,6 +12,7 @@ import { Navigation } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import Link from "next/link";
 
 const SearchJobs = () => {
   const [data, setData] = useState<any>(findJobs);
@@ -38,7 +39,7 @@ const SearchJobs = () => {
   useEffect(() => {
     const fastData = data.splice(0, perPage);
     setPageData(fastData);
-  }, []);
+  }, [currentPage]);
   console.log(findJobs);
 
   return (
@@ -132,13 +133,16 @@ const SearchJobs = () => {
                 </div>
                 <p className=" font-bold bg-multi-primary py-2 px-4 text-white rounded-2xl">
                   {" "}
-                  Price: ${job.price}{" "}
+                  Price: ${job.price}
                 </p>
               </div>
             </div>
-            <button className="btn block w-full py-1 text-center text-white bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600">
-              Collaborate
-            </button>
+            <Link 
+            href={`/find-jobs/${i}`}
+            className="text-white btn  w-full py-1 text-center bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600 flex items-center" 
+          >
+           Collaborate
+            </Link>
           </div>
         ))}
       </div>
