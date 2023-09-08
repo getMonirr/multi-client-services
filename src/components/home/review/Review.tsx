@@ -33,28 +33,40 @@ const Review = () => {
       <Swiper
         autoplay
         modules={[Autoplay]}
-        slidesPerView={2.2}
+        slidesPerView={2}
         className=" mb-20 md:w-3/4 "
+        breakpoints={{
+          499: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 1,
+          },
+          1024: {
+            slidesPerView: 2,
+          },
+        }}
       >
         {recentReview.map((data) => (
           <SwiperSlide
-            className=" p-10 border rounded-3xl mr-10 bg-multi-icon-bg"
+            className="    "
             key={data.id}
           >
-            <div className=" flex gap-4  h-56 py-10">
+            <div className=" flex items-center gap-4 w-11/12 h-48 border p-10 rounded-3xl bg-multi-icon-bg">
               <div className="w-48   flex justify-center items-center ">
                 <Image
                   src={data.image}
                   alt="Vercel Logo"
-                  className="h-[100px] rounded-full"
-                  width={100}
-                  height={100}
+                  className="h-[75px] rounded-full"
+                  width={75}
+                  height={75}
+                  objectFit="fit"
                   priority
                 />
               </div>
               <div>
                 <h2 className="font-bold text-2xl">{data.client_name}</h2>
-                <div className="flex gap-4 my-2">
+                <div className="md:flex gap-4 my-2">
                   <Rating
                     style={{ maxWidth: 120 }}
                     value={Math.floor(data.rating)}

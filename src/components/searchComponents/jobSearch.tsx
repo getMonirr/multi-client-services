@@ -12,10 +12,10 @@ import { Navigation } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import Relative from "./Relative";
+import Link from "next/link";
 
 const SearchJobs = () => {
-  const [data , setData]= useState<any>(findJobs)
+  const [data, setData] = useState<any>(findJobs);
   const [pageData, setPageData] = useState<any>([]);
   // if(findJobs.length >= 10){
   //   setPageData(findJobs)
@@ -25,7 +25,7 @@ const SearchJobs = () => {
   const totalItems: number = data.length;
   const perPage: number = 10;
   const totalPage: number = Math.ceil(totalItems / perPage);
-  const pageNumber: any = [...Array(20).keys()];
+  const pageNumber: any = [...Array(10).keys()];
   const userphoto =
     "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?size=626&ext=jpg&ga=GA1.1.2077699082.1681132836&semt=sph";
 
@@ -39,7 +39,7 @@ const SearchJobs = () => {
   useEffect(() => {
     const fastData = data.splice(0, perPage);
     setPageData(fastData);
-  }, []);
+  }, [currentPage]);
   console.log(findJobs);
 
   return (
@@ -63,7 +63,7 @@ const SearchJobs = () => {
               navigation={true}
               modules={[Navigation]}
               spaceBetween={20}
-              className=" "
+              className=" custom-swiper-button"
             >
               {job.picture.map((image: any, i: number) => (
                 <SwiperSlide key={i}>
@@ -71,9 +71,10 @@ const SearchJobs = () => {
                     <Image
                       src={image}
                       alt="Vercel Logo"
-                      className=""
-                      width={300}
-                      height={208}
+                      className="w-full h-full"
+                      width={550}
+                      height={120}
+                      objectFit="cover"
                       priority
                     />
                   </div>
@@ -132,24 +133,26 @@ const SearchJobs = () => {
                 </div>
                 <p className=" font-bold bg-multi-primary py-2 px-4 text-white rounded-2xl">
                   {" "}
-                  Price: ${job.price}{" "}
+                  Price: ${job.price}
                 </p>
               </div>
             </div>
-            <button className="btn block w-full py-1 text-center text-white bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600">
-              Collaborate
-            </button>
+            <Link 
+            href={`/find-jobs/${i}`}
+            className="text-white btn  w-full py-1 text-center bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600 flex items-center" 
+          >
+           Collaborate
+            </Link>
           </div>
         ))}
       </div>
 
-      <div className="mt-10 text-center">
+      <div className="mt-10 text-right">
         <div className="">
-          <button className="join-item btn">«</button>
-          <button className="join-item btn">Page{currentPage}</button>
-          <button className="join-item btn">»</button>
-        </div>
-        {pageNumber.map((page: number) => (
+          {currentPage === 0 ? "" : <button onClick={() => setCurrentPage(currentPage - 1)} className="join-item btn">&#10094; prev</button>
+}
+          <button className="join-item btn">
+          {pageNumber.map((page: number) => (
           <button
             className={
               currentPage === page
@@ -162,6 +165,13 @@ const SearchJobs = () => {
             {page}
           </button>
         ))}
+          </button>
+            {
+              currentPage === pageNumber.length -1 ? "" : <button onClick={() => setCurrentPage(currentPage + 1)} className="join-item btn">next &#10095;</button>
+
+            }
+        </div>
+        
       </div>
       {/* <Relative/> */}
     </div>
