@@ -1,5 +1,6 @@
 "use client"
 import SimpleBtn from "@/components/shared/btn/SimpleBtn"
+import Link from "next/link"
 import { useState } from "react"
 
 const Description = () => {
@@ -46,8 +47,16 @@ const Description = () => {
                             </div>
                         </div>
                     }
+
+                    <SimpleBtn>
+                        <input type="submit" value="Save" />
+                    </SimpleBtn>
                 </form>
+
             </div>
+                <SimpleBtn className="mt-10">
+                    <Link href="/dashboard/create_my_service/publish">Save & Continue</Link>
+                </SimpleBtn>
         </>
     )
 }
