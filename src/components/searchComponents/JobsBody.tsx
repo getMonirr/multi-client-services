@@ -1,10 +1,10 @@
-
 import SearchJobs from "./jobSearch";
 import { CategoryTitle } from "@/constant/Constant";
 import { useState } from "react";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaAngleDown, FaAngleLeft } from "react-icons/fa";
 import Relative from "./Relative";
 import SectionStarter from "../shared/SectionStarter";
+import RootContainer from "../shared/RootContainer";
 
 const JobsBody = () => {
   const [categorys, setCategorys] = useState<string>("");
@@ -27,10 +27,10 @@ const JobsBody = () => {
   console.log(categoryOpen);
 
   return (
-    <div className="container mx-auto">
+    <RootContainer>
       <div className="my-20 grid grid-cols-1 md:grid-cols-4 gap-4 ">
         <div className="col-span-1 bg-gray-300 ">
-          <h2 className="font-bold text-4xl text-center capitalize bg-multi-secondary text-white py-4 ">
+          <h2 className="font-bold text-3xl text-center capitalize bg-multi-secondary text-white py-4 ">
             filter by
           </h2>
           <div
@@ -40,9 +40,9 @@ const JobsBody = () => {
             className="collapse "
           >
             <input type="checkbox" />
-            <div className="collapse-title flex justify-between text-xl mb-3 font-medium border-b-2 border-black">
+            <div className="collapse-title flex justify-between text-lg mb-3 font-medium border-b border-black border-opacity-20">
               <p>Category</p>
-              {categoryOpen ? <span>&#8659;</span> : <span>&#8656;</span>}
+              {categoryOpen ? <FaAngleDown /> : <FaAngleLeft />}
             </div>
             <div className="collapse-content">
               {CategoryTitle.map((data, index) => (
@@ -70,9 +70,9 @@ const JobsBody = () => {
             className="collapse "
           >
             <input type="checkbox" />
-            <div className="collapse-title flex justify-between text-xl mb-3 font-medium border-b-2 border-black">
+            <div className="collapse-title flex justify-between text-lg mb-3 font-medium border-b border-black border-opacity-20">
               <p>Post Time</p>
-              {postOpen ? <span>&#8659;</span> : <span>&#8656;</span>}
+              {postOpen ? <FaAngleDown /> : <FaAngleLeft />}
             </div>
             <div className="collapse-content">
               {postTimes.map((data, index) => (
@@ -100,9 +100,9 @@ const JobsBody = () => {
             className="collapse "
           >
             <input type="checkbox" />
-            <div className="collapse-title flex justify-between text-xl mb-3 font-medium border-b-2 border-black">
+            <div className="collapse-title flex justify-between text-lg mb-3 font-medium border-b border-black border-opacity-20">
               <p>Experience level</p>
-              {experienceOpen ? <span>&#8659;</span> : <span>&#8656;</span>}
+              {experienceOpen ? <FaAngleDown /> : <FaAngleLeft />}
             </div>
             <div className="collapse-content">
               {experienceData.map((data, index) => (
@@ -130,9 +130,9 @@ const JobsBody = () => {
             className="collapse "
           >
             <input type="checkbox" />
-            <div className="collapse-title flex justify-between text-xl mb-3 font-medium border-b-2 border-black">
+            <div className="collapse-title flex justify-between text-lg mb-3 font-medium border-b border-black border-opacity-20">
               <p>Prices</p>
-              {priceOpen ? <span>&#8659;</span> : <span>&#8656;</span>}
+              {priceOpen ? <FaAngleDown /> : <FaAngleLeft />}
             </div>
             <div className="collapse-content">
               {priceData.map((data, index) => (
@@ -167,7 +167,7 @@ const JobsBody = () => {
               </p>
             )}
             {postTime && (
-              <p 
+              <p
                 onClick={() => {
                   setPostTime("");
                 }}
@@ -205,7 +205,7 @@ const JobsBody = () => {
         <SectionStarter title="Relative jobs" description="" />
         <Relative />
       </div>
-    </div>
+    </RootContainer>
   );
 };
 

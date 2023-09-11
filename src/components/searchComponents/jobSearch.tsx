@@ -41,7 +41,7 @@ const SearchJobs = () => {
     setPageData(fastData);
   }, []);
   // console.log(findJobs);
-
+ 
   return (
     <div>
       <div>
