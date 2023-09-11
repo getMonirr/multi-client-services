@@ -26,15 +26,22 @@ const DashboardSideBar = ({
   // filtered links by user role
   let filteredLinks;
 
-  switch (role) {
-    case "admin":
-      filteredLinks = adminLinks;
-      break;
-    case "buyer":
-      filteredLinks = buyerLinks;
-    default:
-      filteredLinks = sellerLinks;
-      break;
+  // switch (role) {
+  //   case "admin":
+  //     filteredLinks = adminLinks;
+  //     break;
+  //   case "buyer":
+  //     filteredLinks = buyerLinks;
+  //   default:
+  //     filteredLinks = sellerLinks;
+  //     break;
+  // }
+  if (role == "admin") {
+    filteredLinks = adminLinks;
+  } else if (role == "buyer") {
+    filteredLinks = buyerLinks;
+  } else if (role == "seller") {
+    filteredLinks = sellerLinks;
   }
   return (
     <div
@@ -63,7 +70,9 @@ const DashboardSideBar = ({
         </div>
       </div>
       <div>
-        <p className="font-bold my-4">My Menu</p>
+        <p className="font-bold my-4">
+          <span className="capitalize">{role}</span> Menu
+        </p>
         <DashboardMenu links={filteredLinks} />
       </div>
       <div>
