@@ -3,7 +3,6 @@ import React, { createContext, useEffect, useState } from "react";
 import {
   GithubAuthProvider,
   GoogleAuthProvider,
-  NextOrObserver,
   User,
   createUserWithEmailAndPassword,
   getAuth,
@@ -22,41 +21,35 @@ type Props = {
 };
 
 export const AuthContext = createContext(null);
-const auth: any = getAuth(app);
+const auth = getAuth(app);
 
 const GoogleProvider = new GoogleAuthProvider();
 const GitHubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }: Props) => {
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<User | null | undefined>();
   const [loading, setLoading] = useState<boolean>(true);
 
-  const createUser: object = (email: string, password: string) => {
+  const createUser = (email: string, password: string) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const signIn: any = (email: string, password: string) => {
+  const signIn = (email: string, password: string) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const googleSignIn: any = () => {
+  const googleSignIn = () => {
     setLoading(true);
     return signInWithPopup(auth, GoogleProvider);
   };
-  const githubSignIn: any = () => {
+  const githubSignIn = () => {
     setLoading(true);
     return signInWithPopup(auth, GitHubProvider);
   };
 
-  const updateUserProfile: any = (name: string, picture: string) => {
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: picture,
-    });
-  };
-
+  
   const logOut: any = () => {
     setLoading(true);
     return signOut(auth);
@@ -84,11 +77,10 @@ const AuthProvider = ({ children }: Props) => {
     signIn,
     googleSignIn,
     logOut,
-    updateUserProfile,
     githubSignIn,
     reset_password,
   };
-  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
 };
 
 export default AuthProvider;
