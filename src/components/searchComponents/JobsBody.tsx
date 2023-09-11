@@ -1,3 +1,4 @@
+
 import SearchJobs from "./jobSearch";
 import { CategoryTitle } from "@/constant/Constant";
 import { useState } from "react";
@@ -40,7 +41,7 @@ const JobsBody = () => {
           >
             <input type="checkbox" />
             <div className="collapse-title flex justify-between text-xl mb-3 font-medium border-b-2 border-black">
-              <p>Category</p>{" "}
+              <p>Category</p>
               {categoryOpen ? <span>&#8659;</span> : <span>&#8656;</span>}
             </div>
             <div className="collapse-content">
@@ -70,7 +71,7 @@ const JobsBody = () => {
           >
             <input type="checkbox" />
             <div className="collapse-title flex justify-between text-xl mb-3 font-medium border-b-2 border-black">
-              <p>Post Time</p>{" "}
+              <p>Post Time</p>
               {postOpen ? <span>&#8659;</span> : <span>&#8656;</span>}
             </div>
             <div className="collapse-content">
@@ -100,7 +101,7 @@ const JobsBody = () => {
           >
             <input type="checkbox" />
             <div className="collapse-title flex justify-between text-xl mb-3 font-medium border-b-2 border-black">
-              <p>Experience level</p>{" "}
+              <p>Experience level</p>
               {experienceOpen ? <span>&#8659;</span> : <span>&#8656;</span>}
             </div>
             <div className="collapse-content">
@@ -130,7 +131,7 @@ const JobsBody = () => {
           >
             <input type="checkbox" />
             <div className="collapse-title flex justify-between text-xl mb-3 font-medium border-b-2 border-black">
-              <p>Prices</p>{" "}
+              <p>Prices</p>
               {priceOpen ? <span>&#8659;</span> : <span>&#8656;</span>}
             </div>
             <div className="collapse-content">
@@ -162,7 +163,7 @@ const JobsBody = () => {
                 }}
                 className="border cursor-pointer flex items-center gap-2 rounded-lg px-2 bg-gray-400"
               >
-                <span>{categorys}</span> <FaTimes />{" "}
+                <span>{categorys}</span> <FaTimes />
               </p>
             )}
             {postTime && (

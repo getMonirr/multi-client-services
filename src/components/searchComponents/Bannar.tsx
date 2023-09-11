@@ -9,7 +9,7 @@ import { BsSearch } from "react-icons/bs";
 const Bannar = () => {
   const [searchData , setSearchData] = useState('that will dynamic')
 
-  const searchHandle = (e: string) =>{
+  const searchHandle = (e:any) =>{
     e.preventDefault()
     const from = e.target.searche.value
     setSearchData(from)
@@ -28,17 +28,7 @@ const Bannar = () => {
           </p>
         </div>
         <div className="form-control absolute -bottom-6 inset-x-1/3">
-          {/* <div className="input-group shadow-2xl">
-            <input
-              type="text"
-              placeholder="Search…"
-              // className="input input-bordered"
-              className="px-4 w-full border text-black"
-            />
-            <button className="btn">
-              <FaSearch className="h-5 w-5" />
-            </button>
-          </div> */}
+          
           <form onSubmit={searchHandle} className="join">
             <input 
               className="input text-black shadow-xl input-bordered py-4 input-lg join-item bg-white rounded-tr-none rounded-br-none b w-full lg:w-[500px] placeholder:text-sm"

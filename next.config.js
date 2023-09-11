@@ -28,4 +28,7 @@ module.exports = {
       "lh3.googleusercontent.com",
     ],
   },
+  flags: {
+    DEV_SSR: false,
+  }
 };
