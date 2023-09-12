@@ -1,5 +1,6 @@
-import SimpleBtn from '@/components/shared/btn/SimpleBtn';
-import React from 'react';
+import SimpleBtn from "@/components/shared/btn/SimpleBtn";
+import React from "react";
+
 
 const Publish_service = ({ publish_data }: any) => {
     
@@ -18,6 +19,7 @@ const Publish_service = ({ publish_data }: any) => {
             </div>
         </div>
     );
-};
+
+
 
 export default Publish_service;

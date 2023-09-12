@@ -1,7 +1,7 @@
 import {
   deleteServiceById,
   updateServiceById,
-} from "@/controllers/services.controller";
+} from "@/controllers/service.controller";
 import { handleError } from "@/middleware/errorMiddleware";
 import { NextResponse } from "next/server";
 
