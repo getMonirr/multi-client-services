@@ -1,8 +1,8 @@
 import SimpleBtn from '@/components/shared/btn/SimpleBtn';
 import React from 'react';
 
-const Publish_service = ({ publish_data }: any) => {
-    
+const Publish_service = ({ handleServiceData, prev }: any) => {
+
     return (
         <div className='flex justify-center items-center'>
             <div>
@@ -10,11 +10,17 @@ const Publish_service = ({ publish_data }: any) => {
                 <p className='my-4 text-[20px] text-center text-gray-500'>Let's Publish your service and <br />
                     Get some buyer in rolling
                 </p>
-                <button onClick={publish_data}>
-                    
+                <div className='flex justify-center items-center'>
+                    <button className='btn' onClick={handleServiceData}>
+
                         Publish Your Service
-                    
-                </button>
+
+                    </button>
+                </div>
+
+                <div className='flex justify-center items-center mt-8'>
+                    <button onClick={prev} className='btn'>Previous</button>
+                </div>
             </div>
         </div>
     );

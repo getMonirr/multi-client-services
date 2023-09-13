@@ -1,11 +1,11 @@
 "use client"
 import React, { useState } from 'react';
+import Overview from '../dashboard/create_my_service/overview/page';
+import Pricing from '../dashboard/create_my_service/pricing/page';
+import Description from '../dashboard/create_my_service/description_and_faq/page';
+import Thumbnail from '../dashboard/create_my_service/thumbnail/page';
+import Publish_service from '../dashboard/create_my_service/publish/page';
 import Faq from '@/components/Dashboard/Faq/Faq';
-import Overview from './overview/page';
-import Pricing from './pricing/page';
-import Description from './description_and_faq/page';
-import Thumbnail from './thumbnail/page';
-import Publish_service from './publish/page';
 
 const page = () => {
     const formArray = [1, 2, 3, 4, 5, 6];

@@ -52,3 +52,7 @@
 .priceActive {
   @apply border-b-multi-secondary bg-white text-black border-b-4;
 }
+
+.btn {
+  @apply bg-blue-500 text-white hover:bg-blue-800 transition-all
+}

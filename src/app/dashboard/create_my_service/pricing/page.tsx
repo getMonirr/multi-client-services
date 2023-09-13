@@ -1,57 +1,46 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import SimpleBtn from "@/components/shared/btn/SimpleBtn";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./style.css";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
 
-const Pricing = ({setPricing}: object | any) => {
+const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
   const [toggle, setToggle] = useState(true);
+  // const [pricing, setPricing] = 
 
-  let data : string[] | any = [];
+  const [basic, setBasic] = useState({})
+  const [standard, setStandard] = useState({})
+  const [premium, setPremium] = useState({})
 
-  useEffect(() => {
-    setPricing(data)
-  },[])
+  const [basic_title, setbasic_title] = useState("")
+  const [standard_title, setstandard_title] = useState("")
+  const [premium_title, setpremium_title] = useState("")
 
+  const [basic_description, setbasic_description] = useState("")
+  const [standard_description, setstandard_description] = useState("")
+  const [premium_description, setpremium_description] = useState("")
 
-  // console.log(data);
+  const [basic_date, set_basic_date] = useState("")
+  const [standard_date, set_standard_date] = useState("")
+  const [premium_date, set_premium_date] = useState("")
 
-  // basic packages state 
-  const [basicPackage,setBasicPackage] = useState({})
-  const [standardPackage,setStandardPackage] = useState({})
-  const [premiumPackage,setPremiumPackage] = useState({})
+  console.log({ basic_title, basic_description, basic_date });
 
+  const savedData = () => {
+    setBasic({ basic_title, basic_description, basic_date });
+    setStandard({ standard_title, standard_description, standard_date });
+    setPremium({ premium_title, premium_description, premium_date });
+    pricing = [basic, standard, premium];
+  };
 
-  const { register, handleSubmit } = useForm()
+  console.log(pricing);
 
-  const basic_package_submit = (data: object) => {
-    // console.log(data);
-    setBasicPackage(data);
-  }
-
-  const standard_package_submit = (data: object) => {
-    // console.log(data);
-    setStandardPackage(data);
-  }
-
-  const premium_package_submit = (data: object) => {
-    // console.log(data);
-    setPremiumPackage(data);
-  }
-
-  const handleData = () => {
-    data = [basicPackage, standardPackage, premiumPackage]
-
-    console.log(data);
-  }
 
 
 
   return (
-    <div className="mt-10">
-      <div className="flex  items-center gap-10">
+    <div className="mt-[750px] lg:mt-10">
+      <div className="lg:flex  items-center gap-10">
         <h1 className="text-3xl font-bold">Pricing</h1>
         {toggle ? (
           <div onClick={() => setToggle(false)}>
@@ -63,9 +52,9 @@ const Pricing = ({setPricing}: object | any) => {
           </div>
         )}
       </div>
-      <div className="flex gap-10 mt-10">
+      <div className="lg:flex gap-10 mt-10">
         {/* Basic service */}
-        <form onSubmit={handleSubmit(basic_package_submit)} className="shadow-2xl p-10  w-96 ">
+        <div className="shadow-2xl p-10   w-full lg:w-96 ">
           <h1 className="text-2xl font-bold">Basic </h1>
 
           <div className="mt-4">
@@ -73,7 +62,7 @@ const Pricing = ({setPricing}: object | any) => {
               type="text"
               className="border w-full px-2 block py-4 text-lg"
               placeholder="Your Package Name"
-              {...register("name")}
+              onChange={(e) => setbasic_title(e.target.value)}
             />
           </div>
           <div className="mt-4">
@@ -81,27 +70,28 @@ const Pricing = ({setPricing}: object | any) => {
               type="text"
               className="border w-full px-2 block py-4 text-lg"
               placeholder="Short Description of your service"
-              {...register("description")}
+              onChange={(e) => setbasic_description(e.target.value)}
             />
           </div>
           <div className="mt-4">
             <label htmlFor="">Delivery Date</label>
-            <input
-              type="text"
-              className="border w-full px-2 block py-4 text-lg"
-              placeholder="Delivery in 2 days"
-              defaultValue={"Delivery In "}
-              {...register("time")}
-            />
+            <select onChange={(e) => set_basic_date(e.target.value)} name="" className="border block my-3 p-4 w-full" id="">
+              <option value="">Select</option>
+              <option value="1">1 Day</option>
+              <option value="2">2 Day</option>
+              <option value="3">3 Day</option>
+              <option value="4">4 Day</option>
+              <option value="5">5 Day</option>
+              <option value="6">6 Day</option>
+              <option value="7">7 Day</option>
+            </select>
           </div>
-          <SimpleBtn className="mt-6">
-            <input type="submit" value="Save" />
-          </SimpleBtn>
-        </form>
+
+        </div>
         {toggle && (
-          <div className="flex gap-10">
+          <div className="lg:flex gap-10">
             {/* Standard package */}
-            <form onSubmit={handleSubmit(standard_package_submit)} className="shadow-2xl p-10  w-96 ">
+            <div className="shadow-2xl p-10   w-full lg:w-96 ">
               <h1 className="text-2xl font-bold">Standard </h1>
 
               <div className="mt-4">
@@ -109,7 +99,7 @@ const Pricing = ({setPricing}: object | any) => {
                   type="text"
                   className="border w-full px-2 block py-4 text-lg"
                   placeholder="Your Package Name"
-                  {...register("name")}
+                  onChange={(e) => setstandard_title(e.target.value)}
                 />
               </div>
               <div className="mt-4">
@@ -117,25 +107,25 @@ const Pricing = ({setPricing}: object | any) => {
                   type="text"
                   className="border w-full px-2 block py-4 text-lg"
                   placeholder="Short Description of your service"
-                  {...register("description")}
+                  onChange={(e) => setstandard_description(e.target.value)}
                 />
               </div>
               <div className="mt-4">
                 <label htmlFor="">Delivery Date</label>
-                <input
-                  type="text"
-                  className="border w-full px-2 block py-4 text-lg"
-                  placeholder="Delivery in 2 days"
-                  defaultValue={"Delivery In "}
-                  {...register("time")}
-                />
+                <select onChange={(e) => set_standard_date(e.target.value)} name="" className="border block my-3 p-4 w-full" id="">
+                  <option value="">Select</option>
+                  <option value="1">1 Day</option>
+                  <option value="2">2 Day</option>
+                  <option value="3">3 Day</option>
+                  <option value="4">4 Day</option>
+                  <option value="5">5 Day</option>
+                  <option value="6">6 Day</option>
+                  <option value="7">7 Day</option>
+                </select>
               </div>
-              <SimpleBtn className="mt-6">
-                <input type="submit" value="Save" />
-              </SimpleBtn>
-            </form>
+            </div>
             {/* Premium service */}
-            <form onSubmit={handleSubmit(premium_package_submit)} className="shadow-2xl p-10  w-96 ">
+            <div className="shadow-2xl p-10   w-full lg:w-96 ">
               <h1 className="text-2xl font-bold">Premium </h1>
 
               <div className="mt-4">
@@ -143,7 +133,7 @@ const Pricing = ({setPricing}: object | any) => {
                   type="text"
                   className="border w-full px-2 block py-4 text-lg"
                   placeholder="Your Package Name"
-                  {...register("name")}
+                  onChange={(e) => setpremium_title(e.target.value)}
                 />
               </div>
               <div className="mt-4">
@@ -151,34 +141,44 @@ const Pricing = ({setPricing}: object | any) => {
                   type="text"
                   className="border w-full px-2 block py-4 text-lg"
                   placeholder="Short Description of your service"
-                  {...register("description")}
+                  onChange={(e) => setpremium_description(e.target.value)}
                 />
               </div>
               <div className="mt-4">
                 <label htmlFor="">Delivery Date</label>
-                <input
-                  type="text"
-                  className="border w-full px-2 block py-4 text-lg"
-                  placeholder="Delivery in 2 days"
-                  defaultValue={"Delivery In "}
-                  {...register("time")}
-                />
+                <select onChange={(e) => set_premium_date(e.target.value)} name="" className="border block my-3 p-4 w-full" id="">
+                  <option value="">Select</option>
+                  <option value="1">1 Day</option>
+                  <option value="2">2 Day</option>
+                  <option value="3">3 Day</option>
+                  <option value="4">4 Day</option>
+                  <option value="5">5 Day</option>
+                  <option value="6">6 Day</option>
+                  <option value="7">7 Day</option>
+                </select>
               </div>
-              <SimpleBtn className="mt-6">
-                <input type="submit" value="Save" />
-              </SimpleBtn>
-            </form>
+            </div>
           </div>
         )}
 
       </div>
-      <div onClick={handleData}>
-        <SimpleBtn className="mt-10">
-          {/* <Link className="m-10" href="/dashboard/create_my_service/thumbnail"> */}
-          Save & Continue
-          {/* </Link> */}
-        </SimpleBtn>
+      <div className="flex justify-between items-center mt-10">
+        <div onClick={prev}>
+          <SimpleBtn>
+            Previous
+          </SimpleBtn>
+        </div>
+        <div onClick={next}>
+          <div onClick={savedData}>
+            <SimpleBtn className="mt-10">
+              {/* <Link className="m-10" href="/dashboard/create_my_service/thumbnail"> */}
+              Next
+              {/* </Link> */}
+            </SimpleBtn>
+          </div>
+        </div>
       </div>
+
     </div>
   );
 };
