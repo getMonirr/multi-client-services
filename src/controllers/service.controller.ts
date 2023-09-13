@@ -1,5 +1,4 @@
-import Service from "@/models/services.model";
-import User from "@/models/users.model";
+import Service from "@/models/service.model";
 import connectMongoDB from "@/utils/connectMongoDB";
 import { NextResponse } from "next/server";
 
@@ -17,20 +16,10 @@ export const postService = async (serviceData: Object) => {
 export const getServicesByEmail = async (sellerEmail: string) => {
   await connectMongoDB();
 
-  // find seller
-  const seller = await User.findOne({ email: sellerEmail });
-
-  if (!seller) {
-    return NextResponse.json({
-      error: true,
-      message: "Seller not found for this email",
-    });
-  }
-
   // get all services for the seller
-  const services = await Service.find({ seller: seller._id }).populate(
-    "seller"
-  );
+  const services = await Service.find({ sellerEmail })
+    .populate("reviews.user") // Populate reviews.user field within the array
+    .populate("orderQueue.user"); // Populate orderQueue.user field within the array;
 
   if (!services || services.length === 0) {
     return NextResponse.json({
@@ -45,7 +34,9 @@ export const getServicesByEmail = async (sellerEmail: string) => {
 // get all services
 export const getServices = async () => {
   await connectMongoDB();
-  return Service.find({}).populate("seller");
+  return Service.find({})
+    .populate("reviews.user") // Populate reviews.user field within the array
+    .populate("orderQueue.user"); // Populate orderQueue.user field within the array;;
 };
 
 // update service by id

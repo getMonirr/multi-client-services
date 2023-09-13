@@ -1,5 +1,6 @@
-import SimpleBtn from '@/components/shared/btn/SimpleBtn';
-import React from 'react';
+import SimpleBtn from "@/components/shared/btn/SimpleBtn";
+import React from "react";
+
 
 const Publish_service = ({ handleServiceData, prev }: any) => {
 
@@ -24,6 +25,7 @@ const Publish_service = ({ handleServiceData, prev }: any) => {
             </div>
         </div>
     );
-};
+
+
 
 export default Publish_service;
