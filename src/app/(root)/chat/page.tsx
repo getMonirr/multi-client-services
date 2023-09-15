@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+
 import masum from "@/assets/teamImage/masum.jpg";
 import shahedul from "@/assets/teamImage/shahedul.jpg";
 import mehtaj from "@/assets/teamImage/mehtaj.jpg";
@@ -9,9 +10,13 @@ import shihab from "@/assets/teamImage/shihab.jpg";
 import { FaPaperPlane } from "react-icons/fa";
 import { GrAttachment } from "react-icons/gr";
 import { BsMic } from "react-icons/bs";
+import { CiSearch } from "react-icons/ci";
+import { AiOutlineBell } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 import RootContainer from "@/components/shared/RootContainer";
 
-const page = () => {
+
+const ChatPage = () => {
   return (
     <>
       <RootContainer>
@@ -58,7 +63,6 @@ const page = () => {
                     type="text"
                     placeholder="Search here"
                     className="pl-10 py-2 border rounded-lg w-56"
-                  
                   />
                 </div>
               </div>
@@ -108,27 +112,39 @@ const page = () => {
                     <p>React Developer</p>
                   </div>
                 </div>
-                
               </div>
             </div>
           </div>
           <div className="max-h-screen w-[100%] md:w-[60%]">
-            <div className="w-full h-[80%] flex flex-col">
-              <div className="my-2 bg-white flex items-center gap-2">
-                <div className="ml-5">
-                  <Image
-                    className="rounded-full"
-                    src={masum}
-                    width={60}
-                    height={60}
-                    alt="user"
-                  ></Image>
+            <div className="w-full h-[80%] flex flex-col ">
+              <div className="flex flex-col lg:flex-row  justify-between">
+                <div className="my-2 bg-white flex items-center gap-2">
+                  <div className="ml-5">
+                    <Image
+                      className="rounded-full"
+                      src={masum}
+                      width={60}
+                      height={60}
+                      alt="user"
+                    ></Image>
+                  </div>
+                  <div>
+                    <h3 className="text-lg">Md Masum Billah</h3>
+                  </div>
+                  <div>
+                    <div className="w-4 h-4 bg-success rounded-full border-2"></div>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg">Md Masum Billah</h3>
-                </div>
-                <div>
-                  <div className="w-4 h-4 bg-success rounded-full border-2"></div>
+                <div className="flex">
+                  <span>
+                    <CiSearch></CiSearch>
+                  </span>
+                  <span>
+                    <AiOutlineHeart></AiOutlineHeart>
+                  </span>
+                  <span>
+                    <AiOutlineBell></AiOutlineBell>
+                  </span>
                 </div>
               </div>
               <div className="h-[85%] border w-full overflow-y-scroll">
@@ -216,4 +232,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ChatPage;
