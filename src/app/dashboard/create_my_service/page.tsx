@@ -1,126 +1,87 @@
 "use client"
-import MultiStep from 'react-multistep'
-import Overview from "./overview/page"
-import SimpleBtn from "@/components/shared/btn/SimpleBtn"
-import Pricing from "./pricing/page"
-import Thumbnail from "./thumbnail/page"
-import Description from "./description_and_faq/page"
-import './style.css'
+import React, { useState } from 'react';
+import Faq from '@/components/Dashboard/Faq/Faq';
+import Overview from './overview/page';
+import Pricing from './pricing/page';
+import Description from './description_and_faq/page';
+import Thumbnail from './thumbnail/page';
 import Publish_service from './publish/page'
-import { useState } from 'react'
-import { useEffect } from 'react'
-import { Provider } from '@/Context/MultiStepFormContext'
-import { Steps } from "antd";
 
-const { Step } = Steps
+const page = () => {
+    const formArray = [1, 2, 3, 4, 5, 6];
+    const [formNo, setFormNo] = useState(formArray[0])
 
-const Create_service = () => {
-
-    const prevButton: any | React.ReactNode = <SimpleBtn className='mt-10 mr-[1000px]'>Previus</SimpleBtn>
+    let data: string[] | any =[]
 
 
-    const nextButton: any | React.ReactNode = <SimpleBtn>Next</SimpleBtn>
+    const [overview, setOverview] = useState({});
+    let pricing :  object = {}
+    console.log(pricing);
+    const [description, setDescription] = useState("")
+    const [faq, setFaq] = useState({})
+    // console.log(description);
 
-    
+    // console.log(pricing);
 
-    // Overview Page data
-
-    const overview_initial_state = {
-        title: "",
-        category: "",
-        sub_category: ""
+    const prev = () => {
+        setFormNo(formNo - 1)
     }
 
-    // pricing page data
-
-    let data: string[] | any = [];
-
-    const pricing_initial_state = [data]
-
-    const basic_package_initial_state = {
-        name: "",
-        description: "",
-        delivery_time: ""
+    const next = () => {
+        setFormNo(formNo + 1)
     }
 
-    const standard_package_initial_state = {
-        name: "",
-        description: "",
-        delivery_time: ""
+    const handleServiceData = () => {
+        if (overview || pricing || description || faq) {
+            data = [overview, pricing, description, faq]
+        }
+        console.log(data);
     }
-
-    const premium_package_initial_state = {
-        name: "",
-        description: "",
-        delivery_time: ""
-    }
-
-    useEffect(() => {
-        data = [basic_package_initial_state, standard_package_initial_state, premium_package_initial_state]
-    }, [])
-
-
-
-    // description
-
-    const description_inititla_state = {
-        description: ""
-    }
-
-    const [currentStep, setCurrentStep] = useState(0)
-
-
-
-    // const renderStep = (step: any) => {
-    //     switch (step) {
-    //         case 0:
-    //             return <Overview />;
-    //         case 1:
-    //             return <Pricing />;
-    //         case 2:
-    //             return <Description />;
-    //         case 3:
-    //             return <Thumbnail />
-    //         case 4:
-    //             return <Description />
-    //         case 5:
-    //             return <Publish_service />
-    //         default:
-    //             return null;
-    //     }
-    // };
-
-
-    
-    const [overview, setOverview] = useState(overview_initial_state);
-    const [pricing, setPricing] = useState(pricing_initial_state);
-    const [description, setDescription] = useState(description_inititla_state);
-    console.log(description);
-
-    const publish_data = () => {
-        const saved_data = [overview,pricing, description];
-        console.log(saved_data);
-    }
-    
-    const steps = [
-        { name: "", component: <Overview setOverview={setOverview}/> },
-        { name: "", component: <Pricing setPricing={setPricing}/> },
-        { name: "", component: <Thumbnail /> },
-        { name: "", component: <Description setDescription={setDescription}/> },
-        { name: "", component: <Publish_service publish_data={publish_data}/> },
-    ];
-
 
     return (
-        <div className='flex items-center justify-center'>
-            <MultiStep showNavigation={true} prevButton={{ title: prevButton }} nextButton={{ title: nextButton }} steps={steps} >
-
-            </MultiStep>
-            <Provider value={{ overview, setOverview, pricing, setPricing, description, setDescription }}>
-
-            </Provider>
+        <div>
+            <div className='flex justify-center items-center'>
+                {
+                    formArray.map((v, i) => <>
+                        <div
+                            className={`w-5 h-5 lg:w-[35px] my-3 text-white rounded-full 
+                    ${formNo - 1 === i
+                                    ||
+                                    formNo - 1 === i + 1
+                                    || formNo === formArray.length
+                                    ? 'bg-blue-500' : 'bg-slate-400'}
+                     h-[35px] flex justify-center items-center`
+                            }>
+                            {v}
+                        </div>
+                        {
+                            i !== formArray.length - 1 && <div className={`w-[60px] lg:w-[85px] h-[2px] ${formNo === i + 2 || formNo === formArray.length ? 'bg-blue-500' : 'bg-slate-400'}`}></div>
+                        }
+                    </>)
+                }
+            </div>
+            <div className=' h-[80%] m-auto shadow-xl py-10 px-16 rounded-xl'>
+                {
+                    formNo === 1 && <Overview next={next} setOverview={setOverview} />
+                }
+                {
+                    formNo === 2 && <Pricing prev={prev} next={next} pricing={pricing} />
+                }
+                {
+                    formNo === 3 && <Description next={next} prev={prev} setDescription={setDescription} />
+                }
+                {
+                    formNo === 4 && <Thumbnail next={next} prev={prev} />
+                }
+                {
+                    formNo === 5 && <Faq setFaq={setFaq} next={next} prev={prev} />
+                }
+                {
+                    formNo === 6 && <Publish_service handleServiceData={handleServiceData} prev={prev}/>
+                }
+            </div>
         </div>
-    )
-}
+    );
+};
 
-export default Create_service
+export default page;

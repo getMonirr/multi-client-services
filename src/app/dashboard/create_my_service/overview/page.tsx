@@ -1,18 +1,21 @@
 "use client"
-import FormContext from "@/Context/MultiStepFormContext";
 import SimpleBtn from "@/components/shared/btn/SimpleBtn";
-import Link from "next/link";
-import React, { useState , useContext} from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
 
-const Overview = ({setOverview} : any) => {
-    const [service_category, setService_category] = useState<string>("")
-    const [service_sub_category, setService_sub_category] = useState("")
+const Overview = ({ next, setOverview }: any) => {
 
-    // const setOverview : object | any = useContext(FormContext)
+    const [title, setTitle] = useState("");
+    const [category, setCategory] = useState("")
+    const [subCategory, setSubCategory] = useState("")
 
-    // console.log(setOverview);
+    // console.log({title, category, subCategory});
 
+    const handleData = () =>{
+        setOverview({title, category, setCategory})
+        
+    }
+
+    // console.log(state);
     const software_development_sub_category = [
         {
             value: "software_development",
@@ -35,7 +38,6 @@ const Overview = ({setOverview} : any) => {
             name: "Mobile app development"
         },
     ];
-
     const graphic_design_sub_category = [
         {
             name: "Logo Design",
@@ -54,7 +56,6 @@ const Overview = ({setOverview} : any) => {
             value: "ui_design"
         },
     ];
-
     const digital_marketing_sub_category = [
         {
             name: "Seo Marketing",
@@ -77,7 +78,6 @@ const Overview = ({setOverview} : any) => {
             value: "affiliate_marketing"
         },
     ];
-
     const business_sub_category = [
         {
             name: "ERP Management",
@@ -101,17 +101,10 @@ const Overview = ({setOverview} : any) => {
         },
     ]
 
-    const {register, handleSubmit} = useForm();
-
-    const onsubmit = (data : React.FormEventHandler<HTMLFormElement> | object) => {
-        console.log(data);
-        setOverview(data);
-    }
-
     return (
         <div>
             <h1 className="text-3xl font-bold">Overview</h1>
-            <form onSubmit={handleSubmit(onsubmit)} className="mt-8">
+            <div className="mt-8">
                 <div className="flex my-6 gap-10 items-center">
                     {/* Title */}
                     <div className="w-[300px]">
@@ -125,11 +118,11 @@ const Overview = ({setOverview} : any) => {
                     {/* Fields */}
                     <div className="w-[700px]">
                         <input
-                            {...register("service_name")}
                             type="text"
                             className="w-full px-4 pb-8 pt-2 rounded-lg border"
                             placeholder="I will do ......"
                             required
+                            onChange={(e) => setTitle(e.target.value)}
                         />
                     </div>
                 </div>
@@ -145,11 +138,11 @@ const Overview = ({setOverview} : any) => {
                     {/* Fields */}
                     <div className="flex gap-4">
                         <div className="w-[350px]">
-                            <select 
-                            className="border p-4 w-full"  
-                            {...register("service_category")}
-                            onChange={(e) => setService_category(e.target.value)}
+                            <select
+                                onChange={(e) => setCategory(e.target.value)}
+                                className="border p-4 w-full"
                             >
+                                <option value="">Select</option>
                                 <option value="Programming & tech">Programming & tech</option>
                                 <option value="Graphic Design">Graphic Design</option>
                                 <option value="Digital Marketing">Digital Marketing</option>
@@ -157,10 +150,11 @@ const Overview = ({setOverview} : any) => {
                             </select>
                         </div>
                         <div className="w-[350px]">
-                            <select 
-                            className="border p-4 w-full"
-                            {...register("service_sub_category")}
+                            <select
+                                onChange={(e) => setSubCategory(e.target.value)}
+                                className="border p-4 w-full"
                             >
+                                <option value="">Select</option>
                                 <option value="Software development">Software development</option>
                                 <option value="Website development">Website development</option>
                                 <option value="Game Development">Game Development</option>
@@ -171,12 +165,14 @@ const Overview = ({setOverview} : any) => {
                         </div>
                     </div>
                 </div>
-                <SimpleBtn>
-                    {/* <Link href="/dashboard/create_my_service/pricing"> */}
-                    <input type="submit" value="Save and Continue" />
-                    {/* </Link> */}
-                </SimpleBtn>
-            </form>
+                <div onClick={handleData} className="flex justify-end">
+                    
+
+                        <button onClick={next} className='btn'>Next</button>
+
+                    
+                </div>
+            </div>
         </div>
     );
 };
