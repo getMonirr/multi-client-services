@@ -2,14 +2,18 @@
 import { useStripe, CardElement, useElements } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import SimpleBtn from "../shared/btn/SimpleBtn";
+import Swal from "sweetalert2";
 
 const ChackOut = () => {
   const [cardError, setCardError] = useState<string>("");
+  const [paymentId, setPaymentId] = useState<string>("")
   const stripe = useStripe();
   const elements = useElements();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setPaymentId("")
+    setCardError("")
 
     if (!stripe || !elements) {
       return;
@@ -36,6 +40,16 @@ const ChackOut = () => {
       const err: string = error.message;
       setCardError(err);
     } else {
+      if(paymentMethod.id){
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: `your Payment is successfull `,
+          showConfirmButton: false,
+          timer: 2500
+        })
+        setPaymentId(paymentMethod.id)
+      }
       console.log("payment method", paymentMethod);
     }
   };
@@ -50,7 +64,8 @@ const ChackOut = () => {
             Confram Pay
           </button>
         </div>
-        {cardError && <div className="text-red-500 mt-6 ">{cardError}</div>}
+        {paymentId && <p className=" text-lg mt-6">your payment id:  <span className="text-green-500">({paymentId})</span></p>}
+        {cardError && <p className="text-red-500 mt-6 ">{cardError}</p>}
       </form>
     </div>
   );
