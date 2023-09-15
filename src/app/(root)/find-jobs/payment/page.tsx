@@ -133,7 +133,7 @@ const Payment = () => {
             </div>
             <div className="my-6 text-xl border-b border-opacity-40 pb-4 mb-20">
               <p className="flex justify-between items-center">Service fee <span>${tex}</span> </p>
-              <p className="flex justify-between items-center py-4">Total <span>${totalPrice}</span> </p>
+              <p className="flex justify-between items-center py-4 ">Total <span>${totalPrice}</span> </p>
             </div>
           </div>
         </div>
