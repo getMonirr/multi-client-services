@@ -62,9 +62,9 @@ const AboutPage = () => {
         </div>
       </div>
       <div className="border-2 border-multi-primary border-opacity-50 p-5 mt-5">
-        <div className="flex justify-between gap-4">
-          <Image src={whyImage} className="mx-auto w-1/2" alt="about" />
-          <div className="w-1/2">
+        <div className="flex flex-col md:flex-row justify-between gap-4">
+          <Image src={whyImage} className="mx-auto w-full md:w-1/2" alt="about" />
+          <div className="w-full md:w-1/2">
             <h2 className="">Why Solutions?</h2>
             <p>
               1. Diverse Talent Pool: We pride ourselves on hosting a diverse
@@ -101,8 +101,8 @@ const AboutPage = () => {
       </div>
 
       <div className="border-2 border-multi-primary border-opacity-50 p-5 mt-5">
-        <div className="flex justify-between gap-4">
-          <div className="w-1/2">
+        <div className="flex flex-col md:flex-row justify-between gap-4">
+          <div className="w-full md:w-1/2">
             <h2 className="text-2xl">Our Mission</h2>
             <p>
               At Solutions our mission is to empower freelancers and clients
@@ -111,7 +111,7 @@ const AboutPage = () => {
               growth, and we are here to make those connections happen.
             </p>
           </div>
-          <Image src={missionImage} className="w-1/2" alt="about" />
+          <Image src={missionImage} className="w-full md:w-1/2" alt="about" />
         </div>
       </div>
 
