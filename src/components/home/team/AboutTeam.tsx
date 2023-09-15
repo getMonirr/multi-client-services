@@ -15,13 +15,15 @@ const AboutTeam = () => {
       <h1 className="text-center text-3xl mt-3">Welcome Our Team</h1>
       <RootContainer>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 gap-y-32 mt-32">
-          <SingleMember />
-          
           <div className="w-full relative ">
             <div className="rounded overflow-hidden shadow-md bg-multi-bg">
               <div className="absolute -mt-20 w-full flex justify-center">
                 <div className="h-32 w-32">
-                <Image src={monir} alt="image" className="rounded-full object-cover h-full w-full shadow-md"></Image>
+                  <Image
+                    src={monir}
+                    alt="image"
+                    className="rounded-full object-cover h-full w-full shadow-md"
+                  ></Image>
                 </div>
               </div>
               <div className="px-6 mt-16 ">
@@ -58,7 +60,11 @@ const AboutTeam = () => {
             <div className="rounded overflow-hidden shadow-md bg-multi-bg">
               <div className="absolute -mt-20 w-full flex justify-center">
                 <div className="h-32 w-32">
-                <Image src={shahedul} alt="image" className="rounded-full object-cover h-full w-full shadow-md"></Image>
+                  <Image
+                    src={shahedul}
+                    alt="image"
+                    className="rounded-full object-cover h-full w-full shadow-md"
+                  ></Image>
                 </div>
               </div>
               <div className="px-6 mt-16 ">
@@ -95,7 +101,11 @@ const AboutTeam = () => {
             <div className="rounded overflow-hidden shadow-md bg-multi-bg">
               <div className="absolute -mt-20 w-full flex justify-center">
                 <div className="h-32 w-32">
-                <Image src={mehtaj} alt="image" className="rounded-full object-cover h-full w-full shadow-md"></Image>
+                  <Image
+                    src={mehtaj}
+                    alt="image"
+                    className="rounded-full object-cover h-full w-full shadow-md"
+                  ></Image>
                 </div>
               </div>
               <div className="px-6 mt-16 ">
@@ -132,8 +142,11 @@ const AboutTeam = () => {
             <div className="rounded overflow-hidden shadow-md bg-multi-bg">
               <div className="absolute -mt-20 w-full flex justify-center">
                 <div className="h-32 w-32">
-                  
-                  <Image src={masum} alt="image" className="rounded-full object-cover h-full w-full shadow-md"></Image>
+                  <Image
+                    src={masum}
+                    alt="image"
+                    className="rounded-full object-cover h-full w-full shadow-md"
+                  ></Image>
                 </div>
               </div>
               <div className="px-6 mt-16 ">

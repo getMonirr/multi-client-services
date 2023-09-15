@@ -2,6 +2,9 @@ import RootContainer from "@/components/shared/RootContainer";
 import SectionStarter from "@/components/shared/SectionStarter";
 import { BsCodeSlash } from "react-icons/bs";
 import SingleCategory from "./SingleCategory";
+import useSWR from "swr";
+import { fetcher } from "@/utils/swr/fetcher";
+import { headers } from "next/headers";
 
 const categoryItems = [
   {
@@ -53,8 +56,14 @@ const categoryItems = [
     skill: 11,
   },
 ];
+const getData = async (host: string | null) => {
+  const res = await fetch(`http://${host}/api/services?statistics='category'`);
+  return res.json();
+};
 
-const Categories = () => {
+const Categories = async () => {
+  const host = headers().get("host");
+  const data = await getData(host);
   return (
     <RootContainer>
       <div>
@@ -64,7 +73,7 @@ const Categories = () => {
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {/* generate all categories */}
-          {categoryItems.map((category, index) => (
+          {data?.data.map((category: any, index: number) => (
             <SingleCategory key={index} category={category} />
           ))}
         </div>
