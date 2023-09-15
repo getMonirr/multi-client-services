@@ -4,6 +4,7 @@ import { BsCodeSlash } from "react-icons/bs";
 import SingleCategory from "./SingleCategory";
 import useSWR from "swr";
 import { fetcher } from "@/utils/swr/fetcher";
+import { headers } from "next/headers";
 
 const categoryItems = [
   {
@@ -55,15 +56,14 @@ const categoryItems = [
     skill: 11,
   },
 ];
-const getData = async () => {
-  const res = await fetch(
-    "http://localhost:3000/api/services?statistics='category'"
-  );
+const getData = async (host: string | null) => {
+  const res = await fetch(`http://${host}/api/services?statistics='category'`);
   return res.json();
 };
 
 const Categories = async () => {
-  const data = await getData();
+  const host = headers().get("host");
+  const data = await getData(host);
   return (
     <RootContainer>
       <div>
