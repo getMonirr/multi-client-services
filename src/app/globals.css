@@ -19,13 +19,17 @@
 
  
 .custom-swiper-button .swiper-button-prev:after, .custom-swiper-button .swiper-button-next:after{
-  background-color: #226ce5;
-  color: black;
-  font-size: 20px !important;
-  padding: 2px 4px;
-  border-radius: 20px;
+  background-color: #0000009c;
+  color: white;
+  font-size: 12px !important;
+  padding:  10px;
+  border-radius: 50%;
 }
 
+.InputElement{
+  border: 2px ;
+  border-radius: 16px;
+}
 
 
 
