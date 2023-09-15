@@ -119,11 +119,11 @@ const SinglePrice = ({ name }: { name: string }) => {
             <div className="md:flex justify-between items-center">
               <p>
                 Gig Orders :
-                <span className="text-3xl text-red-700"> X{quantity}</span>
+                <span className="text-xl font-bold text-red-700"> X{quantity}</span>
               </p>
               <p className="mb-3">
                 Total Cost :
-                <span className="text-3xl text-red-700"> ${totalPrice}</span>
+                <span className="text-xl font-bold text-red-700"> ${totalPrice}</span>
               </p>
             </div>
 
