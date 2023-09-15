@@ -1,125 +1,159 @@
 import SearchJobs from "./jobSearch";
 import { CategoryTitle } from "@/constant/Constant";
 import { useState } from "react";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaAngleDown, FaAngleLeft } from "react-icons/fa";
 import Relative from "./Relative";
 import SectionStarter from "../shared/SectionStarter";
+import RootContainer from "../shared/RootContainer";
 
 const JobsBody = () => {
   const [categorys, setCategorys] = useState<string>("");
   const [postTime, setPostTime] = useState<string>("");
   const [experience, setExperience] = useState<string>("");
   const [price, setPrice] = useState<string>("");
-
-  const categoryHandle = (e: any) => {
-    setCategorys(e.target.value);
-  };
-
-  const timeHandle = (e: any) => {
-    setPostTime(e.target.value);
-  };
-
-  const experienceHandle = (e: any) => {
-    setExperience(e.target.value);
-  };
-
-  const priceHandle = (e: any) => {
-    setPrice(e.target.value);
-  };
+  const postTimes = ["a weeke ago", "2 weeke ago", "a month ago"];
+  const experienceData = ["Entry level", "Intermediate", "Expert"];
+  const priceData = [
+    "Less then 100$",
+    "100$ to 500$",
+    "500$ to 2k$",
+    "2k$ to 5k$",
+    "5k$+",
+  ];
+  const [categoryOpen, setCategoryOpen] = useState<boolean>(false);
+  const [postOpen, setPostOpen] = useState<boolean>(false);
+  const [experienceOpen, setExperienceOpen] = useState<boolean>(false);
+  const [priceOpen, setPriceOpen] = useState<boolean>(false);
+  console.log(categoryOpen);
 
   return (
-    <div className="container mx-auto">
+    <RootContainer>
       <div className="my-20 grid grid-cols-1 md:grid-cols-4 gap-4 ">
-        <form className="col-span-1 bg-gray-300 ">
-          <h2 className="font-bold text-4xl text-center capitalize bg-multi-secondary text-white py-4 ">
+        <div className="col-span-1 bg-gray-300 ">
+          <h2 className="font-bold text-3xl text-center capitalize bg-multi-secondary text-white py-4 ">
             filter by
           </h2>
-          <div className="ml-6 ">
-            <h3 className="text-lg py-4 border-b-2 border-black mb-3">
-              Category
-            </h3>
-            <div className="form-control">
-              <select
-                onChange={categoryHandle}
-                name="category"
-                className=" rounded-xl py-2 mr-4 pl-2"
-                
-              >
-                {CategoryTitle.map((data, index) => (
-                  <option value={data} key={index}>
-                    {data}
-                  </option>
-                ))}
-              </select>
-              {/* <button className="btn">Go</button> */}
+          <div
+            onClick={() => {
+              setCategoryOpen(!categoryOpen);
+            }}
+            className="collapse "
+          >
+            <input type="checkbox" />
+            <div className="collapse-title flex justify-between text-lg mb-3 font-medium border-b border-black border-opacity-20">
+              <p>Category</p>
+              {categoryOpen ? <FaAngleDown /> : <FaAngleLeft />}
+            </div>
+            <div className="collapse-content">
+              {CategoryTitle.map((data, index) => (
+                <div key={index} className="div-control mb-2">
+                  <label className=" flex items-center cursor-pointer">
+                    <input
+                      onChange={() => {
+                        setCategorys(data);
+                      }}
+                      type="radio"
+                      name="categorys"
+                      className="radio checked:bg-blue-500"
+                      value={data}
+                    />
+                    <span className="ml-4">{data}</span>
+                  </label>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="ml-6 mt-4">
-            <h3 className="text-lg   py-4 border-b-2 border-black mb-3">
-              Post Time
-            </h3>
-            <div className="form-control">
-              <select
-                onChange={timeHandle}
-                className="  rounded-xl py-2 mr-4 pl-2"
-              >
-                <option value={"a weeke ago"}>a weeke ago</option>
-                <option value={"2 weeke ago"}>2 weeke ago </option>
-                <option value={"a month ago"}>a month ago </option>
-              </select>
-              {/* <button className="btn">Go</button> */}
+          <div
+            onClick={() => {
+              setPostOpen(!postOpen);
+            }}
+            className="collapse "
+          >
+            <input type="checkbox" />
+            <div className="collapse-title flex justify-between text-lg mb-3 font-medium border-b border-black border-opacity-20">
+              <p>Post Time</p>
+              {postOpen ? <FaAngleDown /> : <FaAngleLeft />}
+            </div>
+            <div className="collapse-content">
+              {postTimes.map((data, index) => (
+                <div key={index} className="form-control mb-2">
+                  <label className=" flex items-center cursor-pointer">
+                    <input
+                      onChange={() => {
+                        setPostTime(data);
+                      }}
+                      type="radio"
+                      name="Post Time"
+                      className="radio checked:bg-blue-500"
+                      value={data}
+                    />
+                    <span className="ml-4">{data}</span>
+                  </label>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="ml-6 mt-4">
-            <h3 className="text-lg   py-4 border-b-2 border-black mb-3">
-              Experience level
-            </h3>
-            <div className="form-control">
-              <select
-                onChange={experienceHandle}
-                className="  rounded-xl py-2 mr-4 pl-2"
-              >
-                <option value={"Entry level"}>Entry level </option>
-                <option value={"Intermediate"}>Intermediate </option>
-                <option value={"Expert"}>Expert </option>
-              </select>
-              {/* <button className="btn">Go</button> */}
+          <div
+            onClick={() => {
+              setExperienceOpen(!experienceOpen);
+            }}
+            className="collapse "
+          >
+            <input type="checkbox" />
+            <div className="collapse-title flex justify-between text-lg mb-3 font-medium border-b border-black border-opacity-20">
+              <p>Experience level</p>
+              {experienceOpen ? <FaAngleDown /> : <FaAngleLeft />}
+            </div>
+            <div className="collapse-content">
+              {experienceData.map((data, index) => (
+                <div key={index} className="form-control mb-2">
+                  <label className=" flex items-center cursor-pointer">
+                    <input
+                      onChange={() => {
+                        setExperience(data);
+                      }}
+                      type="radio"
+                      name="Experience"
+                      className="radio checked:bg-blue-500"
+                      value={data}
+                    />
+                    <span className="ml-4">{data}</span>
+                  </label>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="ml-6 mt-4">
-            <h3 className="text-lg   py-4 border-b-2 border-black mb-3">
-              {" "}
-              Fixed price
-            </h3>
-            <div className="form-control">
-              <select
-                onChange={priceHandle}
-                className="  rounded-xl py-2 mr-4 pl-2"
-                name=""
-                id=""
-              >
-                <option value={"Select price"} className="label-text">
-                  Select price
-                </option>
-                <option value={"Less then 100$"} className="label-text">
-                  Less then 100$
-                </option>
-                <option value={"100$ to 500$"} className="label-text">
-                  100$ to 500$
-                </option>
-                <option value={"500$ to 2k$"} className="label-text">
-                  500$ to 2k$
-                </option>
-                <option value={"2k$ to 5k$"} className="label-text">
-                  2k$ to 5k$
-                </option>
-                <option value={"5k$+"} className="label-text">
-                  5k$+
-                </option>
-              </select>
+          <div
+            onClick={() => {
+              setPriceOpen(!priceOpen);
+            }}
+            className="collapse "
+          >
+            <input type="checkbox" />
+            <div className="collapse-title flex justify-between text-lg mb-3 font-medium border-b border-black border-opacity-20">
+              <p>Prices</p>
+              {priceOpen ? <FaAngleDown /> : <FaAngleLeft />}
+            </div>
+            <div className="collapse-content">
+              {priceData.map((data, index) => (
+                <div key={index} className="form-control mb-2">
+                  <label className=" flex items-center cursor-pointer">
+                    <input
+                      onChange={() => {
+                        setPrice(data);
+                      }}
+                      type="radio"
+                      name="Prices"
+                      className="radio checked:bg-blue-500"
+                      value={data}
+                    />
+                    <span className="ml-4">{data}</span>
+                  </label>
+                </div>
+              ))}
             </div>
           </div>
-        </form>
+        </div>
         <div className="col-span-3">
           <div className="flex gap-4  px-4 py-2 ">
             {categorys && (
@@ -127,9 +161,9 @@ const JobsBody = () => {
                 onClick={() => {
                   setCategorys("");
                 }}
-                className="border flex items-center gap-2 rounded-lg px-2 bg-gray-400"
+                className="border cursor-pointer flex items-center gap-2 rounded-lg px-2 bg-gray-400"
               >
-                <span>{categorys}</span> <FaTimes />{" "}
+                <span>{categorys}</span> <FaTimes />
               </p>
             )}
             {postTime && (
@@ -137,7 +171,7 @@ const JobsBody = () => {
                 onClick={() => {
                   setPostTime("");
                 }}
-                className="border flex items-center gap-2 rounded-lg px-2 bg-gray-400"
+                className="border cursor-pointer flex items-center gap-2 rounded-lg px-2 bg-gray-400"
               >
                 <span>{postTime}</span> <FaTimes />
               </p>
@@ -147,7 +181,7 @@ const JobsBody = () => {
                 onClick={() => {
                   setExperience("");
                 }}
-                className="border flex items-center gap-2 rounded-lg px-2 bg-gray-400"
+                className="border cursor-pointer flex items-center gap-2 rounded-lg px-2 bg-gray-400"
               >
                 <span>{experience}</span> <FaTimes />
               </p>
@@ -157,7 +191,7 @@ const JobsBody = () => {
                 onClick={() => {
                   setPrice("");
                 }}
-                className="border flex items-center gap-2 rounded-lg px-2 bg-gray-400"
+                className="border cursor-pointer flex items-center gap-2 rounded-lg px-2 bg-gray-400"
               >
                 <span>{price}</span> <FaTimes />
               </p>
@@ -171,7 +205,7 @@ const JobsBody = () => {
         <SectionStarter title="Relative jobs" description="" />
         <Relative />
       </div>
-    </div>
+    </RootContainer>
   );
 };
 
