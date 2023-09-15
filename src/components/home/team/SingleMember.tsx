@@ -8,8 +8,8 @@ type MemberProps = {
   img: any;
 };
 
-const SingleMember = ({ member }: { member: MemberProps }) => {
-  const { name, designation, img } = member;
+const SingleMember = ({ member }: { member?: MemberProps }) => {
+  const { name, designation, img } = member || {};
   return (
     <div className="w-full relative ">
       <div className="rounded overflow-hidden shadow-md bg-multi-bg">
