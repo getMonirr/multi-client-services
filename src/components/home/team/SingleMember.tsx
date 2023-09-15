@@ -16,7 +16,7 @@ const SingleMember = ({ member }: { member?: MemberProps }) => {
         <div className="absolute -mt-20 w-full flex justify-center">
           <div className="h-32 w-32">
             <Image
-              src={img.src}
+              src={img?.src}
               alt="image"
               className="rounded-full object-cover h-full w-full shadow-md"
               width={100}
