@@ -24,7 +24,8 @@ const Publish_service = ({ handleServiceData, prev }: any) => {
                 </div>
             </div>
         </div>
-    );
+    )
+};
 
 
 

@@ -8,29 +8,28 @@ const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
   const [toggle, setToggle] = useState(true);
   // const [pricing, setPricing] = 
 
-  const [basic, setBasic] = useState({})
-  const [standard, setStandard] = useState({})
-  const [premium, setPremium] = useState({})
+  let data = {}
 
-  const [basic_title, setbasic_title] = useState("")
-  const [standard_title, setstandard_title] = useState("")
-  const [premium_title, setpremium_title] = useState("")
+  const [basic, setBasic] = useState({});
+  const [standard, setStandard] = useState({});
+  const [premium, setPremium] = useState({});
 
-  const [basic_description, setbasic_description] = useState("")
-  const [standard_description, setstandard_description] = useState("")
-  const [premium_description, setpremium_description] = useState("")
+  const [basic_title, setbasic_title] = useState("");
+  const [standard_title, setstandard_title] = useState("");
+  const [premium_title, setpremium_title] = useState("");
 
-  const [basic_date, set_basic_date] = useState("")
-  const [standard_date, set_standard_date] = useState("")
-  const [premium_date, set_premium_date] = useState("")
+  const [basic_description, setbasic_description] = useState("");
+  const [standard_description, setstandard_description] = useState("");
+  const [premium_description, setpremium_description] = useState("");
 
-  console.log({ basic_title, basic_description, basic_date });
+  const [basic_date, set_basic_date] = useState("");
+  const [standard_date, set_standard_date] = useState("");
+  const [premium_date, set_premium_date] = useState("");
 
   const savedData = () => {
-    setBasic({ basic_title, basic_description, basic_date });
-    setStandard({ standard_title, standard_description, standard_date });
-    setPremium({ premium_title, premium_description, premium_date });
-    pricing = [basic, standard, premium];
+    // pricing = {basic, standard, premium};
+    data = {}
+    console.log(pricing);
   };
 
   console.log(pricing);
@@ -168,7 +167,7 @@ const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
             Previous
           </SimpleBtn>
         </div>
-        <div onClick={next}>
+        <div>
           <div onClick={savedData}>
             <SimpleBtn className="mt-10">
               {/* <Link className="m-10" href="/dashboard/create_my_service/thumbnail"> */}

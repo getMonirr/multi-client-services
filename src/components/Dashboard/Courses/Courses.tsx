@@ -3,7 +3,7 @@ import React from 'react';
 
 const Courses = () => {
     return (
-        <div>
+        <div className='my-16'>
             <h1 className='text-2xl font-bold'>Training or Courses</h1>
             <form>
                 <div className='flex gap-10 my-6'>

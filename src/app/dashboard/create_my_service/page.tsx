@@ -5,7 +5,7 @@ import Overview from './overview/page';
 import Pricing from './pricing/page';
 import Description from './description_and_faq/page';
 import Thumbnail from './thumbnail/page';
-import Publish_service from './publish/page';
+import Publish_service from './publish/page'
 
 const page = () => {
     const formArray = [1, 2, 3, 4, 5, 6];
@@ -15,7 +15,7 @@ const page = () => {
 
 
     const [overview, setOverview] = useState({});
-    let pricing : any | string[] = []
+    let pricing :  object = {}
     console.log(pricing);
     const [description, setDescription] = useState("")
     const [faq, setFaq] = useState({})
