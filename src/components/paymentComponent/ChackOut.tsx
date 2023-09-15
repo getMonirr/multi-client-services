@@ -5,7 +5,7 @@ import SimpleBtn from "../shared/btn/SimpleBtn";
 import Swal from "sweetalert2";
 
 const ChackOut = () => {
-  const [cardError, setCardError] = useState<string>("");
+  const [cardError, setCardError] = useState<any>("");
   const [paymentId, setPaymentId] = useState<string>("")
   const stripe = useStripe();
   const elements = useElements();
@@ -37,7 +37,7 @@ const ChackOut = () => {
 
     if (error) {
       console.log("error", error);
-      const err: string = error.message;
+      const err = error.message;
       setCardError(err);
     } else {
       if(paymentMethod.id){

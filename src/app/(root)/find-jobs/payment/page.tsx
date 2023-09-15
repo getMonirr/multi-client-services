@@ -22,8 +22,8 @@ const key =
 const stripePromise = loadStripe(key);
 
 const Payment = () => {
-  const [information, setAddInformation] = useState({});
-  const router = useRouter();
+  const [information, setAddInformation] = useState<any>();
+  // const router = useRouter();
   //  const {data } = router
   //  console.log(data)
   const name = "web development";
@@ -34,7 +34,7 @@ const Payment = () => {
   const tex = 2.5
   const totalPrice = price + tex
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm<any>();
   const onSubmit = (data: React.FormEvent) => {
     if (data) {
       Swal.fire({
@@ -72,9 +72,9 @@ const Payment = () => {
                   {information && (
                     <>
                       <span>
-                        {information.company} {information.state} 
-                        {information.address} {information.city} 
-                        {information.postCode} {information.country}
+                        {information?.company} {information?.state} 
+                        {information?.address} {information?.city} 
+                        {information?.postCode} {information?.country}
                       </span>{" "}
                     </>
                   )}
@@ -86,7 +86,7 @@ const Payment = () => {
                 <button
                   // className="btn"
                   onClick={() =>
-                    document.getElementById("my_modal_1").showModal()
+                    document?.getElementById("my_modal_1")?.showModal()
                   }
                 >
                   Add details

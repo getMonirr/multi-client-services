@@ -62,7 +62,7 @@ const SinglePrice = ({ name }: { name: string }) => {
       <div className="my-8">
         <SimpleBtn className="w-full text-white">
           <p
-            onClick={() => document.getElementById("my_modal_3").showModal()}
+            onClick={() => document?.getElementById("my_modal_3")?.showModal()}
             className="flex items-center justify-center gap-2 mx-auto"
           >
             Continue
