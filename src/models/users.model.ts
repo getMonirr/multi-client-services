@@ -140,6 +140,9 @@ const userSchema = new Schema({
       graduationYear: {
         type: Number,
       },
+      location: {
+        type: Number,
+      },
     },
   ],
   certifications: [

@@ -1,4 +1,6 @@
 import {
+  getCategoriesStatistic,
+  getPopularServices,
   getServices,
   getServicesByEmail,
   postService,
@@ -11,12 +13,22 @@ export const GET = async (req: Request) => {
   try {
     const { searchParams } = new URL(req.url);
     const sellerEmail = searchParams.get("email");
+    const popularCategories = searchParams.get("category");
+    const categoriesStatistic = searchParams.get("statistics");
+
+    // get popular categories services
 
     // get individual seller services
     if (sellerEmail) {
       const services = await getServicesByEmail(sellerEmail);
 
       return NextResponse.json({ success: true, data: services });
+    } else if (popularCategories) {
+      const popularServices = await getPopularServices();
+      return NextResponse.json({ success: true, data: popularServices });
+    } else if (categoriesStatistic) {
+      const categoriesStatistic = await getCategoriesStatistic();
+      return NextResponse.json({ success: true, data: categoriesStatistic });
     } else {
       // get all seller services
       const services = await getServices();
