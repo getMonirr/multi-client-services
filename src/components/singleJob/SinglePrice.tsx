@@ -1,4 +1,4 @@
-import { FaArrowRight, FaCheck, FaTimes } from "react-icons/fa";
+import { FaArrowRight, FaCheck } from "react-icons/fa";
 import { BiTime } from "react-icons/bi";
 import {
   RiLoopRightFill,
@@ -9,17 +9,25 @@ import {
 import SimpleBtn from "../shared/btn/SimpleBtn";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const SinglePrice = ({ name }: { name: string }) => {
+  // const router = useRouter();
   const price: number = 10;
   const [quantity, setQuantity] = useState<number>(1);
   const [totalPrice, setTotalPrice] = useState<number>(price);
   const delivery = "1 day ";
   const revision = "unlimited";
+  const paymentPage = {totalPrice, quantity}
   useEffect(() => {
     const priceCalculat = price * quantity;
     setTotalPrice(priceCalculat);
   }, [quantity]);
+
+  // const passData = () =>{
+  //   router.push(`/find-jobs/payment?data=${paymentPage}`)
+    
+  // }
 
   return (
     <div className="px-2">
@@ -65,8 +73,9 @@ const SinglePrice = ({ name }: { name: string }) => {
         </SimpleBtn>
       </div>
       <dialog id="my_modal_3" className="modal w-full ">
-        <div className="modal-box max-w-2xl relative">
-          <form method="dialog ">
+        <div className="modal-box max-w-4xl relative ">
+          
+          <form method="dialog " className="sticky -top-6 rounded-md bg-gray-100 p-4 " >
             <span className="font-bold text-xl ">Order Options </span>
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
@@ -107,14 +116,17 @@ const SinglePrice = ({ name }: { name: string }) => {
             </div>
           </div>
           <div className="bg-gray-200 p-3 text-xl  mt-10 rounded-xl">
-            <p className="mb-3">
-              Total Cost :{" "}
-              <span className="text-3xl text-red-700"> ${totalPrice}</span>
-            </p>
-            <p>
-              Gig Orders :{" "}
-              <span className="text-3xl text-red-700"> X{quantity}</span>
-            </p>
+            <div className="md:flex justify-between items-center">
+              <p>
+                Gig Orders :
+                <span className="text-3xl text-red-700"> X{quantity}</span>
+              </p>
+              <p className="mb-3">
+                Total Cost :
+                <span className="text-3xl text-red-700"> ${totalPrice}</span>
+              </p>
+            </div>
+
             <hr className="border-b border-black border-opacity-40 mt-3" />
             <div className="my-10 ">
               <p className=" mb-3 flex items-center gap-2">
@@ -133,8 +145,11 @@ const SinglePrice = ({ name }: { name: string }) => {
             <p>please payment confram</p>
 
             <SimpleBtn className="w-full text-white">
-              <Link href="/find-jobs/payment"
-              className="flex items-center md:py-4 md:text-xl justify-center gap-2 mx-auto">
+              <Link
+                // onClick={passData}
+                href={`/find-jobs/payment?data=${paymentPage}`}
+                className="flex items-center md:py-4 md:text-xl justify-center gap-2 mx-auto"
+              >
                 Continue
                 <span>
                   <FaArrowRight />
