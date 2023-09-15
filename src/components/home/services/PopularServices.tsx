@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,9 +18,24 @@ import {
 } from "@/constant/Constant";
 import RootContainer from "@/components/shared/RootContainer";
 import SinglePopularService from "./SinglePopularService";
+import useSWR from "swr";
+import { fetcher } from "@/utils/swr/fetcher";
+
+type SliderType = {
+  _id: string;
+  images: string[];
+  category: string;
+  title: string;
+};
 
 const PopularServices = () => {
   const { title, description } = popularServices;
+
+  const { data: popularCategories } = useSWR(
+    "/api/services?category='popular'",
+    fetcher
+  );
+
   return (
     <div className="mb-8">
       <RootContainer>
@@ -42,11 +58,12 @@ const PopularServices = () => {
             },
           }}
         >
-          {popularServicesSliderContent.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <SinglePopularService slide={slide} />
-            </SwiperSlide>
-          ))}
+          {popularCategories?.data &&
+            popularCategories?.data.map((slide: SliderType, index: number) => (
+              <SwiperSlide key={index}>
+                <SinglePopularService slide={slide} />
+              </SwiperSlide>
+            ))}
         </Swiper>
       </RootContainer>
     </div>

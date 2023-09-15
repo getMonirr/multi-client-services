@@ -7,6 +7,7 @@ import Link from "next/link";
 const Profile = () => {
   const { data: session } = useSession();
   const user = session?.user;
+  const fullName = user?.name?.firstName + " " + user?.name?.lastName;
   return (
     <div className="">
       <div className="flex justify-between items-center">
@@ -19,14 +20,14 @@ const Profile = () => {
                   width={20}
                   height={20}
                   className="w-full h-full"
-                  src={user?.image || person}
+                  src={user?.profilePicture || person}
                 />
               </div>
             </div>
           </div>
           <div>
             <h2 className="font-bold text-gray-800 text-xs mb-1 dark:text-white">
-              {user?.name}
+              {fullName}
             </h2>
             <p className="text-gray-400 text-[11px]">{user?.email}</p>
           </div>

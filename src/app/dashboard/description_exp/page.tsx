@@ -7,7 +7,7 @@ const page = () => {
         <div className='mt-10'>
             <h1 className='text-4xl font-semibold text-black'>Update Your Information</h1>
             <p className='text-gray-500 my-4'>Here you can edit public information about yourself <br />  The Changes will be displayed for other users within 5 minutes</p>
-            <div className='flex gap-20'>
+            <div className='lg:flex lg:gap-20'>
                 <div>
                     <Update_profile_sidebar />
                 </div>

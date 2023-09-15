@@ -26,6 +26,7 @@ module.exports = {
       "images.unsplash.com",
       "cdn.tuk.dev",
       "lh3.googleusercontent.com",
+      "i.ibb.co",
     ],
   },
 };

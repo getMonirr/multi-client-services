@@ -26,13 +26,13 @@ const Trending = () => {
             <h2>Trending Skills</h2>
             <ul className="mt-3 menu bg-multi-icon-bg w-56 rounded-box">
               <li>
-                <a>Item 1</a>
+                <a>Web development</a>
               </li>
               <li>
-                <a>Item 2</a>
+                <a>Graphics Design</a>
               </li>
               <li>
-                <a>Item 3</a>
+                <a>AI Development</a>
               </li>
             </ul>
           </TabPanel>
@@ -40,13 +40,13 @@ const Trending = () => {
             <h2>Top Talents</h2>
             <ul className="mt-3 menu bg-multi-icon-bg w-56 rounded-box">
               <li>
-                <a>Item 1</a>
+                <a>Md. Mehetaj Khandakar</a>
               </li>
               <li>
-                <a>Item 2</a>
+                <a>Md. Shahedul Islam</a>
               </li>
               <li>
-                <a>Item 3</a>
+                <a>Masum billah</a>
               </li>
             </ul>
           </TabPanel>
@@ -54,13 +54,13 @@ const Trending = () => {
             <h2>Trending Services</h2>
             <ul className="mt-3 menu bg-multi-icon-bg w-56 rounded-box">
               <li>
-                <a>Item 1</a>
+                <a>Machine Learning</a>
               </li>
               <li>
-                <a>Item 2</a>
+                <a>AI Development</a>
               </li>
               <li>
-                <a>Item 3</a>
+                <a>MERN Stack Development</a>
               </li>
             </ul>
           </TabPanel>
@@ -68,13 +68,13 @@ const Trending = () => {
             <h2>Top Services</h2>
             <ul className="mt-3 menu bg-multi-icon-bg w-56 rounded-box">
               <li>
-                <a>Item 1</a>
+                <a>Wordpress Development</a>
               </li>
               <li>
-                <a>Item 2</a>
+                <a>Next js development</a>
               </li>
               <li>
-                <a>Item 3</a>
+                <a>React development</a>
               </li>
             </ul>
           </TabPanel>
