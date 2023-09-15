@@ -2,6 +2,7 @@ import SimpleBtn from "@/components/shared/btn/SimpleBtn";
 import React from "react";
 
 
+
 const Publish_service = ({ handleServiceData, prev }: any) => {
 
     return (
@@ -30,3 +31,4 @@ const Publish_service = ({ handleServiceData, prev }: any) => {
 
 
 export default Publish_service;
+
