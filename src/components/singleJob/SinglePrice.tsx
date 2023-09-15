@@ -10,6 +10,11 @@ import SimpleBtn from "../shared/btn/SimpleBtn";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+declare global {
+  interface document {
+    my_modal_3: HTMLFormElement;
+  }
+}
 
 const SinglePrice = ({ name }: { name: string }) => {
   // const router = useRouter();
@@ -19,6 +24,7 @@ const SinglePrice = ({ name }: { name: string }) => {
   const delivery = "1 day ";
   const revision = "unlimited";
   const paymentPage = {totalPrice, quantity}
+ 
   useEffect(() => {
     const priceCalculat = price * quantity;
     setTotalPrice(priceCalculat);
@@ -62,7 +68,11 @@ const SinglePrice = ({ name }: { name: string }) => {
       <div className="my-8">
         <SimpleBtn className="w-full text-white">
           <p
-            onClick={() => document?.getElementById("my_modal_3")?.showModal()}
+            onClick={() => {
+              if (document) {
+                (document.getElementById('my_modal_3') as HTMLFormElement).showModal();
+              }
+            }}
             className="flex items-center justify-center gap-2 mx-auto"
           >
             Continue

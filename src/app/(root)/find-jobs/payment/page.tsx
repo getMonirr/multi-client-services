@@ -30,9 +30,11 @@ const Payment = () => {
   const categoryName = "Basic";
   const price = 5;
   const delivery = 1;
-  const revision = "unlimited"
-  const tex = 2.5
-  const totalPrice = price + tex
+  const revision = "unlimited";
+  const tex = 2.5;
+  const totalPrice = price + tex;
+  // const myDilog = document?.getElementById("my_modal_1")
+  // const myDilog = document.getElementById('my_modal_1') as HTMLFormElement).showModal()
 
   const { register, handleSubmit, reset } = useForm<any>();
   const onSubmit = (data: React.FormEvent) => {
@@ -72,8 +74,8 @@ const Payment = () => {
                   {information && (
                     <>
                       <span>
-                        {information?.company} {information?.state} 
-                        {information?.address} {information?.city} 
+                        {information?.company} {information?.state}
+                        {information?.address} {information?.city}
                         {information?.postCode} {information?.country}
                       </span>{" "}
                     </>
@@ -85,9 +87,13 @@ const Payment = () => {
               <SimpleBtn>
                 <button
                   // className="btn"
-                  onClick={() =>
-                    document?.getElementById("my_modal_1")?.showModal()
-                  }
+                  onClick={() => {
+                    if (document) {
+                      (
+                        document.getElementById("my_modal_1") as HTMLFormElement
+                      ).showModal();
+                    }
+                  }}
                 >
                   Add details
                 </button>
@@ -118,7 +124,7 @@ const Payment = () => {
                 className="border "
               />
               <h1 className="text-xl font-semibold">{name}</h1>
-            </div >
+            </div>
             <div className="flex justify-between items-center ">
               <p className="text-2xl font-semibold">{categoryName}</p>
               <p className="text-2xl font-semibold">${price}</p>
@@ -132,8 +138,12 @@ const Payment = () => {
               </p>
             </div>
             <div className="my-6 text-xl border-b border-opacity-40 pb-4 mb-20">
-              <p className="flex justify-between items-center">Service fee <span>${tex}</span> </p>
-              <p className="flex justify-between items-center py-4 ">Total <span>${totalPrice}</span> </p>
+              <p className="flex justify-between items-center">
+                Service fee <span>${tex}</span>{" "}
+              </p>
+              <p className="flex justify-between items-center py-4 ">
+                Total <span>${totalPrice}</span>{" "}
+              </p>
             </div>
           </div>
         </div>
