@@ -5,10 +5,8 @@ import SimpleBtn from "@/components/shared/btn/SimpleBtn";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-// import { useRouter } from "next/router";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { FaCheck } from "react-icons/fa";
 import Swal from "sweetalert2";
 const userphoto =
@@ -20,6 +18,18 @@ const userphoto =
 const key =
   "pk_test_51NISv5CvtirLXdOoAJfNNhTLw1xHkqjyYa4znodKsBDc5RLMgFcbFJMOSbzDh25l5ABmjOlQw7jjvAyu5ZVIZ8pN00fBZ7yaid";
 const stripePromise = loadStripe(key);
+
+type Inputs = {
+  company: string ;
+  address: string;
+  country: string;
+  postCode: number;
+  state: string;
+  city: string;
+  name: string;
+
+
+};
 
 const Payment = () => {
   const [information, setAddInformation] = useState<any>();
@@ -33,11 +43,10 @@ const Payment = () => {
   const revision = "unlimited";
   const tex = 2.5;
   const totalPrice = price + tex;
-  // const myDilog = document?.getElementById("my_modal_1")
-  // const myDilog = document.getElementById('my_modal_1') as HTMLFormElement).showModal()
 
-  const { register, handleSubmit, reset } = useForm<any>();
-  const onSubmit = (data: React.FormEvent) => {
+  const { register, handleSubmit, reset } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = (data) => 
+   {
     if (data) {
       Swal.fire({
         position: "top-end",
@@ -77,6 +86,7 @@ const Payment = () => {
                         {information?.company} {information?.state}
                         {information?.address} {information?.city}
                         {information?.postCode} {information?.country}
+                        
                       </span>{" "}
                     </>
                   )}
