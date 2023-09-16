@@ -6,9 +6,9 @@ import "./style.css";
 
 const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
   const [toggle, setToggle] = useState(true);
-  // const [pricing, setPricing] = 
+  // const [pricing, setPricing] =
 
-  let data = {}
+  let data = {};
 
   const [basic, setBasic] = useState({});
   const [standard, setStandard] = useState({});
@@ -28,14 +28,11 @@ const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
 
   const savedData = () => {
     // pricing = {basic, standard, premium};
-    data = {}
+    data = {};
     console.log(pricing);
   };
 
   console.log(pricing);
-
-
-
 
   return (
     <div className="mt-[750px] lg:mt-10">
@@ -43,11 +40,19 @@ const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
         <h1 className="text-3xl font-bold">Pricing</h1>
         {toggle ? (
           <div onClick={() => setToggle(false)}>
-            <img className="w-10 h-10" src="https://www.svgrepo.com/show/422282/off-on-on-off-switch.svg" alt="" />
+            <img
+              className="w-10 h-10"
+              src="https://www.svgrepo.com/show/422282/off-on-on-off-switch.svg"
+              alt=""
+            />
           </div>
         ) : (
           <div onClick={() => setToggle(true)}>
-            <img className="w-10 h-10" src="https://www.svgrepo.com/show/132071/on-slider.svg" alt="" />
+            <img
+              className="w-10 h-10"
+              src="https://www.svgrepo.com/show/132071/on-slider.svg"
+              alt=""
+            />
           </div>
         )}
       </div>
@@ -74,7 +79,12 @@ const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
           </div>
           <div className="mt-4">
             <label htmlFor="">Delivery Date</label>
-            <select onChange={(e) => set_basic_date(e.target.value)} name="" className="border block my-3 p-4 w-full" id="">
+            <select
+              onChange={(e) => set_basic_date(e.target.value)}
+              name=""
+              className="border block my-3 p-4 w-full"
+              id=""
+            >
               <option value="">Select</option>
               <option value="1">1 Day</option>
               <option value="2">2 Day</option>
@@ -85,7 +95,6 @@ const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
               <option value="7">7 Day</option>
             </select>
           </div>
-
         </div>
         {toggle && (
           <div className="lg:flex gap-10">
@@ -111,7 +120,12 @@ const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
               </div>
               <div className="mt-4">
                 <label htmlFor="">Delivery Date</label>
-                <select onChange={(e) => set_standard_date(e.target.value)} name="" className="border block my-3 p-4 w-full" id="">
+                <select
+                  onChange={(e) => set_standard_date(e.target.value)}
+                  name=""
+                  className="border block my-3 p-4 w-full"
+                  id=""
+                >
                   <option value="">Select</option>
                   <option value="1">1 Day</option>
                   <option value="2">2 Day</option>
@@ -145,7 +159,12 @@ const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
               </div>
               <div className="mt-4">
                 <label htmlFor="">Delivery Date</label>
-                <select onChange={(e) => set_premium_date(e.target.value)} name="" className="border block my-3 p-4 w-full" id="">
+                <select
+                  onChange={(e) => set_premium_date(e.target.value)}
+                  name=""
+                  className="border block my-3 p-4 w-full"
+                  id=""
+                >
                   <option value="">Select</option>
                   <option value="1">1 Day</option>
                   <option value="2">2 Day</option>
@@ -159,15 +178,12 @@ const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
             </div>
           </div>
         )}
-
       </div>
       <div className="flex justify-between items-center mt-10">
         <div onClick={prev}>
-          <SimpleBtn>
-            Previous
-          </SimpleBtn>
+          <SimpleBtn>Previous</SimpleBtn>
         </div>
-        <div>
+        <div onClick={next}>
           <div onClick={savedData}>
             <SimpleBtn className="mt-10">
               {/* <Link className="m-10" href="/dashboard/create_my_service/thumbnail"> */}
@@ -177,7 +193,6 @@ const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };

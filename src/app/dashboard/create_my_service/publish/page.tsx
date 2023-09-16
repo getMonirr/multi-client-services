@@ -1,5 +1,7 @@
+"use client";
 import SimpleBtn from "@/components/shared/btn/SimpleBtn";
 import React from "react";
+import Swal from "sweetalert2";
 
 const Publish_service = ({ handleServiceData, prev }: any) => {
   return (
@@ -12,7 +14,12 @@ const Publish_service = ({ handleServiceData, prev }: any) => {
           Lets Publish your service and <br />
           Get some buyer in rolling
         </p>
-        <div className="flex justify-center items-center">
+        <div
+          onClick={() => {
+            return Swal.fire("success", "your service is successfully created");
+          }}
+          className="flex justify-center items-center"
+        >
           <button className="btn" onClick={handleServiceData}>
             Publish Your Service
           </button>

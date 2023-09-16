@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "@smastrom/react-rating": "^1.3.2",
     "@stripe/react-stripe-js": "^2.3.0",
     "@stripe/stripe-js": "^2.1.5",
@@ -36,10 +37,14 @@
     "react": "18.2.0",
     "react-dark-mode-toggle": "^0.2.0",
     "react-dom": "18.2.0",
+    "react-form-stepper": "^2.0.3",
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.11.0",
     "react-multistep": "^5.5.9",
+    "react-redux": "^8.1.2",
     "react-tabs": "^6.0.2",
+    "react-tagsinput": "^3.20.3",
+    "react-toastify": "^9.1.3",
     "reusify": "^1.0.4",
     "socket.io-client": "^4.7.2",
     "styled-components": "^6.0.8",
@@ -51,6 +56,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/react-tagsinput": "^3.20.0",
     "daisyui": "^3.5.1"
   }
 }

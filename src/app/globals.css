@@ -17,6 +17,7 @@
 
 } */
 
+
  
 .custom-swiper-button .swiper-button-prev:after, .custom-swiper-button .swiper-button-next:after{
   background-color: #0000009c;
@@ -30,8 +31,6 @@
   border: 2px ;
   border-radius: 16px;
 }
-
-
 
 /* tab css */
 .react-tabs__tab-list {
@@ -58,13 +57,24 @@
 }
 
 .btn {
-  @apply bg-blue-500 text-white hover:bg-blue-800 transition-all
+  @apply bg-blue-500 text-white hover:bg-blue-800 transition-all;
 }
 
-#aside_bar_update_profile{
+#aside_bar_update_profile {
   background-color: rgba(240, 248, 255, 0.425);
   padding-top: 60px;
   padding-bottom: 60px;
   padding-left: 40px;
   padding-right: 40px;
+}
+/* .react-tagsinput */
+.react-tagsinput {
+  @apply rounded-lg;
+}
+.react-tagsinput--focused {
+  border-color: #226ce5 !important;
+}
+.react-tagsinput-tag {
+  background-color: #226ce5 !important;
+  color: white !important;
 }
