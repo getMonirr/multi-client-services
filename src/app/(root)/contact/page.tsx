@@ -13,7 +13,7 @@ const ContactPage = () => {
         className="flex lg:flex-row flex-col gap-8 w-[90%] mx-auto pt-5"
         id="contact"
       >
-        <div className="w-1/2">
+        <div className="w-full lg:w-1/2">
           <h4 className="text-3xl">Contact Form</h4>
           <form>
             <div className="form-control">
@@ -56,7 +56,7 @@ const ContactPage = () => {
             />
           </form>
         </div>
-        <div className="w-1/2">
+        <div className="w-full lg:w-1/2">
           <p>
             Our team is dedicated to providing top-notch service and assistance.
             Please feel free to use the form left to drop us a message. Whether
