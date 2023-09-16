@@ -1,3 +1,4 @@
+"use client";
 import SimpleBtn from "@/components/shared/btn/SimpleBtn";
 import React from "react";
 import Swal from "sweetalert2";
@@ -15,7 +16,7 @@ const Publish_service = ({ handleServiceData, prev }: any) => {
         </p>
         <div
           onClick={() => {
-            Swal.fire("success", "your service is successfully created");
+            return Swal.fire("success", "your service is successfully created");
           }}
           className="flex justify-center items-center"
         >
