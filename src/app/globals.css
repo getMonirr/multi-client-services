@@ -70,6 +70,7 @@
 /* .react-tagsinput */
 .react-tagsinput {
   @apply rounded-lg;
+  background-color: #d6e6ff !important;
 }
 .react-tagsinput--focused {
   border-color: #226ce5 !important;
