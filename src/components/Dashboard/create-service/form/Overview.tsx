@@ -35,7 +35,7 @@ const Overview = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="card flex-shrink-0 w-full max-w-5xl shadow-2xl bg-base-100"
+      className="card flex-shrink-0 w-full max-w-5xl shadow-2xl bg-multi-bg"
     >
       <div className="card-body">
         <div className="form-control">
@@ -48,28 +48,51 @@ const Overview = () => {
             {...register("title", { required: true })}
             type="text"
             placeholder="title"
-            className="input input-bordered"
+            className="input input-bordered bg-multi-icon-bg"
             defaultValue={serviceState.title}
           />
         </div>
-        <div className="form-control w-full max-w-5xl">
-          <label className="label">
-            <span className="label-text">
-              Select your Category <span className="text-red-500">*</span>
-            </span>
-          </label>
-          <select
-            className="select select-bordered"
-            {...register("category", { required: true })}
-            defaultValue={serviceState.category}
-          >
-            <option disabled>Select a category</option>
-            <option>Web Development</option>
-            <option>Mobile App Development</option>
-            <option>Graphic Design</option>
-            <option>Writing & Translation</option>
-            <option>Other</option>
-          </select>
+        <div className="flex flex-col lg:flex-row items-center gap-4">
+          <div className="form-control w-full">
+            <label className="label">
+              <span className="label-text">
+                Select your Category <span className="text-red-500">*</span>
+              </span>
+            </label>
+            <select
+              className="select select-bordered bg-multi-icon-bg"
+              {...register("category", { required: true })}
+              defaultValue={serviceState.category}
+            >
+              <option disabled>Select a category</option>
+              <option>Web Development</option>
+              <option>Mobile App Development</option>
+              <option>Graphic Design</option>
+              <option>Writing & Translation</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div className="form-control w-full">
+            <label className="label">
+              <span className="label-text">
+                Select your Sub Category <span className="text-red-500">*</span>
+              </span>
+            </label>
+            <select
+              className="select select-bordered bg-multi-icon-bg"
+              {...register("subCategory", { required: true })}
+              defaultValue={serviceState.category}
+            >
+              <option disabled>Select a sub category</option>
+              <option>Front-End Development</option>
+              <option>Back-End Development</option>
+              <option>iOS App Development</option>
+              <option>Android App Development</option>
+              <option>Logo Design</option>
+              <option>Content Writing</option>
+              <option>Other</option>
+            </select>
+          </div>
         </div>
         <div>
           <label className="label">
