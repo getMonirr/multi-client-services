@@ -17,7 +17,7 @@ const SingleCategory = ({ category }: { category: Category }) => {
   const { category: name, avgRating, count } = category;
 
   return (
-    <Link href="#">
+    <Link href={`/find-jobs?searchQuery=${name}`}>
       <div className="bg-multi-bg p-8 rounded-md">
         <div className="p-4 bg-multi-icon-bg inline-block rounded-md mb-6">
           <BsCodeSlash className="h-8 w-8 text-multi-secondary" />
