@@ -14,33 +14,35 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Link from "next/link";
 
-const SearchJobs = () => {
-  const [data, setData] = useState<any>(findJobs);
-  const [pageData, setPageData] = useState<any>([]);
+const SearchJobs = ({data}: {data: string[]}) => {
+  // const [data, setData] = useState<any>(findJobs);
+  
+  const [pageData, setPageData] = useState<string[]>([]);
   // if(findJobs.length >= 10){
   //   setPageData(findJobs)
   // }
   const [tabIndex, setTabIndex] = useState<number>(0);
-  const [currentPage, setCurrentPage] = useState<number>(0);
-  const totalItems: number = data.length;
-  const perPage: number = 10;
-  const totalPage: number = Math.ceil(totalItems / perPage);
-  const pageNumber: any = [...Array(10).keys()];
+  // const [currentPage, setCurrentPage] = useState<number>(0);
+  // const totalItems: number = data.length;
+  // const perPage: number = 10;
+  // const totalPage: number = Math.ceil(totalItems / perPage);
+  // const pageNumber: any = [...Array(10).keys()];
   const userphoto =
     "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?size=626&ext=jpg&ga=GA1.1.2077699082.1681132836&semt=sph";
 
-  const pageHandle = (page: number) => {
-    setCurrentPage(page);
-    const backData = currentPage * perPage;
-    const currentData = data.splice(backData, perPage);
-    setPageData(currentData);
-  };
-
-  useEffect(() => {
-    const fastData = data.splice(0, perPage);
-    setPageData(fastData);
-  }, []);
-  // console.log(findJobs);
+  // const pageHandle = (page: number) => {
+  //   setCurrentPage(page);
+  //   const backData = currentPage * perPage;
+  //   const currentData = data.splice(backData, perPage);
+  //   // setPageData(currentData);
+  // };
+  console.log(data);
+  console.log(pageData)
+  useEffect(()=>{
+    if(data){
+      setPageData(data)
+    }
+  },[data])
  
   return (
     <div>
@@ -51,13 +53,13 @@ const SearchJobs = () => {
             <Tab className="tab tab-lifted">Save Job</Tab>
           </TabList>
         </Tabs>
-        <p className="p-4"> {data.length} jobs found</p>
+        <p className="p-4"> {data?.length} jobs found</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-auto">
-        {pageData.map((job: any, i: number) => (
+        {pageData?.map((job: any, i: number) => (
           <div
             key={i}
-            className="bg-white rounded overflow-hidden group shadow-md"
+            className="bg-white card-body rounded overflow-hidden group shadow-md"
           >
             <Swiper
               navigation={true}
@@ -65,7 +67,7 @@ const SearchJobs = () => {
               spaceBetween={20}
               className=" custom-swiper-button"
             >
-              {job.picture.map((image: any, i: number) => (
+              {job?.images?.map((image: any, i: number) => (
                 <SwiperSlide key={i}>
                   <div className="w-full h-52 border-b">
                     <Image
@@ -149,9 +151,9 @@ const SearchJobs = () => {
 
       <div className="mt-10 text-right">
         <div className="">
-          {currentPage === 0 ? "" : <button onClick={() => setCurrentPage(currentPage - 1)} className="join-item btn">&#10094; prev</button>
-}
-          <button className="join-item btn">
+          {/* {currentPage === 0 ? "" : <button onClick={() => setCurrentPage(currentPage - 1)} className="join-item btn">&#10094; prev</button>
+} */}
+          {/* <button className="join-item btn">
           {pageNumber.map((page: number) => (
           <button
             className={
@@ -165,11 +167,11 @@ const SearchJobs = () => {
             {page}
           </button>
         ))}
-          </button>
-            {
+          </button> */}
+            {/* {
               currentPage === pageNumber.length -1 ? "" : <button onClick={() => setCurrentPage(currentPage + 1)} className="join-item btn">next &#10095;</button>
 
-            }
+            } */}
         </div>
         
       </div>
