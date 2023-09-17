@@ -167,7 +167,7 @@ const Pricing = ({ pricing, prev, next }: any | React.ReactNode) => {
             Previous
           </SimpleBtn>
         </div>
-        <div>
+        <div onClick={next}>
           <div onClick={savedData}>
             <SimpleBtn className="mt-10">
               {/* <Link className="m-10" href="/dashboard/create_my_service/thumbnail"> */}

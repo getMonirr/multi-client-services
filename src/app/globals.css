@@ -53,8 +53,9 @@
   @apply border-b-multi-secondary bg-white text-black border-b-4;
 }
 
-.btn {
-  @apply bg-blue-500 text-white hover:bg-blue-800 transition-all
+
+.btn-error {
+  @apply btn bg-red-600 text-white hover:bg-red-800 transition-all
 }
 
 #aside_bar_update_profile{
