@@ -10,6 +10,8 @@ import SimpleBtn from "../shared/btn/SimpleBtn";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useMultiStepForm } from "@/hooks/useMultiStepForm";
+import Payment from "@/app/(root)/find-jobs/payment/page";
 declare global {
   interface document {
     my_modal_3: HTMLFormElement;
@@ -18,6 +20,13 @@ declare global {
 
 const SinglePrice = ({ name }: { name: string }) => {
   // const router = useRouter();
+  const { step, next, back, currentStepIndex, isFirstStep, isLastStep } =
+  useMultiStepForm([
+    
+
+    
+  ]);
+  // let paymentPage = <Payment key={2} page = {step}/>
   const price: number = 10;
   const [quantity, setQuantity] = useState<number>(1);
   const [totalPrice, setTotalPrice] = useState<number>(price);
@@ -26,6 +35,8 @@ const SinglePrice = ({ name }: { name: string }) => {
   const paymentPage = {totalPrice, quantity}
  
   useEffect(() => {
+    // fetch('/api/services')
+    // then(res =>)
     const priceCalculat = price * quantity;
     setTotalPrice(priceCalculat);
   }, [quantity]);
@@ -155,9 +166,8 @@ const SinglePrice = ({ name }: { name: string }) => {
             <p>please payment confram</p>
 
             <SimpleBtn className="w-full text-white">
-              <Link
-                // onClick={passData}
-                href={`/find-jobs/payment?data=${paymentPage}`}
+              <button
+                onClick={next}
                 className="flex items-center md:py-4 md:text-xl justify-center gap-2 mx-auto"
               >
                 Continue
@@ -165,7 +175,7 @@ const SinglePrice = ({ name }: { name: string }) => {
                   <FaArrowRight />
                 </span>
                 $({totalPrice})
-              </Link>
+              </button>
             </SimpleBtn>
           </div>
         </div>

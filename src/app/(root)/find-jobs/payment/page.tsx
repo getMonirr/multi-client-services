@@ -2,22 +2,20 @@
 import ChackOut from "@/components/paymentComponent/ChackOut";
 import RootContainer from "@/components/shared/RootContainer";
 import SimpleBtn from "@/components/shared/btn/SimpleBtn";
+import { useMultiStepForm } from "@/hooks/useMultiStepForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Image from "next/image";
 import { useState } from "react";
+import { Step, Stepper } from "react-form-stepper";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FaCheck } from "react-icons/fa";
 import Swal from "sweetalert2";
 const userphoto =
   "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?size=626&ext=jpg&ga=GA1.1.2077699082.1681132836&semt=sph";
 
-// TODO publicable key
 
-// key : pk_test_51NISv5CvtirLXdOoAJfNNhTLw1xHkqjyYa4znodKsBDc5RLMgFcbFJMOSbzDh25l5ABmjOlQw7jjvAyu5ZVIZ8pN00fBZ7yaid
-const key =
-  "pk_test_51NISv5CvtirLXdOoAJfNNhTLw1xHkqjyYa4znodKsBDc5RLMgFcbFJMOSbzDh25l5ABmjOlQw7jjvAyu5ZVIZ8pN00fBZ7yaid";
-const stripePromise = loadStripe(key);
+const stripePromise = loadStripe(`${process.env.StripPublickKey}`);
 
 type Inputs = {
   company: string ;
@@ -32,6 +30,7 @@ type Inputs = {
 };
 
 const Payment = () => {
+  
   const [information, setAddInformation] = useState<any>();
   // const router = useRouter();
   //  const {data } = router
@@ -63,7 +62,38 @@ const Payment = () => {
   return (
     <RootContainer>
       <div className=" flex gap-4 flex-col-reverse lg:flex-row ">
+      
         <div className="md:col-span-2 pb-6 border md:w-2/3 text-black">
+        {/* <Stepper
+        activeStep={currentStepIndex}
+        
+        styleConfig={{
+          activeBgColor: "#226CE5",
+          completedBgColor: "#198754",
+          activeTextColor: "#ffffff",
+          completedTextColor: "#ffffff",
+          inactiveBgColor: "#e0e0e0",
+          inactiveTextColor: "#ffffff",
+          size: "2em",
+          circleFontSize: "1rem",
+          labelFontSize: "0.875rem",
+          borderRadius: "50%",
+          fontWeight: 500,
+        }}
+      >
+        <Step label="Overview" />
+        <Step label="Packages" />
+        <Step label="Confram pay" className="text-yellow-400" />
+      </Stepper> */}
+      <div className="flex items-center justify-center"></div>
+      {/* <div className="flex items-center justify-end my-8 gap-4">
+        <button className="btn btn-sm" disabled={isFirstStep} onClick={back}>
+          Prev
+        </button>
+        <button className="btn btn-sm" disabled={isLastStep} onClick={next}>
+          Next
+        </button>
+      </div> */}
           <h1 className="text-3xl bg-gray-100 p-4  font-bold mb-10 capitalize">
             Billing Information
           </h1>

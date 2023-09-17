@@ -1,12 +1,13 @@
 import SearchJobs from "./jobSearch";
 import { CategoryTitle } from "@/constant/Constant";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaTimes, FaAngleDown, FaAngleLeft } from "react-icons/fa";
 import Relative from "./Relative";
 import SectionStarter from "../shared/SectionStarter";
 import RootContainer from "../shared/RootContainer";
 
 const JobsBody = () => {
+  const [pageData, setPageData] = useState([])
   const [categorys, setCategorys] = useState<string>("");
   const [postTime, setPostTime] = useState<string>("");
   const [experience, setExperience] = useState<string>("");
@@ -24,7 +25,19 @@ const JobsBody = () => {
   const [postOpen, setPostOpen] = useState<boolean>(false);
   const [experienceOpen, setExperienceOpen] = useState<boolean>(false);
   const [priceOpen, setPriceOpen] = useState<boolean>(false);
-  console.log(categoryOpen);
+  // console.log(categoryOpen);
+
+  useEffect(() => {
+    const jobData = async() =>{
+      const res = await fetch("/api/services")
+     const data = await res.json()
+     setPageData(data.data)
+    }
+    jobData()
+    // const fastData = data.splice(0, perPage);
+    // setPageData(fastData);
+  }, []);
+  console.log(pageData)
 
   return (
     <RootContainer>
@@ -198,7 +211,7 @@ const JobsBody = () => {
             )}
           </div>
 
-          <SearchJobs />
+          <SearchJobs data = {pageData} />
         </div>
       </div>
       <div className="mb-20">
