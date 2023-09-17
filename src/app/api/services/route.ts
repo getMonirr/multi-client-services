@@ -4,6 +4,7 @@ import {
   getServices,
   getServicesByEmail,
   postService,
+  powerFullSearch,
 } from "@/controllers/service.controller";
 import { handleError } from "@/middleware/errorMiddleware";
 import { NextResponse } from "next/server";
@@ -16,17 +17,24 @@ export const GET = async (req: Request) => {
     const popularCategories = searchParams.get("category");
     const categoriesStatistic = searchParams.get("statistics");
 
-    // get popular categories services
+    // power full search
+    const searchQuery = searchParams.get("searchQuery");
+    if (searchQuery) {
+      const searchResult = await powerFullSearch(searchQuery);
+      return NextResponse.json({ success: true, data: searchResult });
+    }
 
     // get individual seller services
     if (sellerEmail) {
+      // get individual seller services
       const services = await getServicesByEmail(sellerEmail);
-
       return NextResponse.json({ success: true, data: services });
     } else if (popularCategories) {
+      // get all popular categories
       const popularServices = await getPopularServices();
       return NextResponse.json({ success: true, data: popularServices });
     } else if (categoriesStatistic) {
+      // get all the categories statistics
       const categoriesStatistic = await getCategoriesStatistic();
       return NextResponse.json({ success: true, data: categoriesStatistic });
     } else {
