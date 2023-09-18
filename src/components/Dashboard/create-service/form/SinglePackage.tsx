@@ -139,12 +139,11 @@ const SinglePackage = ({
             ))}
             <div className="flex items-center justify-end">
               <button
-                className="btn btn-sm mt-2"
                 type="button"
+                className=" flex items-center gap-2 text-multi-secondary font-bold"
                 onClick={addFeatureList}
               >
-                <FaPlus />
-                Add more
+                <FaPlus /> Add Feature
               </button>
             </div>
           </div>

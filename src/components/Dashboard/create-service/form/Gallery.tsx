@@ -62,7 +62,7 @@ const Gallery = () => {
       <div className="divider"></div>
       <h3>Your Gallery</h3>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-8">
-        {serviceState.images.length > 0 &&
+        {serviceState.images.length > 0 ? (
           serviceState.images.map((image, index) => (
             <Image
               width={100}
@@ -72,7 +72,10 @@ const Gallery = () => {
               src={image}
               alt={image}
             />
-          ))}
+          ))
+        ) : (
+          <p className="font-bold">Gallery not set yet</p>
+        )}
       </div>
       <div className="divider"></div>
       <div>

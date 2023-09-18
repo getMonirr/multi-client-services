@@ -9,8 +9,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-tagsinput/react-tagsinput.css";
 import TagsInput from "react-tagsinput";
+import { useSession } from "next-auth/react";
 
 const Overview = () => {
+  const { data: session } = useSession();
+  const email = session?.user?.email;
   const serviceState = useSelector(getServiceData);
   const dispatch = useDispatch();
   const {
@@ -21,6 +24,7 @@ const Overview = () => {
   } = useForm();
   const onSubmit = (data: any) => {
     data.tags = tags;
+    data.sellerEmail = email;
     dispatch(updateServiceData(data));
     toast.success("your data has been saved", { position: "top-center" });
   };

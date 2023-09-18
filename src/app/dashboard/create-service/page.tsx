@@ -11,7 +11,7 @@ import { Stepper, Step } from "react-form-stepper";
 import SectionStarter from "@/components/shared/SectionStarter";
 
 const CreateService = () => {
-  const { step, next, back, currentStepIndex, isFirstStep, isLastStep } =
+  const { FormStep, next, back, currentStepIndex, isFirstStep, isLastStep } =
     useMultiStepForm([
       <Overview />,
       <Packages />,
@@ -30,14 +30,6 @@ const CreateService = () => {
       </div>
       <Stepper
         activeStep={currentStepIndex}
-        // connectorStateColors
-        // connectorStyleConfig={{
-        //   activeColor: "#226CE5",
-        //   disabledColor: "#4267B2",
-        //   completedColor: "fff",
-        //   size: 2,
-        //   style: "font-size",
-        // }}
         styleConfig={{
           activeBgColor: "#226CE5",
           completedBgColor: "#198754",
@@ -58,7 +50,7 @@ const CreateService = () => {
         <Step label="Gallery" />
         <Step label="Publish" className="text-yellow-400" />
       </Stepper>
-      <div className="flex items-center justify-center">{step}</div>
+      <div className="flex items-center justify-center">{FormStep}</div>
       <div className="flex items-center justify-end my-8 gap-4">
         <button className="btn btn-sm" disabled={isFirstStep} onClick={back}>
           Prev
