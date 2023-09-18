@@ -1,16 +1,27 @@
 import { useState } from "react";
 import { Control, FieldValues, UseFormRegister } from "react-hook-form";
-import { FaCross, FaPlus, FaPlusCircle } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 
 type SinglePackageProps = {
   name: string;
   register: UseFormRegister<FieldValues>;
   control: Control;
+  serviceState: any;
 };
 
-const SinglePackage = ({ register, name, control }: SinglePackageProps) => {
-  const [featureLists, setFeatureLists] = useState([""]);
+const SinglePackage = ({
+  register,
+  name,
+  control,
+  serviceState,
+}: SinglePackageProps) => {
+  const { packages } = serviceState;
+  const defaultPackage = packages[name];
+  // feature control
+  const [featureLists, setFeatureLists] = useState(
+    defaultPackage?.features || [""]
+  );
 
   const addFeatureList = () => {
     setFeatureLists([...featureLists, ""]);
@@ -36,6 +47,7 @@ const SinglePackage = ({ register, name, control }: SinglePackageProps) => {
               type="text"
               placeholder="Custom package name"
               className="input input-bordered w-full bg-multi-bg"
+              defaultValue={defaultPackage?.name}
             />
           </div>
           <div className="flex items-center gap-4 flex-col lg:flex-row ">
@@ -51,6 +63,7 @@ const SinglePackage = ({ register, name, control }: SinglePackageProps) => {
                 type="number"
                 placeholder="$60"
                 className="input input-bordered w-full max-w-xs bg-multi-bg"
+                defaultValue={defaultPackage?.price}
               />
             </div>
             <div className="form-control w-full max-w-xs">
@@ -62,6 +75,7 @@ const SinglePackage = ({ register, name, control }: SinglePackageProps) => {
                 type="text"
                 placeholder="2 days"
                 className="input input-bordered w-full max-w-xs bg-multi-bg"
+                defaultValue={defaultPackage?.deliveryTime}
               />
             </div>
           </div>
@@ -75,6 +89,7 @@ const SinglePackage = ({ register, name, control }: SinglePackageProps) => {
               {...register(`${name}Description`, { required: true })}
               className="textarea textarea-bordered h-24"
               placeholder="Description"
+              defaultValue={defaultPackage?.description}
             ></textarea>
           </div>
           <div className="form-control w-full">
@@ -86,13 +101,14 @@ const SinglePackage = ({ register, name, control }: SinglePackageProps) => {
               type="text"
               placeholder="unlimited"
               className="input input-bordered w-full bg-multi-bg"
+              defaultValue={defaultPackage?.revisionType}
             />
           </div>
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text font-bold">Feature List</span>
             </label>
-            {featureLists.map((feature, index) => (
+            {featureLists.map((feature: string[], index: number) => (
               <div key={index} className="space-y-2">
                 <div className="flex items-center mb-2">
                   <input
