@@ -14,36 +14,36 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Link from "next/link";
 
-const SearchJobs = ({data}: {data: string[]}) => {
+const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
   // const [data, setData] = useState<any>(findJobs);
-  
+
   const [pageData, setPageData] = useState<string[]>([]);
   // if(findJobs.length >= 10){
   //   setPageData(findJobs)
   // }
   const [tabIndex, setTabIndex] = useState<number>(0);
-  // const [currentPage, setCurrentPage] = useState<number>(0);
-  // const totalItems: number = data.length;
-  // const perPage: number = 10;
-  // const totalPage: number = Math.ceil(totalItems / perPage);
-  // const pageNumber: any = [...Array(10).keys()];
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const totalItems: number = data.length;
+  const perPage: number = 10;
+  const totalPage: number = Math.ceil(totalItems / perPage);
+  const pageNumber: any = [...Array(totalPage).keys()];
   const userphoto =
     "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?size=626&ext=jpg&ga=GA1.1.2077699082.1681132836&semt=sph";
 
-  // const pageHandle = (page: number) => {
-  //   setCurrentPage(page);
-  //   const backData = currentPage * perPage;
-  //   const currentData = data.splice(backData, perPage);
-  //   // setPageData(currentData);
-  // };
+  const pageHandle = (page: number) => {
+    setCurrentPage(page);
+    const backData = currentPage * perPage;
+    const currentData = data.splice(backData, perPage);
+    setPageData(currentData);
+  };
   console.log(data);
-  console.log(pageData)
-  useEffect(()=>{
-    if(data){
-      setPageData(data)
+  useEffect(() => {
+    if (data) {
+      const fastData = data.splice(0, perPage)
+      setPageData(fastData);
     }
-  },[data])
- 
+  }, [data]);
+
   return (
     <div>
       <div>
@@ -53,13 +53,13 @@ const SearchJobs = ({data}: {data: string[]}) => {
             <Tab className="tab tab-lifted">Save Job</Tab>
           </TabList>
         </Tabs>
-        <p className="p-4"> {data?.length} jobs found</p>
+        <p className="p-4"> {totalJob} jobs found</p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-auto">
         {pageData?.map((job: any, i: number) => (
           <div
             key={i}
-            className="bg-white card-body rounded overflow-hidden group shadow-md"
+            className="bg-white rounded overflow-hidden group shadow-md"
           >
             <Swiper
               navigation={true}
@@ -84,7 +84,7 @@ const SearchJobs = ({data}: {data: string[]}) => {
               ))}
             </Swiper>
 
-            <div className="pt-4 pb-3 px-4">
+            <div className="pt-4 pb-3 px-4 h-96">
               <div className="flex items-center gap-4 mb-10">
                 <div>
                   <Image
@@ -96,6 +96,7 @@ const SearchJobs = ({data}: {data: string[]}) => {
                     priority
                   />
                 </div>
+
                 <div className="flex justify-between flex-grow ">
                   <div>
                     <h2 className="text-lg text-gray-800 font-bold hover:text-red-600">
@@ -113,9 +114,9 @@ const SearchJobs = ({data}: {data: string[]}) => {
                   </div>
                 </div>
               </div>
-              <div className="mb-6">
-                <h2 className="text-lg  font-semibold">{job.work_category}</h2>
-                <small className="text-xs">{job.description}</small>
+              <div className="mb-6 h-32">
+                <h2 className=" px-2 pb-2 font-semibold text-xl ">{job.title}</h2>
+                <small className="text-xs h-14">{job.description}</small>
               </div>
               <div className="flex items-center justify-between gap-4  py-3 ">
                 <small className="text-xs ">${job.totalHourRate}/hr</small>
@@ -139,11 +140,11 @@ const SearchJobs = ({data}: {data: string[]}) => {
                 </p>
               </div>
             </div>
-            <Link 
-            href={`/find-jobs/${i}`}
-            className="text-white btn  w-full py-1 text-center bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600 flex items-center" 
-          >
-           Collaborate
+            <Link
+              href={`/find-jobs/${i}`}
+              className="text-white btn  w-full py-1 text-center bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600 flex items-center"
+            >
+              Collaborate
             </Link>
           </div>
         ))}
@@ -151,14 +152,14 @@ const SearchJobs = ({data}: {data: string[]}) => {
 
       <div className="mt-10 text-right">
         <div className="">
-          {/* {currentPage === 0 ? "" : <button onClick={() => setCurrentPage(currentPage - 1)} className="join-item btn">&#10094; prev</button>
-} */}
-          {/* <button className="join-item btn">
+          {currentPage === 0 ? "" : <button onClick={() => setCurrentPage(currentPage - 1)} className="join-item btn">&#10094; prev</button>
+}
+          <button className="join-item btn">
           {pageNumber.map((page: number) => (
           <button
             className={
               currentPage === page
-                ? "bg-white rounded-full p-2"
+                ? "bg-white text-black rounded-full p-2"
                 : "rounded-full p-2 bg-blue-400 ml-2"
             }
             key={page}
@@ -167,13 +168,12 @@ const SearchJobs = ({data}: {data: string[]}) => {
             {page}
           </button>
         ))}
-          </button> */}
-            {/* {
+          </button>
+          {
               currentPage === pageNumber.length -1 ? "" : <button onClick={() => setCurrentPage(currentPage + 1)} className="join-item btn">next &#10095;</button>
 
-            } */}
+            }
         </div>
-        
       </div>
       {/* <Relative/> */}
     </div>
