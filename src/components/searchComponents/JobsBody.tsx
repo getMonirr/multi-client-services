@@ -5,8 +5,9 @@ import { FaTimes, FaAngleDown, FaAngleLeft } from "react-icons/fa";
 import Relative from "./Relative";
 import SectionStarter from "../shared/SectionStarter";
 import RootContainer from "../shared/RootContainer";
+import axios from "axios";
 
-const JobsBody = () => {
+const JobsBody = ({searchWord}: {searchWord: string}) => {
   const [pageData, setPageData] = useState([])
   const [categorys, setCategorys] = useState<string>("");
   const [postTime, setPostTime] = useState<string>("");
@@ -25,19 +26,37 @@ const JobsBody = () => {
   const [postOpen, setPostOpen] = useState<boolean>(false);
   const [experienceOpen, setExperienceOpen] = useState<boolean>(false);
   const [priceOpen, setPriceOpen] = useState<boolean>(false);
+  const [dataLength, setDataLength] = useState<number>(0)
   // console.log(categoryOpen);
+
+  
+  const handleApi = (data:string) =>{
+    axios.get(`/api/services?searchQuery=${data}`)
+    .then(data =>{
+      console.log(data.data)
+      setDataLength(data.data.data.length)
+      setPageData(data.data.data)
+    } )
+  }
 
   useEffect(() => {
     const jobData = async() =>{
       const res = await fetch("/api/services")
      const data = await res.json()
      setPageData(data.data)
+     setDataLength(data.data.length)
+     console.log(data.data)
     }
+    
     jobData()
     // const fastData = data.splice(0, perPage);
     // setPageData(fastData);
   }, []);
-  console.log(pageData)
+
+  if(searchWord){
+    handleApi(searchWord)
+  }
+  // console.log(pageData)
 
   return (
     <RootContainer>
@@ -64,6 +83,7 @@ const JobsBody = () => {
                     <input
                       onChange={() => {
                         setCategorys(data);
+                        handleApi(data)
                       }}
                       type="radio"
                       name="categorys"
@@ -94,6 +114,7 @@ const JobsBody = () => {
                     <input
                       onChange={() => {
                         setPostTime(data);
+                        handleApi( data)
                       }}
                       type="radio"
                       name="Post Time"
@@ -124,6 +145,7 @@ const JobsBody = () => {
                     <input
                       onChange={() => {
                         setExperience(data);
+                        handleApi(data)
                       }}
                       type="radio"
                       name="Experience"
@@ -154,6 +176,7 @@ const JobsBody = () => {
                     <input
                       onChange={() => {
                         setPrice(data);
+                        handleApi(data)
                       }}
                       type="radio"
                       name="Prices"
@@ -211,7 +234,7 @@ const JobsBody = () => {
             )}
           </div>
 
-          <SearchJobs data = {pageData} />
+          <SearchJobs data = {pageData} totalJob = {dataLength}/>
         </div>
       </div>
       <div className="mb-20">
