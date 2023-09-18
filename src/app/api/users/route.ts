@@ -1,12 +1,24 @@
-import { getAllUser, postUser } from "@/controllers/users.controller";
+import {
+  getAllUser,
+  getUserByEmail,
+  postUser,
+} from "@/controllers/users.controller";
 import { handleError } from "@/middleware/errorMiddleware";
 import { NextRequest, NextResponse } from "next/server";
 
 // get all user from database
-export const GET = async () => {
+export const GET = async (req: Request) => {
   try {
-    const users = await getAllUser();
-    return NextResponse.json({ success: true, data: users });
+    const { searchParams } = new URL(req.url);
+    const sellerEmail = searchParams.get("email");
+    if (sellerEmail) {
+      const user = await getUserByEmail(sellerEmail);
+      user.password = "";
+      return NextResponse.json({ success: true, data: user });
+    } else {
+      const users = await getAllUser();
+      return NextResponse.json({ success: true, data: users });
+    }
   } catch (error: any) {
     return handleError(error);
   }

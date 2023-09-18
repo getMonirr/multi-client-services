@@ -86,3 +86,23 @@ export const getCategoriesStatistic = async () => {
   ]);
   return result;
 };
+
+// power full search functionality
+export const powerFullSearch = async (searchQuery: string) => {
+  await connectMongoDB();
+  const results = await Service.aggregate([
+    {
+      $search: {
+        index: "default",
+        text: {
+          query: searchQuery,
+          path: {
+            wildcard: "*",
+          },
+        },
+      },
+    },
+  ]);
+
+  return results;
+};

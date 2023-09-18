@@ -3,6 +3,7 @@ import React from "react";
 
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import SinglePrice from "./SinglePrice";
+import Link from "next/link";
 
 const PriceSections = () => {
   return (

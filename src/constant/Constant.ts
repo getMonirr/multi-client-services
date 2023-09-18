@@ -368,7 +368,6 @@ export const findJobs = [
   {
     name: "John Doe",
     username: "johndoe123",
-
     level: 2,
     totalEarn: "90k",
     totalHourRate: 89,
@@ -381,7 +380,7 @@ export const findJobs = [
 
       "https://img.freepik.com/free-photo/free-photo-ramadan-kareem-eid-mubarak-royal-elegant-lamp-with-mosque-holy-gate-with-fireworks_1340-23600.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
     ],
-    work_category: "Data Scientist",
+    work_category: "Data Scientist i will create a React web applications",
     reviews: [
       {
         reviewer: "Jane Smith",
@@ -738,3 +737,47 @@ export const CategoryTitle = [
   "cyber security",
   "digital marketing",
 ];
+
+export const orderPage = {
+  name: "John Doe",
+  username: "johndoe123",
+  contry: " canada",
+  languese: "english",
+  level: 2,
+  totalEarn: "90k",
+  totalJobComplete: 9,
+  totalHourRate: 89,
+  jobSuccuss: 95,
+  skils: [ "react.js", "next.js", "front end developer", "MERN stack ", "type script", "node.js", "Espress.js"],
+  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde, et reprehenderit perspiciatis sequi quisquam placeat delectus ipsam odio iste exercitationem repellendus.",
+  picture: ["https://img.freepik.com/free-vector/artificial-intelligence-concept-webinar_23-2150376953.jpg?w=996&t=st=1691727539~exp=1691728139~hmac=788b3abd676cde026c9f5dd21129068716feb6c21686084c7c8bad1b164ddca6",
+
+
+    "https://img.freepik.com/free-photo/photographer-using-laptop_23-2148019151.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
+
+    "https://img.freepik.com/free-photo/free-photo-ramadan-kareem-eid-mubarak-royal-elegant-lamp-with-mosque-holy-gate-with-fireworks_1340-23600.jpg?size=626&ext=jpg&ga=GA1.2.2077699082.1681132836&semt=sph",
+  ],
+  work_category: "Data Scientist i will create a React web applications",
+  reviews: [
+    {
+      reviewer: "Jane Smith",
+      comment:
+        "John did an amazing job on my project. His creativity and attention to detail are remarkable.",
+      rating: 4.8,
+    },
+    {
+      reviewer: "Mike Johnson",
+      comment:
+        "I was impressed by John's professionalism and quick turnaround. Definitely recommend!",
+      rating: 4.6,
+    },
+    {
+      reviewer: "Emily Brown",
+      comment:
+        "It was a pleasure working with John. He understood my requirements perfectly.",
+      rating: 5.0,
+    },
+  ],
+  ratings: 4.8,
+  price: 200,
+}
