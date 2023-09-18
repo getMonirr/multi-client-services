@@ -10,7 +10,7 @@ interface ServicePackage {
   revisionType: number | string;
 }
 
-interface ServiceState {
+export interface ServiceState {
   title: string;
   description: string;
   sellerEmail: string;
