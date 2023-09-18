@@ -29,7 +29,7 @@ const JobsBody = ({searchWord}: {searchWord: string}) => {
   const [dataLength, setDataLength] = useState<number>(0)
   // console.log(categoryOpen);
 
-  
+  console.log(searchWord)
   const handleApi = (data:string) =>{
     axios.get(`/api/services?searchQuery=${data}`)
     .then(data =>{
@@ -38,8 +38,14 @@ const JobsBody = ({searchWord}: {searchWord: string}) => {
       setPageData(data.data.data)
     } )
   }
+  
 
   useEffect(() => {
+    if(searchWord){
+      console.log('ami ace ')
+      handleApi(searchWord)
+    }
+    else{
     const jobData = async() =>{
       const res = await fetch("/api/services")
      const data = await res.json()
@@ -49,14 +55,15 @@ const JobsBody = ({searchWord}: {searchWord: string}) => {
     }
     
     jobData()
+  }
     // const fastData = data.splice(0, perPage);
     // setPageData(fastData);
-  }, []);
+  }, [searchWord]);
 
-  if(searchWord){
-    handleApi(searchWord)
-  }
-  // console.log(pageData)
+  
+
+  
+  console.log(pageData)
 
   return (
     <RootContainer>

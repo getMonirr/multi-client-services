@@ -1,15 +1,17 @@
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaStar } from "react-icons/fa";
 
 const UserInfo = () => {
+  const { data: session } = useSession<any>();
   return (
     <div className="flex gap-4 items-center mt-4">
       <div>
         <Image
           alt="user image"
-          src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif"
+          src={`${session?.user?.profilePicture}`}
           width={200}
           height={200}
           className="rounded-full w-20 h-20"
@@ -18,9 +20,9 @@ const UserInfo = () => {
       <div>
         <div className="flex gap-4 items-center">
           <Link href="#">
-            <h4 className=" font-bold">User displayName</h4>
+            <h4 className=" font-bold"></h4>
           </Link>
-          <p className="text-sm"> @ user name</p>
+          <p className="text-sm">sahed</p>
         </div>
         <div className="flex items-center gap-4 mt-2 divide-x-2 text-sm">
           <div className="flex items-center gap-2">

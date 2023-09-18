@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { FaSearch } from "react-icons/fa";
 import JobsBody from "./JobsBody";
 import { BsSearch } from "react-icons/bs";
 import RootContainer from "../shared/RootContainer";
 
-const Bannar = () => {
+const Bannar = ({queryData}: {queryData: string}) => {
   const [searchData, setSearchData] = useState("");
 
   const searchHandle = (e: any) => {
@@ -13,6 +13,12 @@ const Bannar = () => {
     const from = e.target.searche.value;
     setSearchData(from);
   };
+  useEffect(()=>{
+    if(queryData){
+      setSearchData(queryData)
+      console.log('ami ace')
+    }
+  },[queryData])
   return (
     <RootContainer>
       

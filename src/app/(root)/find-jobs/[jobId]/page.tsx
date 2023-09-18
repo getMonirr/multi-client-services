@@ -7,9 +7,16 @@ import PriceSections from "@/components/singleJob/PriceSections";
 import SellerFAQ from "@/components/singleJob/SellerFAQ";
 import SellerReviews from "@/components/singleJob/SellerReviews";
 import UserInfo from "@/components/singleJob/UserInfo";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
 import React from "react";
 
 const SingleJob = () => {
+  const { data: session } = useSession();
+  console.log(session?.user)
+  // if(!session){
+  //   return 
+  // }
   return (
     <div className="my-16">
       <RootContainer>
@@ -18,7 +25,7 @@ const SingleJob = () => {
             <h3 className=" text-lg lg:text-2xl font-bold">
               I will create figma website ui ux and landing page
             </h3>
-            <UserInfo />
+            <UserInfo  />
             <div className="mt-8">
               <JobSlider />
             </div>
