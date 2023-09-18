@@ -40,7 +40,9 @@ const SinglePackage = ({
         <div className="space-y-3">
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text font-bold">Your package name?</span>
+              <span className="label-text font-bold">
+                Your package name? <span className="text-red-500">*</span>
+              </span>
             </label>
             <input
               {...register(`${name}Name`, { required: true })}
@@ -53,7 +55,9 @@ const SinglePackage = ({
           <div className="flex items-center gap-4 flex-col lg:flex-row ">
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                <span className="label-text font-bold">Price</span>
+                <span className="label-text font-bold">
+                  Price <span className="text-red-500">*</span>
+                </span>
               </label>
               <input
                 {...register(`${name}Price`, {
@@ -68,7 +72,9 @@ const SinglePackage = ({
             </div>
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                <span className="label-text font-bold">Delivery Time</span>
+                <span className="label-text font-bold">
+                  Delivery Time <span className="text-red-500">*</span>
+                </span>
               </label>
               <input
                 {...register(`${name}DeliveryTime`, { required: true })}
@@ -82,7 +88,8 @@ const SinglePackage = ({
           <div className="form-control">
             <label className="label">
               <span className="label-text font-bold">
-                Package short Description
+                Package short Description{" "}
+                <span className="text-red-500">*</span>
               </span>
             </label>
             <textarea
@@ -94,7 +101,9 @@ const SinglePackage = ({
           </div>
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text font-bold">Revision</span>
+              <span className="label-text font-bold">
+                Revision <span className="text-red-500">*</span>
+              </span>
             </label>
             <input
               {...register(`${name}RevisionType`, { required: true })}
@@ -106,7 +115,7 @@ const SinglePackage = ({
           </div>
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text font-bold">Feature List</span>
+              <span className="label-text font-bold">Feature List </span>
             </label>
             {featureLists.map((feature: string[], index: number) => (
               <div key={index} className="space-y-2">
