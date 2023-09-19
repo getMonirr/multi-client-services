@@ -12,7 +12,7 @@ const ContactPage = () => {
       <div className="pb-5">
         <Image
           src={contactImage}
-          className="mx-auto w-full rounded-lg h-[100vh]"
+          className="mx-auto w-full mt-2 rounded-lg h-[100vh]"
           alt="about"
         />
         <div className="grid grid-cols-1 lg:grid-cols-2  gap-8  pt-20" id="contact">
@@ -127,7 +127,7 @@ const ContactPage = () => {
                     </Link>
                   </div>
                 </div>
-                <div className="text-right">
+                <div className="">
                   <h5 className="text-2xl my-5 ">Contact</h5>
                   <p>Phone:+8801719440550</p>
                   <p>Fax:+8801913507041</p>
