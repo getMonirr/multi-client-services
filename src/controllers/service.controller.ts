@@ -166,6 +166,13 @@ export const getServiceById = async (id: string) => {
     {
       $unwind: "$seller",
     },
+    {
+      $limit: 1,
+    },
   ]);
-  return result;
+  if (result.length > 0) {
+    return result[0];
+  } else {
+    return null;
+  }
 };
