@@ -22,7 +22,7 @@ const UserInfo = () => {
           <Link href="#">
             <h4 className=" font-bold"></h4>
           </Link>
-          <p className="text-sm">sahed</p>
+          <p className="text-sm">{`${session?.user?.name}`}</p>
         </div>
         <div className="flex items-center gap-4 mt-2 divide-x-2 text-sm">
           <div className="flex items-center gap-2">

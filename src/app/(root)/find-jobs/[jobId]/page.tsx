@@ -1,3 +1,4 @@
+"use client"
 import RootContainer from "@/components/shared/RootContainer";
 import SectionStarter from "@/components/shared/SectionStarter";
 import SimpleBtn from "@/components/shared/btn/SimpleBtn";
@@ -7,16 +8,30 @@ import PriceSections from "@/components/singleJob/PriceSections";
 import SellerFAQ from "@/components/singleJob/SellerFAQ";
 import SellerReviews from "@/components/singleJob/SellerReviews";
 import UserInfo from "@/components/singleJob/UserInfo";
+import axios from "axios";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import React from "react";
+import { useParams, useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 const SingleJob = () => {
+  const params = useParams()
+  console.log(params.jobId)
   const { data: session } = useSession();
+  const [findData , setFindData] = useState<any>()
   console.log(session?.user)
-  // if(!session){
-  //   return 
-  // }
+  useEffect(()=>{
+    axios.get(`/api/services`)
+    .then(data =>{
+      const findJob = data?.data?.data
+      if(findJob){
+        const jobs = findJob.find((job:any) => job._id === params.jobId )
+        setFindData(jobs)
+        console.log( "jobs ", jobs)
+      }
+      // console.log(data.data)
+    })
+  },[])
   return (
     <div className="my-16">
       <RootContainer>
@@ -27,7 +42,7 @@ const SingleJob = () => {
             </h3>
             <UserInfo  />
             <div className="mt-8">
-              <JobSlider />
+              <JobSlider jobData={findData} />
             </div>
             <div className="my-8">
               <h2 className="text-xl font-bold mb-4">About the services</h2>
@@ -70,7 +85,7 @@ const SingleJob = () => {
             </div>
           </div>
           <div className="order-1 lg:order-2">
-            <PriceSections />
+            <PriceSections/>
           </div>
         </div>
       </RootContainer>
