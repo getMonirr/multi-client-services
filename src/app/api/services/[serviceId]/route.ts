@@ -1,5 +1,6 @@
 import {
   deleteServiceById,
+  getServiceById,
   updateServiceById,
 } from "@/controllers/service.controller";
 import { handleError } from "@/middleware/errorMiddleware";
@@ -28,6 +29,17 @@ export const DELETE = async (req: Request, { params }: ParamsType) => {
   try {
     const serviceId = params?.serviceId;
     const result = await deleteServiceById(serviceId);
+    return NextResponse.json({ success: true, data: result });
+  } catch (error: any) {
+    return handleError(error);
+  }
+};
+
+// get service by id
+export const GET = async (req: Request, { params }: ParamsType) => {
+  try {
+    const serviceId = params?.serviceId;
+    const result = await getServiceById(serviceId);
     return NextResponse.json({ success: true, data: result });
   } catch (error: any) {
     return handleError(error);

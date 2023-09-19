@@ -10,9 +10,7 @@ const Publish = () => {
   const serviceState = useSelector(getServiceData);
   const router = useRouter();
   const handlePublish = async () => {
-    console.log(serviceState);
     const saveResult = await saveServiceInDatabase(serviceState);
-    console.log(saveResult);
     if (saveResult.success) {
       toast.success("Published successfully", { position: "top-center" });
       Swal.fire({
@@ -42,6 +40,12 @@ const Publish = () => {
     <div>
       <h1 className="font-bold text-3xl">Start your Career</h1>
       <div className="divider"></div>
+      <p className="my-4 text-xl">
+        Your Service is
+        <span className="text-green-400"> successfully create</span>. For
+        publish your service
+        <span className="text-yellow-400"> hit the publish button</span>
+      </p>
       <button className="btn" onClick={handlePublish}>
         Publish your Service
       </button>
