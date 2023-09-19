@@ -39,6 +39,9 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
       setPageData(data.data.data);
     });
   };
+  // const filterHandle = (data:string) =>{
+  //   const findData = pageData.filter(job =>job.price < data)
+  // }
 
   useEffect(() => {
     if (!searchWord) {

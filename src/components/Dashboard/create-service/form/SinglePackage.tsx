@@ -36,7 +36,6 @@ const SinglePackage = ({
     <div className="card w-full bg-multi-icon-bg shadow-xl">
       <div className="card-body">
         <h2 className="card-title font-bold capitalize text-2xl"> {name} </h2>
-        <p>This is your {name} packages, Please draw your flag</p>
         <div className="space-y-3">
           <div className="form-control w-full">
             <label className="label">
@@ -139,12 +138,11 @@ const SinglePackage = ({
             ))}
             <div className="flex items-center justify-end">
               <button
-                className="btn btn-sm mt-2"
                 type="button"
+                className=" flex items-center gap-2 text-multi-secondary font-bold"
                 onClick={addFeatureList}
               >
-                <FaPlus />
-                Add more
+                <FaPlus /> Add Feature
               </button>
             </div>
           </div>

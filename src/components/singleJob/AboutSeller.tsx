@@ -2,11 +2,11 @@ import React from "react";
 import UserInfo from "./UserInfo";
 import SimpleBtn from "../shared/btn/SimpleBtn";
 
-const AboutSeller = () => {
+const AboutSeller = ({ seller }: { seller: any }) => {
   return (
     <div className="my-16">
       <h2 className="text-xl font-bold">About the seller</h2>
-      <UserInfo />
+      <UserInfo seller={seller} />
       <SimpleBtn className="text-white mt-8">Contact me</SimpleBtn>
       <div className="border-[1px] p-4 rounded-md divide-y space-y-4 mt-8">
         <div className="grid grid-cols-2 gap-8">

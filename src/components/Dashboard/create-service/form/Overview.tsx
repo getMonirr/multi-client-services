@@ -9,18 +9,35 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-tagsinput/react-tagsinput.css";
 import TagsInput from "react-tagsinput";
+import { useSession } from "next-auth/react";
+import useSWR from "swr";
+import { fetcher } from "@/utils/swr/fetcher";
 
 const Overview = () => {
+  // next auth session
+  const { data: session } = useSession();
+  const email = session?.user?.email;
+
+  // get the user for the _id field
+  const { data: result } = useSWR(`/api/users?email=${email}`, fetcher);
+  const userId = result?.data?._id;
+
+  // redux
   const serviceState = useSelector(getServiceData);
   const dispatch = useDispatch();
+
+  // react hook form
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+  // submit the form
   const onSubmit = (data: any) => {
     data.tags = tags;
+    data.seller = userId;
+    data.sellerEmail = email;
     dispatch(updateServiceData(data));
     toast.success("your data has been saved", { position: "top-center" });
   };
