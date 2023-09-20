@@ -17,7 +17,7 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
   const host = headers().get("host");
   const service = await getDataFromDB(`http://${host}/api/services/${jobId}`);
   console.log({ service });
-  const { title, description, seller } = service?.data;
+  const { title, description, seller, images } = service?.data;
   return (
     <div className="my-16">
       <RootContainer>
@@ -26,7 +26,7 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
             <h3 className=" text-lg lg:text-2xl font-bold">{title}</h3>
             <UserInfo seller={seller} />
             <div className="mt-8">
-              <JobSlider />
+              <JobSlider images={images} />
             </div>
             <div className="my-8">
               <h2 className="text-xl font-bold mb-4">About the services</h2>
