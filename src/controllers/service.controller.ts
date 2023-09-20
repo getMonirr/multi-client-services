@@ -1,6 +1,7 @@
 import Service from "@/models/service.model";
 import User from "@/models/users.model";
 import connectMongoDB from "@/utils/connectMongoDB";
+import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
 // post a service
@@ -17,10 +18,22 @@ export const postService = async (serviceData: Object) => {
 export const getServicesByEmail = async (sellerEmail: string) => {
   await connectMongoDB();
 
-  // get all services for the seller
-  const services = await Service.find({ sellerEmail })
-    .populate("reviews.user") // Populate reviews.user field within the array
-    .populate("orderQueue.user"); // Populate orderQueue.user field within the array;
+  const services = await Service.aggregate([
+    {
+      $match: { sellerEmail },
+    },
+    {
+      $lookup: {
+        from: "users", // The name of the User collection
+        localField: "seller", // The field in the Service collection
+        foreignField: "_id", // The field in the User collection
+        as: "seller", // The alias for the populated field
+      },
+    },
+    {
+      $unwind: "$seller", // Unwind the seller array created by $lookup
+    },
+  ]);
 
   if (!services || services.length === 0) {
     return NextResponse.json({
@@ -35,9 +48,23 @@ export const getServicesByEmail = async (sellerEmail: string) => {
 // get all services
 export const getServices = async () => {
   await connectMongoDB();
-  return Service.find({});
-  // .populate("reviews.user") // Populate reviews.user field within the array
-  // .populate("orderQueue.user"); // Populate orderQueue.user field within the array;;
+  const results = await Service.aggregate([
+    {
+      $match: {}, // Match all documents
+    },
+    {
+      $lookup: {
+        from: "users", // The name of the User collection
+        localField: "seller", // The field in the Service collection
+        foreignField: "_id", // The field in the User collection
+        as: "seller", // The alias for the populated field
+      },
+    },
+    {
+      $unwind: "$seller", // Unwind the seller array created by $lookup
+    },
+  ]);
+  return results;
 };
 
 // update service by id
@@ -85,4 +112,67 @@ export const getCategoriesStatistic = async () => {
     },
   ]);
   return result;
+};
+
+// power full search functionality
+export const powerFullSearch = async (searchQuery: string) => {
+  await connectMongoDB();
+  const results = await Service.aggregate([
+    {
+      $search: {
+        index: "default",
+        text: {
+          query: searchQuery,
+          path: {
+            wildcard: "*",
+          },
+        },
+      },
+    },
+    {
+      $lookup: {
+        from: "users", // The name of the User collection
+        localField: "seller", // The field in the Service collection
+        foreignField: "_id", // The field in the User collection
+        as: "seller", // The alias for the populated field
+      },
+    },
+    {
+      $unwind: "$seller", // Unwind the seller array created by $lookup
+    },
+  ]);
+
+  return results;
+};
+
+// get service by id
+export const getServiceById = async (id: string) => {
+  await connectMongoDB();
+
+  const objectId = new ObjectId(id);
+
+  const result = await Service.aggregate([
+    {
+      $match: { _id: objectId },
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "seller",
+        foreignField: "_id",
+        as: "seller",
+      },
+    },
+    {
+      $unwind: "$seller",
+    },
+    {
+      $limit: 1,
+    },
+  ]);
+  if (result.length > 0) {
+    return result[0];
+  } else {
+    return null;
+  }
 };

@@ -10,9 +10,18 @@ const serviceSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  seller: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User", // Reference to the User model
+    required: true,
+  },
   sellerEmail: {
     type: String,
     required: true,
+  },
+  status: {
+    type: String,
+    enum: ["active", "pending", "pause"],
   },
   orderQueue: [
     {
@@ -25,28 +34,13 @@ const serviceSchema = new mongoose.Schema({
   ],
   category: {
     type: String,
-    enum: [
-      "Web Development",
-      "Mobile App Development",
-      "Graphic Design",
-      "Writing & Translation",
-      "Other",
-    ],
     required: true,
   },
   subCategory: {
     type: String,
-    enum: [
-      "Front-End Development",
-      "Back-End Development",
-      "iOS App Development",
-      "Android App Development",
-      "Logo Design",
-      "Content Writing",
-      "Other",
-    ],
     required: true,
   },
+  tags: [String],
   faqs: [
     {
       question: String,
