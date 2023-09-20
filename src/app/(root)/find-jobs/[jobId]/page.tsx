@@ -23,33 +23,10 @@ const SingleJob = () => {
               <JobSlider />
             </div>
             <div className="my-8">
-              <h2 className="text-xl font-bold mb-4">About the services</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Blanditiis natus ex quia delectus quo modi aliquam veritatis
-                voluptas numquam suscipit nisi officia et provident saepe id,
-                culpa ratione, nihil hic quasi consequuntur dicta. Unde, culpa
-                sint dolorem soluta, quod quas autem rerum distinctio sit
-                recusandae nam alias quo, mollitia debitis dicta sed voluptates
-                maxime similique. Eveniet necessitatibus modi totam, deserunt,
-                laudantium aliquam reiciendis sequi dolor consequatur iste
-                distinctio autem dolorum. Architecto vitae minus delectus beatae
-                quam totam alias ipsum quos, laudantium laborum ipsa, odit iure
-                nulla aperiam nesciunt deleniti. Officiis quidem quis impedit
-                incidunt dicta vitae sed tempora doloremque rerum. Porro neque
-                quis assumenda illum ipsam totam molestias soluta aperiam
-                recusandae laudantium, voluptates suscipit a aspernatur
-                pariatur, earum quisquam. Veritatis animi provident non maxime,
-                expedita id dolores, tempore deleniti similique cupiditate ut
-                fugit cumque esse dolorem. Accusamus odit deleniti tempora
-                repellat. Amet id sed omnis, quod enim temporibus debitis alias
-                recusandae corrupti ratione, quasi neque dolor quae voluptate
-                nam impedit unde et porro quos harum magni quidem illo? Rerum
-                qui harum dignissimos magnam temporibus veritatis, consequuntur
-                accusamus facilis distinctio eos modi est? Autem fugiat placeat,
-                ex, cupiditate quisquam ea repellat, amet distinctio quod
-                adipisci ad facilis. Ratione vel pariatur autem.
-              </p>
+              <h2 className="text-xl font-bold mb-4">
+                About the services option
+              </h2>
+              <p></p>
             </div>
             {/* about the seller */}
             <div>
