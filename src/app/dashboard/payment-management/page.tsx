@@ -3,7 +3,7 @@ import React from "react";
 const payment_management = () => {
   return (
     <div>
-        <h1 className="text-3xl font-bold my-4">Payment History</h1>
+      <h1 className="text-3xl font-bold my-4">Payment History</h1>
       <div className="overflow-x-auto">
         <table className="table table-xs">
           <thead>
@@ -15,7 +15,7 @@ const payment_management = () => {
               <th>Amount</th>
             </tr>
           </thead>
-          <tbody >
+          <tbody>
             <tr>
               <th>1</th>
               <td>Cy Ganderton</td>
@@ -42,6 +42,42 @@ const payment_management = () => {
               <td>China</td>
               <td>8/15/2020</td>
               <td>Red</td>
+            </tr>
+            <tr>
+              <th>4</th>
+              <td>Marjy Ferencz</td>
+              <td>Office Assistant I</td>
+              <td>Rowe-Schoen</td>
+              <td>Russia</td>
+              <td>3/25/2021</td>
+              <td>Crimson</td>
+            </tr>
+            <tr>
+              <th>4</th>
+              <td>Marjy Ferencz</td>
+              <td>Office Assistant I</td>
+              <td>Rowe-Schoen</td>
+              <td>Russia</td>
+              <td>3/25/2021</td>
+              <td>Crimson</td>
+            </tr>
+            <tr>
+              <th>4</th>
+              <td>Marjy Ferencz</td>
+              <td>Office Assistant I</td>
+              <td>Rowe-Schoen</td>
+              <td>Russia</td>
+              <td>3/25/2021</td>
+              <td>Crimson</td>
+            </tr>
+            <tr>
+              <th>4</th>
+              <td>Marjy Ferencz</td>
+              <td>Office Assistant I</td>
+              <td>Rowe-Schoen</td>
+              <td>Russia</td>
+              <td>3/25/2021</td>
+              <td>Crimson</td>
             </tr>
             <tr>
               <th>4</th>

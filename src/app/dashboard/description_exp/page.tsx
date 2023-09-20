@@ -10,7 +10,7 @@ type Inputs = {
   description: string;
 };
 
-const page = () => {
+const DescriptionEXP = () => {
   const session = useSession();
   // const [userInfo, setUserInfo] = useState<any>({});
   // const [_id, set_Id] = useState("")
@@ -84,4 +84,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default DescriptionEXP;
