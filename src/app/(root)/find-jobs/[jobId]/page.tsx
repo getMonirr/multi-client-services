@@ -1,6 +1,4 @@
 import RootContainer from "@/components/shared/RootContainer";
-import SectionStarter from "@/components/shared/SectionStarter";
-import SimpleBtn from "@/components/shared/btn/SimpleBtn";
 import AboutSeller from "@/components/singleJob/AboutSeller";
 import JobSlider from "@/components/singleJob/JobSlider";
 import PriceSections from "@/components/singleJob/PriceSections";
