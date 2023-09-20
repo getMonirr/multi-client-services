@@ -12,7 +12,7 @@ type SinglePopularServiceProps = {
 
 const SinglePopularService = ({ slide }: SinglePopularServiceProps) => {
   return (
-    <Link href="#">
+    <Link href={`/find-jobs?searchQuery=${slide.category}`}>
       <div
         className="bg-teal-500 min-h-[400px] p-4 space-y-1 rounded-sm relative text-white"
         style={{
