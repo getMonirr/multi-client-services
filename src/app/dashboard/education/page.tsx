@@ -15,7 +15,7 @@ type Inputs = {
   location: string;
 };
 
-const page = () => {
+const Education = () => {
   const session = useSession();
   const [userData, setUserData] = useState<any>();
   const email = session?.data?.user?.email;
@@ -150,4 +150,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Education;

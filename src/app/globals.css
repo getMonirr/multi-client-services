@@ -17,18 +17,17 @@
 
 } */
 
-
- 
-.custom-swiper-button .swiper-button-prev:after, .custom-swiper-button .swiper-button-next:after{
+.custom-swiper-button .swiper-button-prev:after,
+.custom-swiper-button .swiper-button-next:after {
   background-color: #0000009c;
   color: white;
   font-size: 12px !important;
-  padding:  10px;
+  padding: 10px;
   border-radius: 50%;
 }
 
-.InputElement{
-  border: 2px ;
+.InputElement {
+  border: 2px;
   border-radius: 16px;
 }
 
@@ -79,4 +78,11 @@
 .react-tagsinput-tag {
   background-color: #226ce5 !important;
   color: white !important;
+}
+
+.singleServiceSwiper .swiper-wrapper {
+  justify-content: space-between !important;
+}
+.singleServiceSwiper .swiper-wrapper .swiper-slide {
+  width: 33.33% !important;
 }

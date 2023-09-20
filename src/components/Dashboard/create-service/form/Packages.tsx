@@ -1,85 +1,105 @@
 import React from "react";
-import { FaPlusCircle } from "react-icons/fa";
+import SinglePackage from "./SinglePackage";
+import {
+  getServiceData,
+  updateServiceData,
+} from "@/redux/features/multi-step-form/multiStepFormDataSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const Packages = () => {
+  const serviceState = useSelector(getServiceData);
+  const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    control,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data: any) => {
+    const {
+      basicName,
+      basicPrice,
+      basicDescription,
+      basicDeliveryTime,
+      basicFeatureList,
+      basicRevisionType,
+      standardName,
+      standardPrice,
+      standardDescription,
+      standardDeliveryTime,
+      standardFeatureList,
+      standardRevisionType,
+      premiumName,
+      premiumPrice,
+      premiumDescription,
+      premiumDeliveryTime,
+      premiumFeatureList,
+      premiumRevisionType,
+    } = data;
+
+    const newPackage = {
+      packages: {
+        basic: {
+          name: basicName,
+          price: basicPrice,
+          description: basicDescription,
+          deliveryTime: basicDeliveryTime,
+          features: basicFeatureList,
+          revisionType: basicRevisionType,
+        },
+        standard: {
+          name: standardName,
+          price: standardPrice,
+          description: standardDescription,
+          deliveryTime: standardDeliveryTime,
+          features: standardFeatureList,
+          revisionType: standardRevisionType,
+        },
+        premium: {
+          name: premiumName,
+          price: premiumPrice,
+          description: premiumDescription,
+          deliveryTime: premiumDeliveryTime,
+          features: premiumFeatureList,
+          revisionType: premiumRevisionType,
+        },
+      },
+    };
+    dispatch(updateServiceData(newPackage));
+    toast.success("your data has been saved", { position: "top-center" });
+  };
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
-      <div className="card-body">
-        <h2 className="card-title">Basic</h2>
-        <p>This is your basic packages, Please draw your flag</p>
-        <div className="space-y-3">
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text font-bold">Your package name?</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Custom package name"
-              className="input input-bordered w-full max-w-xs"
-            />
-          </div>
-          <div className="flex items-center gap-4 flex-col lg:flex-row ">
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text font-bold">Price</span>
-              </label>
-              <input
-                type="number"
-                placeholder="$60"
-                className="input input-bordered w-full max-w-xs"
-              />
-            </div>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text font-bold">Delivery Time</span>
-              </label>
-              <input
-                type="text"
-                placeholder="2 days"
-                className="input input-bordered w-full max-w-xs"
-              />
-            </div>
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text font-bold">
-                Package short Description
-              </span>
-            </label>
-            <textarea
-              className="textarea textarea-bordered h-24"
-              placeholder="Bio"
-            ></textarea>
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text font-bold">Revision</span>
-            </label>
-            <input
-              type="text"
-              placeholder="unlimited"
-              className="input input-bordered w-full max-w-xs"
-            />
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text font-bold">Feature List</span>
-            </label>
-            <input
-              type="text"
-              placeholder="1. Responsive design "
-              className="input input-bordered w-full max-w-xs"
-            />
-          </div>
-        </div>
-        <div className="flex items-center justify-end">
-          <button className="btn btn-sm">
-            <FaPlusCircle />
-            Add more
-          </button>
-        </div>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="grid gap-4 lg:grid-cols-3 relative"
+    >
+      <SinglePackage
+        register={register}
+        serviceState={serviceState}
+        name="basic"
+        control={control}
+      />
+      <SinglePackage
+        register={register}
+        serviceState={serviceState}
+        name="standard"
+        control={control}
+      />
+      <SinglePackage
+        register={register}
+        serviceState={serviceState}
+        name="premium"
+        control={control}
+      />
+      <div className="absolute -bottom-16 left-[5%] w-[80%]">
+        <button className="btn btn-block" type="submit">
+          Save all packages
+        </button>
       </div>
-    </div>
+    </form>
   );
 };
 

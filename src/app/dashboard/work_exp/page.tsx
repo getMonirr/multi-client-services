@@ -12,7 +12,7 @@ type Inputs = {
   postal_code: string;
   country: string;
 };
-const Page = () => {
+const WorkExperince = () => {
   const session = useSession();
   // const [userInfo, setUserInfo] = useState<any>({});
   // const [_id, set_Id] = useState("")
@@ -70,4 +70,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default WorkExperince;

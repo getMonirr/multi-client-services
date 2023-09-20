@@ -23,7 +23,7 @@
 
 // export default User;
 
-import { model, models, Schema } from "mongoose";
+import mongoose, { model, models, Schema } from "mongoose";
 import bcrypt from "bcrypt";
 
 const userSchema = new Schema({
@@ -70,6 +70,20 @@ const userSchema = new Schema({
   description: {
     type: String,
     maxlength: 500, // A brief description of the user's skills and services offered
+  },
+  status: {
+    type: String,
+    default: "active",
+    enum: ["active", "pending", "pause"],
+  },
+  hourlyRate: {
+    type: String || Number,
+  },
+  jobSuccess: {
+    type: String || Number,
+  },
+  startingRate: {
+    type: String || Number,
   },
   address: {
     street: {

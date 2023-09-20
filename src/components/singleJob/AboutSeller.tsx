@@ -2,17 +2,18 @@ import React from "react";
 import UserInfo from "./UserInfo";
 import SimpleBtn from "../shared/btn/SimpleBtn";
 
-const AboutSeller = () => {
+const AboutSeller = ({ seller }: { seller: any }) => {
+  const { address, languages } = seller;
   return (
     <div className="my-16">
       <h2 className="text-xl font-bold">About the seller</h2>
-      <UserInfo />
+      <UserInfo seller={seller} />
       <SimpleBtn className="text-white mt-8">Contact me</SimpleBtn>
       <div className="border-[1px] p-4 rounded-md divide-y space-y-4 mt-8">
         <div className="grid grid-cols-2 gap-8">
           <div>
             <p className="">From</p>
-            <p className="font-bold">Bangladesh</p>
+            <p className="font-bold">{address.country}</p>
           </div>
           <div>
             <p className="">Avg. response time</p>
@@ -20,11 +21,15 @@ const AboutSeller = () => {
           </div>
           <div>
             <p className="">Languages</p>
-            <p className="font-bold">Urdu, English</p>
+            <p className="font-bold">
+              {languages.map((language: string, index: number) => (
+                <span key={index}> {language}</span>
+              ))}
+            </p>
           </div>
           <div>
             <p className="">Member since</p>
-            <p className="font-bold">Aug 2018</p>
+            <p className="font-bold">Aug {new Date().getFullYear()}</p>
           </div>
           <div>
             <p className="">Last delivery</p>

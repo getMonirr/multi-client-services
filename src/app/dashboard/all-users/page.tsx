@@ -71,7 +71,7 @@ const AllUsers = () => {
             <tbody>
               {data?.map(
                 (d: any | object | null | string[], inx: number): any => (
-                  <tr className="pt-4">
+                  <tr key={inx} className="pt-4">
                     <th>{inx + 1}</th>
                     <td>
                       <div className="flex items-center space-x-3">

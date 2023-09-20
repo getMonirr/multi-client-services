@@ -13,11 +13,13 @@ const Update_profile = () => {
   const [userData, setUserData] = useState<any>();
   const email = session?.data?.user?.email;
 
+  // console.log(email);
+
   // default values
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     axios.get(`/api/users?email=${email}`).then((data) => {
@@ -86,7 +88,6 @@ const Update_profile = () => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="John"
                   {...register("firstName")}
-                  
                 />
               </div>
               <div className="mb-6 w-full lg:w-[500px]">
@@ -99,7 +100,6 @@ const Update_profile = () => {
                   type="text"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Doe"
-                  
                 />
               </div>
             </div>
@@ -114,7 +114,6 @@ const Update_profile = () => {
                   type="text"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="xyz@mail.com"
-                  
                 />
               </div>
               <div className="mb-6 w-full lg:w-[500px]">
@@ -126,7 +125,6 @@ const Update_profile = () => {
                   type="text"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="+880 171xxxxxxxx"
-                  
                 />
               </div>
             </div>
