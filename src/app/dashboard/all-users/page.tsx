@@ -1,16 +1,50 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { JobCategory } from "@/constant/JobCategory";
 import { FaTrash } from "react-icons/fa";
 import { BsTrash3 } from "react-icons/bs";
 import { BiEdit } from "react-icons/bi";
+import Image from "next/image";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const AllUsers = () => {
   const [userList, setUserList] = useState(JobCategory);
   const handleDelete = (id: number) => {
-    const updatedUsers = userList.filter((item) => item._id !== id);
-    setUserList(updatedUsers);
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`/api/users/${id}`).then((data) => {
+          console.log(data);
+          if (data.data.deletedCount > 0) {
+            Swal.fire("Deleted!", "User deleted", "success");
+            // setUserList();
+            console.log(data);
+            // const remaining = data.filter((user : any) => user._id !== id);
+          }
+        });
+      }
+    });
   };
+
+  const [data, setData] = useState<any>();
+
+  useEffect(() => {
+    fetch("/api/users")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data.data);
+        setData(data.data);
+      });
+  }, []);
 
   return (
     <div>
@@ -18,54 +52,52 @@ const AllUsers = () => {
         All Users Data {userList.length}
       </h2>
 
-      <div className="overflow-x-auto flex w-[220px] lg:w-full overflow-y-auto h-screen">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>User</th>
-              <th>Roll</th>
-              <th> Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* row 1 */}
-
-            {userList.map((user, i) => (
-              <tr key={user._id}>
-                <td>
-                  <div className="flex items-center space-x-3">
-                    <div className="avatar">
-                      <div className="mask rounded-full w-12 h-12">
-                        <img
-                          src={user.cover_page}
-                          alt="Avatar Tailwind CSS Component"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold">{user.name}</div>
-                      <div className="text-sm opacity-50">{user.username}</div>
-                    </div>
-                  </div>
-                </td>
-                <td>{user.type}</td>
-                <td>
-                  <button className="btn btn-xs bg-green-200 text-green-800">
-                    Active
-                  </button>
-                </td>
-                <th>
-                  <div className="flex items-center gap-3">
-                    <BsTrash3 size={20} className="cursor-pointer" />
-                    <BiEdit size={20} className="cursor-pointer" />
-                  </div>
-                </th>
+      <div className="">
+        <div className="overflow-x-auto">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Delete</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {data?.map(
+                (d: any | object | null | string[], inx: number): any => (
+                  <tr key={inx} className="pt-4">
+                    <th>{inx + 1}</th>
+                    <td>
+                      <div className="flex items-center space-x-3">
+                        <div className="avatar">
+                          <div className="mask mask-squircle w-12 h-12">
+                            <img alt="" src={d?.profilePicture} />
+                          </div>
+                        </div>
+                        <div>
+                          <div className="font-bold">{d?.username}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>{d.email}</td>
+                    <th>
+                      <button className="btn btn-ghost btn-xs">{d.role}</button>
+                    </th>
+                    <td
+                      onClick={() => handleDelete(d._id)}
+                      className=" btn-error flex justify-center items-center mt-4 cursor-pointer"
+                    >
+                      <FaTrash />
+                    </td>
+                  </tr>
+                )
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

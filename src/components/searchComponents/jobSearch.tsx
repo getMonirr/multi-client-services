@@ -23,7 +23,7 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
   // const totalItems: number = data.length;
   const perPage: number = 5;
   const totalPage: number = Math.ceil(totalJob / perPage);
-  const pageNumber: any = [...Array(totalPage).keys()];
+  const pageNumber:any = [...Array(totalPage).keys()];
   const userphoto =
     "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?size=626&ext=jpg&ga=GA1.1.2077699082.1681132836&semt=sph";
 // console.log(totalPage)

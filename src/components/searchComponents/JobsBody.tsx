@@ -8,7 +8,7 @@ import RootContainer from "../shared/RootContainer";
 import axios from "axios";
 
 const JobsBody = ({ searchWord }: { searchWord: string }) => {
-  const [searchData, setSearchData] = useState<string>(searchWord)
+  const [searchData, setSearchData] = useState<string>(searchWord);
   const [pageData, setPageData] = useState([]);
   const [categorys, setCategorys] = useState<string>("");
   const [postTime, setPostTime] = useState<string>("");
@@ -32,7 +32,6 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
 
   console.log(searchWord);
   const handleApi = (data: string) => {
-    
     axios.get(`/api/services?searchQuery=${data}`).then((data) => {
       console.log(data.data.data);
       setDataLength(data.data.data.length);
@@ -46,21 +45,20 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
 
   useEffect(() => {
     if (!searchWord) {
-      const jobData = async () => {
-        const res = await fetch("/api/services");
-        const data = await res.json();
+      axios.get("/api/services").then((data) => {
         setPageData(data.data);
         setDataLength(data.data.length);
         console.log(data.data);
-        jobData();
-      };
+        console.log("amin akhane");
+      });
     } else {
       handleApi(searchWord);
+      console.log(searchWord)
     }
 
     // const fastData = data.splice(0, perPage);
     // setPageData(fastData);
-  }, [searchWord,pageData]);
+  }, [searchWord, pageData]);
 
   console.log(pageData);
 

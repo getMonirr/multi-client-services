@@ -1,6 +1,6 @@
 import { FaHome, FaUserAlt, FaUserEdit, FaUsers } from "react-icons/fa";
 import { MdOutlineMedicalServices } from "react-icons/md";
-import { FaCartShopping } from "react-icons/fa6";
+import { FaCartShopping, FaNetworkWired } from "react-icons/fa6";
 import { BiSupport } from "react-icons/bi";
 import { BsQuestionCircleFill } from "react-icons/bs";
 // seller routes links
@@ -44,6 +44,18 @@ export const adminLinks = [
     name: "All Users",
     path: "/dashboard/all-users",
     icon: FaUsers,
+    count: 5,
+  },
+  {
+    name: "Manage Services",
+    path: "/dashboard/manage-service",
+    icon: FaNetworkWired,
+    count: 5,
+  },
+  {
+    name: "Payment Management",
+    path: "/dashboard/payment-management",
+    icon: FaNetworkWired,
     count: 5,
   },
 ];
