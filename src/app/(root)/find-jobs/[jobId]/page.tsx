@@ -7,9 +7,16 @@ import PriceSections from "@/components/singleJob/PriceSections";
 import SellerFAQ from "@/components/singleJob/SellerFAQ";
 import SellerReviews from "@/components/singleJob/SellerReviews";
 import UserInfo from "@/components/singleJob/UserInfo";
+import getDataFromDB from "@/utils/getDataFromDB";
+import { headers } from "next/headers";
 import React from "react";
 
-const SingleJob = () => {
+const SingleJob = async ({ params }: { params: { jobId: string } }) => {
+  const { jobId } = params;
+  const host = headers().get("host");
+  const service = await getDataFromDB(`http://${host}/api/services/${jobId}`);
+  const { title, description, seller, images } = service?.data;
+  console.log({ service });
   return (
     <div className="my-16">
       <RootContainer>
@@ -23,10 +30,8 @@ const SingleJob = () => {
               <JobSlider />
             </div>
             <div className="my-8">
-              <h2 className="text-xl font-bold mb-4">
-                About the services option
-              </h2>
-              <p></p>
+              <h2 className="text-xl font-bold mb-4">About the services</h2>
+              <p>{description}</p>
             </div>
             {/* about the seller */}
             <div>
