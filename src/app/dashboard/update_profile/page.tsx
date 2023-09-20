@@ -41,7 +41,7 @@ const Update_profile = () => {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
     axios
-      .patch(`/api/users/${userData._id}`, {
+      .patch(`/api/users/${userData?._id}`, {
         name: {
           firstName: data?.firstName,
           lastName: data?.lastName,
