@@ -39,9 +39,9 @@ const SearchJobs = () => {
   useEffect(() => {
     const fastData = data.splice(0, perPage);
     setPageData(fastData);
-  }, [currentPage]);
-  console.log(findJobs);
-
+  }, []);
+  // console.log(findJobs);
+ 
   return (
     <div>
       <div>

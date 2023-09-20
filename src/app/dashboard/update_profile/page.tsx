@@ -8,23 +8,28 @@ import axios from "axios";
 
 const Update_profile = () => {
   const session = useSession();
-  const [userInfo, setUserInfo] = useState<any>({});
+  // const [userInfo, setUserInfo] = useState<any>({});
+  // const [_id, set_Id] = useState("")
+  const [userData, setUserData] = useState<any>();
   const email = session?.data?.user?.email;
 
+  // default values
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+
   useEffect(() => {
-    fetch("/api/users")
-      .then((res) => res.json())
-      .then((data) => {
-        if (email && data) {
-          const filter: any = data.data.filter(
-            (item: object | string | null | undefined | string[] | any) =>
-              item?.email == email
-          );
-          // console.log(filter._id);
-          setUserInfo(filter[0]);
-        }
-      });
-  }, []);
+    axios.get(`/api/users?email=${email}`).then((data) => {
+      // console.log(data.data.data.name.firstName);
+      const main_data = data?.data?.data;
+      console.log(data);
+      setFirstName(main_data?.name?.firstName);
+      setLastName(main_data?.name?.lastName);
+      // setLastName(main_data?.phone)
+      setUserData(main_data);
+    });
+  }, [email]);
 
   type Inputs = {
     firstName: string;
@@ -35,15 +40,19 @@ const Update_profile = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
+    axios
+      .patch(`/api/users/${userData._id}`, {
+        name: {
+          firstName: data?.firstName,
+          lastName: data?.lastName,
+        },
+      })
+      .then((result) => {
+        console.log(result);
+      });
   };
 
-  useEffect(() => {
-    fetch(`/api/users?email=${email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-  }, []);
+  // useEffect(() => {}, []);
 
   return (
     <div className="mt-8">
@@ -72,11 +81,12 @@ const Update_profile = () => {
                   First Name
                 </label>
                 <input
+                  defaultValue={firstName}
                   type="text"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="John"
                   {...register("firstName")}
-                  required
+                  
                 />
               </div>
               <div className="mb-6 w-full lg:w-[500px]">
@@ -84,11 +94,12 @@ const Update_profile = () => {
                   Last Name
                 </label>
                 <input
+                  defaultValue={lastName}
                   {...register("lastName")}
                   type="text"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Doe"
-                  required
+                  
                 />
               </div>
             </div>
@@ -103,7 +114,7 @@ const Update_profile = () => {
                   type="text"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="xyz@mail.com"
-                  required
+                  
                 />
               </div>
               <div className="mb-6 w-full lg:w-[500px]">
@@ -115,7 +126,7 @@ const Update_profile = () => {
                   type="text"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="+880 171xxxxxxxx"
-                  required
+                  
                 />
               </div>
             </div>
