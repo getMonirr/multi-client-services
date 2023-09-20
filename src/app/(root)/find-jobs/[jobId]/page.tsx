@@ -29,7 +29,9 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
               <JobSlider images={images} />
             </div>
             <div className="my-8">
-              <h2 className="text-xl font-bold mb-4">About the services</h2>
+              <h2 className="text-xl font-bold mb-4">
+                About the services option
+              </h2>
               <p>{description}</p>
             </div>
             {/* about the seller */}
