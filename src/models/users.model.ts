@@ -152,10 +152,10 @@ const userSchema = new Schema({
         trim: true,
       },
       graduationYear: {
-        type: Date || String || Number,
+        type: String,
       },
       location: {
-        type: Number || String,
+        type: String,
       },
     },
   ],
@@ -208,6 +208,22 @@ const userSchema = new Schema({
       },
       links: {
         type: [String],
+        trim: true,
+      },
+      startingDate: {
+        type: String,
+        trim: true,
+      },
+      endingDate: {
+        type: String,
+        trim: true,
+      },
+      role: {
+        type: String,
+        trim: true,
+      },
+      githubCode: {
+        type: String,
         trim: true,
       },
     },
