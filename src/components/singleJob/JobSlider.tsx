@@ -11,10 +11,10 @@ import "swiper/css/thumbs";
 
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import Image from "next/image";
 
 const JobSlider = ({ images }: { images: string[] }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-
   return (
     <>
       <Swiper
