@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import NextAuthProvider from "@/Context/NextAuthProvider";
 import DashboardLayouts from "@/components/Dashboard/layout/DashboardLayouts";
 import ThemeProvider from "@/Context/ThemeProvider";
-import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +23,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextAuthProvider>
             <DashboardLayouts>{children}</DashboardLayouts>
-            <ToastContainer />
           </NextAuthProvider>
         </ThemeProvider>
       </body>
