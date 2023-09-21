@@ -14,23 +14,19 @@ import Swal from "sweetalert2";
 const userphoto =
   "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?size=626&ext=jpg&ga=GA1.1.2077699082.1681132836&semt=sph";
 
-
 const stripePromise = loadStripe(`${process.env.StripPublickKey}`);
 
 type Inputs = {
-  company: string ;
+  company: string;
   address: string;
   country: string;
   postCode: number;
   state: string;
   city: string;
   name: string;
-
-
 };
 
 const Payment = () => {
-  
   const [information, setAddInformation] = useState<any>();
   // const router = useRouter();
   //  const {data } = router
@@ -44,8 +40,7 @@ const Payment = () => {
   const totalPrice = price + tex;
 
   const { register, handleSubmit, reset } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => 
-   {
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
     if (data) {
       Swal.fire({
         position: "top-end",
@@ -62,9 +57,8 @@ const Payment = () => {
   return (
     <RootContainer>
       <div className=" flex gap-4 flex-col-reverse lg:flex-row ">
-      
         <div className="md:col-span-2 pb-6 border md:w-2/3 text-black">
-        {/* <Stepper
+          {/* <Stepper
         activeStep={currentStepIndex}
         
         styleConfig={{
@@ -85,8 +79,8 @@ const Payment = () => {
         <Step label="Packages" />
         <Step label="Confram pay" className="text-yellow-400" />
       </Stepper> */}
-      <div className="flex items-center justify-center"></div>
-      {/* <div className="flex items-center justify-end my-8 gap-4">
+          <div className="flex items-center justify-center"></div>
+          {/* <div className="flex items-center justify-end my-8 gap-4">
         <button className="btn btn-sm" disabled={isFirstStep} onClick={back}>
           Prev
         </button>
@@ -116,7 +110,6 @@ const Payment = () => {
                         {information?.company} {information?.state}
                         {information?.address} {information?.city}
                         {information?.postCode} {information?.country}
-                        
                       </span>{" "}
                     </>
                   )}

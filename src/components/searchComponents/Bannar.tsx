@@ -7,10 +7,6 @@ import RootContainer from "../shared/RootContainer";
 
 const Bannar = ({queryData}: {queryData: string}) => {
   const [searchData, setSearchData] = useState("");
-
-  const searchHandle = (e: any) => {
-    e.preventDefault();
-    const from = e.target.searche.value;
     setSearchData(from);
   };
   useEffect(()=>{

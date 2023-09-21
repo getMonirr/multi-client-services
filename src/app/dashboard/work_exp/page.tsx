@@ -40,9 +40,9 @@ const WorkExperince = () => {
             company: "",
             startDate: "",
             endDate: "",
-            description: ""
-          }
-        ]
+            description: "",
+          },
+        ],
       })
       .then((result) => {
         console.log(result);

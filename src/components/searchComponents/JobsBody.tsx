@@ -8,7 +8,7 @@ import RootContainer from "../shared/RootContainer";
 import axios from "axios";
 
 const JobsBody = ({ searchWord }: { searchWord: string }) => {
-  const [searchData, setSearchData] = useState<string>(searchWord)
+  const [searchData, setSearchData] = useState<string>(searchWord);
   const [pageData, setPageData] = useState([]);
   const [categorys, setCategorys] = useState<string>("");
   const [postTime, setPostTime] = useState<string>("");
@@ -32,7 +32,7 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
 
   console.log(searchWord);
   const handleApi = (data: string) => {
-    setSearchData("")
+    setSearchData("");
     axios.get(`/api/services?searchQuery=${data}`).then((data) => {
       console.log(data.data);
       setDataLength(data.data.data.length);
