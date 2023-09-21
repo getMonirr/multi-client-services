@@ -7,7 +7,7 @@ import Link from "next/link";
 const Profile = () => {
   const { data: session } = useSession();
   const user = session?.user;
-  const fullName = user?.name?.firstName + " " + user?.name?.lastName;
+  const fullName: any = user?.name;
   return (
     <div className="">
       <div className="flex justify-between items-center">

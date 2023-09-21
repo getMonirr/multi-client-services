@@ -1,7 +1,4 @@
-"use client"
 import RootContainer from "@/components/shared/RootContainer";
-import SectionStarter from "@/components/shared/SectionStarter";
-import SimpleBtn from "@/components/shared/btn/SimpleBtn";
 import AboutSeller from "@/components/singleJob/AboutSeller";
 import JobSlider from "@/components/singleJob/JobSlider";
 import PriceSections from "@/components/singleJob/PriceSections";
@@ -17,16 +14,10 @@ const SingleJob = ({ params }: { params: { jobId: string } }) => {
   const { jobId } = params;
   const [service, setService] = useState<any>()
   const host = headers().get("host");
-  useEffect(()=>{
-    const callData = async() =>{
 
-      const data = await getDataFromDB(`http://${host}/api/services/${jobId}`);
-      setService(data)
-    }
-    callData()
-  },[])
-  
-  const { title, description, seller } = service?.data;
+  const service = await getDataFromDB(`http://${host}/api/services/${jobId}`);
+  const { title, description, seller, images } = service?.data;
+  console.log({ service });
   return (
     <div className="my-16">
       <RootContainer>
@@ -35,7 +26,7 @@ const SingleJob = ({ params }: { params: { jobId: string } }) => {
             <h3 className=" text-lg lg:text-2xl font-bold">{title}</h3>
             <UserInfo seller={seller} />
             <div className="mt-8">
-              <JobSlider jobData={service?.data} />
+              <JobSlider images={images} />
             </div>
             <div className="my-8">
               <h2 className="text-xl font-bold mb-4">About the services</h2>
