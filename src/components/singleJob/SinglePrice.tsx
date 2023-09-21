@@ -20,7 +20,7 @@ declare global {
 
 const SinglePrice = ({ name }: { name: string }) => {
   // const router = useRouter();
-  const { step, next, back, currentStepIndex, isFirstStep, isLastStep } =
+  const { next, back, currentStepIndex, isFirstStep, isLastStep } =
     useMultiStepForm([]);
   // let paymentPage = <Payment key={2} page = {step}/>
   const price: number = 10;
