@@ -7,7 +7,6 @@ import SellerReviews from "@/components/singleJob/SellerReviews";
 import UserInfo from "@/components/singleJob/UserInfo";
 import getDataFromDB from "@/utils/getDataFromDB";
 import { headers } from "next/headers";
-import React from "react";
 // get data
 
 const SingleJob = async ({ params }: { params: { jobId: string } }) => {

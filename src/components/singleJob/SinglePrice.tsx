@@ -10,6 +10,8 @@ import SimpleBtn from "../shared/btn/SimpleBtn";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useMultiStepForm } from "@/hooks/useMultiStepForm";
+import Payment from "@/app/(root)/find-jobs/payment/page";
 declare global {
   interface document {
     my_modal_3: HTMLFormElement;
@@ -18,21 +20,26 @@ declare global {
 
 const SinglePrice = ({ name }: { name: string }) => {
   // const router = useRouter();
+  const { next, back, currentStepIndex, isFirstStep, isLastStep } =
+    useMultiStepForm([]);
+  // let paymentPage = <Payment key={2} page = {step}/>
   const price: number = 10;
   const [quantity, setQuantity] = useState<number>(1);
   const [totalPrice, setTotalPrice] = useState<number>(price);
   const delivery = "1 day ";
   const revision = "unlimited";
-  const paymentPage = {totalPrice, quantity}
- 
+  const paymentPage = { totalPrice, quantity };
+
   useEffect(() => {
+    // fetch('/api/services')
+    // then(res =>)
     const priceCalculat = price * quantity;
     setTotalPrice(priceCalculat);
   }, [quantity]);
 
   // const passData = () =>{
   //   router.push(`/find-jobs/payment?data=${paymentPage}`)
-    
+
   // }
 
   return (
@@ -70,7 +77,9 @@ const SinglePrice = ({ name }: { name: string }) => {
           <p
             onClick={() => {
               if (document) {
-                (document.getElementById('my_modal_3') as HTMLFormElement).showModal();
+                (
+                  document.getElementById("my_modal_3") as HTMLFormElement
+                ).showModal();
               }
             }}
             className="flex items-center justify-center gap-2 mx-auto"
@@ -84,8 +93,10 @@ const SinglePrice = ({ name }: { name: string }) => {
       </div>
       <dialog id="my_modal_3" className="modal w-full ">
         <div className="modal-box max-w-4xl relative ">
-          
-          <form method="dialog " className="sticky -top-6 rounded-md bg-gray-100 p-4 " >
+          <form
+            method="dialog "
+            className="sticky -top-6 rounded-md bg-gray-100 p-4 "
+          >
             <span className="font-bold text-xl ">Order Options </span>
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
@@ -129,11 +140,17 @@ const SinglePrice = ({ name }: { name: string }) => {
             <div className="md:flex justify-between items-center">
               <p>
                 Gig Orders :
-                <span className="text-xl font-bold text-red-700"> X{quantity}</span>
+                <span className="text-xl font-bold text-red-700">
+                  {" "}
+                  X{quantity}
+                </span>
               </p>
               <p className="mb-3">
                 Total Cost :
-                <span className="text-xl font-bold text-red-700"> ${totalPrice}</span>
+                <span className="text-xl font-bold text-red-700">
+                  {" "}
+                  ${totalPrice}
+                </span>
               </p>
             </div>
 
@@ -155,9 +172,8 @@ const SinglePrice = ({ name }: { name: string }) => {
             <p>please payment confram</p>
 
             <SimpleBtn className="w-full text-white">
-              <Link
-                // onClick={passData}
-                href={`/find-jobs/payment?data=${paymentPage}`}
+              <button
+                onClick={next}
                 className="flex items-center md:py-4 md:text-xl justify-center gap-2 mx-auto"
               >
                 Continue
@@ -165,7 +181,7 @@ const SinglePrice = ({ name }: { name: string }) => {
                   <FaArrowRight />
                 </span>
                 $({totalPrice})
-              </Link>
+              </button>
             </SimpleBtn>
           </div>
         </div>

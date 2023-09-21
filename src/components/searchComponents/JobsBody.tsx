@@ -1,12 +1,15 @@
 import SearchJobs from "./jobSearch";
 import { CategoryTitle } from "@/constant/Constant";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaTimes, FaAngleDown, FaAngleLeft } from "react-icons/fa";
 import Relative from "./Relative";
 import SectionStarter from "../shared/SectionStarter";
 import RootContainer from "../shared/RootContainer";
+import axios from "axios";
 
-const JobsBody = () => {
+const JobsBody = ({ searchWord }: { searchWord: string }) => {
+  const [searchData, setSearchData] = useState<string>(searchWord)
+  const [pageData, setPageData] = useState([]);
   const [categorys, setCategorys] = useState<string>("");
   const [postTime, setPostTime] = useState<string>("");
   const [experience, setExperience] = useState<string>("");
@@ -24,7 +27,42 @@ const JobsBody = () => {
   const [postOpen, setPostOpen] = useState<boolean>(false);
   const [experienceOpen, setExperienceOpen] = useState<boolean>(false);
   const [priceOpen, setPriceOpen] = useState<boolean>(false);
-  console.log(categoryOpen);
+  const [dataLength, setDataLength] = useState<number>(0);
+  // console.log(categoryOpen);
+
+  console.log(searchWord);
+  const handleApi = (data: string) => {
+    setSearchData("")
+    axios.get(`/api/services?searchQuery=${data}`).then((data) => {
+      console.log(data.data);
+      setDataLength(data.data.data.length);
+      setPageData(data.data.data);
+    });
+  };
+  // const filterHandle = (data:string) =>{
+  //   const findData = pageData.filter(job =>job.price < data)
+  // }
+
+  useEffect(() => {
+    if (!searchWord) {
+      const jobData = async () => {
+        const res = await fetch("/api/services");
+        const data = await res.json();
+        setPageData(data.data);
+        setDataLength(data.data.length);
+        console.log(data.data);
+        jobData();
+      };
+    } else {
+      console.log("ami ace ");
+      handleApi(searchWord);
+    }
+
+    // const fastData = data.splice(0, perPage);
+    // setPageData(fastData);
+  }, [searchWord]);
+
+  console.log(pageData);
 
   return (
     <RootContainer>
@@ -51,6 +89,7 @@ const JobsBody = () => {
                     <input
                       onChange={() => {
                         setCategorys(data);
+                        handleApi(data);
                       }}
                       type="radio"
                       name="categorys"
@@ -81,6 +120,7 @@ const JobsBody = () => {
                     <input
                       onChange={() => {
                         setPostTime(data);
+                        handleApi(data);
                       }}
                       type="radio"
                       name="Post Time"
@@ -111,6 +151,7 @@ const JobsBody = () => {
                     <input
                       onChange={() => {
                         setExperience(data);
+                        handleApi(data);
                       }}
                       type="radio"
                       name="Experience"
@@ -141,6 +182,7 @@ const JobsBody = () => {
                     <input
                       onChange={() => {
                         setPrice(data);
+                        handleApi(data);
                       }}
                       type="radio"
                       name="Prices"
@@ -198,7 +240,7 @@ const JobsBody = () => {
             )}
           </div>
 
-          <SearchJobs />
+          <SearchJobs data={pageData} totalJob={dataLength} />
         </div>
       </div>
       <div className="mb-20">

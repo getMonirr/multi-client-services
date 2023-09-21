@@ -1,18 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { FaSearch } from "react-icons/fa";
 import JobsBody from "./JobsBody";
 import { BsSearch } from "react-icons/bs";
 import RootContainer from "../shared/RootContainer";
 
-const Bannar = () => {
-  const [searchData, setSearchData] = useState("that will dynamic");
+const Bannar = ({queryData}: {queryData: string}) => {
+  const [searchData, setSearchData] = useState("");
 
   const searchHandle = (e: any) => {
     e.preventDefault();
     const from = e.target.searche.value;
     setSearchData(from);
   };
+  useEffect(()=>{
+    if(queryData){
+      setSearchData(queryData)
+      console.log('ami ace')
+    }
+  },[queryData])
   return (
     <RootContainer>
       
@@ -20,7 +26,7 @@ const Bannar = () => {
           <div className=" relative text-white py-10 px-4">
             <div>
               <h1 className="text-4xl font-bold mb-2 ">
-                Get High Quality [ {searchData} ] solutions
+                Get High Quality {searchData &&  <span>{searchData}</span> } solutions
               </h1>
               <p>
                 We will take all your problems and provide you the best
@@ -45,7 +51,7 @@ const Bannar = () => {
             </div>
           </div>
         </div>
-        <JobsBody></JobsBody>
+        <JobsBody searchWord = {searchData}></JobsBody>
       
     </RootContainer>
   );
