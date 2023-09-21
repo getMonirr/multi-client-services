@@ -7,14 +7,11 @@ import SellerReviews from "@/components/singleJob/SellerReviews";
 import UserInfo from "@/components/singleJob/UserInfo";
 import getDataFromDB from "@/utils/getDataFromDB";
 import { headers } from "next/headers";
-import React, { useEffect, useState } from "react";
 // get data
 
-const SingleJob = ({ params }: { params: { jobId: string } }) => {
+const SingleJob = async ({ params }: { params: { jobId: string } }) => {
   const { jobId } = params;
-  const [service, setService] = useState<any>()
   const host = headers().get("host");
-
   const service = await getDataFromDB(`http://${host}/api/services/${jobId}`);
   const { title, description, seller, images } = service?.data;
   console.log({ service });
@@ -44,7 +41,7 @@ const SingleJob = ({ params }: { params: { jobId: string } }) => {
             </div>
           </div>
           <div className="order-1 lg:order-2">
-            <PriceSections/>
+            <PriceSections />
           </div>
         </div>
       </RootContainer>
