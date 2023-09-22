@@ -9,6 +9,7 @@ import axios from "axios";
 
 const JobsBody = ({ searchWord }: { searchWord: string }) => {
   const [searchData, setSearchData] = useState<string>(searchWord)
+
   const [pageData, setPageData] = useState([]);
   const [categorys, setCategorys] = useState<string>("");
   const [postTime, setPostTime] = useState<string>("");
@@ -42,6 +43,7 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
   // const filterHandle = (data:string) =>{
   //   const findData = pageData.filter(job =>job.price < data)
   // }
+
 
   useEffect(() => {
     if (!searchWord) {

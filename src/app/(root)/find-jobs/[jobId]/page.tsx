@@ -1,3 +1,4 @@
+"use client";
 import RootContainer from "@/components/shared/RootContainer";
 import AboutSeller from "@/components/singleJob/AboutSeller";
 import JobSlider from "@/components/singleJob/JobSlider";

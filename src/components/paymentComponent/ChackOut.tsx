@@ -5,14 +5,14 @@ import Swal from "sweetalert2";
 
 const ChackOut = () => {
   const [cardError, setCardError] = useState<any>("");
-  const [paymentId, setPaymentId] = useState<string>("")
+  const [paymentId, setPaymentId] = useState<string>("");
   const stripe = useStripe();
   const elements = useElements();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setPaymentId("")
-    setCardError("")
+    setPaymentId("");
+    setCardError("");
 
     if (!stripe || !elements) {
       return;
@@ -39,15 +39,15 @@ const ChackOut = () => {
       const err = error.message;
       setCardError(err);
     } else {
-      if(paymentMethod.id){
+      if (paymentMethod.id) {
         Swal.fire({
-          position: 'top',
-          icon: 'success',
+          position: "top",
+          icon: "success",
           title: `your Payment is successfull `,
           showConfirmButton: false,
-          timer: 2500
-        })
-        setPaymentId(paymentMethod.id)
+          timer: 2500,
+        });
+        setPaymentId(paymentMethod.id);
       }
       console.log("payment method", paymentMethod);
     }
@@ -63,7 +63,12 @@ const ChackOut = () => {
             Confram Pay
           </button>
         </div>
-        {paymentId && <p className=" text-lg mt-6">your payment id:  <span className="text-green-500">({paymentId})</span></p>}
+        {paymentId && (
+          <p className=" text-lg mt-6">
+            your payment id:{" "}
+            <span className="text-green-500">({paymentId})</span>
+          </p>
+        )}
         {cardError && <p className="text-red-500 mt-6 ">{cardError}</p>}
       </form>
     </div>

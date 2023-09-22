@@ -17,6 +17,7 @@ import Link from "next/link";
 const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
   // const [data, setData] = useState<any>(findJobs);
   
+
   const [pageData, setPageData] = useState<string[]>([]);
   const [tabIndex, setTabIndex] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -38,6 +39,7 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
   useEffect(() => {
     if (data) {
       const fastData = data.slice(0, perPage)
+
       setPageData(fastData);
     }
   }, [data]);
@@ -60,7 +62,7 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
             className="bg-white rounded overflow-hidden group shadow-md"
           >
             <Link href={`/find-jobs/${job._id}`}>
-            
+
             <Swiper
               navigation={true}
               modules={[Navigation]}
@@ -71,12 +73,11 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
                 <SwiperSlide key={i}>
                   <div className="w-full h-52 border-b">
                     <Image
-                      src={image}
+                      src={userphoto}
                       alt="Vercel Logo"
-                      className="w-full h-full"
-                      width={550}
-                      height={120}
-                      objectFit="cover"
+                      className="rounded-full "
+                      width={50}
+                      height={50}
                       priority
                     />
                   </div>
@@ -128,11 +129,6 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
                   <small className="text-xs block">
                     {job.jobSuccuss}% job success
                   </small>
-                  <input
-                    type="range"
-                    className="w-24 h-1"
-                    value={job.jobSuccuss}
-                  />
                 </div>
                 <p className=" font-bold bg-multi-primary py-2 px-4 text-white rounded-2xl">
                   {" "}
@@ -146,6 +142,7 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
             >
               Collaborate
             </Link>
+
             </Link>
           </div>
         ))}
@@ -180,6 +177,7 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
             }
         </div>
         }
+
       </div>
       {/* <Relative/> */}
     </div>

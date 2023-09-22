@@ -6,6 +6,7 @@ import { BsSearch } from "react-icons/bs";
 import RootContainer from "../shared/RootContainer";
 
 const Bannar = ({queryData}: {queryData: string}) => {
+
   const [searchData, setSearchData] = useState("");
 
   const searchHandle = (e: any) => {
@@ -52,7 +53,6 @@ const Bannar = ({queryData}: {queryData: string}) => {
           </div>
         </div>
         <JobsBody searchWord = {searchData}></JobsBody>
-      
     </RootContainer>
   );
 };

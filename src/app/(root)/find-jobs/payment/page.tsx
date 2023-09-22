@@ -44,6 +44,7 @@ const Payment = () => {
   const totalPrice = price + tex;
 
   const { register, handleSubmit, reset } = useForm<Inputs>();
+
   const onSubmit: SubmitHandler<Inputs> = (data) => 
    {
     if (data) {
@@ -87,6 +88,7 @@ const Payment = () => {
       </Stepper> */}
       <div className="flex items-center justify-center"></div>
       {/* <div className="flex items-center justify-end my-8 gap-4">
+
         <button className="btn btn-sm" disabled={isFirstStep} onClick={back}>
           Prev
         </button>

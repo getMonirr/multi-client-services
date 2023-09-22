@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import SimpleBtn from "@/components/shared/btn/SimpleBtn";
 import axios from "axios";
 import { useSession } from "next-auth/react";
@@ -85,7 +85,7 @@ const Work_exp = () => {
               Company
             </label>
             <input
-            defaultValue={company === undefined ? "" : company}
+              defaultValue={company === undefined ? "" : company}
               {...register("company")}
               type="text"
               className="bg-gray-100 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full px-2 py-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -122,7 +122,7 @@ const Work_exp = () => {
             Short Description
           </label>
           <textarea
-          defaultValue={des === undefined ? "" : des}
+            defaultValue={des === undefined ? "" : des}
             {...register("shortDescription")}
             className="bg-gray-100 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full px-2 py-3 h-[100px] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="As Full stack engineer at this company. I feel  ......"
