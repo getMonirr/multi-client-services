@@ -36,9 +36,9 @@ const Payment = () => {
   // const myDilog = document?.getElementById("my_modal_1")
   // const myDilog = document.getElementById('my_modal_1') as HTMLFormElement).showModal()
 
-  const { register, handleSubmit, reset } = useForm<Inputs>();
+  const { register, handleSubmit, reset } = useForm();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => 
+  const onSubmit = (data:object) => 
    {
 
     if (data) {
