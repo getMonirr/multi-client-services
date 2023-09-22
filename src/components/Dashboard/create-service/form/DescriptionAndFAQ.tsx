@@ -12,7 +12,7 @@ import { FaPlus, FaTrash } from "react-icons/fa";
 const DescriptionAndFAQ = () => {
   const serviceState = useSelector(getServiceData);
   const dispatch = useDispatch();
-  console.log("data")
+  console.log("data added")
 
   const { control, handleSubmit, register, setValue, getValues, watch } =
     useForm({

@@ -9,6 +9,7 @@ import axios from "axios";
 
 const JobsBody = ({ searchWord }: { searchWord: string }) => {
   const [searchData, setSearchData] = useState<string>(searchWord)
+
   const [pageData, setPageData] = useState([]);
   const [categorys, setCategorys] = useState<string>("");
   const [postTime, setPostTime] = useState<string>("");
@@ -32,16 +33,18 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
 
   console.log(searchWord);
   const handleApi = (data: string) => {
-    setSearchData("")
+    
     axios.get(`/api/services?searchQuery=${data}`).then((data) => {
-      console.log(data.data);
+      console.log(data.data.data);
       setDataLength(data.data.data.length);
       setPageData(data.data.data);
+      // setSearchData("")
     });
   };
   // const filterHandle = (data:string) =>{
   //   const findData = pageData.filter(job =>job.price < data)
   // }
+
 
   useEffect(() => {
     if (!searchWord) {
@@ -54,13 +57,12 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
         jobData();
       };
     } else {
-      console.log("ami ace ");
       handleApi(searchWord);
     }
 
     // const fastData = data.splice(0, perPage);
     // setPageData(fastData);
-  }, [searchWord]);
+  }, [searchWord,pageData]);
 
   console.log(pageData);
 

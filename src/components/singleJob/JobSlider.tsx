@@ -11,11 +11,12 @@ import "swiper/css/thumbs";
 
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import Image from "next/image";
 
-const JobSlider = ({jobData}: {jobData:any}) => {
+
+
+const JobSlider = ({ images }: { images: string[] }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-  console.log(jobData)
+
   return (
     <>
       <Swiper
@@ -32,16 +33,17 @@ const JobSlider = ({jobData}: {jobData:any}) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="lg:h-[400px]"
       >
-        {
-          jobData?.images?.map((img:string, i:number) =>
-            <SwiperSlide key={i}>
-          <Image 
-          src={`${img}`}
-          alt="gig pic" />
-        </SwiperSlide>
-            )
-        }
-        
+
+        {images &&
+          images.map((image, index) => (
+            <SwiperSlide key={index}>
+              <img
+                className="w-full h-full object-cover object-center"
+                src={image}
+              />
+            </SwiperSlide>
+          ))}
+
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -51,17 +53,18 @@ const JobSlider = ({jobData}: {jobData:any}) => {
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
+        className="singleServiceSwiper"
       >
-        {
-          jobData?.images?.map((img:string, i:number) =>
-            <SwiperSlide key={i}>
-          <Image 
-          src={`${img}`}
-          alt="gig pic" />
-        </SwiperSlide>
-            )
-        }
+        {images &&
+          images.map((image, index) => (
+            <SwiperSlide className="w-full" key={index}>
+              <img
+                className="h-[150px] w-full object-cover object-center"
+                src={image}
+              />
+            </SwiperSlide>
+          ))}
+
       </Swiper>
     </>
   );

@@ -2,35 +2,26 @@
 import ChackOut from "@/components/paymentComponent/ChackOut";
 import RootContainer from "@/components/shared/RootContainer";
 import SimpleBtn from "@/components/shared/btn/SimpleBtn";
-import { useMultiStepForm } from "@/hooks/useMultiStepForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+// import { useRouter } from "next/router";
 import { useState } from "react";
-import { Step, Stepper } from "react-form-stepper";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { FaCheck } from "react-icons/fa";
 import Swal from "sweetalert2";
 const userphoto =
   "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?size=626&ext=jpg&ga=GA1.1.2077699082.1681132836&semt=sph";
 
+// TODO publicable key
 
-const stripePromise = loadStripe(`${process.env.StripPublickKey}`);
-
-type Inputs = {
-  company: string ;
-  address: string;
-  country: string;
-  postCode: number;
-  state: string;
-  city: string;
-  name: string;
-
-
-};
+// key : pk_test_51NISv5CvtirLXdOoAJfNNhTLw1xHkqjyYa4znodKsBDc5RLMgFcbFJMOSbzDh25l5ABmjOlQw7jjvAyu5ZVIZ8pN00fBZ7yaid
+const key =
+  "pk_test_51NISv5CvtirLXdOoAJfNNhTLw1xHkqjyYa4znodKsBDc5RLMgFcbFJMOSbzDh25l5ABmjOlQw7jjvAyu5ZVIZ8pN00fBZ7yaid";
+const stripePromise = loadStripe(key);
 
 const Payment = () => {
-  
   const [information, setAddInformation] = useState<any>();
   // const router = useRouter();
   //  const {data } = router
@@ -42,10 +33,14 @@ const Payment = () => {
   const revision = "unlimited";
   const tex = 2.5;
   const totalPrice = price + tex;
+  // const myDilog = document?.getElementById("my_modal_1")
+  // const myDilog = document.getElementById('my_modal_1') as HTMLFormElement).showModal()
 
   const { register, handleSubmit, reset } = useForm<Inputs>();
+
   const onSubmit: SubmitHandler<Inputs> = (data) => 
    {
+
     if (data) {
       Swal.fire({
         position: "top-end",
@@ -62,7 +57,6 @@ const Payment = () => {
   return (
     <RootContainer>
       <div className=" flex gap-4 flex-col-reverse lg:flex-row ">
-      
         <div className="md:col-span-2 pb-6 border md:w-2/3 text-black">
         {/* <Stepper
         activeStep={currentStepIndex}
@@ -87,6 +81,7 @@ const Payment = () => {
       </Stepper> */}
       <div className="flex items-center justify-center"></div>
       {/* <div className="flex items-center justify-end my-8 gap-4">
+
         <button className="btn btn-sm" disabled={isFirstStep} onClick={back}>
           Prev
         </button>
@@ -94,6 +89,7 @@ const Payment = () => {
           Next
         </button>
       </div> */}
+
           <h1 className="text-3xl bg-gray-100 p-4  font-bold mb-10 capitalize">
             Billing Information
           </h1>
@@ -116,7 +112,6 @@ const Payment = () => {
                         {information?.company} {information?.state}
                         {information?.address} {information?.city}
                         {information?.postCode} {information?.country}
-                        
                       </span>{" "}
                     </>
                   )}

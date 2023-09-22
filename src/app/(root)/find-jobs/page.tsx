@@ -1,3 +1,4 @@
+
 "use client"
 import Bannar from "@/components/searchComponents/Bannar";
 import JobsBody from "@/components/searchComponents/JobsBody";

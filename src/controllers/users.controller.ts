@@ -33,9 +33,3 @@ export const deleteUserById = async (userId: string) => {
   await connectMongoDB();
   return User.deleteOne({ _id: userId });
 };
-
-// get user by email
-export const getUserByEmail = async (sellerEmail: string) => {
-  await connectMongoDB();
-  return User.findOne({ email: sellerEmail });
-};
