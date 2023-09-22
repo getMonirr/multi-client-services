@@ -59,7 +59,7 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
             </div>
             {/* about the seller */}
             <div>
-              <AboutSeller />
+              <AboutSeller seller={seller} />
             </div>
             <div>
               <SellerFAQ />

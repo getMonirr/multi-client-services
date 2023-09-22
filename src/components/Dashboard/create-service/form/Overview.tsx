@@ -1,7 +1,8 @@
 "use client";
-import {
-  getServiceData,
-  updateServiceData,
+
+import { 
+  getServiceData, 
+  updateServiceData 
 } from "@/redux/features/multi-step-form/multiStepFormDataSlice";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -12,9 +13,8 @@ import TagsInput from "react-tagsinput";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import { fetcher } from "@/utils/swr/fetcher";
-// some change for new branch monir - 2
 
-const OverviewUpdate = () => {
+const Overview = () => {
   console.log("data")
   // next auth session
   const { data: session } = useSession();
@@ -129,4 +129,4 @@ const OverviewUpdate = () => {
   );
 };
 
-export default OverviewUpdate;
+export default Overview;
