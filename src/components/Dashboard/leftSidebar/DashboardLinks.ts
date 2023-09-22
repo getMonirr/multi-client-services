@@ -27,6 +27,11 @@ export const sellerLinks = [
     icon: MdOutlineMedicalServices,
     count: 5,
   },
+  {
+    name: "Create service",
+    path: "/dashboard/create-service",
+    icon: MdOutlineMedicalServices,
+  },
 ];
 // admin route links
 export const adminLinks = [
