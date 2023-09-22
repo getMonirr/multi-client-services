@@ -1,3 +1,4 @@
+import ReduxProvider from "@/Context/ReduxProvider";
 import "./globals.css";
 
 type Props = {
@@ -6,7 +7,9 @@ type Props = {
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en" data-theme="light">
-      <body>{children}</body>
+      <body>
+        <ReduxProvider>{children}</ReduxProvider>
+      </body>
     </html>
   );
 };
