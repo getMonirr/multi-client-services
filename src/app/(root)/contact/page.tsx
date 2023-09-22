@@ -15,10 +15,7 @@ const ContactPage = () => {
           className="mx-auto w-full mt-2 rounded-lg h-[100vh]"
           alt="about"
         />
-        <div
-          className="grid grid-cols-1 lg:grid-cols-2  gap-8  pt-20"
-          id="contact"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2  gap-8  pt-20" id="contact">
           <div className=" border rounded-lg ">
             <h4 className="text-3xl mb-10 text-center font-bold bg-multi-icon-bg shadow-2xl py-3 ">
               Contact Form
@@ -57,6 +54,7 @@ const ContactPage = () => {
                   placeholder="Your Message"
                 ></textarea>
               </div>
+
               <input
                 className="btn bg-multi-icon-bg hover:border-multi-primary"
                 type="submit"
@@ -64,18 +62,20 @@ const ContactPage = () => {
               />
             </form>
           </div>
+
+
           <div className=" bg-slate-200 flex flex-col">
             <h2 className="text-3xl text-center font-bold bg-black text-white bg-opacity-40 shadow-2xl py-3 ">
               More contact
             </h2>
             <div className="  p-4 flex flex-col justify-between flex-grow">
-              <p className="p-4 text-center bg-gray-200 shadow-2xl rounded">
-                Our team is dedicated to providing top-notch service and
-                assistance. Please feel free to use the form left to drop us a
-                message. Whether it is regarding our services, potential
-                collaboration, or any other inquiry, we will make sure the right
-                person gets back to you promptly.
-              </p>
+                <p className="p-4 text-center bg-gray-200 shadow-2xl rounded">
+                  Our team is dedicated to providing top-notch service and
+                  assistance. Please feel free to use the form left to drop us a
+                  message. Whether it is regarding our services, potential
+                  collaboration, or any other inquiry, we will make sure the
+                  right person gets back to you promptly.
+                </p>
               <div className="md:flex gap-5 justify-between">
                 <div>
                   <h4 className="text-2xl mt-5">Find On Us</h4>

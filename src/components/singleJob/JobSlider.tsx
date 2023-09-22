@@ -13,6 +13,7 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import Image from "next/image";
 
+
 const JobSlider = ({ images }: { images: string[] }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   return (
@@ -31,6 +32,7 @@ const JobSlider = ({ images }: { images: string[] }) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="lg:h-[400px]"
       >
+
         {images &&
           images.map((image, index) => (
             <SwiperSlide key={index}>

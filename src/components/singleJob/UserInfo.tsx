@@ -9,13 +9,14 @@ const UserInfo = ({ seller }: { seller: any }) => {
   return (
     <div className="flex gap-4 items-center mt-4">
       <div>
-        <Image
+        {/* TODO picture added in items  */}
+        {/* <Image
           alt="user image"
-          src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif"
+          src={`${session?.user?.profilePicture}`}
           width={200}
           height={200}
           className="rounded-full w-20 h-20"
-        />
+        /> */}
       </div>
       <div>
         <div className="flex gap-4 items-center">
