@@ -58,6 +58,9 @@ const ContactPage = () => {
               />
             </form>
           </div>
+
+
+
           <div className=" bg-slate-200 flex flex-col">
             <h2 className="text-3xl text-center font-bold bg-black text-white bg-opacity-40 shadow-2xl py-3 ">
               More contact

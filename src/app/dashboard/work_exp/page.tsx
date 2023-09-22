@@ -1,16 +1,30 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Update_profile_sidebar from "@/components/Dashboard/Update_profile_sidebar/Update_profile_sidebar";
 import Work_exp from "@/components/Dashboard/Work_exp/Work_exp";
 import Courses from "@/components/Dashboard/Courses/Courses";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useSession } from "next-auth/react";
+import axios from "axios";
 type Inputs = {
   street: string;
   city: string;
   postal_code: string;
   country: string;
 };
-const Page = () => {
+const WorkExperince = () => {
+  const session = useSession();
+  // const [userInfo, setUserInfo] = useState<any>({});
+  // const [_id, set_Id] = useState("")
+  const [userData, setUserData] = useState<any>();
+  const email = session?.data?.user?.email;
+
+  useEffect(() => {
+    axios.get(`/api/users?email=${email}`).then((data) => {
+      console.log(data.data.data);
+      setUserData(data.data.data);
+    });
+  }, [email]);
   const {
     register,
     handleSubmit,
@@ -18,6 +32,21 @@ const Page = () => {
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
+    axios
+      .patch(`/api/users/${userData._id}`, {
+        experience: [
+          {
+            title: "",
+            company: "",
+            startDate: "",
+            endDate: "",
+            description: "",
+          },
+        ],
+      })
+      .then((result) => {
+        console.log(result);
+      });
   };
   return (
     <div className="mt-10">
@@ -41,4 +70,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default WorkExperince;

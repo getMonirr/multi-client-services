@@ -17,17 +17,18 @@
 
 } */
 
- 
-.custom-swiper-button .swiper-button-prev:after, .custom-swiper-button .swiper-button-next:after{
+.custom-swiper-button .swiper-button-prev:after,
+.custom-swiper-button .swiper-button-next:after {
+
   background-color: #0000009c;
   color: white;
   font-size: 12px !important;
-  padding:  10px;
+  padding: 10px;
   border-radius: 50%;
 }
 
-.InputElement{
-  border: 2px ;
+.InputElement {
+  border: 2px;
   border-radius: 16px;
 }
 
@@ -57,8 +58,13 @@
   @apply border-b-multi-secondary bg-white text-black border-b-4;
 }
 
+
+.btn-error {
+  @apply btn bg-red-600 text-white hover:bg-red-800 transition-all;
+ }
 .btn {
   @apply bg-blue-500 text-white hover:bg-blue-800 transition-all
+
 }
 
 #aside_bar_update_profile{
@@ -68,3 +74,23 @@
   padding-left: 40px;
   padding-right: 40px;
 }
+/* .react-tagsinput */
+.react-tagsinput {
+  @apply rounded-lg;
+  background-color: #d6e6ff !important;
+}
+.react-tagsinput--focused {
+  border-color: #226ce5 !important;
+}
+.react-tagsinput-tag {
+  background-color: #226ce5 !important;
+  color: white !important;
+}
+
+.singleServiceSwiper .swiper-wrapper {
+  justify-content: space-between !important;
+}
+.singleServiceSwiper .swiper-wrapper .swiper-slide {
+  width: 33.33% !important;
+}
+
