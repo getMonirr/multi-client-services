@@ -92,12 +92,12 @@ const Header = () => {
 
   return (
     <>
-    <div
-        className={`bg-multi-icon-bg dark:bg-multi-title text-black dark:text-white sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out${
+      <div
+        className={`bg-multi-icon-bg dark:bg-multi-title text-black dark:text-white sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out ${
           isScrolled ? "py-0 shadow-2xl border-b-2" : "py-2"
-        }
-        `}
-      > <RootContainer>
+        }`}
+      >
+        <RootContainer>
           {/* /// test  */}
           <div className="navbar backdrop-blur-3xl ">
             <div className="navbar-start">
@@ -196,8 +196,7 @@ const Header = () => {
             </div>
           </div>
         </RootContainer>
-      
-    </div>
+      </div>
       {/* bottom navbar */}
       <div className="bg-multi-bg border-y-[1px] py-2 border-multi-primary border-opacity-50">
         <RootContainer>

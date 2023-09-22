@@ -19,6 +19,7 @@
 
 .custom-swiper-button .swiper-button-prev:after,
 .custom-swiper-button .swiper-button-next:after {
+
   background-color: #0000009c;
   color: white;
   font-size: 12px !important;
@@ -30,6 +31,8 @@
   border: 2px;
   border-radius: 16px;
 }
+
+
 
 /* tab css */
 .react-tabs__tab-list {
@@ -55,11 +58,16 @@
   @apply border-b-multi-secondary bg-white text-black border-b-4;
 }
 
+
 .btn-error {
   @apply btn bg-red-600 text-white hover:bg-red-800 transition-all;
+ }
+.btn {
+  @apply bg-blue-500 text-white hover:bg-blue-800 transition-all
+
 }
 
-#aside_bar_update_profile {
+#aside_bar_update_profile{
   background-color: rgba(240, 248, 255, 0.425);
   padding-top: 60px;
   padding-bottom: 60px;
@@ -85,3 +93,4 @@
 .singleServiceSwiper .swiper-wrapper .swiper-slide {
   width: 33.33% !important;
 }
+

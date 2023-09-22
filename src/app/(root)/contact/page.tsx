@@ -1,11 +1,8 @@
 "use client";
-
 import Link from "next/link";
-
 import contactImage from "@/assets/contactImage/cont.webp";
 import Image from "next/image";
 import RootContainer from "@/components/shared/RootContainer";
-
 const ContactPage = () => {
   return (
     <RootContainer>
@@ -54,7 +51,6 @@ const ContactPage = () => {
                   placeholder="Your Message"
                 ></textarea>
               </div>
-
               <input
                 className="btn bg-multi-icon-bg hover:border-multi-primary"
                 type="submit"
@@ -62,6 +58,7 @@ const ContactPage = () => {
               />
             </form>
           </div>
+
 
 
           <div className=" bg-slate-200 flex flex-col">
@@ -128,6 +125,7 @@ const ContactPage = () => {
                     </Link>
                   </div>
                 </div>
+                <div className="text-right">
                 <div className="">
                   <h5 className="text-2xl my-5 ">Contact</h5>
                   <p>Phone:+8801719440550</p>
@@ -140,8 +138,8 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+      </div>
     </RootContainer>
   );
 };
-
 export default ContactPage;

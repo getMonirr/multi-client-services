@@ -1,6 +1,7 @@
 "use client";
 import { useStripe, CardElement, useElements } from "@stripe/react-stripe-js";
 import { useState } from "react";
+import SimpleBtn from "../shared/btn/SimpleBtn";
 import Swal from "sweetalert2";
 
 const ChackOut = () => {
