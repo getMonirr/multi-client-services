@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 const Publish = () => {
   const serviceState = useSelector(getServiceData);
   const router = useRouter();
+  console.log("data")
   const handlePublish = async () => {
     const saveResult = await saveServiceInDatabase(serviceState);
     if (saveResult.success) {

@@ -88,7 +88,7 @@ const initialState: ServiceState = {
     },
   },
 };
-
+console.log("data")
 const multiStepFormDataSlice = createSlice({
   name: "multiStepFormData",
   initialState,

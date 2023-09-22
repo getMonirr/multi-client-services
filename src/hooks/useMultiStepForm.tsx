@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 export const useMultiStepForm = (steps: ReactElement[]) => {
   const currentStepIndex = useSelector(getStep);
   const dispatch = useDispatch();
+  console.log("data")
 
   const next = () => {
     if (!(currentStepIndex >= steps.length - 1)) dispatch(nextStep());

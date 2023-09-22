@@ -14,6 +14,7 @@ import useSWR from "swr";
 import { fetcher } from "@/utils/swr/fetcher";
 
 const Overview = () => {
+  console.log("data")
   // next auth session
   const { data: session } = useSession();
   const email = session?.user?.email;

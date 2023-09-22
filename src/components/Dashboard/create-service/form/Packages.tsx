@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const Packages = () => {
+  console.log("data")
   const serviceState = useSelector(getServiceData);
   const dispatch = useDispatch();
   const {

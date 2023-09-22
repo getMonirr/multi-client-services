@@ -22,6 +22,7 @@ const SinglePackage = ({
   const [featureLists, setFeatureLists] = useState(
     defaultPackage?.features || [""]
   );
+  console.log("data")
 
   const addFeatureList = () => {
     setFeatureLists([...featureLists, ""]);

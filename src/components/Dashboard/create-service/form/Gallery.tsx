@@ -9,6 +9,7 @@ import getImgUrl from "@/utils/getImgUrl";
 import Image from "next/image";
 
 const Gallery = () => {
+  console.log("data")
   const serviceState = useSelector(getServiceData);
   const dispatch = useDispatch();
   const { control, handleSubmit, register, setValue } = useForm();

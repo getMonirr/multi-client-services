@@ -24,7 +24,7 @@ const multiStepFormSlice = createSlice({
     },
   },
 });
-
+console.log("data")
 export const getStep = (state: RootState) => state.multiStepForm.currentStep;
 
 export const { nextStep, prevStep, gotoStep } = multiStepFormSlice.actions;
