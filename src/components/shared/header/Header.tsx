@@ -72,15 +72,15 @@ const Header = () => {
     },
   ];
 
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(0);
 
   // is used for scrolling
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
-        setIsScrolled(true);
+        setIsScrolled(100);
       } else {
-        setIsScrolled(false);
+        setIsScrolled(0);
       }
     };
 
@@ -94,7 +94,7 @@ const Header = () => {
     <>
       <div
         className={`bg-multi-icon-bg dark:bg-multi-title text-black dark:text-white sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out ${
-          isScrolled ? "py-0 shadow-2xl border-b-2" : "py-2"
+          isScrolled >= 100  ? "py-0 shadow-2xl border-b-2" : "py-2"
         }`}
       >
         <RootContainer>
