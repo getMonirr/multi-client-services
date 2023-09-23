@@ -22,7 +22,7 @@ const SingleCategory = ({ category }: { category: Category }) => {
         <div className="p-4 bg-multi-icon-bg inline-block rounded-md mb-6">
           <BsCodeSlash className="h-8 w-8 text-multi-secondary" />
         </div>
-        <h3 className="font-semibold text-2xl mb-4 capitalize text-multi-title">
+        <h3 className="font-semibold text-2xl mb-4 h-[70px] capitalize text-multi-title">
           {name}
         </h3>
         <div className="flex gap-8 items-center">

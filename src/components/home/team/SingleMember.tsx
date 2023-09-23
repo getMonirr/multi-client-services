@@ -25,7 +25,7 @@ const SingleMember = ({ member }: { member?: MemberProps }) => {
           </div>
         </div>
         <div className="px-6 mt-16 ">
-          <div className="font-bold text-3xl text-center pb-1 text-multi-title">
+          <div className="font-bold text-3xl h-20 text-center pb-1 text-multi-title">
             {name}
           </div>
           <p className="text-multi-paragraph text-sm text-center">
