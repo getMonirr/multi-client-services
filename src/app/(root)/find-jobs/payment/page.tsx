@@ -36,8 +36,11 @@ const Payment = () => {
   // const myDilog = document?.getElementById("my_modal_1")
   // const myDilog = document.getElementById('my_modal_1') as HTMLFormElement).showModal()
 
-  const { register, handleSubmit, reset } = useForm<any>();
-  const onSubmit = (data: React.FormEvent) => {
+  const { register, handleSubmit, reset } = useForm();
+
+  const onSubmit = (data:object) => 
+   {
+
     if (data) {
       Swal.fire({
         position: "top-end",
@@ -55,6 +58,38 @@ const Payment = () => {
     <RootContainer>
       <div className=" flex gap-4 flex-col-reverse lg:flex-row ">
         <div className="md:col-span-2 pb-6 border md:w-2/3 text-black">
+        {/* <Stepper
+        activeStep={currentStepIndex}
+        
+        styleConfig={{
+          activeBgColor: "#226CE5",
+          completedBgColor: "#198754",
+          activeTextColor: "#ffffff",
+          completedTextColor: "#ffffff",
+          inactiveBgColor: "#e0e0e0",
+          inactiveTextColor: "#ffffff",
+          size: "2em",
+          circleFontSize: "1rem",
+          labelFontSize: "0.875rem",
+          borderRadius: "50%",
+          fontWeight: 500,
+        }}
+      >
+        <Step label="Overview" />
+        <Step label="Packages" />
+        <Step label="Confram pay" className="text-yellow-400" />
+      </Stepper> */}
+      <div className="flex items-center justify-center"></div>
+      {/* <div className="flex items-center justify-end my-8 gap-4">
+
+        <button className="btn btn-sm" disabled={isFirstStep} onClick={back}>
+          Prev
+        </button>
+        <button className="btn btn-sm" disabled={isLastStep} onClick={next}>
+          Next
+        </button>
+      </div> */}
+
           <h1 className="text-3xl bg-gray-100 p-4  font-bold mb-10 capitalize">
             Billing Information
           </h1>

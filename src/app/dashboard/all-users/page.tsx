@@ -1,14 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { JobCategory } from "@/constant/JobCategory";
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaUserEdit } from "react-icons/fa";
 import { BsTrash3 } from "react-icons/bs";
 import { BiEdit } from "react-icons/bi";
 
 import Image from "next/image";
 import Swal from "sweetalert2";
 import axios from "axios";
-
 
 const AllUsers = () => {
   const [userList, setUserList] = useState(JobCategory);
@@ -37,7 +36,6 @@ const AllUsers = () => {
     });
   };
 
-
   const [data, setData] = useState<any>();
 
   useEffect(() => {
@@ -49,11 +47,38 @@ const AllUsers = () => {
       });
   }, []);
 
+  const [id, setId] = useState("");
+
+  const handleGetID = (_id: string) => {
+    console.log(_id);
+    setId(_id);
+  };
+
+  const [userRole, setUserRole] = useState("");
+
+  console.log(userRole);
+
+  const handleUpdateUser = () => {
+    axios
+      .patch(`/api/users/${id}`, {
+        role: userRole,
+      })
+      .then((result) => {
+        console.log(result);
+        if (result.status == 200) {
+          Swal.fire("Good job!", "User role updated!", "success");
+        }
+      });
+  };
+
   return (
     <div>
-      <h2 className="text-2xl font-medium text-center">
-        All Users Data {userList.length}
-      </h2>
+      <div className="text-center mb-8">
+        <p className="text-gray-500 mt-8 text-[20px] uppercase">
+          Manage users access
+        </p>
+        <h2 className="text-3xl my-6 font-medium">Users</h2>
+      </div>
 
       <div className="">
         <div className="overflow-x-auto">
@@ -86,8 +111,58 @@ const AllUsers = () => {
                       </div>
                     </td>
                     <td>{d.email}</td>
-                    <th>
-                      <button className="btn btn-ghost btn-xs">{d.role}</button>
+                    <th className="">
+                      <button className="btn btn-ghost mr-4 btn-xs">
+                        {d.role}
+                      </button>
+                      {/* Open the modal using document.getElementById('ID').showModal() method */}
+                      <div
+                        className="inline"
+                        onClick={() => handleGetID(d?._id)}
+                      >
+                        <button
+                          className="btn btn-xs"
+                          onClick={() => {
+                            if (document) {
+                              (
+                                document.getElementById(
+                                  "my_modal_5"
+                                ) as HTMLFormElement
+                              ).showModal();
+                            }
+                          }}
+                        >
+                          <FaUserEdit />
+                        </button>
+                      </div>
+                      <dialog
+                        id="my_modal_5"
+                        className="modal modal-bottom sm:modal-middle"
+                      >
+                        <div className="modal-box">
+                          <h3 className="font-bold text-lg">Update Role</h3>
+                          <select
+                            onChange={(e) => setUserRole(e.target.value)}
+                            className="my-4 text-lg p-4 border w-full"
+                          >
+                            <option value="">Select</option>
+                            <option value="seller">seller</option>
+                            <option value="buyer">buyer</option>
+                            <option value="admin">admin</option>
+                          </select>
+                          <div className="modal-action">
+                            <form method="dialog">
+                              {/* if there is a button in form, it will close the modal */}
+                              <button
+                                onClick={handleUpdateUser}
+                                className="btn"
+                              >
+                                DONE
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </dialog>
                     </th>
                     <td
                       onClick={() => handleDelete(d._id)}

@@ -23,6 +23,8 @@ const DashboardSideBar = ({
   const { data: session } = useSession();
   const role = session?.user?.role;
 
+  console.log(session?.user);
+
   // filtered links by user role
   let filteredLinks;
 

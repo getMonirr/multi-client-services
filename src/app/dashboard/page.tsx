@@ -11,7 +11,7 @@ const Dashboard = async () => {
   const session = await getServerSession(options);
   const host = headers().get("host");
   const sellerServices = await getDataFromDB(
-    `http://${host}/api/services?email=${session?.user.email}`
+    `http://${host}/api/services?email=${session?.user?.email}`
   );
   return (
     <div>
@@ -23,8 +23,8 @@ const Dashboard = async () => {
         </h1>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
-        {sellerServices.data &&
-          sellerServices?.data.map((service: any) => (
+        {sellerServices?.data &&
+          sellerServices?.data?.map((service: any) => (
             <SellerSingleServices key={service._id} service={service} />
           ))}
       </div>
