@@ -3,7 +3,19 @@ import Link from "next/link";
 import contactImage from "@/assets/contactImage/cont.webp";
 import Image from "next/image";
 import RootContainer from "@/components/shared/RootContainer";
+import Swal from "sweetalert2";
 const ContactPage = () => {
+
+  const handleFrom = (e:any) =>{
+    e.preventDefault();
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: "your message send successfull",
+      showConfirmButton: false,
+      timer: 2500
+    })
+  }
   return (
     <RootContainer>
       <div className="pb-5">
@@ -17,14 +29,14 @@ const ContactPage = () => {
             <h4 className="text-3xl mb-10 text-center font-bold bg-multi-icon-bg shadow-2xl py-3 ">
               Contact Form
             </h4>
-            <form className="p-4">
+            <form onSubmit={handleFrom} className="p-4">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
                 <input
                   type="text"
-                  name="from_name"
+                  name="name"
                   placeholder="Your name"
                   className="input input-bordered"
                 />
@@ -35,7 +47,7 @@ const ContactPage = () => {
                 </label>
                 <input
                   type="mail"
-                  name="from_email"
+                  name="email"
                   placeholder="Write Your Email Here"
                   className="input input-bordered"
                 />

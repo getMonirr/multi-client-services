@@ -13,36 +13,63 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import Link from "next/link";
+import useSWR from "swr";
+import { fetcher } from "@/utils/swr/fetcher";
+import axios from "axios";
 
-const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
-  // const [data, setData] = useState<any>(findJobs);
-  
-
+const SearchJobs = ({ data}: { data: string}) => {
   const [pageData, setPageData] = useState<string[]>([]);
+  const [currentPageData, setCurrentPageData] = useState<string[]>([])
   const [tabIndex, setTabIndex] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  // const totalItems: number = data.length;
+  
+  // const {data: result} = useSWR(`/api/services?searchQuery=${data}`, fetcher)
+  // const searchData = result?.data
+  
+ 
+
+  // pagination function 
   const perPage: number = 5;
-  const totalPage: number = Math.ceil(totalJob / perPage);
-  const pageNumber: any = [...Array(totalPage).keys()];
+  const totalPage: number = Math.ceil(pageData.length / perPage);
+  const pageNumber: any = [...Array(totalPage)?.keys()];
+
+  // userPhoto use 
   const userphoto =
     "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?size=626&ext=jpg&ga=GA1.1.2077699082.1681132836&semt=sph";
-// console.log(totalPage)
   const pageHandle = (page: number) => {
     setCurrentPage(page);
       const backData = page * perPage;
-      const currentData = data.slice(backData, perPage+backData);
-      setPageData(currentData);
+      const currentData = pageData.slice(backData, perPage+backData);
+      setCurrentPageData(currentData);
       console.log("page number ", currentData, page)
     
   };
+  console.log(data)
+  
   useEffect(() => {
-    if (data) {
-      const fastData = data.slice(0, perPage)
-
-      setPageData(fastData);
+    if(data){
+      axios.get(`/api/services?searchQuery=${data}`)
+      .then(result => {
+       const allData = result.data.data
+       setPageData(allData)
+       const fastData = allData.slice(0, perPage)
+      setCurrentPageData(fastData);
+       console.log(allData)
+      })
+  
     }
-  }, [data]);
+    else{
+      axios.get("/api/services")
+      .then(result => {
+       const allData = result.data.data
+       setPageData(allData)
+       const fastData = allData.slice(0, perPage)
+      setCurrentPageData(fastData);
+       console.log(allData)
+      })
+     }
+    }
+  , [data]);
 
   return (
     <div>
@@ -53,10 +80,10 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
             <Tab className="tab tab-lifted">Save Job</Tab>
           </TabList>
         </Tabs>
-        <p className="p-4"> {totalJob} jobs found</p>
+        <p className="p-4"> {pageData?.length} jobs found</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-auto">
-        {pageData?.map((job: any, i: number) => (
+        {currentPageData?.map((job: any, i: number) => (
           <div
             key={job._id}
             className="bg-white rounded overflow-hidden group shadow-md"
@@ -73,11 +100,11 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
                 <SwiperSlide key={i}>
                   <div className="w-full h-52 border-b">
                     <Image
-                      src={userphoto}
+                      src={image}
                       alt="Vercel Logo"
-                      className="rounded-full "
-                      width={50}
-                      height={50}
+                      className="h-52 "
+                      width={500}
+                      height={200}
                       priority
                     />
                   </div>
@@ -149,7 +176,7 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
       </div>
 
       <div className="mt-10 text-right">
-        { totalPage > 0 && totalJob >5 &&
+        { totalPage > 0 && pageData?.length >5 &&
           <div className="">
           {currentPage <= 0 ? "" : <button onClick={() => {setCurrentPage(currentPage - 1)
           pageHandle(currentPage-1)
