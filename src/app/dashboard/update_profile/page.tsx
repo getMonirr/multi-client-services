@@ -1,10 +1,12 @@
-"use client";
+"use client"
 import Update_profile_sidebar from "@/components/Dashboard/Update_profile_sidebar/Update_profile_sidebar";
 import SimpleBtn from "@/components/shared/btn/SimpleBtn";
 import { useSession } from "next-auth/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import axios from "axios";
+
+
 
 const Update_profile = () => {
   const session = useSession();
@@ -129,18 +131,8 @@ const Update_profile = () => {
               </div>
             </div>
 
-            <SimpleBtn>
-              <input
-                className="text-white"
-                type="submit"
-                value="Update Personal Information"
-              />
-            </SimpleBtn>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default Update_profile;

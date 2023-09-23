@@ -1,0 +1,2337 @@
+{
+    "success": true,
+    "data": [
+      {
+        "_id": "65099c75f380a95126183e00",
+        "title": "Digital Marketing Services",
+        "description": "Comprehensive digital marketing services to boost online presence.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3b",
+          "name": {
+            "firstName": "John",
+            "lastName": "Doe"
+          },
+          "username": "johndoe123",
+          "email": "johndoe@example.com",
+          "password": "password123",
+          "role": "buyer",
+          "profilePicture": "https://example.com/profile.jpg",
+          "description": "I'm a freelance developer with 5 years of experience.",
+          "status": "active",
+          "hourlyRate": "30",
+          "jobSuccess": "85",
+          "startingRate": "25",
+          "address": {
+            "street": "123 Main St",
+            "city": "New York",
+            "state": "NY",
+            "postalCode": "10001",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "Spanish"
+          ],
+          "accounts": {
+            "website": "https://johndoe.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/johndoe",
+              "twitter": "https://twitter.com/johndoe",
+              "linkedin": "https://linkedin.com/in/johndoe",
+              "instagram": "https://instagram.com/johndoe"
+            }
+          },
+          "educations": [
+            {
+              "institution": "University of Example",
+              "degree": "Bachelor's in Computer Science",
+              "fieldOfStudy": "Computer Science",
+              "graduationYear": "2010",
+              "location": "Example City, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Web Developer",
+              "issuingOrganization": "Web Dev Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Developer",
+              "company": "Tech Solutions Inc.",
+              "startDate": "2012-06-01",
+              "endDate": "2017-09-30",
+              "description": "Led a team of developers on various projects."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Web Development Portfolio",
+              "description": "A collection of my web development projects.",
+              "links": [
+                "https://project1.com",
+                "https://project2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "React",
+            "Node.js"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "digitalmarketing@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Marketing",
+        "subCategory": "Digital Marketing",
+        "tags": [
+          "Digital Marketing",
+          "SEO",
+          "Social Media",
+          "Online Advertising"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes SEO optimization, social media management, and online advertising.",
+            "_id": "65099c75f380a95126183e01"
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "The delivery time varies based on the scope of the digital marketing campaign.",
+            "_id": "65099c75f380a95126183e02"
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/hRP2y65/1.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Starter Digital Marketing",
+            "price": 799.99,
+            "description": "Basic digital marketing package for small businesses.",
+            "deliveryTime": "2 weeks",
+            "features": [
+              "SEO Optimization",
+              "Social Media Management"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Pro Digital Marketing",
+            "price": 1499.99,
+            "description": "Pro digital marketing package for medium-sized businesses.",
+            "deliveryTime": "4-6 weeks",
+            "features": [
+              "SEO Optimization",
+              "Social Media Management",
+              "Online Advertising"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Enterprise Digital Marketing",
+            "price": 2999.99,
+            "description": "Enterprise digital marketing package for large businesses.",
+            "deliveryTime": "8-10 weeks",
+            "features": [
+              "SEO Optimization",
+              "Social Media Management",
+              "Online Advertising",
+              "Analytics"
+            ],
+            "revisionType": 3
+          }
+        },
+        "__v": 0
+      },
+      {
+        "_id": "65099cc64a5fd7dd09e88068",
+        "title": "Digital Marketing Services",
+        "description": "Comprehensive digital marketing services to boost online presence.",
+        "sellerEmail": "digitalmarketing@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Marketing",
+        "subCategory": "Digital Marketing",
+        "tags": [
+          "Digital Marketing",
+          "SEO",
+          "Social Media",
+          "Online Advertising"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes SEO optimization, social media management, and online advertising."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "The delivery time varies based on the scope of the digital marketing campaign."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/V3qcvh2/8.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Starter Digital Marketing",
+            "price": 799.99,
+            "description": "Basic digital marketing package for small businesses.",
+            "deliveryTime": "2 weeks",
+            "features": [
+              "SEO Optimization",
+              "Social Media Management"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Pro Digital Marketing",
+            "price": 1499.99,
+            "description": "Pro digital marketing package for medium-sized businesses.",
+            "deliveryTime": "4-6 weeks",
+            "features": [
+              "SEO Optimization",
+              "Social Media Management",
+              "Online Advertising"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Enterprise Digital Marketing",
+            "price": 2999.99,
+            "description": "Enterprise digital marketing package for large businesses.",
+            "deliveryTime": "8-10 weeks",
+            "features": [
+              "SEO Optimization",
+              "Social Media Management",
+              "Online Advertising",
+              "Analytics"
+            ],
+            "revisionType": 3
+          }
+        },
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3b",
+          "name": {
+            "firstName": "John",
+            "lastName": "Doe"
+          },
+          "username": "johndoe123",
+          "email": "johndoe@example.com",
+          "password": "password123",
+          "role": "buyer",
+          "profilePicture": "https://example.com/profile.jpg",
+          "description": "I'm a freelance developer with 5 years of experience.",
+          "status": "active",
+          "hourlyRate": "30",
+          "jobSuccess": "85",
+          "startingRate": "25",
+          "address": {
+            "street": "123 Main St",
+            "city": "New York",
+            "state": "NY",
+            "postalCode": "10001",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "Spanish"
+          ],
+          "accounts": {
+            "website": "https://johndoe.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/johndoe",
+              "twitter": "https://twitter.com/johndoe",
+              "linkedin": "https://linkedin.com/in/johndoe",
+              "instagram": "https://instagram.com/johndoe"
+            }
+          },
+          "educations": [
+            {
+              "institution": "University of Example",
+              "degree": "Bachelor's in Computer Science",
+              "fieldOfStudy": "Computer Science",
+              "graduationYear": "2010",
+              "location": "Example City, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Web Developer",
+              "issuingOrganization": "Web Dev Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Developer",
+              "company": "Tech Solutions Inc.",
+              "startDate": "2012-06-01",
+              "endDate": "2017-09-30",
+              "description": "Led a team of developers on various projects."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Web Development Portfolio",
+              "description": "A collection of my web development projects.",
+              "links": [
+                "https://project1.com",
+                "https://project2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "React",
+            "Node.js"
+          ],
+          "services": [],
+          "reviews": []
+        }
+      },
+      {
+        "_id": "65099cc64a5fd7dd09e88069",
+        "title": "Video Production Services",
+        "description": "Professional video production services for businesses and creators.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "videoproduction@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Video Production",
+        "subCategory": "Corporate Videos",
+        "tags": [
+          "Video Production",
+          "Corporate Videos",
+          "Video Editing",
+          "Animation"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes video shooting, editing, and animation for corporate videos."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "The delivery time depends on the length and complexity of the video."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/xscDbbs/7.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Basic Video Production",
+            "price": 1999.99,
+            "description": "Basic video production package for short corporate videos.",
+            "deliveryTime": "3 weeks",
+            "features": [
+              "Video Shooting",
+              "Video Editing"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Standard Video Production",
+            "price": 3999.99,
+            "description": "Standard video production package for medium-length corporate videos.",
+            "deliveryTime": "6 weeks",
+            "features": [
+              "Video Shooting",
+              "Video Editing",
+              "Animation"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Premium Video Production",
+            "price": 6999.99,
+            "description": "Premium video production package for long and complex corporate videos.",
+            "deliveryTime": "10 weeks",
+            "features": [
+              "Video Shooting",
+              "Video Editing",
+              "Animation",
+              "Voiceover"
+            ],
+            "revisionType": 3
+          }
+        }
+      },
+      {
+        "_id": "65099cc64a5fd7dd09e8806a",
+        "title": "Social Media Management Services",
+        "description": "Effective social media management for businesses and brands.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "socialmedia@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Marketing",
+        "subCategory": "Social Media Management",
+        "tags": [
+          "Social Media Management",
+          "Social Media Marketing",
+          "Content Creation",
+          "Engagement"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes social media content creation, posting, and engagement."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "The service is ongoing, with regular updates and reports."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/0yH8QdX/6.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Starter Social Media Management",
+            "price": 399.99,
+            "description": "Basic social media management package for small businesses.",
+            "deliveryTime": "Ongoing",
+            "features": [
+              "Content Creation",
+              "Regular Posting"
+            ],
+            "revisionType": null
+          },
+          "standard": {
+            "name": "Pro Social Media Management",
+            "price": 799.99,
+            "description": "Pro social media management package for medium-sized businesses.",
+            "deliveryTime": "Ongoing",
+            "features": [
+              "Content Creation",
+              "Regular Posting",
+              "Audience Engagement"
+            ],
+            "revisionType": null
+          },
+          "premium": {
+            "name": "Enterprise Social Media Management",
+            "price": 1499.99,
+            "description": "Enterprise social media management package for large businesses.",
+            "deliveryTime": "Ongoing",
+            "features": [
+              "Content Creation",
+              "Regular Posting",
+              "Audience Engagement",
+              "Analytics"
+            ],
+            "revisionType": null
+          }
+        }
+      },
+      {
+        "_id": "65099cc64a5fd7dd09e8806b",
+        "title": "Writing Services",
+        "description": "Professional writing services for articles, blogs, and more.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "writing@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Writing & Translation",
+        "subCategory": "Article Writing",
+        "tags": [
+          "Writing Services",
+          "Article Writing",
+          "Blog Posts",
+          "Content Creation"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes custom article writing and content creation."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "The delivery time depends on the length and complexity of the article."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/71bTZLx/6.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Basic Article Writing",
+            "price": 49.99,
+            "description": "Basic article writing package for short articles.",
+            "deliveryTime": "2 days",
+            "features": [
+              "Custom Article Writing",
+              "Proofreading"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Standard Article Writing",
+            "price": 99.99,
+            "description": "Standard article writing package for medium-length articles.",
+            "deliveryTime": "4 days",
+            "features": [
+              "Custom Article Writing",
+              "Proofreading",
+              "SEO Optimization"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Premium Article Writing",
+            "price": 199.99,
+            "description": "Premium article writing package for long and complex articles.",
+            "deliveryTime": "7 days",
+            "features": [
+              "Custom Article Writing",
+              "Proofreading",
+              "SEO Optimization",
+              "Keyword Research"
+            ],
+            "revisionType": 3
+          }
+        }
+      },
+      {
+        "_id": "65099cc64a5fd7dd09e8806c",
+        "title": "E-commerce Development Services",
+        "description": "Expert e-commerce development services for online stores.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "ecommerce@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Web Development",
+        "subCategory": "E-commerce Development",
+        "tags": [
+          "E-commerce",
+          "Online Store",
+          "Website Development",
+          "Payment Integration"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes custom e-commerce website development and payment integration."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "The delivery time is 6-8 weeks, depending on the size of the online store."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/4mbNs0J/5.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Basic E-commerce Development",
+            "price": 1999.99,
+            "description": "Basic e-commerce development package for small online stores.",
+            "deliveryTime": "6 weeks",
+            "features": [
+              "Custom Website Development",
+              "Payment Integration"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Standard E-commerce Development",
+            "price": 3999.99,
+            "description": "Standard e-commerce development package for medium-sized online stores.",
+            "deliveryTime": "8 weeks",
+            "features": [
+              "Custom Website Development",
+              "Payment Integration",
+              "Product Management"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Premium E-commerce Development",
+            "price": 5999.99,
+            "description": "Premium e-commerce development package for large online stores.",
+            "deliveryTime": "10 weeks",
+            "features": [
+              "Custom Website Development",
+              "Payment Integration",
+              "Product Management",
+              "SEO Optimization"
+            ],
+            "revisionType": 3
+          }
+        }
+      },
+      {
+        "_id": "65099cc64a5fd7dd09e8806d",
+        "title": "Logo Design Services",
+        "description": "Creative logo design services for startups and businesses.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "logodesign@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Graphic Design",
+        "subCategory": "Logo Design",
+        "tags": [
+          "Logo Design",
+          "Brand Identity",
+          "Logo Creation"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes custom logo design and brand identity creation."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "The delivery time is 2-3 weeks, depending on the complexity of the logo."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/71bTZLx/9.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Basic Logo Design",
+            "price": 299.99,
+            "description": "Basic logo design package for simple logos.",
+            "deliveryTime": "2 weeks",
+            "features": [
+              "Custom Logo Design"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Standard Logo Design",
+            "price": 499.99,
+            "description": "Standard logo design package for medium complexity logos.",
+            "deliveryTime": "3 weeks",
+            "features": [
+              "Custom Logo Design",
+              "Vector Format"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Premium Logo Design",
+            "price": 799.99,
+            "description": "Premium logo design package for complex and detailed logos.",
+            "deliveryTime": "4 weeks",
+            "features": [
+              "Custom Logo Design",
+              "Vector Format",
+              "Commercial Use Rights"
+            ],
+            "revisionType": 3
+          }
+        }
+      },
+      {
+        "_id": "65099cc64a5fd7dd09e8806e",
+        "title": "Mobile App Development",
+        "description": "Expert mobile app development services for iOS and Android.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "getmonirr@gmail.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Mobile App Development",
+        "subCategory": "iOS & Android Apps",
+        "tags": [
+          "Mobile App Development",
+          "iOS Apps",
+          "Android Apps",
+          "App Design"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes custom mobile app development for iOS and Android platforms."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "The delivery time varies based on the complexity of the app."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/71bTZLx/8.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Basic App Development",
+            "price": 4999.99,
+            "description": "Basic mobile app development package for simple apps.",
+            "deliveryTime": "8 weeks",
+            "features": [
+              "Custom App Development"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Standard App Development",
+            "price": 9999.99,
+            "description": "Standard mobile app development package for medium complexity apps.",
+            "deliveryTime": "12 weeks",
+            "features": [
+              "Custom App Development",
+              "Cross-Platform Compatibility"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Premium App Development",
+            "price": 14999.99,
+            "description": "Premium mobile app development package for complex and feature-rich apps.",
+            "deliveryTime": "16 weeks",
+            "features": [
+              "Custom App Development",
+              "Cross-Platform Compatibility",
+              "App Testing"
+            ],
+            "revisionType": 3
+          }
+        }
+      },
+      {
+        "_id": "65099f724a5fd7dd09ee7a7a",
+        "title": "Content Marketing Services",
+        "description": "Strategic content marketing services for businesses.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "contentmarketing@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Marketing",
+        "subCategory": "Content Marketing",
+        "tags": [
+          "Content Marketing",
+          "Content Strategy",
+          "Blogging",
+          "SEO"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes content strategy development, blogging, and SEO optimization."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "Delivery time varies based on the content marketing strategy."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/71bTZLx/6.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Starter Content Marketing",
+            "price": 599.99,
+            "description": "Basic content marketing package for small businesses.",
+            "deliveryTime": "3 weeks",
+            "features": [
+              "Content Strategy",
+              "Blogging"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Pro Content Marketing",
+            "price": 1299.99,
+            "description": "Pro content marketing package for medium-sized businesses.",
+            "deliveryTime": "6 weeks",
+            "features": [
+              "Content Strategy",
+              "Blogging",
+              "SEO Optimization"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Enterprise Content Marketing",
+            "price": 2499.99,
+            "description": "Enterprise content marketing package for large businesses.",
+            "deliveryTime": "8-10 weeks",
+            "features": [
+              "Content Strategy",
+              "Blogging",
+              "SEO Optimization",
+              "Analytics"
+            ],
+            "revisionType": 3
+          }
+        }
+      },
+      {
+        "_id": "65099f724a5fd7dd09ee7a7b",
+        "title": "Photography Services",
+        "description": "Professional photography services for events and products.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "photography@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Photography",
+        "subCategory": "Event Photography",
+        "tags": [
+          "Photography",
+          "Event Photography",
+          "Product Photography",
+          "Photo Editing"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes event or product photography and professional photo editing."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "The delivery time depends on the size of the event or project."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/KLjLKRt/4.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Event Photography",
+            "price": 799.99,
+            "description": "Basic event photography package for small events.",
+            "deliveryTime": "1 day",
+            "features": [
+              "Event Photography",
+              "Photo Editing"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Product Photography",
+            "price": 1299.99,
+            "description": "Standard product photography package for e-commerce products.",
+            "deliveryTime": "3 days",
+            "features": [
+              "Product Photography",
+              "Photo Editing"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Event & Product Photography",
+            "price": 2499.99,
+            "description": "Premium package for event and product photography.",
+            "deliveryTime": "1 week",
+            "features": [
+              "Event Photography",
+              "Product Photography",
+              "Photo Editing"
+            ],
+            "revisionType": 3
+          }
+        }
+      },
+      {
+        "_id": "65099f724a5fd7dd09ee7a7c",
+        "title": "Translation Services",
+        "description": "Professional translation services for documents and content.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "translation@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Writing & Translation",
+        "subCategory": "Translation",
+        "tags": [
+          "Translation Services",
+          "Document Translation",
+          "Content Translation"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes translation of documents and content from one language to another."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "Delivery time depends on the length and complexity of the content."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/71bTZLx/9.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Document Translation",
+            "price": 49.99,
+            "description": "Basic document translation package for small documents.",
+            "deliveryTime": "1 day",
+            "features": [
+              "Document Translation"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Content Translation",
+            "price": 99.99,
+            "description": "Standard content translation package for articles and content.",
+            "deliveryTime": "3 days",
+            "features": [
+              "Content Translation"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Professional Translation",
+            "price": 199.99,
+            "description": "Premium translation package for complex documents and content.",
+            "deliveryTime": "7 days",
+            "features": [
+              "Professional Translation",
+              "Proofreading",
+              "Multiple Languages"
+            ],
+            "revisionType": 3
+          }
+        }
+      },
+      {
+        "_id": "65099f724a5fd7dd09ee7a7d",
+        "title": "Web Design Services",
+        "description": "Custom web design services for businesses and startups.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "webdesign@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Web Development",
+        "subCategory": "Web Design",
+        "tags": [
+          "Web Design",
+          "Website Development",
+          "UI/UX Design"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes custom web design and website development."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "Delivery time depends on the complexity and features of the website."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/71bTZLx/9.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Basic Web Design",
+            "price": 999.99,
+            "description": "Basic web design package for small websites.",
+            "deliveryTime": "2 weeks",
+            "features": [
+              "Custom Web Design"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Standard Web Design",
+            "price": 1999.99,
+            "description": "Standard web design package for medium-sized websites.",
+            "deliveryTime": "4 weeks",
+            "features": [
+              "Custom Web Design",
+              "Responsive Design"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Premium Web Design",
+            "price": 3999.99,
+            "description": "Premium web design package for complex and e-commerce websites.",
+            "deliveryTime": "8 weeks",
+            "features": [
+              "Custom Web Design",
+              "Responsive Design",
+              "E-commerce Integration"
+            ],
+            "revisionType": 3
+          }
+        }
+      },
+      {
+        "_id": "65099f724a5fd7dd09ee7a7e",
+        "title": "Illustration Services",
+        "description": "Creative illustration services for books, magazines, and more.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "illustration@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Graphic Design",
+        "subCategory": "Illustration",
+        "tags": [
+          "Illustration",
+          "Book Illustration",
+          "Magazine Illustration",
+          "Digital Art"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes custom illustration work for books, magazines, and digital media."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "Delivery time depends on the complexity and size of the illustration project."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/71bTZLx/9.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Basic Illustration",
+            "price": 299.99,
+            "description": "Basic illustration package for small projects.",
+            "deliveryTime": "1 week",
+            "features": [
+              "Custom Illustration"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Standard Illustration",
+            "price": 599.99,
+            "description": "Standard illustration package for medium-sized projects.",
+            "deliveryTime": "2 weeks",
+            "features": [
+              "Custom Illustration",
+              "High-Resolution Files"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Premium Illustration",
+            "price": 999.99,
+            "description": "Premium illustration package for large and detailed projects.",
+            "deliveryTime": "4 weeks",
+            "features": [
+              "Custom Illustration",
+              "High-Resolution Files",
+              "Commercial Use Rights"
+            ],
+            "revisionType": 3
+          }
+        }
+      },
+      {
+        "_id": "65099f724a5fd7dd09ee7a7f",
+        "title": "iOS App Development Services",
+        "description": "Expert iOS app development services for iPhones and iPads.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "iosappdev@example.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Mobile App Development",
+        "subCategory": "iOS App Development",
+        "tags": [
+          "iOS App Development",
+          "iPhone Apps",
+          "iPad Apps",
+          "App Design"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes custom iOS app development for iPhones and iPads."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "The delivery time varies based on the complexity of the iOS app."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/71bTZLx/9.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Basic iOS App Development",
+            "price": 4999.99,
+            "description": "Basic iOS app development package for simple apps.",
+            "deliveryTime": "8 weeks",
+            "features": [
+              "Custom App Development"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Standard iOS App Development",
+            "price": 9999.99,
+            "description": "Standard iOS app development package for medium complexity apps.",
+            "deliveryTime": "12 weeks",
+            "features": [
+              "Custom App Development",
+              "iPhone & iPad Compatibility"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Premium iOS App Development",
+            "price": 14999.99,
+            "description": "Premium iOS app development package for complex and feature-rich apps.",
+            "deliveryTime": "16 weeks",
+            "features": [
+              "Custom App Development",
+              "iPhone & iPad Compatibility",
+              "App Testing"
+            ],
+            "revisionType": 3
+          }
+        }
+      },
+      {
+        "_id": "65099f724a5fd7dd09ee7a80",
+        "title": "Android App Development Services",
+        "description": "Professional Android app development services for smartphones and tablets.",
+        "seller": {
+          "_id": "6509a4494a5fd7dd09f85b3d",
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Johnson"
+          },
+          "username": "janej",
+          "email": "jane@example.com",
+          "password": "janepass456",
+          "role": "buyer",
+          "profilePicture": "https://example.com/jane-profile.jpg",
+          "description": "I'm a content writer with a passion for storytelling.",
+          "status": "active",
+          "hourlyRate": "25",
+          "jobSuccess": "80",
+          "startingRate": "20",
+          "address": {
+            "street": "789 Writer's Lane",
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94101",
+            "country": "USA"
+          },
+          "languages": [
+            "English",
+            "French",
+            "German"
+          ],
+          "accounts": {
+            "website": "https://janecontentwriter.com",
+            "socialMedia": {
+              "facebook": "https://facebook.com/janecontentwriter",
+              "twitter": "https://twitter.com/janecontentwriter",
+              "linkedin": "https://linkedin.com/in/janecontentwriter",
+              "instagram": "https://instagram.com/janecontentwriter"
+            }
+          },
+          "educations": [
+            {
+              "institution": "Writing University",
+              "degree": "Bachelor's in Creative Writing",
+              "fieldOfStudy": "Creative Writing",
+              "graduationYear": "2014",
+              "location": "San Francisco, USA"
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Certified Copywriter",
+              "issuingOrganization": "Copywriting Institute",
+              "year": 2015
+            }
+          ],
+          "experience": [
+            {
+              "title": "Senior Content Writer",
+              "company": "Content Creations Co.",
+              "startDate": "2014-03-01",
+              "endDate": "2020-12-31",
+              "description": "Crafted engaging content for various clients."
+            }
+          ],
+          "portfolios": [
+            {
+              "title": "Writing Portfolio",
+              "description": "Samples of my writing work.",
+              "links": [
+                "https://writingproject1.com",
+                "https://writingproject2.com"
+              ]
+            }
+          ],
+          "skills": [
+            "Content Writing",
+            "Storytelling",
+            "SEO",
+            "Blog Writing"
+          ],
+          "services": [],
+          "reviews": []
+        },
+        "sellerEmail": "getmonirr@gmail.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Mobile App Development",
+        "subCategory": "Android App Development",
+        "tags": [
+          "Android App Development",
+          "Smartphone Apps",
+          "Tablet Apps",
+          "App Design"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes custom Android app development for smartphones and tablets."
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "The delivery time varies based on the complexity of the Android app."
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/KLjLKRt/4.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Basic Android App Development",
+            "price": 4999.99,
+            "description": "Basic Android app development package for simple apps.",
+            "deliveryTime": "8 weeks",
+            "features": [
+              "Custom App Development"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Standard Android App Development",
+            "price": 9999.99,
+            "description": "Standard Android app development package for medium complexity apps.",
+            "deliveryTime": "12 weeks",
+            "features": [
+              "Custom App Development",
+              "Smartphone & Tablet Compatibility"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Premium Android App Development",
+            "price": 14999.99,
+            "description": "Premium Android app development package for complex and feature-rich apps.",
+            "deliveryTime": "16 weeks",
+            "features": [
+              "Custom App Development",
+              "Smartphone & Tablet Compatibility",
+              "App Testing"
+            ],
+            "revisionType": 3
+          }
+        }
+      },
+      {
+        "_id": "650a74575458da262d85484e",
+        "title": "Digital Marketing Services",
+        "description": "Comprehensive digital marketing services to boost online presence.",
+        "seller": {
+          "_id": "6509a4e4069b95d2013a862b",
+          "username": "getmonirr",
+          "email": "getmonirr@gmail.com",
+          "password": "$2b$10$yvNHXL9k4NdA62DBgh0h1edgE8IsTJo7o8Etvsd2W8AS5Mv2NwvHW",
+          "role": "seller",
+          "profilePicture": "https://lh3.googleusercontent.com/a/ACg8ocJQSj7ScnYc5hJFI6Xk6ScXWDy8sc2okeHbAZWrNiDWVg=s96-c",
+          "status": "active",
+          "languages": [],
+          "skills": [],
+          "services": [],
+          "reviews": [],
+          "educations": [],
+          "certifications": [],
+          "experience": [],
+          "portfolios": [],
+          "__v": 0
+        },
+        "sellerEmail": "getmonirr@gmail.com",
+        "status": "active",
+        "orderQueue": [],
+        "category": "Marketing",
+        "subCategory": "Digital Marketing",
+        "tags": [
+          "Digital Marketing",
+          "SEO",
+          "Social Media",
+          "Online Advertising"
+        ],
+        "faqs": [
+          {
+            "question": "What is included in this service?",
+            "answer": "This service includes SEO optimization, social media management, and online advertising.",
+            "_id": "650a74575458da262d85484f"
+          },
+          {
+            "question": "How long does it take to deliver?",
+            "answer": "The delivery time varies based on the scope of the digital marketing campaign.",
+            "_id": "650a74575458da262d854850"
+          }
+        ],
+        "reviews": [],
+        "images": [
+          "https://i.ibb.co/V3qcvh2/8.png",
+          "https://i.ibb.co/HXqVmB3/10.png",
+          "https://i.ibb.co/S5YtBRD/2.png"
+        ],
+        "packages": {
+          "basic": {
+            "name": "Starter Digital Marketing",
+            "price": 799.99,
+            "description": "Basic digital marketing package for small businesses.",
+            "deliveryTime": "2 weeks",
+            "features": [
+              "SEO Optimization",
+              "Social Media Management"
+            ],
+            "revisionType": 2
+          },
+          "standard": {
+            "name": "Pro Digital Marketing",
+            "price": 1499.99,
+            "description": "Pro digital marketing package for medium-sized businesses.",
+            "deliveryTime": "4-6 weeks",
+            "features": [
+              "SEO Optimization",
+              "Social Media Management",
+              "Online Advertising"
+            ],
+            "revisionType": "Unlimited"
+          },
+          "premium": {
+            "name": "Enterprise Digital Marketing",
+            "price": 2999.99,
+            "description": "Enterprise digital marketing package for large businesses.",
+            "deliveryTime": "8-10 weeks",
+            "features": [
+              "SEO Optimization",
+              "Social Media Management",
+              "Online Advertising",
+              "Analytics"
+            ],
+            "revisionType": 3
+          }
+        },
+        "__v": 0
+      }
+    ]
+  }

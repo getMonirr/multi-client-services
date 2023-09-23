@@ -8,12 +8,12 @@ import DescriptionAndFAQ from "@/components/Dashboard/create-service/form/Descri
 import Gallery from "@/components/Dashboard/create-service/form/Gallery";
 import Publish from "@/components/Dashboard/create-service/form/Publish";
 import { Stepper, Step } from "react-form-stepper";
-import SectionStarter from "@/components/shared/SectionStarter";
+import OverviewUpdate from "@/components/Dashboard/update-service/OverviewUpdate";
 
-const CreateService = () => {
+const UpdateService = () => {
   const { FormStep, next, back, currentStepIndex, isFirstStep, isLastStep } =
     useMultiStepForm([
-      <Overview />,
+      <OverviewUpdate />,
       <Packages />,
       <DescriptionAndFAQ />,
       <Gallery />,
@@ -23,9 +23,9 @@ const CreateService = () => {
   return (
     <div className="lg:px-28">
       <div className="text-start space-y-4 w-full px-4 my-16 flex flex-col items-center justify-center lg:mb-16 ">
-        <p className="text-[#226CE5] uppercase">Start Your career</p>
+        <p className="text-[#226CE5] uppercase">Your service</p>
         <h1 className="text-3xl lg:text-5xl font-bold capitalize">
-          Create your Services
+          update your Services
         </h1>
       </div>
       <Stepper
@@ -63,4 +63,4 @@ const CreateService = () => {
   );
 };
 
-export default CreateService;
+export default UpdateService;

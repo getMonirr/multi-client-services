@@ -1,12 +1,14 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { JobCategory } from "@/constant/JobCategory";
 import { FaTrash } from "react-icons/fa";
 import { BsTrash3 } from "react-icons/bs";
 import { BiEdit } from "react-icons/bi";
+
 import Image from "next/image";
 import Swal from "sweetalert2";
 import axios from "axios";
+
 
 const AllUsers = () => {
   const [userList, setUserList] = useState(JobCategory);
@@ -35,6 +37,7 @@ const AllUsers = () => {
     });
   };
 
+
   const [data, setData] = useState<any>();
 
   useEffect(() => {
@@ -48,12 +51,9 @@ const AllUsers = () => {
 
   return (
     <div>
-      <div className="text-center mb-8">
-        <p className="text-gray-500 mt-8 text-[20px] uppercase">
-          Manage users access
-        </p>
-        <h2 className="text-3xl my-6 font-medium">Users</h2>
-      </div>
+      <h2 className="text-2xl font-medium text-center">
+        All Users Data {userList.length}
+      </h2>
 
       <div className="">
         <div className="overflow-x-auto">

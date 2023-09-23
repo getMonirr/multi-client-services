@@ -13,7 +13,7 @@ import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import { fetcher } from "@/utils/swr/fetcher";
 
-const Overview = () => {
+const OverviewUpdate = () => {
   // next auth session
   const { data: session } = useSession();
   const email = session?.user?.email;
@@ -127,4 +127,4 @@ const Overview = () => {
   );
 };
 
-export default Overview;
+export default OverviewUpdate;

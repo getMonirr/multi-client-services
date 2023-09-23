@@ -14,11 +14,9 @@ import { CiSearch } from "react-icons/ci";
 import { AiOutlineBell } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
 import RootContainer from "@/components/shared/RootContainer";
-import { useSession } from "next-auth/react";
+
 
 const ChatPage = () => {
-  const { data: session } = useSession();
-  console.log(session);
   return (
     <>
       <RootContainer>

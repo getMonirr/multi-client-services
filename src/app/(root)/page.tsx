@@ -12,6 +12,9 @@ const Home = async () => {
   return (
     <main>
       <Banner />
+
+      {/* <JobSection></JobSection> */}
+
       <PopularServices />
       <Categories />
       <Trending />
