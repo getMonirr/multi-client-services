@@ -1,3 +1,4 @@
+"use client";
 import { FaArrowRight, FaCheck } from "react-icons/fa";
 import { BiTime } from "react-icons/bi";
 import {
@@ -9,26 +10,28 @@ import {
 import SimpleBtn from "../shared/btn/SimpleBtn";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useMultiStepForm } from "@/hooks/useMultiStepForm";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getPaymentData,
+  updatePaymentData,
+} from "@/redux/features/payment/paymentDataSlice";
 declare global {
   interface document {
     my_modal_3: HTMLFormElement;
   }
 }
 
-const SinglePrice = ({data, seller }: {data:any ,seller:any }) => {
-  // const router = useRouter();
-  const { next, back, currentStepIndex, isFirstStep, isLastStep } =
-    useMultiStepForm([]);
-  // let paymentPage = <Payment key={2} page = {step}/>
-  console.log(data)
-  const { name, price,description,deliveryTime,features,revisionType} = data
+const SinglePrice = ({ data, seller }: { data: any; seller: any }) => {
+  const { name, price, description, deliveryTime, features, revisionType } =
+    data;
 
   // const price: number = 10;
   const [quantity, setQuantity] = useState<number>(1);
   const [totalPrice, setTotalPrice] = useState<number>(price);
   const paymentPage = { totalPrice, quantity, seller };
+  console.log(paymentPage);
 
   useEffect(() => {
     const priceCalculat = price * quantity;
@@ -40,14 +43,38 @@ const SinglePrice = ({data, seller }: {data:any ,seller:any }) => {
 
   // }
 
+  // router
+  const router = useRouter();
+
+  // redux
+  const paymentData = useSelector(getPaymentData);
+  const dispatch = useDispatch();
+
+  // handle payment continue
+  const handlePaymentContinue = () => {
+    const newPaymentData = {
+      totalPrice,
+      quantity,
+      seller: {
+        name: seller?.seller?.name,
+        email: seller?.seller?.email,
+      },
+    };
+
+    // dispatch the request
+    dispatch(updatePaymentData(newPaymentData));
+    console.log(paymentData);
+
+    // got to the payment page
+    router.push(`/find-jobs/payment/${seller?.jobId}`);
+  };
+
   return (
     <div className="px-2">
       <h3 className="flex items-center justify-between my-8 font-bold">
         {name} <span>${price}</span>
       </h3>
-      <p className="mb-8">
-       {description}
-      </p>
+      <p className="mb-8">{description}</p>
       <div className="flex items-center gap-4 lg:gap-8 mb-3 font-bold flex-wrap">
         <p className="flex items-center gap-2">
           <BiTime /> <span>{deliveryTime} delivery</span>
@@ -57,13 +84,11 @@ const SinglePrice = ({data, seller }: {data:any ,seller:any }) => {
         </p>
       </div>
       <div>
-        {
-          features.map((feature:string, i:number) => <p key={i} className="flex items-center gap-2">
-          <FaCheck /> <span>{feature} </span>
-        </p>)
-        }
-        
-        
+        {features.map((feature: string, i: number) => (
+          <p key={i} className="flex items-center gap-2">
+            <FaCheck /> <span>{feature} </span>
+          </p>
+        ))}
       </div>
       <div className="my-8">
         <SimpleBtn className="w-full text-white">
@@ -165,9 +190,9 @@ const SinglePrice = ({data, seller }: {data:any ,seller:any }) => {
             <p>please payment confram</p>
 
             <SimpleBtn className="w-full text-white">
-              <Link
+              <button
                 // onClick={passData}
-                href={`/find-jobs/payment`}
+                onClick={() => handlePaymentContinue()}
                 className="flex items-center md:py-4 md:text-xl justify-center gap-2 mx-auto"
               >
                 Continue
@@ -175,7 +200,7 @@ const SinglePrice = ({data, seller }: {data:any ,seller:any }) => {
                   <FaArrowRight />
                 </span>
                 $({totalPrice})
-              </Link>
+              </button>
             </SimpleBtn>
           </div>
         </div>

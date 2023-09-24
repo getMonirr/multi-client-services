@@ -2,6 +2,7 @@
 import ChackOut from "@/components/paymentComponent/ChackOut";
 import RootContainer from "@/components/shared/RootContainer";
 import SimpleBtn from "@/components/shared/btn/SimpleBtn";
+import { getPaymentData } from "@/redux/features/payment/paymentDataSlice";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Image from "next/image";
@@ -10,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaCheck } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 const userphoto =
   "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?size=626&ext=jpg&ga=GA1.1.2077699082.1681132836&semt=sph";
@@ -22,6 +24,10 @@ const key =
 const stripePromise = loadStripe(key);
 
 const Payment = () => {
+  // get payment data from redux store
+  const paymentData = useSelector(getPaymentData);
+  console.log(paymentData);
+
   const [information, setAddInformation] = useState<any>();
   // const router = useRouter();
   //  const {data } = router
@@ -38,9 +44,7 @@ const Payment = () => {
 
   const { register, handleSubmit, reset } = useForm();
 
-  const onSubmit = (data:object) => 
-   {
-
+  const onSubmit = (data: object) => {
     if (data) {
       Swal.fire({
         position: "top-end",
@@ -58,7 +62,7 @@ const Payment = () => {
     <RootContainer>
       <div className=" flex gap-4 flex-col-reverse lg:flex-row ">
         <div className="md:col-span-2 pb-6 border md:w-2/3 text-black">
-        {/* <Stepper
+          {/* <Stepper
         activeStep={currentStepIndex}
         
         styleConfig={{
@@ -79,8 +83,8 @@ const Payment = () => {
         <Step label="Packages" />
         <Step label="Confram pay" className="text-yellow-400" />
       </Stepper> */}
-      <div className="flex items-center justify-center"></div>
-      {/* <div className="flex items-center justify-end my-8 gap-4">
+          <div className="flex items-center justify-center"></div>
+          {/* <div className="flex items-center justify-end my-8 gap-4">
 
         <button className="btn btn-sm" disabled={isFirstStep} onClick={back}>
           Prev
