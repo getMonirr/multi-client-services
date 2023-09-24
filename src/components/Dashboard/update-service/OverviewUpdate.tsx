@@ -8,7 +8,7 @@ import axios from "axios";
 import Loading from "../Loading/Loading";
 import updateData from "@/utils/updateData";
 
-const OverviewUpdate = ({ id }: { id: string }) => {
+const OverviewUpdate = ({ id }: { id: string | null }) => {
   const [serviceData, setServiceData] = useState<any>(null);
 
   // react hook form

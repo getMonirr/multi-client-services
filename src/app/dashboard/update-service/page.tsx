@@ -6,12 +6,12 @@ import OverviewUpdate from "@/components/Dashboard/update-service/OverviewUpdate
 import UpdatePackages from "@/components/Dashboard/update-service/UpdatePackages";
 import UpdateDescriptionAndFAQ from "@/components/Dashboard/update-service/UpdateDescriptionAndFAQ";
 import UpdateGallery from "@/components/Dashboard/update-service/UpdateGallery";
+import { useSearchParams } from "next/navigation";
 
-const UpdateService = ({
-  searchParams: { id },
-}: {
-  searchParams: { id: string };
-}) => {
+const UpdateService = () => {
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
+
   // use multiStep form
   const { FormStep, next, back, currentStepIndex, isFirstStep, isLastStep } =
     useMultiStepForm([

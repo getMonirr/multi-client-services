@@ -8,7 +8,7 @@ import axios from "axios";
 import Loading from "../Loading/Loading";
 import updateData from "@/utils/updateData";
 
-const UpdatePackages = ({ id }: { id: string }) => {
+const UpdatePackages = ({ id }: { id: string | null }) => {
   // fetch the package
   const [serviceData, setServiceData] = useState<any>(null);
 
