@@ -3,6 +3,8 @@ import { MdOutlineMedicalServices } from "react-icons/md";
 import { FaCartShopping, FaNetworkWired } from "react-icons/fa6";
 import { BiSupport } from "react-icons/bi";
 import { BsQuestionCircleFill } from "react-icons/bs";
+import { FiEdit } from "react-icons/fi";
+
 // seller routes links
 export const sellerLinks = [
   {
@@ -23,14 +25,14 @@ export const sellerLinks = [
   },
   {
     name: "Service",
-    path: "/dashboard/all-jobs",
+    path: "/dashboard/services",
     icon: MdOutlineMedicalServices,
     count: 5,
   },
   {
     name: "Create service",
     path: "/dashboard/create-service",
-    icon: MdOutlineMedicalServices,
+    icon: FiEdit,
   },
 ];
 // admin route links

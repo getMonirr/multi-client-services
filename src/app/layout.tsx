@@ -12,10 +12,7 @@ const RootLayout = ({ children }: Props) => {
     <html lang="en" data-theme="light">
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <ReduxProvider>
-            <ToastContainer />
-            {children}
-          </ReduxProvider>
+          <ReduxProvider>{children}</ReduxProvider>
         </ThemeProvider>
       </body>
     </html>
