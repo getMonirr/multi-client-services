@@ -1,4 +1,3 @@
-
 import RootContainer from "@/components/shared/RootContainer";
 import AboutSeller from "@/components/singleJob/AboutSeller";
 import JobSlider from "@/components/singleJob/JobSlider";
@@ -30,6 +29,7 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
               {title}
             </h3>
             <UserInfo seller = {seller} />
+
             <div className="mt-8">
               <JobSlider images={images} />
             </div>
@@ -38,6 +38,7 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
               <p>
                 {description}
               </p>
+
             </div>
             {/* about the seller */}
             <div>

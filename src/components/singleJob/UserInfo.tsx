@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { FaStar } from "react-icons/fa";
 
+
 const UserInfo = ({seller}:{seller:any}) => {
  
   const fullName = `${seller?.name?.firstName} ${seller?.name?.lastName}`
@@ -24,6 +25,7 @@ const UserInfo = ({seller}:{seller:any}) => {
             <h4 className=" font-bold">{fullName}</h4>
           </Link>
           <p className="text-sm"> @ {seller?.userName}</p>
+
         </div>
         <div className="flex items-center gap-4 mt-2 divide-x-2 text-sm">
           <div className="flex items-center gap-2">
