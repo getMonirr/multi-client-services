@@ -16,6 +16,11 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
   const service = await getDataFromDB(`http://${host}/api/services/${jobId}`);
   const { title, description, seller, images , packages} = service?.data;
   console.log({ service });
+  const userDetails = {
+    seller,
+    jobId,
+    packages
+  }
   return (
     <div className="my-16">
       <RootContainer>
@@ -46,7 +51,7 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
             </div>
           </div>
           <div className="order-1 lg:order-2">
-            <PriceSections packages={packages} />
+            <PriceSections userDetails={userDetails} />
           </div>
         </div>
       </RootContainer>

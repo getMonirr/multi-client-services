@@ -17,23 +17,23 @@ declare global {
   }
 }
 
-const SinglePrice = ({ name }: { name: string }) => {
+const SinglePrice = ({data, seller }: {data:any ,seller:any }) => {
   // const router = useRouter();
   const { next, back, currentStepIndex, isFirstStep, isLastStep } =
     useMultiStepForm([]);
   // let paymentPage = <Payment key={2} page = {step}/>
+  console.log(data)
+  const { name, price,description,deliveryTime,features,revisionType} = data
 
-  const price: number = 10;
+  // const price: number = 10;
   const [quantity, setQuantity] = useState<number>(1);
   const [totalPrice, setTotalPrice] = useState<number>(price);
-  const delivery = "1 day ";
-  const revision = "unlimited";
-  const paymentPage = { totalPrice, quantity };
+  const paymentPage = { totalPrice, quantity, seller };
 
   useEffect(() => {
     const priceCalculat = price * quantity;
     setTotalPrice(priceCalculat);
-  }, [quantity]);
+  }, [price, quantity]);
 
   // const passData = () =>{
   //   router.push(`/find-jobs/payment?data=${paymentPage}`)
@@ -43,32 +43,27 @@ const SinglePrice = ({ name }: { name: string }) => {
   return (
     <div className="px-2">
       <h3 className="flex items-center justify-between my-8 font-bold">
-        {name} <span>{price}</span>
+        {name} <span>${price}</span>
       </h3>
       <p className="mb-8">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, error.
+       {description}
       </p>
       <div className="flex items-center gap-4 lg:gap-8 mb-3 font-bold flex-wrap">
         <p className="flex items-center gap-2">
-          <BiTime /> <span>{delivery} delivery</span>
+          <BiTime /> <span>{deliveryTime} delivery</span>
         </p>
         <p className="flex items-center gap-2">
-          <RiLoopRightFill /> <span>{revision} revision</span>
+          <RiLoopRightFill /> <span>{revisionType} revision</span>
         </p>
       </div>
       <div>
-        <p className="flex items-center gap-2">
-          <FaCheck /> <span>{delivery} delivery</span>
-        </p>
-        <p className="flex items-center gap-2">
-          <FaCheck /> <span>{delivery} delivery</span>
-        </p>
-        <p className="flex items-center gap-2">
-          <FaCheck /> <span>{delivery} delivery</span>
-        </p>
-        <p className="flex items-center gap-2">
-          <FaCheck /> <span>{delivery} delivery</span>
-        </p>
+        {
+          features.map((feature:string, i:number) => <p key={i} className="flex items-center gap-2">
+          <FaCheck /> <span>{feature} </span>
+        </p>)
+        }
+        
+        
       </div>
       <div className="my-8">
         <SimpleBtn className="w-full text-white">
@@ -159,10 +154,10 @@ const SinglePrice = ({ name }: { name: string }) => {
                 <RiWallet3Fill /> {name} Pakage
               </p>
               <p className="mb-3 flex items-center gap-2">
-                <RiTimeLine /> <span>{delivery} delivery</span>{" "}
+                <RiTimeLine /> <span>{deliveryTime}delivery</span>{" "}
               </p>
               <p className=" flex items-center gap-2">
-                <RiRefreshLine /> <span> {revision}</span>
+                <RiRefreshLine /> <span> {revisionType}</span>
               </p>
             </div>
           </div>
@@ -172,7 +167,7 @@ const SinglePrice = ({ name }: { name: string }) => {
             <SimpleBtn className="w-full text-white">
               <Link
                 // onClick={passData}
-                href={`/find-jobs/payment?data=${paymentPage}`}
+                href={`/find-jobs/payment`}
                 className="flex items-center md:py-4 md:text-xl justify-center gap-2 mx-auto"
               >
                 Continue

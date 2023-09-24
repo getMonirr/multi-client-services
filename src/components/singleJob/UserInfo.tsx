@@ -4,7 +4,8 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 
 const UserInfo = ({seller}:{seller:any}) => {
-  const fullName = `${seller?.name?.fastName} ${seller?.name?.lastName}`
+ 
+  const fullName = `${seller?.name?.firstName} ${seller?.name?.lastName}`
 
   return (
     <div className="flex gap-4 items-center mt-4">
