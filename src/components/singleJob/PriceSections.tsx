@@ -5,7 +5,8 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import SinglePrice from "./SinglePrice";
 import Link from "next/link";
 
-const PriceSections = () => {
+const PriceSections = ({packages}: {packages : any}) => {
+  const {basic,premium, standard, } = packages
   return (
     <div className="border sticky top-[100px]">
       <Tabs>
