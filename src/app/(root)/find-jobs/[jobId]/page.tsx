@@ -13,21 +13,32 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
   const { jobId } = params;
   const host = headers().get("host");
   const service = await getDataFromDB(`http://${host}/api/services/${jobId}`);
-  const { title, description, seller, images } = service?.data;
+  const { title, description, seller, images , packages} = service?.data;
   console.log({ service });
+  const userDetails = {
+    seller,
+    jobId,
+    packages
+  }
   return (
     <div className="my-16">
       <RootContainer>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-32">
           <div className="order-2 lg:order-1">
-            <h3 className=" text-lg lg:text-2xl font-bold">{title}</h3>
-            <UserInfo seller={seller} />
+            <h3 className=" text-lg lg:text-2xl font-bold">
+              {title}
+            </h3>
+            <UserInfo seller = {seller} />
+
             <div className="mt-8">
               <JobSlider images={images} />
             </div>
             <div className="my-8">
               <h2 className="text-xl font-bold mb-4">About the services</h2>
-              <p>{description}</p>
+              <p>
+                {description}
+              </p>
+
             </div>
             {/* about the seller */}
             <div>
@@ -41,7 +52,7 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
             </div>
           </div>
           <div className="order-1 lg:order-2">
-            <PriceSections />
+            <PriceSections userDetails={userDetails} />
           </div>
         </div>
       </RootContainer>

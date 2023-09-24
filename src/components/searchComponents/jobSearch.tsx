@@ -30,7 +30,7 @@ const SearchJobs = ({ data}: { data: string}) => {
 
   // pagination function 
   const perPage: number = 5;
-  const totalPage: number = Math.ceil(pageData.length / perPage);
+  const totalPage: number = Math.ceil(pageData?.length / perPage);
   const pageNumber: any = [...Array(totalPage)?.keys()];
 
   // userPhoto use 
@@ -52,7 +52,7 @@ const SearchJobs = ({ data}: { data: string}) => {
       .then(result => {
        const allData = result.data.data
        setPageData(allData)
-       const fastData = allData.slice(0, perPage)
+       const fastData = allData?.slice(0, perPage)
       setCurrentPageData(fastData);
        console.log(allData)
       })
@@ -63,7 +63,7 @@ const SearchJobs = ({ data}: { data: string}) => {
       .then(result => {
        const allData = result.data.data
        setPageData(allData)
-       const fastData = allData.slice(0, perPage)
+       const fastData = allData?.slice(0, perPage)
       setCurrentPageData(fastData);
        console.log(allData)
       })
