@@ -2,10 +2,10 @@ import React from "react";
 import getDataFromDB from "@/utils/getDataFromDB";
 import { headers } from "next/headers";
 import { getServerSession } from "next-auth";
-import { options } from "../api/auth/[...nextauth]/options";
 import SellerSingleServices from "@/components/Dashboard/seller/SellerSingleServices";
+import { options } from "@/app/api/auth/[...nextauth]/options";
 
-const Dashboard = async () => {
+const AllServices = async () => {
   const session = await getServerSession(options);
   const host = headers().get("host");
   const sellerServices = await getDataFromDB(
@@ -34,4 +34,4 @@ const Dashboard = async () => {
   );
 };
 
-export default Dashboard;
+export default AllServices;

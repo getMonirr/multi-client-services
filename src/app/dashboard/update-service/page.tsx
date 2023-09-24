@@ -1,23 +1,24 @@
 "use client";
 /* eslint-disable react/jsx-key */
 import { useMultiStepForm } from "@/hooks/useMultiStepForm";
-import React from "react";
-import Packages from "@/components/Dashboard/create-service/form/Packages";
-import Overview from "@/components/Dashboard/create-service/form/Overview";
-import DescriptionAndFAQ from "@/components/Dashboard/create-service/form/DescriptionAndFAQ";
-import Gallery from "@/components/Dashboard/create-service/form/Gallery";
-import Publish from "@/components/Dashboard/create-service/form/Publish";
 import { Stepper, Step } from "react-form-stepper";
 import OverviewUpdate from "@/components/Dashboard/update-service/OverviewUpdate";
+import UpdatePackages from "@/components/Dashboard/update-service/UpdatePackages";
+import UpdateDescriptionAndFAQ from "@/components/Dashboard/update-service/UpdateDescriptionAndFAQ";
+import UpdateGallery from "@/components/Dashboard/update-service/UpdateGallery";
 
-const UpdateService = () => {
+const UpdateService = ({
+  searchParams: { id },
+}: {
+  searchParams: { id: string };
+}) => {
+  // use multiStep form
   const { FormStep, next, back, currentStepIndex, isFirstStep, isLastStep } =
     useMultiStepForm([
-      <OverviewUpdate />,
-      <Packages />,
-      <DescriptionAndFAQ />,
-      <Gallery />,
-      <Publish />,
+      <OverviewUpdate id={id} />,
+      <UpdatePackages id={id} />,
+      <UpdateDescriptionAndFAQ id={id} />,
+      <UpdateGallery id={id} />,
     ]);
 
   return (
@@ -48,7 +49,6 @@ const UpdateService = () => {
         <Step label="Packages" />
         <Step label="Description & FAQ" />
         <Step label="Gallery" />
-        <Step label="Publish" className="text-yellow-400" />
       </Stepper>
       <div className="flex items-center justify-center">{FormStep}</div>
       <div className="flex items-center justify-end my-8 gap-4">
