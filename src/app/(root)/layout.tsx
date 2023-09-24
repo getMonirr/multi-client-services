@@ -29,11 +29,9 @@ const RootLayout = ({ children }: Props) => {
     <html lang="en" data-theme="light">
       <body className={`${open_sans.className} ${nunito.variable} bg-white`}>
         <NextAuthProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Header />
-            <AuthProvider>{children}</AuthProvider>
-            <Footer />
-          </ThemeProvider>
+          <Header />
+          <AuthProvider>{children}</AuthProvider>
+          <Footer />
         </NextAuthProvider>
       </body>
     </html>
