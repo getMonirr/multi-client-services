@@ -18,7 +18,7 @@ interface FormData {
   faqs: Faqs[];
 }
 
-const UpdateDescriptionAndFAQ = ({ id }: { id: string }) => {
+const UpdateDescriptionAndFAQ = ({ id }: { id: string | null }) => {
   const [serviceData, setServiceData] = useState<any>(null);
 
   const { control, handleSubmit, register, setValue } = useForm<FormData>();

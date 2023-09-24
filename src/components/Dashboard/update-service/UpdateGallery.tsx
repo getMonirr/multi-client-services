@@ -7,7 +7,7 @@ import updateData from "@/utils/updateData";
 import axios from "axios";
 import Loading from "../Loading/Loading";
 
-const UpdateGallery = ({ id }: { id: string }) => {
+const UpdateGallery = ({ id }: { id: string | null }) => {
   const [serviceData, setServiceData] = useState<any>(null);
   const { control, handleSubmit, register, setValue } = useForm();
 
