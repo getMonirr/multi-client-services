@@ -29,7 +29,7 @@ const Payment = () => {
   const session = useSession()
   const data:any = session?.data
   const paymentData = useSelector(getPaymentData);
-  console.log(paymentData);
+  console.log(data);
   const { packageDetails, jobId, totalPrice: price, quantity } = paymentData;
 
   const [information, setAddInformation] = useState<any>();
