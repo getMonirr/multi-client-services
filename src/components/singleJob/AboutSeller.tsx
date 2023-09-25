@@ -13,7 +13,7 @@ const AboutSeller = ({ seller }: { seller: any }) => {
         <div className="grid grid-cols-2 gap-8">
           <div>
             <p className="">From</p>
-            <p className="font-bold">{address.country}</p>
+            <p className="font-bold">{address?.country}</p>
           </div>
           <div>
             <p className="">Avg. response time</p>

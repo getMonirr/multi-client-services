@@ -11,6 +11,8 @@ import {
   importanceLinks,
   sellerLinks,
 } from "./DashboardLinks";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const DashboardSideBar = ({
   isSidebarVisible,
@@ -21,28 +23,28 @@ const DashboardSideBar = ({
 }) => {
   // use session
   const { data: session } = useSession();
-  const role = session?.user?.role;
+  // const role = session?.user?.role;
+  const [userRole, setUserRole] = useState("");
 
-  console.log(session?.user);
+  // console.log(userRole);
+
+  useEffect(() => {
+    axios.get(`/api/users?email=${session?.user?.email}`).then((result) => {
+      console.log(result?.data?.data?.role);
+      setUserRole(result?.data?.data?.role);
+    });
+  }, [session?.user?.email]);
+
+  // console.log(session?.user);
 
   // filtered links by user role
   let filteredLinks;
 
-  // switch (role) {
-  //   case "admin":
-  //     filteredLinks = adminLinks;
-  //     break;
-  //   case "buyer":
-  //     filteredLinks = buyerLinks;
-  //   default:
-  //     filteredLinks = sellerLinks;
-  //     break;
-  // }
-  if (role == "admin") {
+  if (userRole == "admin") {
     filteredLinks = adminLinks;
-  } else if (role == "buyer") {
+  } else if (userRole == "buyer") {
     filteredLinks = buyerLinks;
-  } else if (role == "seller") {
+  } else if (userRole == "seller") {
     filteredLinks = sellerLinks;
   }
   return (
@@ -73,7 +75,7 @@ const DashboardSideBar = ({
       </div>
       <div>
         <p className="font-bold my-4">
-          <span className="capitalize">{role}</span> Menu
+          <span className="capitalize">{userRole}</span> Menu
         </p>
         <DashboardMenu links={filteredLinks} />
       </div>

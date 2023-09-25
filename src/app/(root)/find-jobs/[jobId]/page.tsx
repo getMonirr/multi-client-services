@@ -10,20 +10,12 @@ import getDataFromDB from "@/utils/getDataFromDB";
 import { headers } from "next/headers";
 // get data
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 280dd1a0c32443e85983926184400e86e57228be
 const SingleJob = async ({ params }: { params: { jobId: string } }) => {
   const { jobId } = params;
   const host = headers().get("host");
   const service = await getDataFromDB(`http://${host}/api/services/${jobId}`);
   const { title, description, seller, images } = service?.data;
   console.log({ service });
-<<<<<<< HEAD
-
-=======
->>>>>>> 280dd1a0c32443e85983926184400e86e57228be
   return (
     <div className="my-16">
       <RootContainer>

@@ -23,10 +23,15 @@ const Dashboard = async () => {
         </h1>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
-        {sellerServices?.data &&
+        {/* {sellerServices?.data &&
           sellerServices?.data?.map((service: any) => (
             <SellerSingleServices key={service._id} service={service} />
-          ))}
+          ))} */}
+          {
+            sellerServices?.data ? sellerServices?.data?.map((service: any) => (
+              <SellerSingleServices key={service._id} service={service} />
+            )) : <h1 className="text-center my-10 text-4xl font-bold">There is no service available</h1>
+          }
       </div>
     </div>
   );

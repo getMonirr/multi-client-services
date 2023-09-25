@@ -16,10 +16,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className={`${inter.className} bg-multi-icon-bg`}>
-        {/* <div className="flex gap-10">
-        <Sidebar />
-        {children}
-        </div> */}
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextAuthProvider>
             <DashboardLayouts>{children}</DashboardLayouts>

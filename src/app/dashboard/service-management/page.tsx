@@ -19,7 +19,7 @@ const ServiceManagement = () => {
   return <div>
     <h1 className="text-3xl font-bold my-3">Manage Service</h1>
     {
-        data.length ? "" : <h1 className="text-3xl font-bold text-center">There is no data available</h1>
+        data ? "Hell qolrd" : <h1 className="text-3xl font-bold text-center">There is no data available</h1>
     }
   </div>;
 };

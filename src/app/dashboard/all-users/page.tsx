@@ -150,16 +150,28 @@ const AllUsers = () => {
                             <option value="buyer">buyer</option>
                             <option value="admin">admin</option>
                           </select>
-                          <div className="modal-action">
-                            <form method="dialog">
-                              {/* if there is a button in form, it will close the modal */}
-                              <button
-                                onClick={handleUpdateUser}
-                                className="btn"
-                              >
-                                DONE
-                              </button>
-                            </form>
+                          <div>
+                            <div className="modal-action flex items-center justify-between">
+                              <form method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button
+                                  className="btn"
+                                >
+                                  Close
+                                </button>
+                              </form>
+                            </div>
+                            <div className="modal-action">
+                              <form method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button
+                                  onClick={handleUpdateUser}
+                                  className="btn"
+                                >
+                                  DONE
+                                </button>
+                              </form>
+                            </div>
                           </div>
                         </div>
                       </dialog>
