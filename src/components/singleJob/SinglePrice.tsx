@@ -55,6 +55,13 @@ const SinglePrice = ({ data, seller }: { data: any; seller: any }) => {
     const newPaymentData = {
       totalPrice,
       quantity,
+      data,
+      packageDetails:{
+        name,
+        description, 
+        deliveryTime,
+        revisionType
+      },
       seller: {
         name: seller?.seller?.name,
         email: seller?.seller?.email,
