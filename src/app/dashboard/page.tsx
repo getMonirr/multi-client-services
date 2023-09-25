@@ -9,7 +9,7 @@ const Dashboard = async () => {
   const session = await getServerSession(options);
   const host = headers().get("host");
   const sellerServices = await getDataFromDB(
-    `http://${host}/api/services?email=${session?.user.email}`
+    `http://${host}/api/services?email=${session?.user?.email}`
   );
   return (
     <div>

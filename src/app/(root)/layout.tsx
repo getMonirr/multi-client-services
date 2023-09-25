@@ -1,7 +1,7 @@
 import Header from "@/components/shared/header/Header";
 import "../globals.css";
 import type { Metadata } from "next";
-import { Inter, Nunito, Open_Sans, Poppins } from "next/font/google";
+import { Nunito, Open_Sans } from "next/font/google";
 import Footer from "@/components/shared/Footer";
 import AuthProvider from "@/Context/AuthProvider";
 import NextAuthProvider from "@/Context/NextAuthProvider";

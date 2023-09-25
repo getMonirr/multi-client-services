@@ -34,6 +34,11 @@ export const sellerLinks = [
     path: "/dashboard/create-service",
     icon: FiEdit,
   },
+  {
+    name: "Service Management",
+    path: "/dashboard/service-management",
+    icon: FaNetworkWired
+  },
 ];
 // admin route links
 export const adminLinks = [

@@ -20,7 +20,7 @@ const ChatPage = () => {
   return (
     <>
       <RootContainer>
-        <div className="flex flex-col md:flex-row border-2 border-multi-icon-bg  my-5 h-[400px]">
+        <div className="lg:flex flex-col md:flex-row border-2 border-multi-icon-bg  my-12 h-[400px]">
           <div className="w-[100%] bg-multi-icon-bg max-h-screen md:w-[25%]">
             <div className="">
               <div className="w-full h-[80px] rounded-full flex items-center">
