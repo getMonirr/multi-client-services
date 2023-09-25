@@ -4,6 +4,13 @@ import { createSlice } from "@reduxjs/toolkit";
 export interface paymentType {
   totalPrice: number;
   quantity: number;
+  jobId: string;
+  packageDetails:{
+    name: string;
+    description : string;
+    deliveryTime : number;
+    revisionType: number ;
+  };
   seller: {
     email: string;
     name: string;
@@ -13,6 +20,13 @@ export interface paymentType {
 const initialState: paymentType = {
   totalPrice: 0,
   quantity: 0,
+  jobId:"",
+  packageDetails:{
+    name: "",
+    description : "",
+    deliveryTime : 0,
+    revisionType: 0
+  },
   seller: {
     email: "",
     name: "",

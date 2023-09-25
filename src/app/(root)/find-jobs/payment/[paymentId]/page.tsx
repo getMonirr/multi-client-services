@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import ChackOut from "@/components/paymentComponent/ChackOut";
 import RootContainer from "@/components/shared/RootContainer";
@@ -5,8 +6,9 @@ import SimpleBtn from "@/components/shared/btn/SimpleBtn";
 import { getPaymentData } from "@/redux/features/payment/paymentDataSlice";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 // import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -24,23 +26,17 @@ const key =
 const stripePromise = loadStripe(key);
 
 const Payment = () => {
-  // get payment data from redux store
+  const session = useSession()
+  const data:any = session?.data
   const paymentData = useSelector(getPaymentData);
   console.log(paymentData);
+  const { packageDetails, jobId, totalPrice: price, quantity } = paymentData;
 
   const [information, setAddInformation] = useState<any>();
-  // const router = useRouter();
-  //  const {data } = router
-  //  console.log(data)
-  const name = "web development";
-  const categoryName = "Basic";
-  const price = 5;
-  const delivery = 1;
-  const revision = "unlimited";
+
+  
   const tex = 2.5;
-  const totalPrice = price + tex;
-  // const myDilog = document?.getElementById("my_modal_1")
-  // const myDilog = document.getElementById('my_modal_1') as HTMLFormElement).showModal()
+  const priceTotal = price + tex;
 
   const { register, handleSubmit, reset } = useForm();
 
@@ -62,38 +58,6 @@ const Payment = () => {
     <RootContainer>
       <div className=" flex gap-4 flex-col-reverse lg:flex-row ">
         <div className="md:col-span-2 pb-6 border md:w-2/3 text-black">
-          {/* <Stepper
-        activeStep={currentStepIndex}
-        
-        styleConfig={{
-          activeBgColor: "#226CE5",
-          completedBgColor: "#198754",
-          activeTextColor: "#ffffff",
-          completedTextColor: "#ffffff",
-          inactiveBgColor: "#e0e0e0",
-          inactiveTextColor: "#ffffff",
-          size: "2em",
-          circleFontSize: "1rem",
-          labelFontSize: "0.875rem",
-          borderRadius: "50%",
-          fontWeight: 500,
-        }}
-      >
-        <Step label="Overview" />
-        <Step label="Packages" />
-        <Step label="Confram pay" className="text-yellow-400" />
-      </Stepper> */}
-          <div className="flex items-center justify-center"></div>
-          {/* <div className="flex items-center justify-end my-8 gap-4">
-
-        <button className="btn btn-sm" disabled={isFirstStep} onClick={back}>
-          Prev
-        </button>
-        <button className="btn btn-sm" disabled={isLastStep} onClick={next}>
-          Next
-        </button>
-      </div> */}
-
           <h1 className="text-3xl bg-gray-100 p-4  font-bold mb-10 capitalize">
             Billing Information
           </h1>
@@ -107,8 +71,10 @@ const Payment = () => {
 
               {/* user information  */}
               <div className="mt-6 ">
-                <p className="font-bold text-xl"> User name </p>
-                <p className="font-bold"> User cuntry</p>
+                <div className="flex gap-4 items-center">
+                <img src={data?.user?.profilePicture} alt="" className="w-14 h-14 rounded-full" />
+                <p className="font-bold text-xl"> {data?.user?.name} </p>
+                </div>
                 <p>
                   {information && (
                     <>
@@ -162,26 +128,32 @@ const Payment = () => {
                 height={100}
                 className="border "
               />
-              <h1 className="text-xl font-semibold">{name}</h1>
+                <h1 className="text-lg font-semibold">
+                  {packageDetails?.name}
+                </h1>
             </div>
-            <div className="flex justify-between items-center ">
-              <p className="text-2xl font-semibold">{categoryName}</p>
-              <p className="text-2xl font-semibold">${price}</p>
+            <div className="flex justify-between bg-slate-200 p-3 rounded mb-6 ">
+              <p className="text-2xl ">Total Gig: <span className="font-semibold">{quantity} pec</span></p>
+            <p className="text-2xl font-semibold">${price}</p>
+
+            </div>
+            <div>
+              <p>{packageDetails?.description}</p>
             </div>
             <div className="my-6 text-xl border-b border-opacity-40 pb-4">
               <p className="flex items-center gap-2">
-                <FaCheck /> <span>{delivery} delivery</span>
+                <FaCheck /> <span>{packageDetails?.deliveryTime} delivery</span>
               </p>
               <p className="flex items-center gap-2">
-                <FaCheck /> <span>{revision} revision</span>
+                <FaCheck /> <span>{packageDetails?.revisionType} revision</span>
               </p>
             </div>
             <div className="my-6 text-xl border-b border-opacity-40 pb-4 mb-20">
               <p className="flex justify-between items-center">
                 Service fee <span>${tex}</span>{" "}
               </p>
-              <p className="flex justify-between items-center py-4 ">
-                Total <span>${totalPrice}</span>{" "}
+              <p className="flex justify-between items-center py-4 px-2 mt-2  bg-multi-icon-bg ">
+                Total <span>${priceTotal}</span>{" "}
               </p>
             </div>
           </div>

@@ -13,8 +13,8 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
   const { jobId } = params;
   const host = headers().get("host");
   const service = await getDataFromDB(`http://${host}/api/services/${jobId}`);
-  const { title, description, seller, images , packages} = service?.data;
-  console.log({ service });
+  const { title, description, seller, images , packages, faqs} = service?.data;
+  // console.log({ service });
   const userDetails = {
     seller,
     jobId,
@@ -45,7 +45,7 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
               <AboutSeller seller={seller} />
             </div>
             <div>
-              <SellerFAQ />
+              <SellerFAQ faqs={faqs} />
             </div>
             <div>
               <SellerReviews />
