@@ -11,38 +11,85 @@ import { img_hoisting_token } from "../../../../env";
 import RootContainer from "@/components/shared/RootContainer";
 import Lottie from "lottie-react";
 import regAnimate from "@/assets/lottie/reg/animation_lmxrs525.json";
+import getImgUrl from "@/utils/getImgUrl";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 type Inputs = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   confirm_password: string;
   userType: string;
   picture: string;
-  phone: any;
 };
 
 const Registration = () => {
-  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hoisting_token}`;
-  // console.log(img_hosting_url);
-
-  const { createUser, updateUserProfile }: any = useAuth();
-
   const [error, setError] = useState<string>();
+
+  // router
+  const router = useRouter();
+
+  // handleGoogleSignIn
+  const handleGoogleSignIn: () => void = () => {
+    const result = signIn("google", { redirect: true, callbackUrl: "/" });
+    console.log({ result });
+  };
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const { password, confirm_password, email, name, phone, picture } = data;
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const {
+      password,
+      confirm_password,
+      email,
+      picture,
+      firstName,
+      lastName,
+      userType,
+    } = data;
     if (password !== confirm_password) {
-      setError("Password not Matched");
+      setError("Password not Matched, Password must be 6 char long");
       return;
     } else if (password.length < 6) {
       setError("Password must be contain 6 characters");
       return;
+    }
+
+    // get image url from imgBB
+    const imgUrl = await getImgUrl(picture[0]);
+
+    // create new user
+    const newUser = {
+      name: {
+        firstName,
+        lastName,
+      },
+      email,
+      username: email.split("@")[0],
+      password,
+      profilePicture: imgUrl,
+      role: userType.toLocaleLowerCase(),
+    };
+
+    // post uer in database
+    const { data: result } = await axios.post(`/api/users`, newUser);
+
+    if (result.success) {
+      Swal.fire("Registration successful", "Please login now", "success");
+      router.push(`/login`);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+      });
     }
   };
 
@@ -51,12 +98,6 @@ const Registration = () => {
       <RootContainer>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 py-8">
           <div className=" hidden lg:block">
-            {/* <Image
-              className="w-[800px] h-[800px]"
-              src={img}
-              alt="registration"
-            /> */}
-
             <Lottie animationData={regAnimate} loop={true} />
           </div>
           <div className="border px-4 bg-multi-icon-bg rounded-lg w-full max-w-lg bg-opacity-80 backdrop-blur-md">
@@ -70,6 +111,7 @@ const Registration = () => {
                     </span>
                   </label>
                   <input
+                    {...register("firstName", { required: true })}
                     type="text"
                     placeholder="Enter first name"
                     className="input input-bordered w-full"
@@ -82,6 +124,7 @@ const Registration = () => {
                     </span>
                   </label>
                   <input
+                    {...register("lastName", { required: true })}
                     type="text"
                     placeholder="Enter last name"
                     className="input input-bordered w-full"
@@ -96,6 +139,7 @@ const Registration = () => {
                   </span>
                 </label>
                 <input
+                  {...register("email", { required: true })}
                   type="text"
                   placeholder="Enter your email"
                   className="input input-bordered w-full"
@@ -109,10 +153,14 @@ const Registration = () => {
                     </span>
                   </label>
                   <input
-                    type="text"
+                    {...register("password", { required: true })}
+                    type="password"
                     placeholder="Enter your Password"
                     className="input input-bordered w-full"
                   />
+                  <span className="text-xs">
+                    {error ? error : "Password must be 6 char long"}
+                  </span>
                 </div>
                 <div className="form-control w-full">
                   <label className="label">
@@ -121,10 +169,20 @@ const Registration = () => {
                     </span>
                   </label>
                   <input
-                    type="text"
+                    {...register("confirm_password", { required: true })}
+                    type="password"
                     placeholder="Confirm Password"
                     className="input input-bordered w-full"
                   />
+                  {watch("confirm_password") !== watch("password") ? (
+                    <span className="text-xs text-red-600">
+                      Password does not match
+                    </span>
+                  ) : (
+                    <span className="text-xs text-green-800">
+                      Password Matched
+                    </span>
+                  )}
                 </div>
               </div>
               <div className="flex flex-col lg:flex-row items-center gap-4">
@@ -134,7 +192,10 @@ const Registration = () => {
                       Please select type <span className="text-red-500">*</span>
                     </span>
                   </label>
-                  <select className="select select-bordered">
+                  <select
+                    className="select select-bordered"
+                    {...register("userType", { required: true })}
+                  >
                     <option selected>Seller</option>
                     <option>Buyer</option>
                   </select>
@@ -147,6 +208,7 @@ const Registration = () => {
                     </span>
                   </label>
                   <input
+                    {...register("picture", { required: true })}
                     type="file"
                     className="file-input file-input-bordered w-full"
                   />
@@ -165,7 +227,7 @@ const Registration = () => {
                   Login Here
                 </Link>
               </p>
-              <SocialLogin />
+              <SocialLogin handleGoogleLogin={handleGoogleSignIn} />
             </div>
           </div>
         </div>
