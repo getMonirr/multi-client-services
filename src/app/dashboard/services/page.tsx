@@ -2,14 +2,14 @@ import React from "react";
 import getDataFromDB from "@/utils/getDataFromDB";
 import { headers } from "next/headers";
 import { getServerSession } from "next-auth";
-import { options } from "../api/auth/[...nextauth]/options";
 import SellerSingleServices from "@/components/Dashboard/seller/SellerSingleServices";
+import { options } from "@/app/api/auth/[...nextauth]/options";
 
-const Dashboard = async () => {
+const AllServices = async () => {
   const session = await getServerSession(options);
   const host = headers().get("host");
   const sellerServices = await getDataFromDB(
-    `http://${host}/api/services?email=${session?.user?.email}`
+    `http://${host}/api/services?email=${session?.user.email}`
   );
   return (
     <div>
@@ -25,7 +25,7 @@ const Dashboard = async () => {
           sellerServices?.data.map((service: any) => (
             <SellerSingleServices key={service._id} service={service} />
           ))) || (
-          <h1 className="text-xl font-bold text-center">
+          <h1 className="text-xl font-bold">
             Currently you do not have any service
           </h1>
         )}
@@ -34,4 +34,4 @@ const Dashboard = async () => {
   );
 };
 
-export default Dashboard;
+export default AllServices;

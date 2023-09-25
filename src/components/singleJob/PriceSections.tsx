@@ -5,7 +5,8 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import SinglePrice from "./SinglePrice";
 import Link from "next/link";
 
-const PriceSections = () => {
+const PriceSections = ({userDetails}: {userDetails : any}) => {
+  const {basic,premium, standard, } = userDetails?.packages
   return (
     <div className="border sticky top-[100px]">
       <Tabs>
@@ -21,13 +22,13 @@ const PriceSections = () => {
           </Tab>
         </TabList>
         <TabPanel>
-          <SinglePrice name="basic" />
+          <SinglePrice data={basic} seller ={userDetails}  />
         </TabPanel>
         <TabPanel>
-          <SinglePrice name="standard" />
+          <SinglePrice data={standard} seller ={userDetails}   />
         </TabPanel>
         <TabPanel>
-          <SinglePrice name="Premium" />
+          <SinglePrice data={premium} seller ={userDetails}  />
         </TabPanel>
       </Tabs>
     </div>

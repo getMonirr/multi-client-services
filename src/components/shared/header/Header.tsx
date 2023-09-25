@@ -94,7 +94,7 @@ const Header = () => {
     <>
       <div
         className={`bg-multi-icon-bg dark:bg-multi-title text-black dark:text-white sticky top-0 z-50 bg-opacity-90 transition duration-500 ease-in-out ${
-          isScrolled >= 100  ? "py-0 shadow-2xl border-b-2" : "py-2"
+          isScrolled > 100  ? "py-0 shadow-2xl border-b-2" : "py-2"
         }`}
       >
         <RootContainer>

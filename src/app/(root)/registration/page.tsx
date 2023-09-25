@@ -8,222 +8,230 @@ import useAuth from "@/hooks/useAuth";
 import SocialLogin from "@/components/shared/SocialLogin/SocialLogin";
 import Swal from "sweetalert2";
 import { img_hoisting_token } from "../../../../env";
+import RootContainer from "@/components/shared/RootContainer";
+import Lottie from "lottie-react";
+import regAnimate from "@/assets/lottie/reg/animation_lmxrs525.json";
+import getImgUrl from "@/utils/getImgUrl";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 type Inputs = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   confirm_password: string;
   userType: string;
   picture: string;
-  phone: any;
 };
 
 const Registration = () => {
-  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hoisting_token}`;
-  // console.log(img_hosting_url);
-
-  const { createUser, updateUserProfile }: any = useAuth();
-
   const [error, setError] = useState<string>();
+
+  // router
+  const router = useRouter();
+
+  // handleGoogleSignIn
+  const handleGoogleSignIn: () => void = () => {
+    const result = signIn("google", { redirect: true, callbackUrl: "/" });
+    console.log({ result });
+  };
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const { password, confirm_password, email, name, phone, picture } = data;
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const {
+      password,
+      confirm_password,
+      email,
+      picture,
+      firstName,
+      lastName,
+      userType,
+    } = data;
     if (password !== confirm_password) {
-      setError("Password not Matched");
+      setError("Password not Matched, Password must be 6 char long");
       return;
     } else if (password.length < 6) {
       setError("Password must be contain 6 characters");
       return;
     }
 
-    // console.log(picture);
+    // get image url from imgBB
+    const imgUrl = await getImgUrl(picture[0]);
 
-    const formData = new FormData();
-    formData.append("image", picture[0]);
+    // create new user
+    const newUser = {
+      name: {
+        firstName,
+        lastName,
+      },
+      email,
+      username: email.split("@")[0],
+      password,
+      profilePicture: imgUrl,
+      role: userType.toLocaleLowerCase(),
+    };
 
-    fetch(img_hosting_url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        // setImage(data)
+    // post uer in database
+    const { data: result } = await axios.post(`/api/users`, newUser);
+
+    if (result.success) {
+      Swal.fire("Registration successful", "Please login now", "success");
+      router.push(`/login`);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
       });
-
-    // create user
-    createUser(email, password).then((result: any) => {
-      const loggedUser = result.user;
-      // update profile name, image
-      updateUserProfile(name);
-      // console.log(loggedUser);
-      setError("");
-      if (result.user) {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Create Account successful",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
+    }
   };
 
   return (
-    <div>
-      <div className="my-40 container mx-auto flex justify-around">
-        <Image className="w-[800px] h-[800px]" src={img} alt="" />
-
-        <div className="border p-10">
-          <h1 className="text-3xl font-bold my-6">Get Started</h1>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="relative z-0 w-[420px] mb-6 group">
-              <input
-                {...register("name")}
-                type="text"
-                name="name"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-              />
-              <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                Full Name
-              </label>
-            </div>
-            <span className="text-sm text-gray-500">
-              Upload Profile Picture
-            </span>
-            <div className="flex items-center my-4 gap-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-
-              <label className="block">
-                <span className="sr-only">Choose profile photo</span>
-                <input
-                  {...register("picture")}
-                  type="file"
-                  className="block w-full text-sm text-slate-500
-                    file:mr-4 file:py-2 file:px-4
-                    file:rounded-full file:border-0
-                    file:text-sm file:font-semibold
-                    file:bg-violet-50 file:text-gray-700
-                    hover:file:bg-violet-100
-                    "
-                />
-              </label>
-            </div>
-            <div className="relative z-0 w-[420px] mb-6 group">
-              <input
-                {...register("email")}
-                type="email"
-                name="email"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-              />
-              <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                Email address
-              </label>
-            </div>
-            <div className="relative z-0 w-[420px] mb-6 group">
-              <input
-                {...register("phone")}
-                type="number"
-                name="email"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-              />
-              <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                Phone Number
-              </label>
-            </div>
-            <div className="relative z-0 w-[420px] mb-6 group">
-              <input
-                {...register("password")}
-                type="password"
-                name="password"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-              />
-              <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                Password
-              </label>
-            </div>
-            <div className="relative z-0 w-[420px] mb-6 group">
-              <input
-                {...register("confirm_password")}
-                name="confirm_password"
-                type="password"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-              />
-              <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                Confirm Password
-              </label>
-            </div>
-            <div className="flex my-4 gap-10 items-center">
-              <select
-                {...register("userType")}
-                className="w-full bg-gray-50 p-3"
-                name="userType"
-              >
-                <option value="Seller">Seller</option>
-                <option value="Buyer">Buyer</option>
-              </select>
-            </div>
-            <div className="flex justify-center">
-              <button type="submit" className="btn w-full">
-                Continue
-              </button>
-            </div>
-            {error ? (
-              <p className="text-red-500 mt-4 flex animate-pulse">
-                {error}{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+    <div className=" bg-slate-400 dark:bg-multi-paragraph">
+      <RootContainer>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 py-8">
+          <div className=" hidden lg:block">
+            <Lottie animationData={regAnimate} loop={true} />
+          </div>
+          <div className="border px-4 bg-multi-icon-bg rounded-lg w-full max-w-lg bg-opacity-80 backdrop-blur-md">
+            <h1 className="text-3xl font-bold text-center my-6">Get Started</h1>
+            <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+              <div className="flex flex-col lg:flex-row items-center gap-4">
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text font-bold">
+                      First name <span className="text-red-500">*</span>
+                    </span>
+                  </label>
+                  <input
+                    {...register("firstName", { required: true })}
+                    type="text"
+                    placeholder="Enter first name"
+                    className="input input-bordered w-full"
                   />
-                </svg>
+                </div>
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text font-bold">
+                      Last name <span className="text-red-500">*</span>
+                    </span>
+                  </label>
+                  <input
+                    {...register("lastName", { required: true })}
+                    type="text"
+                    placeholder="Enter last name"
+                    className="input input-bordered w-full"
+                  />
+                </div>
+              </div>
+
+              <div className="form-control w-full">
+                <label className="label">
+                  <span className="label-text font-bold">
+                    Email <span className="text-red-500">*</span>
+                  </span>
+                </label>
+                <input
+                  {...register("email", { required: true })}
+                  type="text"
+                  placeholder="Enter your email"
+                  className="input input-bordered w-full"
+                />
+              </div>
+              <div className="flex flex-col lg:flex-row items-center gap-4">
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text font-bold">
+                      Password <span className="text-red-500">*</span>
+                    </span>
+                  </label>
+                  <input
+                    {...register("password", { required: true })}
+                    type="password"
+                    placeholder="Enter your Password"
+                    className="input input-bordered w-full"
+                  />
+                  <span className="text-xs">
+                    {error ? error : "Password must be 6 char long"}
+                  </span>
+                </div>
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text font-bold">
+                      Confirm Password <span className="text-red-500">*</span>
+                    </span>
+                  </label>
+                  <input
+                    {...register("confirm_password", { required: true })}
+                    type="password"
+                    placeholder="Confirm Password"
+                    className="input input-bordered w-full"
+                  />
+                  {watch("confirm_password") !== watch("password") ? (
+                    <span className="text-xs text-red-600">
+                      Password does not match
+                    </span>
+                  ) : (
+                    <span className="text-xs text-green-800">
+                      Password Matched
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-col lg:flex-row items-center gap-4">
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text font-bold">
+                      Please select type <span className="text-red-500">*</span>
+                    </span>
+                  </label>
+                  <select
+                    className="select select-bordered"
+                    {...register("userType", { required: true })}
+                  >
+                    <option selected>Seller</option>
+                    <option>Buyer</option>
+                  </select>
+                </div>
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text font-bold">
+                      Pick Profile Picture{" "}
+                      <span className="text-red-500">*</span>
+                    </span>
+                  </label>
+                  <input
+                    {...register("picture", { required: true })}
+                    type="file"
+                    className="file-input file-input-bordered w-full"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-center">
+                <button type="submit" className="btn w-full border-none my-8">
+                  Register
+                </button>
+              </div>
+            </form>
+            <div>
+              <p className="my-4">
+                Already Have an Account?
+                <Link href="/login" className="text-blue-800 underline">
+                  Login Here
+                </Link>
               </p>
-            ) : (
-              ""
-            )}
-            <p className="my-4">
-              Already Have an Account?{" "}
-              <Link href="/login" className="text-gray-500 underline">
-                Login Here
-              </Link>{" "}
-            </p>
-            <SocialLogin />
-          </form>
+              <SocialLogin handleGoogleLogin={handleGoogleSignIn} />
+            </div>
+          </div>
         </div>
-      </div>
+      </RootContainer>
     </div>
   );
 };
