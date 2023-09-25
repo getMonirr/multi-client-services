@@ -1,5 +1,4 @@
 "use client";
-import useAuth from "@/hooks/useAuth";
 import img from "../../../assets/login.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +6,8 @@ import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
 import SocialLogin from "@/components/shared/SocialLogin/SocialLogin";
-import google from "../../../assets/google.png";
-import { signIn, useSession } from "next-auth/react";
-import { redirect, useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 type Inputs = {
   email: string;
@@ -17,10 +15,9 @@ type Inputs = {
 };
 
 const Login = () => {
+  // router
   const router = useRouter();
-  //   const { signIn }: any = useAuth();
-  const { data: session } = useSession();
-  console.log(session);
+  const searchParams = useSearchParams();
 
   const {
     register,
@@ -30,23 +27,12 @@ const Login = () => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     Swal.showLoading();
     const { email, password } = data;
-    // signIn(email, password).then((result: any) => {
-    //   if (result.user) {
-    //     Swal.fire({
-    //       position: "top-end",
-    //       icon: "success",
-    //       title: "Login successful",
-    //       showConfirmButton: false,
-    //       timer: 1500,
-    //     });
-    //   }
-    // });
 
     const signInResult = await signIn("credentials", {
       email,
       password,
       redirect: false,
-      callbackUrl: "/",
+      callbackUrl: searchParams.get("callbackUrl") || "/",
     });
     // after sign in
     if (!signInResult?.error) {

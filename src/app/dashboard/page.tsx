@@ -25,7 +25,7 @@ const Dashboard = async () => {
           sellerServices?.data.map((service: any) => (
             <SellerSingleServices key={service._id} service={service} />
           ))) || (
-          <h1 className="text-xl font-bold">
+          <h1 className="text-xl font-bold text-center">
             Currently you do not have any service
           </h1>
         )}
