@@ -127,7 +127,6 @@ const ChatPage = () => {
       
         <div className="flex flex-col lg:flex-row border-2 border-multi-icon-bg  my-5 h-[400px]">
           <div className="w-full bg-multi-icon-bg h-auto lg:max-h-screen lg:w-[25%]">
-            
               <div className="w-full h-[80px] rounded-full flex items-center">
                 <div className="flex items-center">
                   <div>

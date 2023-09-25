@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { findJobs } from "@/constant/Constant";
 import { Tab, Tabs, TabList } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaUserCircle } from "react-icons/fa";
 
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,36 +13,63 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import Link from "next/link";
+import useSWR from "swr";
+import { fetcher } from "@/utils/swr/fetcher";
+import axios from "axios";
 
-const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
-  // const [data, setData] = useState<any>(findJobs);
-  
-
+const SearchJobs = ({ data}: { data: string}) => {
   const [pageData, setPageData] = useState<string[]>([]);
+  const [currentPageData, setCurrentPageData] = useState<string[]>([])
   const [tabIndex, setTabIndex] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  // const totalItems: number = data.length;
+  
+  // const {data: result} = useSWR(`/api/services?searchQuery=${data}`, fetcher)
+  // const searchData = result?.data
+  
+ 
+
+  // pagination function 
   const perPage: number = 5;
-  const totalPage: number = Math.ceil(totalJob / perPage);
-  const pageNumber: any = [...Array(totalPage).keys()];
+  const totalPage: number = Math.ceil(pageData?.length / perPage);
+  const pageNumber: any = [...Array(totalPage)?.keys()];
+
+  // userPhoto use 
   const userphoto =
     "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?size=626&ext=jpg&ga=GA1.1.2077699082.1681132836&semt=sph";
-// console.log(totalPage)
   const pageHandle = (page: number) => {
     setCurrentPage(page);
       const backData = page * perPage;
-      const currentData = data.slice(backData, perPage+backData);
-      setPageData(currentData);
+      const currentData = pageData.slice(backData, perPage+backData);
+      setCurrentPageData(currentData);
       console.log("page number ", currentData, page)
     
   };
+  console.log(data)
+  
   useEffect(() => {
-    if (data) {
-      const fastData = data.slice(0, perPage)
-
-      setPageData(fastData);
+    if(data){
+      axios.get(`/api/services?searchQuery=${data}`)
+      .then(result => {
+       const allData = result.data.data
+       setPageData(allData)
+       const fastData = allData?.slice(0, perPage)
+      setCurrentPageData(fastData);
+       console.log(allData)
+      })
+  
     }
-  }, [data]);
+    else{
+      axios.get("/api/services")
+      .then(result => {
+       const allData = result.data.data
+       setPageData(allData)
+       const fastData = allData?.slice(0, perPage)
+      setCurrentPageData(fastData);
+       console.log(allData)
+      })
+     }
+    }
+  , [data]);
 
   return (
     <div>
@@ -53,13 +80,13 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
             <Tab className="tab tab-lifted">Save Job</Tab>
           </TabList>
         </Tabs>
-        <p className="p-4"> {totalJob} jobs found</p>
+        <p className="p-4"> {pageData?.length} jobs found</p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-auto">
-        {pageData?.map((job: any, i: number) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4   mx-auto ">
+        {currentPageData?.map((job: any, i: number) => (
           <div
             key={job._id}
-            className="bg-white rounded overflow-hidden group shadow-md"
+            className="bg-white rounded overflow-hidden group shadow-2xl mt-4"
           >
             <Link href={`/find-jobs/${job._id}`}>
 
@@ -73,11 +100,11 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
                 <SwiperSlide key={i}>
                   <div className="w-full h-52 border-b">
                     <Image
-                      src={userphoto}
+                      src={image}
                       alt="Vercel Logo"
-                      className="rounded-full "
-                      width={50}
-                      height={50}
+                      className="h-52 "
+                      width={500}
+                      height={200}
                       priority
                     />
                   </div>
@@ -88,20 +115,17 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
             <div className="pt-4 pb-3 px-4 h-96">
               <div className="flex items-center gap-4 mb-10">
                 <div>
-                  <Image
-                    src={userphoto}
-                    alt="Vercel Logo"
-                    className="rounded-full "
-                    width={50}
-                    height={50}
-                    priority
-                  />
+                  {
+                    
+                    <FaUserCircle className="w-14 h-14 rounded-full"/>
+                  }
+                 
                 </div>
 
                 <div className="flex justify-between flex-grow ">
                   <div>
                     <h2 className="text-lg text-gray-800 font-bold hover:text-red-600">
-                      {job.name}
+                      {`${job?.seller?.name?.firstName} ${job?.seller?.name?.lastName}`}
                     </h2>
                     <p className="flex items-center">
                       <FaStar className="text-yellow-500" />
@@ -120,14 +144,14 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
                 <small className="text-xs h-14">{job.description}</small>
               </div>
               <div className="flex items-center justify-between gap-4  py-3 ">
-                <small className="text-xs ">${job.packages.basic.price}/hr</small>
-                <small className="text-xs">${job.packages.premium.price} Earned</small>
+                <small className="text-xs ">${job?.seller?.hourlyRate}/hr</small>
+                <small className="text-xs">${job?.packages?.premium.price} Earned</small>
               </div>
 
               <div className="flex justify-between items-center">
                 <div className="">
                   <small className="text-xs block">
-                    {job.jobSuccuss}% job success
+                    {job?.seller?.jobSuccess}% job success
                   </small>
                 </div>
                 <p className=" font-bold bg-multi-primary py-2 px-4 text-white rounded-2xl">
@@ -136,20 +160,13 @@ const SearchJobs = ({ data, totalJob }: { data: string[], totalJob:number}) => {
                 </p>
               </div>
             </div>
-            <Link
-              href={`/find-jobs/${job._id}`}
-              className="text-white btn  w-full py-1 text-center bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600 flex items-center"
-            >
-              Collaborate
-            </Link>
-
             </Link>
           </div>
         ))}
       </div>
 
       <div className="mt-10 text-right">
-        { totalPage > 0 && totalJob >5 &&
+        { totalPage > 0 && pageData?.length >5 &&
           <div className="">
           {currentPage <= 0 ? "" : <button onClick={() => {setCurrentPage(currentPage - 1)
           pageHandle(currentPage-1)

@@ -27,6 +27,7 @@ module.exports = {
       "cdn.tuk.dev",
       "lh3.googleusercontent.com",
       "i.ibb.co",
+      "example.com"
     ],
   },
   flags: {

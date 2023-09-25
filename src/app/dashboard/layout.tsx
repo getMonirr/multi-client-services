@@ -20,11 +20,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Sidebar />
         {children}
         </div> */}
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <NextAuthProvider>
-            <DashboardLayouts>{children}</DashboardLayouts>
-          </NextAuthProvider>
-        </ThemeProvider>
+        <NextAuthProvider>
+          <DashboardLayouts>{children}</DashboardLayouts>
+        </NextAuthProvider>
       </body>
     </html>
   );

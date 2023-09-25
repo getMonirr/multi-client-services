@@ -40,6 +40,7 @@ export const GET = async (req: Request, { params }: ParamsType) => {
   try {
     const serviceId = params?.serviceId;
     const result = await getServiceById(serviceId);
+    if (!result) return NextResponse.json({ error: "Service not found" });
     return NextResponse.json({ success: true, data: result });
   } catch (error: any) {
     return handleError(error);
