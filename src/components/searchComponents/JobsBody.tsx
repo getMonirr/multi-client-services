@@ -29,15 +29,16 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
   const [postOpen, setPostOpen] = useState<boolean>(false);
   const [experienceOpen, setExperienceOpen] = useState<boolean>(false);
   const [priceOpen, setPriceOpen] = useState<boolean>(false);
-  
-
   const handleApi = (data: string) => {
     setSearchData(data)
   };
 
 
   useEffect(() => {
+    if(searchWord){
+      setCategorys("")
     setSearchData(searchWord)
+    }
   }, [searchWord]);
 
   // console.log(searchData);

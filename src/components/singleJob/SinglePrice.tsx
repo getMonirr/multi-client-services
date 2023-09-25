@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMultiStepForm } from "@/hooks/useMultiStepForm";
+import { useSession } from "next-auth/react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getPaymentData,
@@ -34,8 +35,9 @@ const SinglePrice = ({ data, seller }: { data: any; seller: any }) => {
   console.log(paymentPage);
 
   useEffect(() => {
-    const priceCalculat = price * quantity;
-    setTotalPrice(priceCalculat);
+    const priceCalculat =price * quantity;
+    const dataDecimal = priceCalculat.toFixed()
+    setTotalPrice(parseFloat(dataDecimal));
   }, [price, quantity]);
 
   // const passData = () =>{
@@ -45,6 +47,21 @@ const SinglePrice = ({ data, seller }: { data: any; seller: any }) => {
 
   // router
   const router = useRouter();
+
+  // check user 
+  const session = useSession()
+  const checkUser = () =>{
+    if(session?.data?.user){
+      if (document) {
+        (
+          document.getElementById("my_modal_3") as HTMLFormElement
+        ).showModal();
+      }
+    }
+    else{
+      router.push("/login")
+    }
+  }
 
   // redux
   const paymentData = useSelector(getPaymentData);
@@ -100,13 +117,7 @@ const SinglePrice = ({ data, seller }: { data: any; seller: any }) => {
       <div className="my-8">
         <SimpleBtn className="w-full text-white">
           <p
-            onClick={() => {
-              if (document) {
-                (
-                  document.getElementById("my_modal_3") as HTMLFormElement
-                ).showModal();
-              }
-            }}
+            onClick={() => checkUser()}
             className="flex items-center justify-center gap-2 mx-auto"
           >
             Continue
