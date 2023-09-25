@@ -22,6 +22,7 @@ const SearchJobs = ({ data}: { data: string}) => {
   const [currentPageData, setCurrentPageData] = useState<string[]>([])
   const [tabIndex, setTabIndex] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false)
   
   // const {data: result} = useSWR(`/api/services?searchQuery=${data}`, fetcher)
   // const searchData = result?.data
@@ -37,10 +38,12 @@ const SearchJobs = ({ data}: { data: string}) => {
   const userphoto =
     "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg?size=626&ext=jpg&ga=GA1.1.2077699082.1681132836&semt=sph";
   const pageHandle = (page: number) => {
+    setLoading(true)
     setCurrentPage(page);
       const backData = page * perPage;
       const currentData = pageData.slice(backData, perPage+backData);
       setCurrentPageData(currentData);
+      setLoading(false)
       console.log("page number ", currentData, page)
     
   };
@@ -86,7 +89,7 @@ const SearchJobs = ({ data}: { data: string}) => {
         {currentPageData?.map((job: any, i: number) => (
           <div
             key={job._id}
-            className="bg-white rounded overflow-hidden group shadow-2xl mt-4"
+            className="bg-white rounded overflow-hidden group shadow-2xl "
           >
             <Link href={`/find-jobs/${job._id}`}>
 
@@ -164,7 +167,6 @@ const SearchJobs = ({ data}: { data: string}) => {
           </div>
         ))}
       </div>
-
       <div className="mt-10 text-right">
         { totalPage > 0 && pageData?.length >5 &&
           <div className="">
