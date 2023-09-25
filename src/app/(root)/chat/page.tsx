@@ -1,10 +1,13 @@
 "use client";
 import Image from "next/image";
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import useSWR from "swr";
+import { fetcher } from "@/utils/swr/fetcher";
+import axios from 'axios';
 import masum from "@/assets/teamImage/masum.jpg";
 import shahedul from "@/assets/teamImage/shahedul.jpg";
-import mehtaj from "@/assets/teamImage/mehtaj.jpg";
+
 import monir from "@/assets/teamImage/monir.jpg";
 import shihab from "@/assets/teamImage/shihab.jpg";
 import { FaPaperPlane } from "react-icons/fa";
@@ -14,34 +17,135 @@ import { CiSearch } from "react-icons/ci";
 import { AiOutlineBell } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
 import RootContainer from "@/components/shared/RootContainer";
+import io from "socket.io-client";
+import SellerInfo from "@/components/ChatComponent/SellerInfo/SellerInfo";
 
-
+//const socket = io("multi-client-service-backend.up.railway.app")
+const socket = io("http://localhost:5000");
 const ChatPage = () => {
+    const [messages, setMessages] = useState([]);
+    const [message,setMessage] = useState('')
+    const [receiveMessage,setReceiveMessage] = useState('')
+    const [typeMessage,setTypeMessage] = useState('')
+    const { data: session } = useSession();
+  console.log(session);
+  const userName = session?.user.name;
+  const email = session?.user?.email;
+  const profileImage = session?.user?.profilePicture as string;
+  
+
+  const { data: results } = useSWR('/api/users', fetcher);
+  console.log('results: ', results?.data);
+  
+
+  useEffect(() => {
+    // Fetch messages when the component mounts
+    fetchMessages();
+  }, []);
+
+  const fetchMessages = async () => {
+    try {
+      
+      const response = await fetch('http://localhost:5000/messages');
+
+
+      if (!response.ok) {
+        // Handle error if the request was not successful
+        throw new Error('Failed to fetch messages');
+      }
+
+      const fetchData = await response.json();
+      console.log('All Message: ', fetchData);
+      setMessages(fetchData);
+    } catch (error) {
+      console.error('Error fetching messages:', error);
+    }
+  };
+  
+  const sendMessage = async () =>{
+    setMessage(typeMessage);
+    const data = {
+      sender:session?.user.email,
+      name:session?.user.name,
+      message:typeMessage
+    }
+    try {
+      const response = await fetch('http://localhost:5000/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', // Specify the content type as JSON
+        },
+        body: JSON.stringify(data), // Convert form data to JSON
+      });
+
+      if (response.ok) {
+        // Successful response
+        alert('Data saved successfully');
+        // Clear the form or perform any other necessary actions
+      } else {
+        // Handle errors if the request was not successful
+        console.error('Error saving data:', response.statusText);
+        alert('Error saving data');
+      }
+    } catch (error) {
+      // Handle network errors or exceptions
+      console.error('Error saving data:', error);
+      alert('Error saving data');
+    }
+    
+    // try {
+    //   // Send a POST request to your Express.js backend
+    //   axios.post('http://localhost:5000/messages', data);
+    //   alert('Data saved successfully');
+      
+    // } catch (error) {
+    //   console.error('Error saving data:', error);
+    //   alert('Error saving data');
+    // }
+
+    
+    socket.emit("send_message", data );
+    setTypeMessage('')
+}
+    useEffect(()=>{
+      socket.on("receive_message", (data)=>{
+        console.log(data?.message)
+        setReceiveMessage(data?.message)
+        
+      } )
+    },[])
+    
+    
+    const handleInputEnter = (event:any)=>{
+      if(event.code ==='Enter'){
+          sendMessage();
+      }
+  }
   return (
     <>
       <RootContainer>
-        <div className="lg:flex flex-col md:flex-row border-2 border-multi-icon-bg  my-12 h-[400px]">
-          <div className="w-[100%] bg-multi-icon-bg max-h-screen md:w-[25%]">
-            <div className="">
+      
+        <div className="flex flex-col lg:flex-row border-2 border-multi-icon-bg  my-5 h-[400px]">
+          <div className="w-full bg-multi-icon-bg h-auto lg:max-h-screen lg:w-[25%]">
               <div className="w-full h-[80px] rounded-full flex items-center">
                 <div className="flex items-center">
                   <div>
                     <Image
                       className="rounded-full ml-5"
-                      src={shahedul}
+                      src={profileImage}
                       width={44}
                       height={44}
                       alt="user"
                     ></Image>
                   </div>
                   <div className="ml-2">
-                    <h2>Shahedul Islam</h2>
-                    <p>Ceo of M Solution</p>
+                    <h2></h2>
+                    <p>{session?.user?.role}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-5">
+              <div className="mt-5 ml-5 lg:ml-1">
                 <div className="relative pl-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -62,61 +166,25 @@ const ChatPage = () => {
                   <input
                     type="text"
                     placeholder="Search here"
-                    className="pl-10 py-2 border rounded-lg w-56"
+                    className="pl-10 py-2 border rounded-lg lg:w-56"
                   />
                 </div>
               </div>
-              <div className="ml-5 mt-5 h-[85%] overflow-y-scroll">
-                <div className="flex items-center mb-3">
-                  <div>
-                    <Image
-                      className="rounded-full ml-5"
-                      src={mehtaj}
-                      width={30}
-                      height={30}
-                      alt="user"
-                    ></Image>
-                  </div>
-                  <div className="ml-2">
-                    <h2>Mehtaj</h2>
-                    <p>Freelancer</p>
-                  </div>
+              <div className="ml-5 mt-5 h-[85%] lg:overflow-y-scroll">
+                <div>
+                {Array.isArray(results?.data) &&
+        results?.data.map((result:any) => (
+          <SellerInfo key={result._id} result={result} />
+        ))}
+        
                 </div>
-                <div className="flex items-center mb-3">
-                  <div>
-                    <Image
-                      className="rounded-full ml-5"
-                      src={monir}
-                      width={30}
-                      height={30}
-                      alt="user"
-                    ></Image>
-                  </div>
-                  <div className="ml-2">
-                    <h2>Monir</h2>
-                    <p>Programmer</p>
-                  </div>
-                </div>
-                <div className="flex items-center mb-3">
-                  <div>
-                    <Image
-                      className="rounded-full ml-5"
-                      src={shihab}
-                      width={30}
-                      height={30}
-                      alt="user"
-                    ></Image>
-                  </div>
-                  <div className="ml-2">
-                    <h2>Shihab</h2>
-                    <p>React Developer</p>
-                  </div>
-                </div>
+                
+                
               </div>
-            </div>
+            
           </div>
-          <div className="max-h-screen w-[100%] md:w-[60%]">
-            <div className="w-full h-[80%] flex flex-col ">
+          <div className="w-full lg:w-[60%]">
+            <div className="w-full h-auto lg:h-[80%] flex flex-col ">
               <div className="flex flex-col lg:flex-row  justify-between">
                 <div className="my-2 bg-white flex items-center gap-2">
                   <div className="ml-5">
@@ -149,7 +217,9 @@ const ChatPage = () => {
               </div>
               <div className="h-[85%] border w-full overflow-y-scroll">
                 <div className="h-[1000px] px-10 py-14">
-                  <div className="max-w-[40%] flex">
+  
+                  {
+                    message && <div className="max-w-[40%] flex">
                     <div className="max-w-[10%]">
                       <Image
                         className="rounded-full"
@@ -159,24 +229,35 @@ const ChatPage = () => {
                         alt="user"
                       ></Image>
                     </div>
+                    
                     <div className="max-w-[90%] bg-multi-icon-bg rounded-b-xl rounded-tr-xl p-4 mb-6">
-                      Lorem ipsum dolor sit amet
-                    </div>
+                    
+                      {message}
+        
+                      </div>
+                    
                   </div>
-                  <div className="max-w-[40%] flex ml-auto">
+                  }
+                  {
+                    receiveMessage && <div className="max-w-[40%] flex ml-auto">
+                    
                     <div className="max-w-[90%] bg-blue-400 rounded-b-xl rounded-tl-xl  p-4 text-white">
-                      Lorem ipsum dolor sit amet
-                    </div>
-                    <div className="max-w-[10%]">
-                      <Image
-                        className="rounded-full"
-                        src={masum}
-                        width={30}
-                        height={30}
-                        alt="user"
-                      ></Image>
-                    </div>
-                  </div>
+                   {receiveMessage}
+                   </div>
+                 
+                 <div className="max-w-[10%]">
+                   <Image
+                     className="rounded-full"
+                     src={masum}
+                     width={30}
+                     height={30}
+                     alt="user"
+                   ></Image>
+                 </div>
+               </div>
+                  }
+                  
+                  
                 </div>
               </div>
             </div>
@@ -186,6 +267,9 @@ const ChatPage = () => {
                   className="h-12 w-full border-2 border-white-800 px-12 py-5 rounded-full"
                   type="text"
                   placeholder="Write here..."
+                  value={typeMessage}
+                  onChange={(e)=>setTypeMessage(e.target.value)}
+                  onKeyUp={handleInputEnter}
                 />
                 <span className="absolute right-8 top-4 inset-y-0">
                   <GrAttachment />
@@ -196,6 +280,7 @@ const ChatPage = () => {
               </div>
 
               <button
+                onClick={sendMessage}
                 className="btn btn-sm bg-multi-icon-bg h-12 w-12 rounded-full
             
           
@@ -205,7 +290,7 @@ const ChatPage = () => {
               </button>
             </div>
           </div>
-          <div className="bg-multi-icon-bg max-h-screen md:w-[15%] text-center">
+          <div className="bg-multi-icon-bg w-full lg:w-[15%] text-center">
             <div className="w-1/2 mx-auto mt-10">
               <Image
                 className="rounded-full"
