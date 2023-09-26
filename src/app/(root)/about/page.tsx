@@ -25,7 +25,7 @@ const AboutPage = () => {
           <Image src={aboutImage} className="mx-auto" alt="about" />
         </div>
 
-        <p>
+        <p className="text-justify">
           Welcome to Solutions, where talent meets opportunity and possibilities
           are endless. We are more than just a freelance platform, we are a
           dynamic community that connects skilled freelancers with clients
@@ -33,7 +33,7 @@ const AboutPage = () => {
         </p>
 
         {learnMore && (
-          <p>
+          <p className="text-justify">
             We are not just a platform; we are a global community of talented
             individuals, passionate about turning dreams into reality. Whether
             you are a freelance writer, a graphic designer, a video editor, a
@@ -63,34 +63,38 @@ const AboutPage = () => {
       </div>
       <div className="border-2 border-multi-primary border-opacity-50 p-5 mt-5">
         <div className="flex flex-col md:flex-row justify-between gap-4">
-          <Image src={whyImage} className="mx-auto w-full md:w-1/2" alt="about" />
+          <Image
+            src={whyImage}
+            className="mx-auto w-full md:w-1/2"
+            alt="about"
+          />
           <div className="w-full md:w-1/2">
             <h2 className="">Why Solutions?</h2>
-            <p>
+            <p className="text-justify">
               1. Diverse Talent Pool: We pride ourselves on hosting a diverse
               and talented pool of freelancers from various industries and
               backgrounds. Whatever your project demands, we have the experts
               ready to bring it to life
             </p>
-            <p>
+            <p className="text-justify">
               2. Seamless Collaboration: Our user-friendly platform makes it
               easy for clients to find the right freelancer and for freelancers
               to showcase their skills. Streamlined communication tools ensure
               smooth collaboration every step of the way.
             </p>
-            <p>
+            <p className="text-justify">
               3. Trust and Security: We prioritize the safety of both
               freelancers and clients. Our rigorous vetting process ensures that
               only the best professionals join our community, and secure payment
               systems provide peace of mind for all transactions.
             </p>
-            <p>
+            <p className="text-justify">
               4. Customized Solutions: Whether you are a startup looking for a
               logo, an enterprise in need of development work, or an individual
               seeking creative services, Solutions offers tailored solutions to
               meet your unique needs.
             </p>
-            <p>
+            <p className="text-justify">
               5. Flexibility and Freedom: Freelancers, embrace the freedom of
               choosing projects that resonate with you. Clients, find the
               perfect match for your project without the constraints of
@@ -104,11 +108,37 @@ const AboutPage = () => {
         <div className="flex flex-col md:flex-row justify-between gap-4">
           <div className="w-full md:w-1/2">
             <h2 className="text-2xl">Our Mission</h2>
-            <p>
-              At Solutions our mission is to empower freelancers and clients
-              around the world to collaborate, create, and achieve their goals.
-              We believe that every project is an opportunity for innovation and
-              growth, and we are here to make those connections happen.
+            <p className="text-justify">
+              At Solutions, we are driven by a profound mission: to empower
+              freelancers and clients across the globe to collaborate, create,
+              and achieve their goals. We firmly believe that every project,
+              regardless of its scale or scope, is an opportunity for innovation
+              and growth. We are here to bridge the gap, facilitate those
+              connections, and catalyze success stories. In a rapidly evolving
+              world where the gig economy is flourishing, we recognize the
+              unique talents, skills, and expertise that freelancers bring to
+              the table. We are dedicated to providing them with a platform
+              where they can showcase their abilities, find meaningful work, and
+              build rewarding careers. Through our platform, freelancers gain
+              access to a vast network of opportunities, enabling them to not
+              just survive but thrive in the modern working landscape. For
+              clients, we offer a seamless experience to find the right talent
+              for their projects. We understand that finding the perfect match
+              is essential for project success, and we are committed to
+              simplifying this process. Our platform is designed to connect
+              clients with freelancers who possess the specific skills and
+              qualifications needed to bring their visions to life. Innovation
+              is at the core of what we do. We continuously strive to enhance
+              our platform, utilizing cutting-edge technology to improve the
+              user experience, streamline project management, and facilitate
+              effective communication. We are dedicated to fostering a community
+              of collaboration and creativity, where freelancers and clients can
+              come together to achieve remarkable outcomes. Our journey is
+              driven by a vision of a world where talent knows no borders, where
+              opportunities are limitless, and where innovation flourishes. We
+              invite you to join us on this remarkable adventure, where
+              together, we can make connections happen, empower dreams, and
+              shape a future filled with boundless possibilities.
             </p>
           </div>
           <Image src={missionImage} className="w-full md:w-1/2" alt="about" />
@@ -189,15 +219,14 @@ const AboutPage = () => {
         </div>
       </div>
 
-      
       <div className="border-2 border-multi-primary border-opacity-50 p-5 mt-5">
         <div className="mx-auto">
           <Image className="w-full" src={teamImage} alt="commitment" />
         </div>
         <div>
-        <AboutTeam></AboutTeam>
-      </div>
+          <AboutTeam></AboutTeam>
         </div>
+      </div>
     </div>
   );
 };

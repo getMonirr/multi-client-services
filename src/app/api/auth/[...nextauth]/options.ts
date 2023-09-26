@@ -107,7 +107,7 @@ export const options: NextAuthOptions = {
 
           return result;
         } else {
-          return user;
+          return existingUser;
         }
       } else {
         return user;

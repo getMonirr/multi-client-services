@@ -7,7 +7,7 @@ import RootContainer from "../shared/RootContainer";
 
 const Bannar = ({queryData}: {queryData: string}) => {
 
-  const [searchData, setSearchData] = useState("");
+  const [searchData, setSearchData] = useState<string>("")
 
   const searchHandle = (e: any) => {
     e.preventDefault();
@@ -17,9 +17,9 @@ const Bannar = ({queryData}: {queryData: string}) => {
   useEffect(()=>{
     if(queryData){
       setSearchData(queryData)
-      console.log('ami ace')
     }
   },[queryData])
+  console.log(searchData)
   return (
     <RootContainer>
       
@@ -52,7 +52,7 @@ const Bannar = ({queryData}: {queryData: string}) => {
             </div>
           </div>
         </div>
-        <JobsBody searchWord = {searchData}></JobsBody>
+        <JobsBody searchWord= {searchData}></JobsBody>
     </RootContainer>
   );
 };

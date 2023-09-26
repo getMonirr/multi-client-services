@@ -1,7 +1,7 @@
 import Header from "@/components/shared/header/Header";
 import "../globals.css";
 import type { Metadata } from "next";
-import { Inter, Nunito, Open_Sans, Poppins } from "next/font/google";
+import { Nunito, Open_Sans } from "next/font/google";
 import Footer from "@/components/shared/Footer";
 import AuthProvider from "@/Context/AuthProvider";
 import NextAuthProvider from "@/Context/NextAuthProvider";
@@ -29,11 +29,9 @@ const RootLayout = ({ children }: Props) => {
     <html lang="en" data-theme="light">
       <body className={`${open_sans.className} ${nunito.variable} bg-white`}>
         <NextAuthProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Header />
-            <AuthProvider>{children}</AuthProvider>
-            <Footer />
-          </ThemeProvider>
+          <Header />
+          <AuthProvider>{children}</AuthProvider>
+          <Footer />
         </NextAuthProvider>
       </body>
     </html>

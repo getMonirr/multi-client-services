@@ -61,11 +61,8 @@
 
 .btn-error {
   @apply btn bg-red-600 text-white hover:bg-red-800 transition-all;
- }
-.btn {
-  @apply bg-blue-500 text-white hover:bg-blue-800 transition-all
-
 }
+
 
 #aside_bar_update_profile{
   background-color: rgba(240, 248, 255, 0.425);

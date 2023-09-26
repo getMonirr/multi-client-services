@@ -1,55 +1,70 @@
 "use client";
-import {
-  getServiceData,
-  updateServiceData,
-} from "@/redux/features/multi-step-form/multiStepFormDataSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-tagsinput/react-tagsinput.css";
 import TagsInput from "react-tagsinput";
-import { useSession } from "next-auth/react";
-import useSWR from "swr";
-import { fetcher } from "@/utils/swr/fetcher";
-// some change for new branch monir - 2
+import axios from "axios";
+import Loading from "../Loading/Loading";
+import updateData from "@/utils/updateData";
 
-const OverviewUpdate = () => {
-  console.log("data")
-  // next auth session
-  const { data: session } = useSession();
-  const email = session?.user?.email;
-
-  // get the user for the _id field
-  const { data: result } = useSWR(`/api/users?email=${email}`, fetcher);
-  const userId = result?.data?._id;
-
-  // redux
-  const serviceState = useSelector(getServiceData);
-  const dispatch = useDispatch();
+const OverviewUpdate = ({ id }: { id: string | null }) => {
+  const [serviceData, setServiceData] = useState<any>(null);
 
   // react hook form
   const {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm();
+
   // submit the form
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     data.tags = tags;
-    data.seller = userId;
-    data.sellerEmail = email;
-    dispatch(updateServiceData(data));
-    toast.success("your data has been saved", { position: "top-center" });
+    const ladingUpdate = toast.loading("updating your data...");
+
+    const result = await updateData(`/api/services/${id}`, data);
+
+    if (result?.data?.modifiedCount) {
+      toast.dismiss(ladingUpdate);
+      toast.success("your data has been Updated");
+    } else {
+      toast.dismiss(ladingUpdate);
+      toast.error("Something is wrong");
+    }
   };
 
   // for tag
-  const [tags, setTags] = useState(serviceState.tags || []);
+  const [tags, setTags] = useState(serviceData?.tags || []);
 
   const handleChange = (tags: any) => {
     setTags(tags);
   };
+
+  useEffect(() => {
+    const getSingleService = async () => {
+      const { data } = await axios.get(`/api/services/${id}`);
+      const service = data?.data;
+      // set tags
+      if (service?.tags) {
+        setTags(service.tags);
+      }
+      // Set default values for category and subCategory using setValue
+      if (service) {
+        setValue("category", service.category);
+        setValue("subCategory", service.subCategory);
+      }
+      // set service data
+      setServiceData(service);
+    };
+
+    getSingleService();
+  }, [id, setValue]);
+
+  // show loading
+  if (!serviceData) return <Loading />;
 
   return (
     <form
@@ -68,7 +83,7 @@ const OverviewUpdate = () => {
             type="text"
             placeholder="title"
             className="input input-bordered bg-multi-icon-bg"
-            defaultValue={serviceState.title}
+            defaultValue={serviceData?.title}
           />
         </div>
         <div className="flex flex-col lg:flex-row items-center gap-4">
@@ -81,7 +96,6 @@ const OverviewUpdate = () => {
             <select
               className="select select-bordered bg-multi-icon-bg"
               {...register("category", { required: true })}
-              defaultValue={serviceState.category}
             >
               <option disabled>Select a category</option>
               <option>Web Development</option>
@@ -100,7 +114,6 @@ const OverviewUpdate = () => {
             <select
               className="select select-bordered bg-multi-icon-bg"
               {...register("subCategory", { required: true })}
-              defaultValue={serviceState.category}
             >
               <option disabled>Select a sub category</option>
               <option>Front-End Development</option>
@@ -116,7 +129,7 @@ const OverviewUpdate = () => {
         <div>
           <label className="label">
             <span className="label-text">
-              Select Tags <span className="text-red-500">*</span>
+              Add Tags <span className="text-red-500">*</span>
             </span>
           </label>
           <TagsInput value={tags} onChange={handleChange} />
