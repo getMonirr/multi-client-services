@@ -1,3 +1,4 @@
+"use client";
 import { FaArrowRight, FaCheck } from "react-icons/fa";
 import { BiTime } from "react-icons/bi";
 import {
@@ -9,77 +10,114 @@ import {
 import SimpleBtn from "../shared/btn/SimpleBtn";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useMultiStepForm } from "@/hooks/useMultiStepForm";
+import { useSession } from "next-auth/react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getPaymentData,
+  updatePaymentData,
+} from "@/redux/features/payment/paymentDataSlice";
 declare global {
   interface document {
     my_modal_3: HTMLFormElement;
   }
 }
 
-const SinglePrice = ({ name }: { name: string }) => {
-  // const router = useRouter();
-  const { next, back, currentStepIndex, isFirstStep, isLastStep } =
-    useMultiStepForm([]);
-  // let paymentPage = <Payment key={2} page = {step}/>
+const SinglePrice = ({ data, seller }: { data: any; seller: any }) => {
+  const { name, price, description, deliveryTime, features, revisionType } =
+    data;
 
-  const price: number = 10;
+  // const price: number = 10;
   const [quantity, setQuantity] = useState<number>(1);
   const [totalPrice, setTotalPrice] = useState<number>(price);
-  const delivery = "1 day ";
-  const revision = "unlimited";
-  const paymentPage = { totalPrice, quantity };
+  const paymentPage = { totalPrice, quantity, seller };
+  console.log(paymentPage);
 
   useEffect(() => {
-    const priceCalculat = price * quantity;
-    setTotalPrice(priceCalculat);
-  }, [quantity]);
+    const priceCalculat =price * quantity;
+    const dataDecimal = priceCalculat.toFixed()
+    setTotalPrice(parseFloat(dataDecimal));
+  }, [price, quantity]);
 
   // const passData = () =>{
   //   router.push(`/find-jobs/payment?data=${paymentPage}`)
 
   // }
 
+  // router
+  const router = useRouter();
+
+  // check user 
+  const session = useSession()
+  const checkUser = () =>{
+    if(session?.data?.user){
+      if (document) {
+        (
+          document.getElementById("my_modal_3") as HTMLFormElement
+        ).showModal();
+      }
+    }
+    else{
+      router.push("/login")
+    }
+  }
+
+  // redux
+  const paymentData = useSelector(getPaymentData);
+  const dispatch = useDispatch();
+
+  // handle payment continue
+  const handlePaymentContinue = () => {
+    const newPaymentData = {
+      totalPrice,
+      quantity,
+      data,
+      packageDetails:{
+        name,
+        description, 
+        deliveryTime,
+        revisionType
+      },
+      seller: {
+        name: seller?.seller?.name,
+        email: seller?.seller?.email,
+      },
+    };
+
+    // dispatch the request
+    dispatch(updatePaymentData(newPaymentData));
+    console.log(paymentData);
+
+    // got to the payment page
+    router.push(`/find-jobs/payment/${seller?.jobId}`);
+  };
+
   return (
     <div className="px-2">
       <h3 className="flex items-center justify-between my-8 font-bold">
-        {name} <span>{price}</span>
+        {name} <span>${price}</span>
       </h3>
-      <p className="mb-8">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, error.
-      </p>
+      <p className="mb-8">{description}</p>
       <div className="flex items-center gap-4 lg:gap-8 mb-3 font-bold flex-wrap">
         <p className="flex items-center gap-2">
-          <BiTime /> <span>{delivery} delivery</span>
+          <BiTime /> <span>{deliveryTime} delivery</span>
         </p>
         <p className="flex items-center gap-2">
-          <RiLoopRightFill /> <span>{revision} revision</span>
+          <RiLoopRightFill /> <span>{revisionType} revision</span>
         </p>
       </div>
       <div>
-        <p className="flex items-center gap-2">
-          <FaCheck /> <span>{delivery} delivery</span>
-        </p>
-        <p className="flex items-center gap-2">
-          <FaCheck /> <span>{delivery} delivery</span>
-        </p>
-        <p className="flex items-center gap-2">
-          <FaCheck /> <span>{delivery} delivery</span>
-        </p>
-        <p className="flex items-center gap-2">
-          <FaCheck /> <span>{delivery} delivery</span>
-        </p>
+        {features.map((feature: string, i: number) => (
+          <p key={i} className="flex items-center gap-2">
+            <FaCheck /> <span>{feature} </span>
+          </p>
+        ))}
       </div>
       <div className="my-8">
         <SimpleBtn className="w-full text-white">
           <p
-            onClick={() => {
-              if (document) {
-                (
-                  document.getElementById("my_modal_3") as HTMLFormElement
-                ).showModal();
-              }
-            }}
+            onClick={() => checkUser()}
             className="flex items-center justify-center gap-2 mx-auto"
           >
             Continue
@@ -159,10 +197,10 @@ const SinglePrice = ({ name }: { name: string }) => {
                 <RiWallet3Fill /> {name} Pakage
               </p>
               <p className="mb-3 flex items-center gap-2">
-                <RiTimeLine /> <span>{delivery} delivery</span>{" "}
+                <RiTimeLine /> <span>{deliveryTime}delivery</span>{" "}
               </p>
               <p className=" flex items-center gap-2">
-                <RiRefreshLine /> <span> {revision}</span>
+                <RiRefreshLine /> <span> {revisionType}</span>
               </p>
             </div>
           </div>
@@ -170,9 +208,9 @@ const SinglePrice = ({ name }: { name: string }) => {
             <p>please payment confram</p>
 
             <SimpleBtn className="w-full text-white">
-              <Link
+              <button
                 // onClick={passData}
-                href={`/find-jobs/payment?data=${paymentPage}`}
+                onClick={() => handlePaymentContinue()}
                 className="flex items-center md:py-4 md:text-xl justify-center gap-2 mx-auto"
               >
                 Continue
@@ -180,7 +218,7 @@ const SinglePrice = ({ name }: { name: string }) => {
                   <FaArrowRight />
                 </span>
                 $({totalPrice})
-              </Link>
+              </button>
             </SimpleBtn>
           </div>
         </div>

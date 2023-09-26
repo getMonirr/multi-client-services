@@ -1,5 +1,4 @@
 "use client";
-import useAuth from "@/hooks/useAuth";
 import img from "../../../assets/login.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +6,8 @@ import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
 import SocialLogin from "@/components/shared/SocialLogin/SocialLogin";
-import google from "../../../assets/google.png";
-import { signIn, useSession } from "next-auth/react";
-import { redirect, useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 type Inputs = {
   email: string;
@@ -17,10 +15,9 @@ type Inputs = {
 };
 
 const Login = () => {
+  // router
   const router = useRouter();
-  //   const { signIn }: any = useAuth();
-  const { data: session } = useSession();
-  console.log(session);
+  const searchParams = useSearchParams();
 
   const {
     register,
@@ -30,23 +27,12 @@ const Login = () => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     Swal.showLoading();
     const { email, password } = data;
-    // signIn(email, password).then((result: any) => {
-    //   if (result.user) {
-    //     Swal.fire({
-    //       position: "top-end",
-    //       icon: "success",
-    //       title: "Login successful",
-    //       showConfirmButton: false,
-    //       timer: 1500,
-    //     });
-    //   }
-    // });
 
     const signInResult = await signIn("credentials", {
       email,
       password,
       redirect: false,
-      callbackUrl: "/",
+      callbackUrl: searchParams.get("callbackUrl") || "/",
     });
     // after sign in
     if (!signInResult?.error) {
@@ -80,11 +66,11 @@ const Login = () => {
               {...register("email")}
               type="email"
               name="email"
-              className="block py-2.5 px-0 w-full text-sm text-orange-900 bg-transparent border-0 border-b-2 border-orange-300 appearance-none dark:text-white dark:border-orange-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
               placeholder=" "
               required
             />
-            <label className="peer-focus:font-medium absolute text-sm text-orange-500 dark:text-orange-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-600 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+            <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
               Email address
             </label>
           </div>
@@ -93,11 +79,11 @@ const Login = () => {
               {...register("password")}
               type="password"
               name="password"
-              className="block py-2.5 px-0 w-full text-sm text-orange-900 bg-transparent border-0 border-b-2 border-orange-300 appearance-none dark:text-white dark:border-orange-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
               placeholder=" "
               required
             />
-            <label className="peer-focus:font-medium absolute text-sm text-orange-500 dark:text-orange-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-600 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+            <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-600 peer-focus:dark:text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
               Password
             </label>
           </div>
@@ -108,13 +94,13 @@ const Login = () => {
           </div>
           <Link
             href={"/reset_password"}
-            className=" text-orange-500 underline mt-4"
+            className=" text-gray-500 underline mt-4"
           >
             Reset Password
           </Link>
           <p className="my-4">
             Dont Have an Account?{" "}
-            <Link href="/registration" className="text-orange-500 underline">
+            <Link href="/registration" className="text-gray-500 underline">
               Get Started
             </Link>{" "}
           </p>
