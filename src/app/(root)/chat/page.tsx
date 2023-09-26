@@ -20,8 +20,8 @@ import RootContainer from "@/components/shared/RootContainer";
 import io from "socket.io-client";
 import SellerInfo from "@/components/ChatComponent/SellerInfo/SellerInfo";
 
-//const socket = io("multi-client-service-backend.up.railway.app")
-const socket = io("http://localhost:5000");
+
+const socket = io("https://multi-client-service-backend.up.railway.app");
 const ChatPage = () => {
     const [messages, setMessages] = useState([]);
     const [message,setMessage] = useState('')
@@ -46,7 +46,7 @@ const ChatPage = () => {
   const fetchMessages = async () => {
     try {
       
-      const response = await fetch('http://localhost:5000/messages');
+      const response = await fetch('https://multi-client-service-backend.up.railway.app/messages');
 
 
       if (!response.ok) {
@@ -70,7 +70,7 @@ const ChatPage = () => {
       message:typeMessage
     }
     try {
-      const response = await fetch('http://localhost:5000/messages', {
+      const response = await fetch('https://multi-client-service-backend.up.railway.app/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Specify the content type as JSON
@@ -80,29 +80,18 @@ const ChatPage = () => {
 
       if (response.ok) {
         // Successful response
-        alert('Data saved successfully');
-        // Clear the form or perform any other necessary actions
+        console.log('Data saved successfully');
+        
       } else {
         // Handle errors if the request was not successful
         console.error('Error saving data:', response.statusText);
-        alert('Error saving data');
+        
       }
     } catch (error) {
       // Handle network errors or exceptions
       console.error('Error saving data:', error);
-      alert('Error saving data');
-    }
-    
-    // try {
-    //   // Send a POST request to your Express.js backend
-    //   axios.post('http://localhost:5000/messages', data);
-    //   alert('Data saved successfully');
       
-    // } catch (error) {
-    //   console.error('Error saving data:', error);
-    //   alert('Error saving data');
-    // }
-
+    }
     
     socket.emit("send_message", data );
     setTypeMessage('')
