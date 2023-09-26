@@ -19,7 +19,7 @@ const AboutPage = () => {
     setDisabled(true);
   };
   return (
-    <div className="m-5">
+    <div className="m-5 dark:text-white">
       <div className="border-2 border-multi-primary border-opacity-50 p-5">
         <div className="mx-auto">
           <Image src={aboutImage} className="mx-auto" alt="about" />
@@ -190,7 +190,7 @@ const AboutPage = () => {
       </div>
 
       
-      <div className="border-2 border-multi-primary border-opacity-50 p-5 mt-5">
+      <div className="border-2 border-multi-primary  border-opacity-50 p-5 mt-5">
         <div className="mx-auto">
           <Image className="w-full" src={teamImage} alt="commitment" />
         </div>

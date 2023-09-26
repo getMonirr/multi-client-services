@@ -37,7 +37,7 @@ const PopularServices = () => {
   );
 
   return (
-    <div className="mb-8">
+    <div data-aos="fade-up" className="py-8 dark:bg-[#061126]">
       <RootContainer>
         <SectionStarter title={title} description={description} />
 

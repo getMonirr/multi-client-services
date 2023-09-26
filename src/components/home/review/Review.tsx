@@ -28,7 +28,7 @@ const Review = () => {
 //   console.log(moment().startOf("day").from("1985"));
   const { title } = ReviewTitle;
   return (
-    <RootContainer>
+    <RootContainer data-aos="fade-right">
       <SectionStarter title={title} description="Peoples love" />
       <Swiper
         autoplay
@@ -52,7 +52,7 @@ const Review = () => {
             className="    "
             key={data.id}
           >
-            <div className=" flex items-center gap-4 w-11/12 h-48 border p-10 rounded-3xl bg-multi-icon-bg">
+            <div className="dark:bg-[#061126] dark:text-white dark:border-gray-900 flex items-center gap-4 w-11/12 h-48 border p-10 rounded-3xl bg-multi-icon-bg">
               <div className="w-48   flex justify-center items-center ">
                 <Image
                   src={data.image}

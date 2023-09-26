@@ -11,12 +11,12 @@ import Image from "next/image";
 
 const AboutTeam = () => {
   return (
-    <div className="bg-multi-icon-bg mt-16 pb-32 pt-1">
+    <div className="bg-multi-icon-bg dark:bg-black text-white mt-16 pb-32 pt-1">
       <h1 className="text-center text-3xl mt-3">Welcome Our Team</h1>
       <RootContainer>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 gap-y-32 mt-32">
           <div className="w-full relative ">
-            <div className="rounded overflow-hidden shadow-md bg-multi-bg">
+            <div className="rounded overflow-hidden shadow-md bg-multi-bg dark:bg-gray-800">
               <div className="absolute -mt-20 w-full flex justify-center">
                 <div className="h-32 w-32">
                   <Image
@@ -27,10 +27,10 @@ const AboutTeam = () => {
                 </div>
               </div>
               <div className="px-6 mt-16 ">
-                <div className="font-bold text-3xl text-center pb-1 text-multi-title">
+                <div className="font-bold text-3xl text-center pb-1 text-multi-title dark:text-blue-500">
                   Md. Monir Hoshen
                 </div>
-                <p className="text-multi-paragraph text-sm text-center">
+                <p className="text-multi-paragraph dark:text-white text-sm text-center">
                   Backend Developer
                 </p>
                 <div className="w-full flex justify-center pt-5 pb-5">
@@ -57,7 +57,7 @@ const AboutTeam = () => {
             </div>
           </div>
           <div className="w-full relative ">
-            <div className="rounded overflow-hidden shadow-md bg-multi-bg">
+            <div className="rounded overflow-hidden shadow-md bg-multi-bg dark:bg-gray-800">
               <div className="absolute -mt-20 w-full flex justify-center">
                 <div className="h-32 w-32">
                   <Image
@@ -68,10 +68,10 @@ const AboutTeam = () => {
                 </div>
               </div>
               <div className="px-6 mt-16 ">
-                <div className="font-bold text-3xl text-center pb-1 text-multi-title">
+                <div className="font-bold text-3xl text-center pb-1 text-multi-title dark:text-blue-500">
                   Sahedul Islam
                 </div>
-                <p className="text-multi-paragraph text-sm text-center">
+                <p className="text-multi-paragraph dark:text-white text-sm text-center">
                   Backend Developer
                 </p>
                 <div className="w-full flex justify-center pt-5 pb-5">
@@ -98,7 +98,7 @@ const AboutTeam = () => {
             </div>
           </div>
           <div className="w-full relative ">
-            <div className="rounded overflow-hidden shadow-md bg-multi-bg">
+            <div className="rounded overflow-hidden shadow-md bg-multi-bg dark:bg-gray-800">
               <div className="absolute -mt-20 w-full flex justify-center">
                 <div className="h-32 w-32">
                   <Image
@@ -109,10 +109,10 @@ const AboutTeam = () => {
                 </div>
               </div>
               <div className="px-6 mt-16 ">
-                <div className="font-bold text-3xl text-center pb-1 text-multi-title">
+                <div className="font-bold text-3xl text-center pb-1 text-multi-title dark:text-blue-500">
                   Mehetaj
                 </div>
-                <p className="text-multi-paragraph text-sm text-center">
+                <p className="text-multi-paragraph dark:text-white text-sm text-center">
                   Front-End Developer
                 </p>
                 <div className="w-full flex justify-center pt-5 pb-5">
@@ -139,7 +139,7 @@ const AboutTeam = () => {
             </div>
           </div>
           <div className="w-full relative ">
-            <div className="rounded overflow-hidden shadow-md bg-multi-bg">
+            <div className="rounded overflow-hidden shadow-md bg-multi-bg dark:bg-gray-800">
               <div className="absolute -mt-20 w-full flex justify-center">
                 <div className="h-32 w-32">
                   <Image
@@ -150,10 +150,10 @@ const AboutTeam = () => {
                 </div>
               </div>
               <div className="px-6 mt-16 ">
-                <div className="font-bold text-3xl text-center pb-1 text-multi-title">
+                <div className="font-bold text-3xl text-center pb-1 text-multi-title dark:text-blue-500">
                   Masum Billah
                 </div>
-                <p className="text-multi-paragraph text-sm text-center">
+                <p className="text-multi-paragraph dark:text-white text-sm text-center">
                   MERN Stack Developer
                 </p>
                 <div className="w-full flex justify-center pt-5 pb-5">

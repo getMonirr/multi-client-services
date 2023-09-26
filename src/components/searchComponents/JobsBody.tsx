@@ -46,7 +46,7 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
   return (
     <RootContainer>
       <div className="my-20 grid grid-cols-1 md:grid-cols-4 gap-4 ">
-        <div className="col-span-1 bg-gray-300 ">
+        <div className="col-span-1 bg-gray-300 dark:bg-gray-800 dark:text-white">
           <h2 className="font-bold text-3xl text-center capitalize bg-multi-secondary text-white py-4 ">
             filter by
           </h2>
@@ -182,7 +182,7 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
                 onClick={() => {
                   setCategorys("");
                 }}
-                className="border cursor-pointer flex items-center gap-2 rounded-lg px-2 bg-gray-400"
+                className="border cursor-pointer flex items-center gap-2 rounded-lg px-2 bg-gray-400 dark:bg-gray-800"
               >
                 <span>{categorys}</span> <FaTimes />
               </p>
@@ -192,7 +192,7 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
                 onClick={() => {
                   setPostTime("");
                 }}
-                className="border cursor-pointer flex items-center gap-2 rounded-lg px-2 bg-gray-400"
+                className="border cursor-pointer flex items-center gap-2 rounded-lg px-2 bg-gray-400 dark:bg-gray-800"
               >
                 <span>{postTime}</span> <FaTimes />
               </p>

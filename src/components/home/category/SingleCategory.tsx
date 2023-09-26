@@ -17,24 +17,24 @@ const SingleCategory = ({ category }: { category: Category }) => {
   const { category: name, avgRating, count } = category;
 
   return (
-    <Link href={`/find-jobs?searchQuery=${name}`}>
-      <div className="bg-multi-bg p-8 rounded-md">
-        <div className="p-4 bg-multi-icon-bg inline-block rounded-md mb-6">
+    <Link className="dark:bg-[#061126]" href={`/find-jobs?searchQuery=${name}`}>
+      <div className="bg-multi-bg p-8 dark:text-white dark:bg-[#061126] rounded-md">
+        <div className="p-4 bg-multi-icon-bg dark:bg-[black] inline-block rounded-md mb-6">
           <BsCodeSlash className="h-8 w-8 text-multi-secondary" />
         </div>
-        <h3 className="font-semibold text-2xl mb-4 h-[70px] capitalize text-multi-title">
+        <h3 className="font-semibold text-2xl mb-4 h-[70px] dark:text-white capitalize text-multi-title">
           {name}
         </h3>
         <div className="flex gap-8 items-center">
           <div className="flex gap-2 items-center">
             <TiStarburst className="h-5 w-5 text-multi-secondary" />
-            <span className="text-multi-paragraph">{`${
+            <span className="text-multi-paragraph dark:text-white">{`${
               avgRating ? avgRating : "4.3"
             }/5`}</span>
           </div>
           <div className="flex gap-2 items-center">
             <FaMedal className="h-5 w-5 text-multi-secondary" />
-            <span className="text-multi-paragraph">{`${count} Skills`}</span>
+            <span className="text-multi-paragraph dark:text-white">{`${count} Skills`}</span>
           </div>
         </div>
       </div>

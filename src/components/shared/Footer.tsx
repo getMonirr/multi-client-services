@@ -8,10 +8,10 @@ const Footer = () => {
   console.log(path);
 
   return (
-    <div>
-      <div className={`bg-multi-bg ${path == "/chat" ? "hidden" : "flex"}`}>
+    <div className="dark:bg-[#061126] ">
+      <div className={`bg-multi-bg dark:bg-[#061126] dark:text-white ${path == "/chat" ? "hidden" : "flex"}`}>
         <RootContainer>
-          <footer className="footer p-10 bg-multi-bg text-base-content">
+          <footer className="footer p-10 bg-multi-bg dark:bg-[#061126] text-base-content  dark:text-white">
             <div>
               <span className="footer-title">Services</span>
               <a className="link link-hover">Branding</a>
@@ -35,9 +35,9 @@ const Footer = () => {
           </footer>
         </RootContainer>
       </div>
-      <div className="bg-multi-icon-bg">
+      <div className="bg-multi-icon-bg dark:bg-[#061126]">
         <RootContainer>
-          <footer className={`footer px-10 py-4 border-t bg-multi-icon-bg text-base-content border-base-300 ${path == "/chat" ? "hidden" : ""}`}>
+          <footer className={`footer px-10 py-4 border-t bg-multi-icon-bg dark:bg-[#061126] text-base-content border-base-300  dark:text-white ${path == "/chat" ? "hidden" : ""}`}>
             <div className="items-center grid-flow-col">
               <svg
                 width="24"

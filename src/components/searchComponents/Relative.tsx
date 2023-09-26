@@ -17,7 +17,7 @@ const Relative = () => {
       {relativeJob.map((job: any, i: number) => (
         <div
           key={i}
-          className="bg-white rounded overflow-hidden group shadow-md"
+          className="bg-white dark:bg-gray-800 dark:text-white rounded overflow-hidden group shadow-md"
         >
           <Swiper
             // navigation={{
@@ -61,7 +61,7 @@ const Relative = () => {
               </div>
               <div className="flex justify-between flex-grow ">
                 <div>
-                  <h2 className="text-lg text-gray-800 font-bold hover:text-red-600">
+                  <h2 className="text-lg text-gray-800 dark:text-white font-bold ">
                     {job.name}
                   </h2>
                   <p className="flex items-center">
@@ -102,7 +102,7 @@ const Relative = () => {
               </p>
             </div>
           </div>
-          <button className="btn block w-full py-1 text-center text-white bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600">
+          <button className="btn block w-full py-1 text-center text-white bg-multi-secondary hover:bg-multi-secondary  rounded-none rounded-b transitio ">
             Collaborate
           </button>
         </div>

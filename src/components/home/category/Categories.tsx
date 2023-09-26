@@ -65,20 +65,22 @@ const Categories = async () => {
   const host = headers().get("host");
   const data = await getData(host);
   return (
-    <RootContainer>
-      <div>
-        <SectionStarter
-          title="Find talent by category"
-          description="just click"
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {/* generate all categories */}
-          {data?.data.map((category: any, index: number) => (
-            <SingleCategory key={index} category={category} />
-          ))}
+    <div className="dark:bg-gray-900 py-8">
+      <RootContainer>
+        <div data-aos="fade-down">
+          <SectionStarter
+            title="Find talent by category"
+            description="just click"
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {/* generate all categories */}
+            {data?.data.map((category: any, index: number) => (
+              <SingleCategory key={index} category={category} />
+            ))}
+          </div>
         </div>
-      </div>
-    </RootContainer>
+      </RootContainer>
+    </div>
   );
 };
 

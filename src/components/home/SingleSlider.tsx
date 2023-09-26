@@ -17,7 +17,7 @@ const SingleSlider = ({ slide }: singleSliderProps) => {
   const color = `text-[${slide?.color}]`;
   return (
     <RootContainer>
-      <div className="min-h-[calc(100vh-200px)] flex items-center justify-between flex-col lg:flex-row gap-8 my-8 lg:my-4">
+      <div className="min-h-[calc(100vh-200px)] flex items-center justify-between flex-col lg:flex-row gap-8 py-8 lg:my-4">
         <div className="w-full lg:w-1/3">
           <h1
             style={{ color: `${slide?.color}` }}
@@ -25,7 +25,7 @@ const SingleSlider = ({ slide }: singleSliderProps) => {
           >
             {slide.title}
           </h1>
-          <p className="mt-4 text-slate-500 mb-8 text-justify">
+          <p className="mt-4 text-slate-500 dark:text-white mb-8 text-justify">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
             eum ducimus corrupti. Pariatur rem similique totam minima ad eum
             aliquam optio est quos! Rem voluptas repellat optio cumque eveniet
@@ -46,7 +46,7 @@ const SingleSlider = ({ slide }: singleSliderProps) => {
           </div>
           <div className="mt-6">
             <div className="text-sm flex-wrap inline-flex items-center">
-              <span className="mr-4">Popular Skill:</span>
+              <span className="mr-4 dark:text-white">Popular Skill:</span>
               <div className="flex items-center gap-2 flex-wrap">
                 {slide.tags.map((tag, index) => (
                   <span

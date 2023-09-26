@@ -5,29 +5,29 @@ import JobsBody from "./JobsBody";
 import { BsSearch } from "react-icons/bs";
 import RootContainer from "../shared/RootContainer";
 
-const Bannar = ({queryData}: {queryData: string}) => {
-
-  const [searchData, setSearchData] = useState<string>("")
+const Bannar = ({ queryData }: { queryData: string }) => {
+  const [searchData, setSearchData] = useState<string>("");
 
   const searchHandle = (e: any) => {
     e.preventDefault();
     const from = e.target.searche.value;
     setSearchData(from);
   };
-  useEffect(()=>{
-    if(queryData){
-      setSearchData(queryData)
+  useEffect(() => {
+    if (queryData) {
+      setSearchData(queryData);
     }
-  },[queryData])
-  console.log(searchData)
+  }, [queryData]);
+  console.log(searchData);
   return (
-    <RootContainer>
-      
+    <div className="dark:bg-black">
+      <RootContainer>
         <div className=" bg-black">
           <div className=" relative text-white py-10 px-4">
             <div>
               <h1 className="text-4xl font-bold mb-2 ">
-                Get High Quality {searchData &&  <span>{searchData}</span> } solutions
+                Get High Quality {searchData && <span>{searchData}</span>}{" "}
+                solutions
               </h1>
               <p>
                 We will take all your problems and provide you the best
@@ -52,8 +52,9 @@ const Bannar = ({queryData}: {queryData: string}) => {
             </div>
           </div>
         </div>
-        <JobsBody searchWord= {searchData}></JobsBody>
-    </RootContainer>
+        <JobsBody searchWord={searchData}></JobsBody>
+      </RootContainer>
+    </div>
   );
 };
 

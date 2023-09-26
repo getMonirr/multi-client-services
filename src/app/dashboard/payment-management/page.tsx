@@ -4,7 +4,7 @@ const payment_management = () => {
   return (
     <div>
       <h1 className="text-3xl font-bold my-4">Payment History</h1>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-scroll w-[300px] md:w-[600px] lg:w-full lg:overflow-x-auto">
         <table className="table table-xs">
           <thead>
             <tr className="text-lg">

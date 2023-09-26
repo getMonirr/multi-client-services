@@ -15,7 +15,7 @@ import { sliderContent } from "@/constant/Constant";
 
 const Banner = () => {
   return (
-    <>
+    <div className="dark:bg-gray-900">
       <Swiper
         autoplay
         modules={[Autoplay, Pagination, EffectFade]}
@@ -29,7 +29,7 @@ const Banner = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 };
 

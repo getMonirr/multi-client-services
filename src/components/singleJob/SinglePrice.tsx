@@ -94,7 +94,7 @@ const SinglePrice = ({ data, seller }: { data: any; seller: any }) => {
   };
 
   return (
-    <div className="px-2">
+    <div className="px-2 ">
       <h3 className="flex items-center justify-between my-8 font-bold">
         {name} <span>${price}</span>
       </h3>
@@ -127,29 +127,30 @@ const SinglePrice = ({ data, seller }: { data: any; seller: any }) => {
           </p>
         </SimpleBtn>
       </div>
-      <dialog id="my_modal_3" className="modal w-full ">
+      <dialog id="my_modal_3" className="modal w-full dark:bg-black dark:text-white">
         <div className="modal-box max-w-4xl relative ">
           <form
             method="dialog "
-            className="sticky -top-6 rounded-md bg-gray-100 p-4 "
+            className="sticky -top-6 rounded-md   p-4 "
           >
             <span className="font-bold text-xl ">Order Options </span>
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
             </button>
           </form>
-          <hr className="border-b border-black mt-3" />
+          
 
-          <div className="border rounded-2xl border-black border-opacity-40 p-3 mt-10">
+          <div className="p-4 bg-[whitesmoke]  rounded-2xl border-black border-opacity-40 mt-10">
             <div className="flex justify-between mx-4 mb-4">
               <p className="text-2xl font-bold capitalize">{name}</p>
               <p className="text-2xl font-semibold">${totalPrice}</p>
             </div>
-            <p className="mb-8 border-b pb-3 border-sky-200 ">
+            <p className=" ml-4 ">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum,
               error.
             </p>
-            <div className="flex justify-between items-center">
+            <div className="divider"></div>
+            <div className="flex justify-around items-center">
               <h3 className=" md:text-2xl ">Gig Quantity</h3>
 
               <p className="text-xl md:text-3xl font-semibold">
@@ -205,20 +206,20 @@ const SinglePrice = ({ data, seller }: { data: any; seller: any }) => {
             </div>
           </div>
           <div className="my-8 sticky bottom-0">
-            <p>please payment confram</p>
+            <p className="text-center text-gray-600 font-semibold my-2">please payment Confirm</p>
 
             <SimpleBtn className="w-full text-white">
-              <button
+              <div
                 // onClick={passData}
                 onClick={() => handlePaymentContinue()}
-                className="flex items-center md:py-4 md:text-xl justify-center gap-2 mx-auto"
+                className="flex items-center my-2 md:text-xl justify-center gap-2 mx-auto"
               >
                 Continue
                 <span>
                   <FaArrowRight />
                 </span>
                 $({totalPrice})
-              </button>
+              </div>
             </SimpleBtn>
           </div>
         </div>

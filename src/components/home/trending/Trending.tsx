@@ -13,7 +13,7 @@ const Trending = () => {
         title="All Trending Topics"
         description="Overview of Tops/Trending"
       />
-      <div>
+      <div data-aos="fade-right">
         <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList>
             <Tab>Trending Skills</Tab>
@@ -24,7 +24,7 @@ const Trending = () => {
 
           <TabPanel>
             <h2>Trending Skills</h2>
-            <ul className="mt-3 menu bg-multi-icon-bg w-56 rounded-box">
+            <ul className="mt-3 menu bg-multi-icon-bg dark:bg-[#061126] dark:text-white  w-56 rounded-box">
               <li>
                 <a>Web development</a>
               </li>
@@ -38,7 +38,7 @@ const Trending = () => {
           </TabPanel>
           <TabPanel>
             <h2>Top Talents</h2>
-            <ul className="mt-3 menu bg-multi-icon-bg w-56 rounded-box">
+            <ul className="mt-3 menu bg-multi-icon-bg dark:bg-[#061126] dark:text-white w-56 rounded-box">
               <li>
                 <a>Md. Mehetaj Khandakar</a>
               </li>
@@ -52,7 +52,7 @@ const Trending = () => {
           </TabPanel>
           <TabPanel>
             <h2>Trending Services</h2>
-            <ul className="mt-3 menu bg-multi-icon-bg w-56 rounded-box">
+            <ul className="mt-3 menu bg-multi-icon-bg dark:bg-[#061126] dark:text-white w-56 rounded-box">
               <li>
                 <a>Machine Learning</a>
               </li>
@@ -66,7 +66,7 @@ const Trending = () => {
           </TabPanel>
           <TabPanel>
             <h2>Top Services</h2>
-            <ul className="mt-3 menu bg-multi-icon-bg w-56 rounded-box">
+            <ul className="mt-3 menu bg-multi-icon-bg dark:bg-[#061126] dark:text-white w-56 rounded-box">
               <li>
                 <a>Wordpress Development</a>
               </li>

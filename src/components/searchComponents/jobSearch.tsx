@@ -83,13 +83,13 @@ const SearchJobs = ({ data}: { data: string}) => {
             <Tab className="tab tab-lifted">Save Job</Tab>
           </TabList>
         </Tabs>
-        <p className="p-4"> {pageData?.length} jobs found</p>
+        <p className="p-4 dark:text-white"> {pageData?.length} jobs found</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4   mx-auto ">
         {currentPageData?.map((job: any, i: number) => (
           <div
             key={job._id}
-            className="bg-white rounded overflow-hidden group shadow-2xl "
+            className="bg-white dark:bg-gray-800 dark:text-white rounded overflow-hidden group shadow-2xl "
           >
             <Link href={`/find-jobs/${job._id}`}>
 
@@ -127,7 +127,7 @@ const SearchJobs = ({ data}: { data: string}) => {
 
                 <div className="flex justify-between flex-grow ">
                   <div>
-                    <h2 className="text-lg text-gray-800 font-bold hover:text-red-600">
+                    <h2 className="text-lg text-gray-800 dark:text-white font-bold hover:text-red-600">
                       {`${job?.seller?.name?.firstName} ${job?.seller?.name?.lastName}`}
                     </h2>
                     <p className="flex items-center">

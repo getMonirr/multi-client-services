@@ -18,7 +18,7 @@ const ContactPage = () => {
   }
   return (
     <RootContainer>
-      <div className="pb-5">
+      <div className="pb-5  dark:text-white">
         <Image
           src={contactImage}
           className="mx-auto w-full mt-2 rounded-lg h-[100vh]"
@@ -26,35 +26,35 @@ const ContactPage = () => {
         />
         <div className="grid grid-cols-1 lg:grid-cols-2  gap-8  pt-20" id="contact">
           <div className=" border rounded-lg ">
-            <h4 className="text-3xl mb-10 text-center font-bold bg-multi-icon-bg shadow-2xl py-3 ">
+            <h4 className="text-3xl mb-10 text-center font-bold bg-multi-icon-bg dark:bg-black dark:text-white shadow-2xl py-3 ">
               Contact Form
             </h4>
             <form onSubmit={handleFrom} className="p-4">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="dark:text-white">Name</span>
                 </label>
                 <input
                   type="text"
                   name="name"
                   placeholder="Your name"
-                  className="input input-bordered"
+                  className="input input-bordered dark:bg-gray-800 dark:text-white"
                 />
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="dark:text-white">Email</span>
                 </label>
                 <input
                   type="mail"
                   name="email"
                   placeholder="Write Your Email Here"
-                  className="input input-bordered"
+                  className="input input-bordered dark:bg-gray-800 dark:text-white"
                 />
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Message</span>
+                  <span className="dark:text-white">Message</span>
                 </label>
                 <textarea
                   className="border-2 border-black border-opacity-40 rounded-xl mb-5 p-3 "
@@ -64,7 +64,7 @@ const ContactPage = () => {
                 ></textarea>
               </div>
               <input
-                className="btn bg-multi-icon-bg hover:border-multi-primary"
+                className="btn bg-multi-icon-bg  hover:border-multi-primary"
                 type="submit"
                 value="Send"
               />
@@ -73,12 +73,12 @@ const ContactPage = () => {
 
 
 
-          <div className=" bg-slate-200 flex flex-col">
+          <div className=" bg-slate-200 rounded-xl dark:bg-gray-800 flex flex-col">
             <h2 className="text-3xl text-center font-bold bg-black text-white bg-opacity-40 shadow-2xl py-3 ">
               More contact
             </h2>
             <div className="  p-4 flex flex-col justify-between flex-grow">
-                <p className="p-4 text-center bg-gray-200 shadow-2xl rounded">
+                <p className="p-4 text-center bg-gray-200 dark:bg-gray-800 shadow-2xl rounded">
                   Our team is dedicated to providing top-notch service and
                   assistance. Please feel free to use the form left to drop us a
                   message. Whether it is regarding our services, potential

@@ -61,7 +61,7 @@ const ChackOut = () => {
         </div>
         <div className="mt-4 absolute bottom-0 right-0">
           <button className="w-full px-6 btn btn-primary" type="submit">
-            Confram Pay
+            Confirm Pay
           </button>
         </div>
         {paymentId && (

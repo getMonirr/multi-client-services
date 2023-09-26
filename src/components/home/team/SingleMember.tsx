@@ -11,24 +11,24 @@ type MemberProps = {
 const SingleMember = ({ member }: { member?: MemberProps }) => {
   const { name, designation, img } = member || {};
   return (
-    <div className="w-full relative ">
-      <div className="rounded overflow-hidden shadow-md bg-multi-bg">
+    <div data-aos="fade-down" className="w-full relative dark:bg-[#061126] hover:scale-125 transition-all">
+      <div className="rounded overflow-hidden shadow-md bg-multi-bg dark:bg-[#061126]">
         <div className="absolute -mt-20 w-full flex justify-center">
           <div className="h-32 w-32">
             <Image
               src={img?.src}
               alt="image"
-              className="rounded-full object-cover h-full w-full shadow-md"
+              className="rounded-full object-cover h-full w-full shadow-md "
               width={100}
               height={100}
             ></Image>
           </div>
         </div>
-        <div className="px-6 mt-16 ">
-          <div className="font-bold text-3xl h-20 text-center pb-1 text-multi-title">
+        <div className="px-6 mt-16 dark:bg-black">
+          <div className="font-bold text-3xl h-20 text-center pb-1 text-multi-title dark:text-white">
             {name}
           </div>
-          <p className="text-multi-paragraph text-sm text-center">
+          <p className="text-multi-paragraph dark:text-white text-sm text-center">
             {designation}
           </p>
           <div className="w-full flex justify-center pt-5 pb-5">

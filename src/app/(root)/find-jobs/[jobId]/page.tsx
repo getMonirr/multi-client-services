@@ -21,7 +21,7 @@ const SingleJob = async ({ params }: { params: { jobId: string } }) => {
     packages
   }
   return (
-    <div className="my-16">
+    <div className="my-16 dark:text-white">
       <RootContainer>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-32">
           <div className="order-2 lg:order-1">

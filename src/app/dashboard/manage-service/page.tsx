@@ -47,8 +47,8 @@ const Manage_services = () => {
       </p>
 
       <p className="my-4">Total services: {data.length}</p>
-      <div className="overflow-x-scroll lg:overflow-x-auto my-10 w-full max-w-[300px] lg:w-full">
-        <table className="table overflow-x-scroll lg:overflow-x-auto">
+      <div className="overflow-x-scroll w-[300px] md:w-[600px] lg:w-full lg:overflow-x-auto">
+        <table className="table">
           {/* head */}
           <thead>
             <tr>
@@ -70,8 +70,8 @@ const Manage_services = () => {
                 </td>
                 <td>{d?.category}</td>
                 <td>{d?.title}</td>
-                <td>
-                  <select onChange={()  => handleChangeStatus(d._id)} className="">
+                <td >
+                  <select onChange={()  => handleChangeStatus(d._id)} className="bg-white">
                     <option value={d?.status}>{d?.status || "Nothing"}</option>
                     <option value="pending">Pending</option>
                     <option value="pause">Pause</option>

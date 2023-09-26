@@ -6,10 +6,10 @@ import { teamList } from "./team";
 
 const Teams = () => {
   return (
-    <div className="bg-multi-icon-bg mt-16 pb-32 pt-1">
+    <div data-aos="fade-up" className="bg-multi-icon-bg mt-16 pb-32 pt-1 dark:bg-black dark:text-white">
       <RootContainer>
         <SectionStarter title="Our team" description="Welcome Our Team" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 gap-y-32 mt-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 gap-y-32 mt-32">
           {teamList.map((member, index) => (
             <SingleMember key={index} member={member} />
           ))}

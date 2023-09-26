@@ -198,7 +198,7 @@ const Header = () => {
         </RootContainer>
       </div>
       {/* bottom navbar */}
-      <div className="bg-multi-bg border-y-[1px] py-2 border-multi-primary border-opacity-50">
+      <div className="bg-multi-bg dark:bg-black dark:text-white border-y-[1px] py-2 border-multi-primary border-opacity-50">
         <RootContainer>
           <div className="flex items-center justify-center gap-4 text-xs font-medium">
             {categoryLink.map(({ link, text }) => (

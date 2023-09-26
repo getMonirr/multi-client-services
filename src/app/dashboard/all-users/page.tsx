@@ -80,8 +80,8 @@ const AllUsers = () => {
         <h2 className="text-3xl my-6 font-medium">Users</h2>
       </div>
 
-      <div className="">
-        <div className="overflow-x-auto">
+      <div className="overflow-x-scroll w-[300px] md:w-[600px] lg:w-full lg:overflow-x-auto">
+        <div className="">
           <table className="table">
             {/* head */}
             <thead>
@@ -150,20 +150,16 @@ const AllUsers = () => {
                             <option value="buyer">buyer</option>
                             <option value="admin">admin</option>
                           </select>
-                          <div>
-                            <div className="modal-action flex items-center justify-between">
+
+                          <div className="flex justify-between">
+                            <div className="modal-action">
                               <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
-                                <button
-                                  className="btn"
-                                >
-                                  Close
-                                </button>
+                                <button className="btn">Close</button>
                               </form>
                             </div>
                             <div className="modal-action">
                               <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
                                 <button
                                   onClick={handleUpdateUser}
                                   className="btn"
