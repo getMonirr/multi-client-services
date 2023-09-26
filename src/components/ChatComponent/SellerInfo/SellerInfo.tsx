@@ -9,7 +9,7 @@ const SellerInfo = ({result}:any) => {
                   <div>
                     <Image
                       className="rounded-full ml-5"
-                      src={mehtaj}
+                      src={profilePicture}
                       width={30}
                       height={30}
                       alt="user"
