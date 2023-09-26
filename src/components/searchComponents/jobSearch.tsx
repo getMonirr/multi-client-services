@@ -30,7 +30,7 @@ const SearchJobs = ({ data}: { data: string}) => {
  
 
   // pagination function 
-  const perPage: number = 5;
+  const perPage: number = 6;
   const totalPage: number = Math.ceil(pageData?.length / perPage);
   const pageNumber: any = [...Array(totalPage)?.keys()];
 

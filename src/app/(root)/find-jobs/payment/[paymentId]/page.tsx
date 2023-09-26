@@ -8,9 +8,6 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-// import { useRouter } from "next/navigation";
-// import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaCheck } from "react-icons/fa";
@@ -27,24 +24,20 @@ const key =
 const stripePromise = loadStripe(key);
 
 const Payment = () => {
-  const session = useSession()
-  const data:any = session?.data
+  const session = useSession();
+  const data: any = session?.data;
   const paymentData = useSelector(getPaymentData);
   console.log(data);
   const { packageDetails, jobId, totalPrice: price, quantity } = paymentData;
 
   const [information, setAddInformation] = useState<any>();
 
-  
-  const tex =( price *2.5 ) / 100;
+  const tex = (price * 2.5) / 100;
   const priceTotal = price + tex;
 
   const { register, handleSubmit, reset } = useForm();
 
-  // router use 
-  const router = useRouter();
-
-  // payment button 
+  // payment button
   const onSubmit = (data: object) => {
     if (data) {
       Swal.fire({
@@ -57,8 +50,6 @@ const Payment = () => {
       setAddInformation(data);
       reset();
     }
-    router.push("/find-jobs")
-
   };
 
   return (
@@ -79,8 +70,12 @@ const Payment = () => {
               {/* user information  */}
               <div className="mt-6 ">
                 <div className="flex gap-4 items-center">
-                <img src={data?.user?.profilePicture} alt="" className="w-14 h-14 rounded-full" />
-                <p className="font-bold text-xl"> {data?.user?.name} </p>
+                  <img
+                    src={data?.user?.profilePicture}
+                    alt=""
+                    className="w-14 h-14 rounded-full"
+                  />
+                  <p className="font-bold text-xl"> {data?.user?.name} </p>
                 </div>
                 <p>
                   {information && (
@@ -118,9 +113,11 @@ const Payment = () => {
             <p className="p-4 bg-gray-100 rounded font-bold text-xl ">
               Payment options
             </p>
-            <Elements stripe={stripePromise}>
-              <ChackOut></ChackOut>
-            </Elements>
+            <div className="bg-slate-200 shadow-2xl my-4  py-4 md:w-2/3 mx-auto">
+              <Elements stripe={stripePromise}>
+                <ChackOut></ChackOut>
+              </Elements>
+            </div>
           </div>
         </div>
 
@@ -135,14 +132,13 @@ const Payment = () => {
                 height={100}
                 className="border "
               />
-                <h1 className="text-lg font-semibold">
-                  {packageDetails?.name}
-                </h1>
+              <h1 className="text-lg font-semibold">{packageDetails?.name}</h1>
             </div>
             <div className="flex justify-between bg-slate-200 p-3 rounded mb-6 ">
-              <p className="text-2xl ">Total Gig: <span className="font-semibold">{quantity} pec</span></p>
-            <p className="text-2xl font-semibold">${price}</p>
-
+              <p className="text-2xl ">
+                Total Gig: <span className="font-semibold">{quantity} pec</span>
+              </p>
+              <p className="text-2xl font-semibold">${price}</p>
             </div>
             <div>
               <p>{packageDetails?.description}</p>
