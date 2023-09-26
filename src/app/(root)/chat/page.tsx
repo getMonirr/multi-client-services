@@ -43,13 +43,9 @@ const ChatPage = () => {
 
   const fetchMessages = async () => {
     try {
-<<<<<<< HEAD
       
       const response = await fetch('https://multi-client-service-backend.up.railway.app/messages');
 
-=======
-      const response = await fetch("http://localhost:5000/messages");
->>>>>>> e666aea72e2bcef7e777bd1520c5eec06f79eeb3
 
       if (!response.ok) {
         // Handle error if the request was not successful
@@ -72,13 +68,13 @@ const ChatPage = () => {
       message: typeMessage,
     };
     try {
-<<<<<<< HEAD
+
       const response = await fetch('https://multi-client-service-backend.up.railway.app/messages', {
         method: 'POST',
-=======
-      const response = await fetch("http://localhost:5000/messages", {
-        method: "POST",
->>>>>>> e666aea72e2bcef7e777bd1520c5eec06f79eeb3
+
+
+
+
         headers: {
           "Content-Type": "application/json", // Specify the content type as JSON
         },
@@ -87,7 +83,7 @@ const ChatPage = () => {
 
       if (response.ok) {
         // Successful response
-<<<<<<< HEAD
+
         console.log('Data saved successfully');
         
       } else {
@@ -118,46 +114,8 @@ const ChatPage = () => {
           sendMessage();
       }
   }
-=======
-        alert("Data saved successfully");
-        // Clear the form or perform any other necessary actions
-      } else {
-        // Handle errors if the request was not successful
-        console.error("Error saving data:", response.statusText);
-        alert("Error saving data");
-      }
-    } catch (error) {
-      // Handle network errors or exceptions
-      console.error("Error saving data:", error);
-      alert("Error saving data");
-    }
 
-    // try {
-    //   // Send a POST request to your Express.js backend
-    //   axios.post('http://localhost:5000/messages', data);
-    //   alert('Data saved successfully');
 
-    // } catch (error) {
-    //   console.error('Error saving data:', error);
-    //   alert('Error saving data');
-    // }
-
-    socket.emit("send_message", data);
-    setTypeMessage("");
-  };
-  useEffect(() => {
-    socket.on("receive_message", (data) => {
-      console.log(data?.message);
-      setReceiveMessage(data?.message);
-    });
-  }, []);
-
-  const handleInputEnter = (event: any) => {
-    if (event.code === "Enter") {
-      sendMessage();
-    }
-  };
->>>>>>> e666aea72e2bcef7e777bd1520c5eec06f79eeb3
   return (
     <>
       <RootContainer>
@@ -175,8 +133,7 @@ const ChatPage = () => {
                   ></Image>
                 </div>
                 <div className="ml-2">
-                  <h2></h2>
-                  <p>{session?.user?.role}</p>
+                  <p>Buyer</p>
                 </div>
               </div>
             </div>
@@ -209,7 +166,7 @@ const ChatPage = () => {
                   <div className="ml-5">
                     <Image
                       className="rounded-full"
-                      src={masum}
+                      src={profileImage}
                       width={60}
                       height={60}
                       alt="user"
@@ -241,7 +198,7 @@ const ChatPage = () => {
                       <div className="">
                         <Image
                           className="rounded-full w-12 h-12"
-                          src={shahedul}
+                          src={masum}
                           alt="user"
                         ></Image>
                       </div>
@@ -260,7 +217,7 @@ const ChatPage = () => {
                       <div className="max-w-[10%]">
                         <Image
                           className="rounded-full"
-                          src={masum}
+                          src={profileImage}
                           width={30}
                           height={30}
                           alt="user"
