@@ -3,12 +3,16 @@ import { useStripe, CardElement, useElements } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import SimpleBtn from "../shared/btn/SimpleBtn";
 import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 const ChackOut = () => {
   const [cardError, setCardError] = useState<any>("");
   const [paymentId, setPaymentId] = useState<string>("");
   const stripe = useStripe();
   const elements = useElements();
+
+   // router use 
+  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,6 +53,7 @@ const ChackOut = () => {
           timer: 2500,
         });
         setPaymentId(paymentMethod.id);
+        router.push(`/find-jobs`);
       }
       console.log("payment method", paymentMethod);
     }
@@ -64,14 +69,15 @@ const ChackOut = () => {
             Confram Pay
           </button>
         </div>
-        {paymentId && (
+        
+      </form>
+      {paymentId && (
           <p className=" text-lg mt-6">
             your payment id:{" "}
             <span className="text-green-500">({paymentId})</span>
           </p>
         )}
         {cardError && <p className="text-red-500 mt-6 ">{cardError}</p>}
-      </form>
     </div>
   );
 };

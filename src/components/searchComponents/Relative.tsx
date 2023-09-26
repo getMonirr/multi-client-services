@@ -102,9 +102,6 @@ const Relative = () => {
               </p>
             </div>
           </div>
-          <button className="btn block w-full py-1 text-center text-white bg-multi-secondary hover:bg-multi-secondary border-red-600 rounded-none rounded-b transitio hover:border-red-600">
-            Collaborate
-          </button>
         </div>
       ))}
     </div>
