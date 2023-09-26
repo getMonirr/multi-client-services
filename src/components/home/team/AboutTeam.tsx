@@ -28,7 +28,7 @@ const AboutTeam = () => {
               </div>
               <div className="px-6 mt-16 ">
                 <div className="font-bold text-3xl text-center pb-1 text-multi-title">
-                  Md. Monir Hoshen
+                  Monir Hoshen
                 </div>
                 <p className="text-multi-paragraph text-sm text-center">
                   Backend Developer
