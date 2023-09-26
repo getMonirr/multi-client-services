@@ -46,6 +46,7 @@ const ChatPage = () => {
       
       const response = await fetch('https://multi-client-service-backend.up.railway.app/messages');
 
+
       if (!response.ok) {
         // Handle error if the request was not successful
         throw new Error("Failed to fetch messages");
@@ -67,8 +68,12 @@ const ChatPage = () => {
       message: typeMessage,
     };
     try {
+
       const response = await fetch('https://multi-client-service-backend.up.railway.app/messages', {
         method: 'POST',
+
+
+
 
         headers: {
           "Content-Type": "application/json", // Specify the content type as JSON
@@ -78,6 +83,7 @@ const ChatPage = () => {
 
       if (response.ok) {
         // Successful response
+
         console.log('Data saved successfully');
         
       } else {
@@ -109,6 +115,7 @@ const ChatPage = () => {
       }
   }
 
+
   return (
     <>
       <RootContainer>
@@ -126,8 +133,7 @@ const ChatPage = () => {
                   ></Image>
                 </div>
                 <div className="ml-2">
-                  <h2></h2>
-                  <p>{session?.user?.role}</p>
+                  <p>Buyer</p>
                 </div>
               </div>
             </div>
@@ -160,7 +166,7 @@ const ChatPage = () => {
                   <div className="ml-5">
                     <Image
                       className="rounded-full"
-                      src={masum}
+                      src={profileImage}
                       width={60}
                       height={60}
                       alt="user"
@@ -192,7 +198,7 @@ const ChatPage = () => {
                       <div className="">
                         <Image
                           className="rounded-full w-12 h-12"
-                          src={shahedul}
+                          src={masum}
                           alt="user"
                         ></Image>
                       </div>
@@ -211,7 +217,7 @@ const ChatPage = () => {
                       <div className="max-w-[10%]">
                         <Image
                           className="rounded-full"
-                          src={masum}
+                          src={profileImage}
                           width={30}
                           height={30}
                           alt="user"
