@@ -1,10 +1,15 @@
+"use client";
 import React from "react";
 import RootContainer from "./RootContainer";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const path = usePathname();
+  console.log(path);
+
   return (
-    <>
-      <div className="bg-multi-bg">
+    <div>
+      <div className={`bg-multi-bg ${path == "/chat" ? "hidden" : "flex"}`}>
         <RootContainer>
           <footer className="footer p-10 bg-multi-bg text-base-content">
             <div>
@@ -32,7 +37,7 @@ const Footer = () => {
       </div>
       <div className="bg-multi-icon-bg">
         <RootContainer>
-          <footer className="footer px-10 py-4 border-t bg-multi-icon-bg text-base-content border-base-300">
+          <footer className={`footer px-10 py-4 border-t bg-multi-icon-bg text-base-content border-base-300 ${path == "/chat" ? "hidden" : ""}`}>
             <div className="items-center grid-flow-col">
               <svg
                 width="24"
@@ -50,7 +55,7 @@ const Footer = () => {
                 {new Date().getFullYear()}
               </h1>
             </div>
-            <div className="md:place-self-center md:justify-self-end">
+            <div className={`md:place-self-center md:justify-self-end`}>
               <div className="grid grid-flow-col gap-4">
                 <a>
                   <svg
@@ -87,10 +92,13 @@ const Footer = () => {
                 </a>
               </div>
             </div>
+            <div  className={`bg-multi-bg ${path == "/chat" ? "hidden" : "flex"}`}>
+
+            </div>
           </footer>
         </RootContainer>
       </div>
-    </>
+    </div>
   );
 };
 

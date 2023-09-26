@@ -47,8 +47,8 @@ const Manage_services = () => {
       </p>
 
       <p className="my-4">Total services: {data.length}</p>
-      <div className="overflow-x-auto my-10 ">
-        <table className="table">
+      <div className="overflow-x-scroll lg:overflow-x-auto my-10 w-full max-w-[300px] lg:w-full">
+        <table className="table overflow-x-scroll lg:overflow-x-auto">
           {/* head */}
           <thead>
             <tr>
