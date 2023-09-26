@@ -8,6 +8,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 // import { useRouter } from "next/navigation";
 // import { useRouter } from "next/router";
 import { useState } from "react";
@@ -35,11 +36,15 @@ const Payment = () => {
   const [information, setAddInformation] = useState<any>();
 
   
-  const tex = 2.5;
+  const tex =( price *2.5 ) / 100;
   const priceTotal = price + tex;
 
   const { register, handleSubmit, reset } = useForm();
 
+  // router use 
+  const router = useRouter();
+
+  // payment button 
   const onSubmit = (data: object) => {
     if (data) {
       Swal.fire({
@@ -52,6 +57,8 @@ const Payment = () => {
       setAddInformation(data);
       reset();
     }
+    router.push("/find-jobs")
+
   };
 
   return (

@@ -4,13 +4,13 @@ import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import { fetcher } from "@/utils/swr/fetcher";
-import axios from 'axios';
+import axios from "axios";
 import masum from "@/assets/teamImage/masum.jpg";
 import shahedul from "@/assets/teamImage/shahedul.jpg";
 
 import monir from "@/assets/teamImage/monir.jpg";
 import shihab from "@/assets/teamImage/shihab.jpg";
-import { FaPaperPlane } from "react-icons/fa";
+import { FaPaperPlane, FaSearch } from "react-icons/fa";
 import { GrAttachment } from "react-icons/gr";
 import { BsMic } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
@@ -23,20 +23,18 @@ import SellerInfo from "@/components/ChatComponent/SellerInfo/SellerInfo";
 
 const socket = io("https://multi-client-service-backend.up.railway.app");
 const ChatPage = () => {
-    const [messages, setMessages] = useState([]);
-    const [message,setMessage] = useState('')
-    const [receiveMessage,setReceiveMessage] = useState('')
-    const [typeMessage,setTypeMessage] = useState('')
-    const { data: session } = useSession();
+  const [messages, setMessages] = useState([]);
+  const [message, setMessage] = useState("");
+  const [receiveMessage, setReceiveMessage] = useState("");
+  const [typeMessage, setTypeMessage] = useState("");
+  const { data: session } = useSession();
   console.log(session);
   const userName = session?.user.name;
   const email = session?.user?.email;
   const profileImage = session?.user?.profilePicture as string;
-  
 
-  const { data: results } = useSWR('/api/users', fetcher);
-  console.log('results: ', results?.data);
-  
+  const { data: results } = useSWR("/api/users", fetcher);
+  console.log("results: ", results?.data);
 
   useEffect(() => {
     // Fetch messages when the component mounts
@@ -45,41 +43,51 @@ const ChatPage = () => {
 
   const fetchMessages = async () => {
     try {
+<<<<<<< HEAD
       
       const response = await fetch('https://multi-client-service-backend.up.railway.app/messages');
 
+=======
+      const response = await fetch("http://localhost:5000/messages");
+>>>>>>> e666aea72e2bcef7e777bd1520c5eec06f79eeb3
 
       if (!response.ok) {
         // Handle error if the request was not successful
-        throw new Error('Failed to fetch messages');
+        throw new Error("Failed to fetch messages");
       }
 
       const fetchData = await response.json();
-      console.log('All Message: ', fetchData);
+      console.log("All Message: ", fetchData);
       setMessages(fetchData);
     } catch (error) {
-      console.error('Error fetching messages:', error);
+      console.error("Error fetching messages:", error);
     }
   };
-  
-  const sendMessage = async () =>{
+
+  const sendMessage = async () => {
     setMessage(typeMessage);
     const data = {
-      sender:session?.user.email,
-      name:session?.user.name,
-      message:typeMessage
-    }
+      sender: session?.user.email,
+      name: session?.user.name,
+      message: typeMessage,
+    };
     try {
+<<<<<<< HEAD
       const response = await fetch('https://multi-client-service-backend.up.railway.app/messages', {
         method: 'POST',
+=======
+      const response = await fetch("http://localhost:5000/messages", {
+        method: "POST",
+>>>>>>> e666aea72e2bcef7e777bd1520c5eec06f79eeb3
         headers: {
-          'Content-Type': 'application/json', // Specify the content type as JSON
+          "Content-Type": "application/json", // Specify the content type as JSON
         },
         body: JSON.stringify(data), // Convert form data to JSON
       });
 
       if (response.ok) {
         // Successful response
+<<<<<<< HEAD
         console.log('Data saved successfully');
         
       } else {
@@ -110,67 +118,89 @@ const ChatPage = () => {
           sendMessage();
       }
   }
+=======
+        alert("Data saved successfully");
+        // Clear the form or perform any other necessary actions
+      } else {
+        // Handle errors if the request was not successful
+        console.error("Error saving data:", response.statusText);
+        alert("Error saving data");
+      }
+    } catch (error) {
+      // Handle network errors or exceptions
+      console.error("Error saving data:", error);
+      alert("Error saving data");
+    }
+
+    // try {
+    //   // Send a POST request to your Express.js backend
+    //   axios.post('http://localhost:5000/messages', data);
+    //   alert('Data saved successfully');
+
+    // } catch (error) {
+    //   console.error('Error saving data:', error);
+    //   alert('Error saving data');
+    // }
+
+    socket.emit("send_message", data);
+    setTypeMessage("");
+  };
+  useEffect(() => {
+    socket.on("receive_message", (data) => {
+      console.log(data?.message);
+      setReceiveMessage(data?.message);
+    });
+  }, []);
+
+  const handleInputEnter = (event: any) => {
+    if (event.code === "Enter") {
+      sendMessage();
+    }
+  };
+>>>>>>> e666aea72e2bcef7e777bd1520c5eec06f79eeb3
   return (
     <>
       <RootContainer>
-      
-        <div className="flex flex-col lg:flex-row border-2 border-multi-icon-bg  my-5 h-[400px]">
-          <div className="w-full bg-multi-icon-bg h-auto lg:max-h-screen lg:w-[25%]">
-              <div className="w-full h-[80px] rounded-full flex items-center">
-                <div className="flex items-center">
-                  <div>
-                    <Image
-                      className="rounded-full ml-5"
-                      src={profileImage}
-                      width={44}
-                      height={44}
-                      alt="user"
-                    ></Image>
-                  </div>
-                  <div className="ml-2">
-                    <h2></h2>
-                    <p>{session?.user?.role}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-5 ml-5 lg:ml-1">
-                <div className="relative pl-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="icon icon-tabler icon-tabler-search absolute inset-y-0 left-0 pl-4 py-1"
-                    width="34"
-                    height="34"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="#2c3e50"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                    <path d="M21 21l-6 -6" />
-                  </svg>
-                  <input
-                    type="text"
-                    placeholder="Search here"
-                    className="pl-10 py-2 border rounded-lg lg:w-56"
-                  />
-                </div>
-              </div>
-              <div className="ml-5 mt-5 h-[85%] lg:overflow-y-scroll">
+        <div className="flex  flex-col lg:flex-row border-2   my-5 h-[800px]">
+          <div className="w-full bg-[whitesmoke] h-auto lg:max-h-screen lg:w-[25%]">
+            <div className="w-full h-[80px] rounded-full flex items-center">
+              <div className="flex items-center">
                 <div>
-                {Array.isArray(results?.data) &&
-        results?.data.map((result:any) => (
-          <SellerInfo key={result._id} result={result} />
-        ))}
-        
+                  <Image
+                    className="rounded-full ml-5"
+                    src={profileImage}
+                    width={44}
+                    height={44}
+                    alt="user"
+                  ></Image>
                 </div>
-                
-                
+                <div className="ml-2">
+                  <h2></h2>
+                  <p>{session?.user?.role}</p>
+                </div>
               </div>
-            
+            </div>
+
+            <div className="mt-5 ml-5 lg:ml-1">
+              <div className="join rounded-full mx-auto bg-white">
+                <button className="p-3 ml-3 join-item ">
+                  <FaSearch />
+                </button>
+                <input
+                  type="text"
+                  placeholder="Search here"
+                  className="p-4 w-full lg:w-[310px] join-item"
+                />
+              </div>
+            </div>
+            <div className="ml-5 mt-5 h-[75%] lg:overflow-y-scroll">
+              <div>
+                {Array.isArray(results?.data) &&
+                  results?.data.map((result: any) => (
+                    <SellerInfo key={result._id} result={result} />
+                  ))}
+              </div>
+            </div>
           </div>
           <div className="w-full lg:w-[60%]">
             <div className="w-full h-auto lg:h-[80%] flex flex-col ">
@@ -192,7 +222,7 @@ const ChatPage = () => {
                     <div className="w-4 h-4 bg-success rounded-full border-2"></div>
                   </div>
                 </div>
-                <div className="flex">
+                <div className="flex items-center gap-4 text-2xl">
                   <span>
                     <CiSearch></CiSearch>
                   </span>
@@ -206,47 +236,38 @@ const ChatPage = () => {
               </div>
               <div className="h-[85%] border w-full overflow-y-scroll">
                 <div className="h-[1000px] px-10 py-14">
-  
-                  {
-                    message && <div className="max-w-[40%] flex">
-                    <div className="max-w-[10%]">
-                      <Image
-                        className="rounded-full"
-                        src={shahedul}
-                        width={30}
-                        height={30}
-                        alt="user"
-                      ></Image>
-                    </div>
-                    
-                    <div className="max-w-[90%] bg-multi-icon-bg rounded-b-xl rounded-tr-xl p-4 mb-6">
-                    
-                      {message}
-        
+                  {message && (
+                    <div className="max-w-[40%] flex items-start">
+                      <div className="">
+                        <Image
+                          className="rounded-full w-12 h-12"
+                          src={shahedul}
+                          alt="user"
+                        ></Image>
                       </div>
-                    
-                  </div>
-                  }
-                  {
-                    receiveMessage && <div className="max-w-[40%] flex ml-auto">
-                    
-                    <div className="max-w-[90%] bg-blue-400 rounded-b-xl rounded-tl-xl  p-4 text-white">
-                   {receiveMessage}
-                   </div>
-                 
-                 <div className="max-w-[10%]">
-                   <Image
-                     className="rounded-full"
-                     src={masum}
-                     width={30}
-                     height={30}
-                     alt="user"
-                   ></Image>
-                 </div>
-               </div>
-                  }
-                  
-                  
+
+                      <div className="max-w-[90%] bg-blue-600 text-white ml-3 rounded-b-xl rounded-tr-xl p-4 mb-6">
+                        {message}
+                      </div>
+                    </div>
+                  )}
+                  {receiveMessage && (
+                    <div className="max-w-[40%] flex ml-auto">
+                      <div className="max-w-[90%] bg-blue-600 rounded-b-xl rounded-tl-xl  p-4 text-white">
+                        {receiveMessage}
+                      </div>
+
+                      <div className="max-w-[10%]">
+                        <Image
+                          className="rounded-full"
+                          src={masum}
+                          width={30}
+                          height={30}
+                          alt="user"
+                        ></Image>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -257,7 +278,7 @@ const ChatPage = () => {
                   type="text"
                   placeholder="Write here..."
                   value={typeMessage}
-                  onChange={(e)=>setTypeMessage(e.target.value)}
+                  onChange={(e) => setTypeMessage(e.target.value)}
                   onKeyUp={handleInputEnter}
                 />
                 <span className="absolute right-8 top-4 inset-y-0">
@@ -270,7 +291,7 @@ const ChatPage = () => {
 
               <button
                 onClick={sendMessage}
-                className="btn btn-sm bg-multi-icon-bg h-12 w-12 rounded-full
+                className="btn btn-sm bg-blue-400 text-white h-12 w-12 rounded-full
             
           
               p-2"
@@ -279,21 +300,20 @@ const ChatPage = () => {
               </button>
             </div>
           </div>
-          <div className="bg-multi-icon-bg w-full lg:w-[15%] text-center">
+          <div className="bg-[whitesmoke] w-full lg:w-[15%] text-center">
             <div className="w-1/2 mx-auto mt-10">
               <Image
-                className="rounded-full"
+                className="rounded-full w-[200px]"
                 src={masum}
-                width={48}
-                height={48}
                 alt="user"
               ></Image>
             </div>
             <div className="">
-              <h2 className="text-xl">Md. Masum Billah</h2>
+              <h2 className="text-2xl font-semibold my-3">Md. Masum Billah</h2>
               <p>Junior Developer</p>
             </div>
-            <div className="mt-20">
+            <div className="divider"></div>
+            <div className="mt-4">
               <p>Jobs Completed-15</p>
             </div>
             <div>
