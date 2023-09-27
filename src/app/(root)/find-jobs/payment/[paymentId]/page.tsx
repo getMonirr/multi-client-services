@@ -18,9 +18,7 @@ const userphoto =
 
 // TODO publicable key
 
-// key : pk_test_51NISv5CvtirLXdOoAJfNNhTLw1xHkqjyYa4znodKsBDc5RLMgFcbFJMOSbzDh25l5ABmjOlQw7jjvAyu5ZVIZ8pN00fBZ7yaid
-const key =
-  "pk_test_51NISv5CvtirLXdOoAJfNNhTLw1xHkqjyYa4znodKsBDc5RLMgFcbFJMOSbzDh25l5ABmjOlQw7jjvAyu5ZVIZ8pN00fBZ7yaid";
+const key=(process.env.NEXT_PUBLIC_StripPublickKey as string)
 const stripePromise = loadStripe(key);
 
 const Payment = () => {
@@ -37,7 +35,7 @@ const Payment = () => {
 
   const { register, handleSubmit, reset } = useForm();
 
-  // payment button
+  // payment information button
   const onSubmit = (data: object) => {
     if (data) {
       Swal.fire({

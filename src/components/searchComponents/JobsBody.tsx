@@ -6,6 +6,7 @@ import { FaTimes, FaAngleDown, FaAngleLeft } from "react-icons/fa";
 import Relative from "./Relative";
 import SectionStarter from "../shared/SectionStarter";
 import RootContainer from "../shared/RootContainer";
+import { useForm } from "react-hook-form";
 
 const JobsBody = ({ searchWord }: { searchWord: string }) => {
   // const [searchData, setSearchData] = useState<string>(searchWord)
@@ -29,6 +30,7 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
   const [postOpen, setPostOpen] = useState<boolean>(false);
   const [experienceOpen, setExperienceOpen] = useState<boolean>(false);
   const [priceOpen, setPriceOpen] = useState<boolean>(false);
+  const { register, reset } = useForm();
   const handleApi = (data: string) => {
     setSearchData(data)
   };
@@ -50,6 +52,7 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
           <h2 className="font-bold text-3xl text-center capitalize bg-multi-secondary text-white py-4 ">
             filter by
           </h2>
+          <form>
           <div
             onClick={() => {
               setCategoryOpen(!categoryOpen);
@@ -71,6 +74,7 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
                         handleApi(data);
                       }}
                       type="radio"
+                      // {...register("categorys")}
                       name="categorys"
                       className="radio checked:bg-blue-500"
                       value={data}
@@ -174,6 +178,7 @@ const JobsBody = ({ searchWord }: { searchWord: string }) => {
               ))}
             </div>
           </div>
+          </form>
         </div>
         <div className="col-span-3">
           <div className="flex gap-4  px-4 py-2 ">
