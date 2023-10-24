@@ -119,8 +119,8 @@ const ChatPage = () => {
   return (
     <>
       <RootContainer>
-        <div className="flex  flex-col lg:flex-row border-2   my-5 h-[800px]">
-          <div className="w-full bg-[whitesmoke] h-auto lg:max-h-screen lg:w-[25%]">
+        <div className="flex  flex-col lg:flex-row border-2 lg:h-[calc(100vh-74px)]">
+          <div className="w-full bg-[whitesmoke] h-auto lg:h-[calc(100vh-74px)] lg:w-[25%]">
             <div className="w-full h-[80px] rounded-full flex items-center">
               <div className="flex items-center">
                 <div>
@@ -150,7 +150,7 @@ const ChatPage = () => {
                 />
               </div>
             </div>
-            <div className="ml-5 mt-5 h-[75%] lg:overflow-y-scroll">
+            <div className="ml-5 mt-5 h-[60%] lg:overflow-y-scroll">
               <div>
                 {Array.isArray(results?.data) &&
                   results?.data.map((result: any) => (
