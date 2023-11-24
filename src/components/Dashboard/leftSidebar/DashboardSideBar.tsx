@@ -25,6 +25,7 @@ const DashboardSideBar = ({
   const { data: session } = useSession();
   // const role = session?.user?.role;
   const [userRole, setUserRole] = useState("");
+  const isadmin = true;
 
   // console.log(userRole);
 
@@ -40,7 +41,7 @@ const DashboardSideBar = ({
   // filtered links by user role
   let filteredLinks;
 
-  if (userRole == "admin") {
+  if (isadmin) {
     filteredLinks = adminLinks;
   } else if (userRole == "buyer") {
     filteredLinks = buyerLinks;

@@ -1,5 +1,4 @@
 import Service from "@/models/service.model";
-import User from "@/models/users.model";
 import connectMongoDB from "@/utils/connectMongoDB";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
